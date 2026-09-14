@@ -1,0 +1,90 @@
+[
+  {
+    "id": "steam-store",
+    "label": "Scarlet Skips on Steam",
+    "type": "official",
+    "url": "https://store.steampowered.com/app/4513480/Scarlet_Skips/",
+    "dateChecked": "2026-09-14",
+    "note": "Official store description, features, screenshots, release information, system requirements, legal copyright and achievement count."
+  },
+  {
+    "id": "steam-api",
+    "label": "Steam Store API data for app 4513480",
+    "type": "official",
+    "url": "https://store.steampowered.com/api/appdetails?appids=4513480&l=english&cc=us",
+    "dateChecked": "2026-09-14",
+    "note": "Official machine-readable release, price, platform, image and achievement data."
+  },
+  {
+    "id": "steam-update-101",
+    "label": "Patch Notes for Scarlet Skips 1.0.1",
+    "type": "official",
+    "url": "https://steamcommunity.com/app/4513480",
+    "dateChecked": "2026-09-14",
+    "note": "Official Yerk Games hotfix announcement published September 8, 2026."
+  },
+  {
+    "id": "steam-high-score-guide",
+    "label": "Strategy to Get a High Score by TheWeirdNoob",
+    "type": "community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3795231772",
+    "dateChecked": "2026-09-14",
+    "note": "Single-player report describing the Rocket Fuel refill loop and a roughly 200,000-score run."
+  },
+  {
+    "id": "steam-ending-guide",
+    "label": "How to win the game by IceVreaker",
+    "type": "community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3795761290",
+    "dateChecked": "2026-09-14",
+    "note": "Player route describing early, mid and late choices that reached the ending."
+  },
+  {
+    "id": "steam-achievement-guide",
+    "label": "Off to a Great Start guide by punchedfruit",
+    "type": "community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3795233342",
+    "dateChecked": "2026-09-14",
+    "note": "Player-tested unlock method for the launch achievement."
+  },
+  {
+    "id": "official-screenshots",
+    "label": "Official Scarlet Skips Steam screenshots",
+    "type": "official",
+    "url": "https://store.steampowered.com/app/4513480/Scarlet_Skips/",
+    "dateChecked": "2026-09-14",
+    "note": "Official screenshots visibly confirm several in-game card names and gameplay states."
+  },
+  {
+    "id": "steam-achievement-second-guide",
+    "label": "Scarlet Skips Achievements Guide & Gameplay Video by Menace123",
+    "type": "community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3797967179",
+    "dateChecked": "2026-09-14",
+    "note": "Independent Steam Community confirmation that failing the first jump unlocks Off to a Great Start."
+  },
+  {
+    "id": "steam-rhythm-guide",
+    "label": "Como jugar este juego de manera eficiente by NeKraRy",
+    "type": "community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3795157659",
+    "dateChecked": "2026-09-14",
+    "note": "Spanish player guide describing rope-ground timing, rhythm changes and the community interpretation of Luck."
+  },
+  {
+    "id": "full-gameplay-video",
+    "label": "Scarlet Skips - 55 Minute Gameplay by justonegamr",
+    "type": "video",
+    "url": "https://www.youtube.com/watch?v=s6237-lnEfc",
+    "dateChecked": "2026-09-14",
+    "note": "Long-form PC gameplay published September 3, 2026, covering multiple attempts, the ending sequence and credits."
+  },
+  {
+    "id": "tpose-ending-report",
+    "label": "Scarlet Skips Ending: How to Reach It and What It Means",
+    "type": "community",
+    "url": "https://tposegaming.com/scarlet-skips-ending/",
+    "dateChecked": "2026-09-14",
+    "note": "Third-party ending breakdown cross-referenced against the justonegamr full-gameplay video; interpretation is treated as editorial, not official lore."
+  }
+]

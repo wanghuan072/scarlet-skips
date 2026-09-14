@@ -1,0 +1,375 @@
+[
+  {
+    "id": "increase-jump-height",
+    "slug": "increase-jump-height",
+    "name": "Increase Jump Height",
+    "shortName": "Jump Height",
+    "icon": "shoe",
+    "color": "blue",
+    "category": "Movement",
+    "description": "Raises Scarlet's jump, creating more clearance above each rope and more time for loops to pass beneath her.",
+    "effect": "Higher jumps and longer natural airtime.",
+    "exactValues": "No official numeric scaling has been published.",
+    "stackable": "Yes — the Steam store confirms upgrades can stack, and player routes repeatedly take jump height.",
+    "bestTiming": "Early",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Official",
+    "sourceIds": ["steam-store", "official-screenshots", "steam-ending-guide", "steam-high-score-guide"],
+    "image": "/images/official/screenshot-1.jpg",
+    "imageAlt": "Scarlet clearing a jump rope in the sunny park in Scarlet Skips",
+    "imageCaption": "Official gameplay screenshot. Jump height changes the clearance and timing of this basic loop.",
+    "goals": ["Beginner", "Ending", "High Score", "Airtime"],
+    "tags": ["movement", "airtime", "foundation", "beginner"],
+    "goalWeights": { "beginner": 5, "ending": 5, "high-score": 5, "airtime": 5, "fun": 3 },
+    "synergies": ["increase-luck", "upgrade-rocket-fuel", "reinforce-jump-rope"],
+    "builds": ["beginner-build", "ending-build", "high-score-build", "rocket-build"],
+    "whatItDoes": [
+      "Creates a wider safety window while the rope passes under Scarlet.",
+      "Lets a single jump clear more rope rotations once the stat is stacked high enough.",
+      "Changes landing rhythm, so the first pick can feel less comfortable before it feels safer."
+    ],
+    "stackingNote": "Community routes repeatedly invest in jump height, but neither the per-pick increase nor a cap has been officially documented. Treat the visual result in your current run as the reliable measurement.",
+    "stages": {
+      "early": "A strong foundation pick. Take a moment to relearn the landing window after the first increase.",
+      "mid": "Stack it when you want multiple loops per jump or need more time to read several ropes.",
+      "late": "Still valuable for airtime loops, but Rocket Fuel and rope economy may become the more urgent bottleneck."
+    },
+    "decisionChecks": [
+      "Take it when misses come from too little clearance or when one jump cannot cover the current pattern.",
+      "After the pick, use two or three conservative jumps to relearn the later landing point.",
+      "Prioritize rope protection instead if a single loss would collapse the active rope set.",
+      "For high-score and ending routes, keep stacking only while extra height still helps reach more loops or another upgrade."
+    ],
+    "knownUnknowns": [
+      "Official: Yerk Games explicitly lists increasing jump height as one of the ten-card system's effects.",
+      "Community observed: repeated height picks can fit several rope rotations into one jump and support late airtime routes.",
+      "Unknown: the height added by each stack, whether scaling changes at high stacks, and whether a hard cap exists.",
+      "One ending-route author reported farming roughly 50,000 Jump Height, but that is a route snapshot—not a published win requirement."
+    ],
+    "avoid": [
+      "Skip it temporarily if a changed landing time is already disrupting a stable rhythm.",
+      "Do not assume more height fixes an unreinforced multi-rope setup.",
+      "A goal-specific card may be more urgent when your build is already comfortably airborne."
+    ],
+    "tips": ["Relearn the landing beat after every stack.", "Pair height with Luck for community ending routes.", "Add Rocket Fuel once long jumps can earn several loops."],
+    "seo": {
+      "title": "Increase Jump Height – Scarlet Skips Upgrade Guide",
+      "description": "Learn when to pick Increase Jump Height in Scarlet Skips, how it supports airtime builds and what remains undocumented in version 1.0.1."
+    }
+  },
+  {
+    "id": "increase-luck",
+    "slug": "increase-luck",
+    "name": "Increase Luck",
+    "shortName": "Increase Luck",
+    "icon": "clover",
+    "color": "green",
+    "category": "Progression",
+    "description": "An in-game card with a clover icon. Players strongly prioritize it, but Yerk Games has not published its exact formula.",
+    "effect": "Improves a Luck stat; the precise outcomes and percentages are not officially documented.",
+    "exactValues": "Unknown. No public formula or cap value is available.",
+    "stackable": "Observed repeatedly in player routes; exact stacking behavior is undocumented.",
+    "bestTiming": "Early",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["official-screenshots", "steam-ending-guide", "steam-high-score-guide", "steam-rhythm-guide"],
+    "image": "/images/official/screenshot-3.jpg",
+    "imageAlt": "Official Scarlet Skips upgrade choice showing Increase Luck between two rope cards",
+    "imageCaption": "Official Steam screenshot visibly confirms the Increase Luck card name and clover icon.",
+    "goals": ["Ending", "High Score", "Airtime"],
+    "tags": ["progression", "luck", "foundation"],
+    "goalWeights": { "beginner": 3, "ending": 5, "high-score": 5, "airtime": 5, "fun": 3 },
+    "synergies": ["increase-jump-height", "upgrade-rocket-fuel", "add-jump-rope"],
+    "builds": ["ending-build", "high-score-build", "rocket-build"],
+    "whatItDoes": [
+      "Raises a visible Luck stat and can display a LUCKY feedback state in recorded play.",
+      "Launch-week strategy guides treat Luck as a way to accelerate later progression.",
+      "The game does not publicly explain whether it affects XP, bonus loops, card offers or several systems."
+    ],
+    "stackingNote": "Players stack Luck heavily in ending and high-score routes. Claims about a maximum or exact chance remain player reports, so this site does not attach invented percentages.",
+    "stages": {
+      "early": "A frequent community priority because any progression benefit has more time to compound.",
+      "mid": "Useful while you are still trying to reach multi-upgrade jumps.",
+      "late": "Potentially lower priority if your run already produces upgrades faster than you can spend them."
+    },
+    "decisionChecks": [
+      "Take Luck early when the rope pattern is stable enough that an indirect progression pick will not cost the run.",
+      "Prefer direct height or reinforcement when the immediate problem is clearing or preserving the next rope.",
+      "Watch actual run feedback: Lucky events and upgrade cadence matter more than an invented percentage.",
+      "Reduce its priority once upgrades already arrive quickly enough to sustain the current airtime plan."
+    ],
+    "knownUnknowns": [
+      "Official media confirms the Increase Luck card name and icon, but the developer has not published its formula.",
+      "Player guides agree Luck is valuable early; they do not agree on a precise explanation of every system it changes.",
+      "Unknown: whether Luck affects XP, bonus events, card distribution, several systems at once, or a hidden probability table.",
+      "A player suspects Luck eventually caps, but no cap value or developer confirmation is available."
+    ],
+    "avoid": ["Do not sacrifice immediate rope stability when a run is close to failing.", "Avoid treating an undocumented cap as confirmed.", "Pick a direct movement upgrade if you still cannot safely clear the current pattern."],
+    "tips": ["Value early compounding, but watch the actual result.", "Pair with height before forcing more ropes.", "Treat cap claims as unconfirmed."],
+    "seo": {
+      "title": "Increase Luck – Scarlet Skips Upgrade Guide",
+      "description": "See what is confirmed about Increase Luck in Scarlet Skips, why players prioritize it and which exact effects remain undocumented."
+    }
+  },
+  {
+    "id": "upgrade-rocket-fuel",
+    "slug": "upgrade-rocket-fuel",
+    "name": "Upgrade Rocket Fuel",
+    "shortName": "Rocket Fuel",
+    "icon": "rocket",
+    "color": "purple",
+    "category": "Airtime",
+    "description": "Extends Scarlet's powered airtime. Players also call the system Rocket Boots or Rocket Shoes; the 1.0.1 notes use Rocket Shoes.",
+    "effect": "Adds fuel for powered upward movement while the jump input is held.",
+    "exactValues": "Fuel gained per pick and drain rate are not officially documented.",
+    "stackable": "Yes in recorded community runs; exact numeric scaling is unknown.",
+    "bestTiming": "Mid",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["steam-update-101", "steam-high-score-guide", "steam-ending-guide", "official-screenshots", "full-gameplay-video"],
+    "image": "/images/official/screenshot-5.jpg",
+    "imageAlt": "Scarlet using glowing Rocket Shoes during a jump in Scarlet Skips",
+    "imageCaption": "Official screenshot of the Rocket Shoes effect. Patch 1.0.1 fixed bugs in this system.",
+    "goals": ["Ending", "High Score", "Airtime"],
+    "tags": ["airtime", "rocket", "movement", "late-game"],
+    "goalWeights": { "beginner": 2, "ending": 5, "high-score": 5, "airtime": 5, "fun": 4 },
+    "synergies": ["increase-jump-height", "increase-luck", "add-jump-rope"],
+    "builds": ["ending-build", "high-score-build", "rocket-build"],
+    "whatItDoes": [
+      "Lets Scarlet continue rising or stay airborne after the normal jump would fall.",
+      "Creates a route to multiple loops and potentially multiple upgrades within one jump.",
+      "A launch-week player guide reports that the fuel gauge refills after an upgrade; this is useful but not officially documented."
+    ],
+    "stackingNote": "Repeated picks visibly support longer flight, but exact duration is unknown. The refill-on-upgrade loop is a Player Report and should be tested on the current patch before committing a run to it.",
+    "stages": {
+      "early": "Usually secondary to basic height and reliable progression because a small fuel bar changes little by itself.",
+      "mid": "Becomes valuable once a jump clears several rotations and can approach another level-up.",
+      "late": "Core to community infinite-airtime routes; keep enough fuel to bridge from one upgrade to the next."
+    },
+    "decisionChecks": [
+      "Ask whether a normal jump already clears several loops; if not, Jump Height usually creates more value first.",
+      "Before committing to the loop, observe whether the fuel gauge refills after the next mid-air upgrade on version 1.0.1.",
+      "Keep a recoverable landing until one full upgrade-to-upgrade fuel cycle has succeeded more than once.",
+      "Use it for an ending or score engine; the visual effect alone does not guarantee safety."
+    ],
+    "knownUnknowns": [
+      "The in-game card is documented as Upgrade Rocket Fuel; patch notes call the affected system Rocket Shoes, while players often say Rocket Boots.",
+      "Community observed: holding the input spends fuel to extend upward movement, and one high-score guide reports a refill on level-up.",
+      "Unknown: fuel added per stack, drain rate, whether refills are complete in every state, and any upper limit.",
+      "Official patch 1.0.1 fixed Rocket Shoes issues but did not publish the underlying formula."
+    ],
+    "avoid": ["Do not force Rocket Fuel before normal jumps are stable.", "Avoid relying on the refill loop without watching the gauge on version 1.0.1.", "Choose rope protection first when landing would immediately break the setup."],
+    "tips": ["Build height before expecting fuel to carry a run.", "Watch for the gauge refill after a level-up.", "The patch calls the effect Rocket Shoes; the card is Upgrade Rocket Fuel."],
+    "seo": {
+      "title": "Rocket Shoes & Fuel – Scarlet Skips Upgrade Guide",
+      "description": "Learn how Upgrade Rocket Fuel and Rocket Shoes support Scarlet Skips airtime builds, including version 1.0.1 caveats and community strategies."
+    }
+  },
+  {
+    "id": "add-jump-rope",
+    "slug": "add-jump-rope",
+    "name": "Add Jump Rope",
+    "shortName": "Add Rope",
+    "icon": "rope",
+    "color": "gold",
+    "category": "Rope",
+    "description": "Adds another active rope to the pattern, increasing opportunity and complexity at the same time.",
+    "effect": "Introduces an additional jump rope into the run.",
+    "exactValues": "One additional rope is shown by the card; limits are not officially documented.",
+    "stackable": "Yes. Official screenshots and recorded play show several active ropes.",
+    "bestTiming": "Mid",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Official",
+    "sourceIds": ["steam-store", "official-screenshots", "steam-ending-guide", "steam-high-score-guide"],
+    "image": "/images/official/screenshot-3.jpg",
+    "imageAlt": "Official Scarlet Skips upgrade choice showing Add Jump Rope",
+    "imageCaption": "The official store says the game can add a jump rope; this screenshot confirms the in-game card name.",
+    "goals": ["High Score", "Fun", "Ending"],
+    "tags": ["rope", "score", "challenge"],
+    "goalWeights": { "beginner": 1, "ending": 3, "high-score": 4, "airtime": 3, "fun": 5 },
+    "synergies": ["reinforce-jump-rope", "ignite-jump-rope", "increase-jump-height"],
+    "builds": ["high-score-build", "multi-rope-build", "ending-build"],
+    "whatItDoes": ["Adds another rope whose rotation must be cleared.", "Can create more scoring/progression opportunities during a long jump.", "Makes pattern reading and rope maintenance more demanding."],
+    "stackingNote": "Multiple ropes are visible in official screenshots. Community routes commonly stay at a manageable two to four ropes early, then add more after height, Luck and protection are established.",
+    "stages": {
+      "early": "Risky for beginners because it changes the basic rhythm before the movement foundation is ready.",
+      "mid": "Consider it once remaining ropes are protected and you can clear several loops per jump.",
+      "late": "A strong score-volume choice when upgrades arrive fast enough to recover lost ropes."
+    },
+    "decisionChecks": [
+      "Confirm the active ropes are reinforced or replaceable before multiplying the maintenance problem.",
+      "Take it when one jump already clears several rotations and the goal is more score or progression volume.",
+      "Observe a complete rope cycle before the next jump so you can identify the new gap pattern.",
+      "Skip it on a controlled ending route when fewer ropes make the height push more reliable."
+    ],
+    "knownUnknowns": [
+      "Official: adding a jump rope is explicitly advertised, and the exact Add Jump Rope card name appears in official media.",
+      "Community observed: a small set of roughly two to four ropes is easier to develop before late score scaling.",
+      "Unknown: maximum active ropes, how new ropes are phased into the pattern, and any effect on level-up rate beyond added loop opportunities.",
+      "More ropes are not automatically better: the same pick increases scoring opportunity and failure surface."
+    ],
+    "avoid": ["Avoid early rope overload while learning the core beat.", "Do not add an unprotected rope just before a difficult landing.", "Skip it when an ending route needs a smaller, controlled rope set."],
+    "tips": ["Reinforce before multiplying risk.", "Read the full pattern, not one rope.", "Add quantity after the airtime engine is stable."],
+    "seo": {
+      "title": "Add Jump Rope – Scarlet Skips Upgrade Guide",
+      "description": "Learn when to add another jump rope in Scarlet Skips, how it changes risk and why multi-rope builds delay quantity until later."
+    }
+  },
+  {
+    "id": "reinforce-jump-rope",
+    "slug": "reinforce-jump-rope",
+    "name": "Reinforce Jump Rope",
+    "shortName": "Reinforce Rope",
+    "icon": "shield",
+    "color": "red",
+    "category": "Rope",
+    "description": "A rope-protection card used by players to make the active set more resilient before adding height, speed or fire pressure.",
+    "effect": "Reinforces an active jump rope; the exact durability rules are not published.",
+    "exactValues": "No official durability or selection formula is available.",
+    "stackable": "Applies across a multi-rope set; the exact targeting behavior is not documented.",
+    "bestTiming": "Early",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["official-screenshots", "steam-ending-guide", "steam-high-score-guide"],
+    "image": "/images/official/screenshot-3.jpg",
+    "imageAlt": "Official Scarlet Skips upgrade choice showing Reinforce Jump Rope",
+    "imageCaption": "Official screenshot confirming the Reinforce Jump Rope card. Its numeric durability rules are not published.",
+    "goals": ["Beginner", "Ending", "High Score", "Multi-Rope"],
+    "tags": ["rope", "survival", "maintenance"],
+    "goalWeights": { "beginner": 5, "ending": 5, "high-score": 4, "airtime": 2, "fun": 4 },
+    "synergies": ["add-jump-rope", "ignite-jump-rope", "increase-jump-height"],
+    "builds": ["beginner-build", "ending-build", "multi-rope-build"],
+    "whatItDoes": ["Protects the rope economy that a multi-rope build depends on.", "Lets an ending route simplify to a smaller reinforced set.", "Acts as maintenance for fire-focused builds according to players."],
+    "stackingNote": "Community guides describe reinforcing every active rope, but the interface does not publicly document selection order, durability values or whether protection has multiple levels.",
+    "stages": {
+      "early": "A stabilizing pick if you already added a rope or want a safer foundation.",
+      "mid": "High priority before shifting into repeated height or Rocket Fuel picks.",
+      "late": "Take it when fire and rope quantity are creating replacement pressure."
+    },
+    "decisionChecks": [
+      "Take it when at least one active rope is vulnerable and losing that rope would slow or end the build.",
+      "For ending runs, reinforce the smaller set before committing repeated picks to Jump Height.",
+      "For fire builds, treat reinforcement as maintenance that comes before another score layer.",
+      "Choose movement instead if Scarlet cannot physically clear the current pattern even with protected ropes."
+    ],
+    "knownUnknowns": [
+      "Official media confirms the card name, but no durability number or targeting explanation is published.",
+      "Community routes use reinforcement before aggressive height, rope-count, or fire scaling.",
+      "Unknown: whether reinforcement selects a specific rope, follows a fixed order, can stack on one rope, or has discrete durability levels.",
+      "Protection reduces rope-economy risk; it does not make an unsafe landing automatically safe."
+    ],
+    "avoid": ["Low value if the run currently has no vulnerable rope to protect.", "Do not assume reinforcement makes every landing safe.", "A movement pick can be more urgent if Scarlet cannot clear the pattern."],
+    "tips": ["Protect a small set before scaling it.", "Treat it as maintenance for fire builds.", "Exact durability remains undocumented."],
+    "seo": {
+      "title": "Reinforce Jump Rope – Scarlet Skips Upgrade Guide",
+      "description": "See how Reinforce Jump Rope supports safer Scarlet Skips builds, multi-rope maintenance and ending routes without invented durability values."
+    }
+  },
+  {
+    "id": "increase-jump-rope-speed",
+    "slug": "increase-jump-rope-speed",
+    "name": "Increase Jump Rope Speed",
+    "shortName": "Rope Speed",
+    "icon": "speed",
+    "color": "teal",
+    "category": "Rope",
+    "description": "Speeds up rope rotation. This can increase activity per minute, but it also compresses the player's timing window.",
+    "effect": "Faster rope rotations.",
+    "exactValues": "No official per-pick speed value or cap has been published.",
+    "stackable": "Observed in player routes; exact maximum is unconfirmed.",
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Player Report",
+    "sourceIds": ["steam-high-score-guide", "steam-ending-guide"],
+    "image": "/images/official/screenshot-4.jpg",
+    "imageAlt": "Scarlet clearing an active black jump rope in an official Scarlet Skips screenshot",
+    "imageCaption": "Official gameplay image showing an active rope. A static screenshot cannot establish the rope's speed or numeric scaling.",
+    "goals": ["High Score", "Fun"],
+    "tags": ["rope", "speed", "score", "challenge"],
+    "goalWeights": { "beginner": 0, "ending": 2, "high-score": 4, "airtime": 2, "fun": 5 },
+    "synergies": ["increase-jump-height", "upgrade-rocket-fuel", "reinforce-jump-rope"],
+    "builds": ["high-score-build", "multi-rope-build"],
+    "whatItDoes": ["Reduces the time between rope passages.", "Can raise loop frequency once Scarlet remains airborne for long stretches.", "Punishes early timing errors more quickly."],
+    "stackingNote": "Players report stacking speed in late high-score loops and suspect a cap, but no official maximum or curve is public. Increase it gradually and judge the current pattern.",
+    "stages": {
+      "early": "Usually avoid. The tighter timing window can erase the safety of a young build.",
+      "mid": "Add carefully only after height and rope protection feel stable.",
+      "late": "Useful for high-score throughput once an airtime loop prevents normal landing pressure."
+    },
+    "decisionChecks": [
+      "Take it only when the present cycle feels slow enough that extra rotations are useful rather than distracting.",
+      "Confirm height and fuel can exploit the added rotations; speed without airtime simply compresses reactions.",
+      "Increase one timing variable at a time, then watch a full cycle before adding another rope or fire state.",
+      "Delay it when learning, when rope protection is incomplete, or when the ending route needs a calmer pattern."
+    ],
+    "knownUnknowns": [
+      "The card is documented in community routes rather than the Steam store's named examples.",
+      "Players use it late to increase loop volume after an airtime engine is stable.",
+      "Unknown: speed added per stack, exact score or progression effect, and whether a hard cap exists.",
+      "One guide author believes rope speed caps; that statement remains an unverified player impression."
+    ],
+    "avoid": ["Skip during beginner practice.", "Avoid stacking speed while several new ropes are still unfamiliar.", "Do not treat a rumored cap as a confirmed endpoint."],
+    "tips": ["Increase speed in small steps.", "Pair with airtime, not panic tapping.", "Use late for throughput rather than early difficulty."],
+    "seo": {
+      "title": "Increase Jump Rope Speed – Scarlet Skips Guide",
+      "description": "Learn when faster jump ropes help Scarlet Skips high-score builds, why early speed is risky and what version 1.0.1 does not document."
+    }
+  },
+  {
+    "id": "ignite-jump-rope",
+    "slug": "ignite-jump-rope",
+    "name": "Ignite Jump Rope",
+    "shortName": "Ignite Rope",
+    "icon": "fire",
+    "color": "pink",
+    "category": "Score",
+    "description": "Sets a rope on fire and raises the visible flame multiplier, trading a stronger score route for more rope maintenance.",
+    "effect": "Ignites a jump rope and contributes to the on-screen fire multiplier.",
+    "exactValues": "The multiplier formula and maintenance rules are not officially documented.",
+    "stackable": "Yes in recorded play; the exact fire limit is unknown.",
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["steam-store", "steam-update-101", "steam-high-score-guide", "steam-ending-guide", "official-screenshots"],
+    "image": "/images/official/screenshot-2.jpg",
+    "imageAlt": "Scarlet jumping a flaming rope with a two-times fire indicator in Scarlet Skips",
+    "imageCaption": "Official screenshot showing a burning rope and x2 fire indicator. Version 1.0.1 adjusted related extinguished-rope bugs.",
+    "goals": ["High Score", "Fun", "Challenge"],
+    "tags": ["fire", "score", "rope", "late-game"],
+    "goalWeights": { "beginner": 0, "ending": 0, "high-score": 5, "airtime": 1, "fun": 5 },
+    "synergies": ["reinforce-jump-rope", "add-jump-rope", "upgrade-rocket-fuel"],
+    "builds": ["high-score-build", "multi-rope-build"],
+    "whatItDoes": ["Creates a visible fire state and multiplier.", "Supports a score-first late-game route.", "Adds maintenance pressure because extinguished-rope behavior can affect the setup."],
+    "stackingNote": "Fire multipliers are visible in official media and repeated ignitions appear in community play. The formula is not public, and the 1.0.1 hotfix specifically fixed Rocket Shoes and extinguished ropes.",
+    "stages": {
+      "early": "Avoid for controlled learning and ending routes; it adds pressure before the foundation is ready.",
+      "mid": "Consider only if ropes are reinforced and the run already has stable height.",
+      "late": "A core high-score choice after the airtime and rope-maintenance engine is established."
+    },
+    "decisionChecks": [
+      "First identify the goal: the cited ending route avoids fire, while score routes add it late.",
+      "Ignite only after active ropes are protected and a lost rope can be replaced without breaking the engine.",
+      "Make sure height or fuel already keeps Scarlet away from fragile landing windows.",
+      "If fire changes the visual rhythm enough to cause misses, stop stacking it and stabilize the pattern."
+    ],
+    "knownUnknowns": [
+      "Official: the Steam description confirms that a rope can be set on fire; official media shows the fire state.",
+      "Community observed: high-score routes treat fire as a late scoring layer and ending routes avoid it.",
+      "Unknown: exact multiplier, ignition targeting, duration, rope-loss interaction, and scaling per repeated pick.",
+      "Patch 1.0.1 fixed extinguished-rope issues, which confirms a persistent fire state but not its formula."
+    ],
+    "avoid": ["Avoid on the community ending route.", "Do not ignite a fragile rope set.", "Skip it when the run cannot replace or reinforce losses."],
+    "tips": ["Build the engine before the multiplier.", "Keep reinforcement available.", "Retest after any patch that mentions extinguished ropes."],
+    "seo": {
+      "title": "Ignite Jump Rope – Scarlet Skips Fire Rope Guide",
+      "description": "Learn how fire ropes and the flame multiplier fit Scarlet Skips score builds, plus version 1.0.1 caveats and when to avoid Ignite."
+    }
+  }
+]

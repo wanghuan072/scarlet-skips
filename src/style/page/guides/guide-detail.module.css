@@ -1,0 +1,36 @@
+.hero { display: grid; grid-template-columns: 1fr .85fr; gap: 28px; align-items: center; max-width: 1100px; padding: 26px 0 38px; }
+.eyebrow { color: var(--color-primary-dark); font-family: var(--font-utility); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.hero h1 { margin-top: 4px; font-size: clamp(40px, 5vw, 64px); }
+.hero > div > p { max-width: 62ch; margin-top: 10px; color: #405873; font-size: 17px; }
+.badges { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.badges > span:last-child { display: inline-flex; align-items: center; min-height: 28px; padding: 3px 9px; border-radius: 999px; background: #f2f5f8; color: var(--color-muted); font-size: 11px; }
+.hero figure { overflow: hidden; margin: 0; border: 1px solid var(--color-border); border-radius: 18px; background: white; box-shadow: var(--shadow-md); }
+.hero figure > div { position: relative; aspect-ratio: 16 / 9; }
+.hero figure img { object-fit: cover; }
+.hero figcaption { padding: 8px 12px; color: var(--color-muted); font-size: 11px; text-align: center; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 34px; max-width: 1000px; align-items: start; }
+.content { min-width: 0; }
+.content > section { margin-top: 32px; scroll-margin-top: 100px; }
+.content > section:first-child { margin-top: 0; }
+.content h2 { margin-bottom: 9px; font-size: 27px; }
+.content p { margin-top: 7px; color: #344d67; }
+.content ul { display: grid; gap: 8px; margin: 13px 0 0; padding: 0; list-style: none; }
+.content li { display: flex; gap: 8px; align-items: flex-start; color: #405873; }
+.content li svg { flex: 0 0 auto; margin-top: 4px; color: var(--color-success); }
+.nextSteps { padding: 22px; border: 1px solid #b9dbf3; border-radius: 17px; background: #eef8ff; }
+.nextSteps div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.nextSteps a { display: flex; justify-content: space-between; align-items: center; gap: 6px; min-height: 50px; padding: 9px 11px; border-radius: 11px; background: white; color: var(--color-secondary); font-size: 12px; font-weight: 800; }
+.sidebar { position: sticky; top: 92px; display: grid; gap: 14px; }
+.sidebar section, .nextGuide { overflow: hidden; border: 1px solid var(--color-border); border-radius: 14px; background: white; box-shadow: var(--shadow-sm); }
+.sidebar h2 { padding: 13px; background: #edf7fe; font-size: 16px; }
+.sidebar nav { display: grid; }
+.sidebar nav a { display: grid; grid-template-columns: 28px 1fr; gap: 7px; min-height: 44px; padding: 9px 12px; border-top: 1px solid #e3ecf3; color: #405873; font-size: 11px; line-height: 1.35; }
+.sidebar nav a:hover { background: #f5faff; color: var(--color-secondary); }
+.sidebar nav span { color: var(--color-secondary); font-family: var(--font-utility); font-size: 9px; font-weight: 800; }
+.dataCard h2 { display: flex; align-items: center; gap: 7px; }
+.dataCard p { padding: 13px; color: var(--color-muted); font-size: 12px; }
+.nextGuide { display: grid; grid-template-columns: 1fr auto; padding: 15px; color: var(--color-secondary); }
+.nextGuide span { grid-column: 1 / -1; font-family: var(--font-utility); font-size: 9px; font-weight: 800; }
+.nextGuide strong { color: var(--color-text); }
+@media (max-width: 850px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .hero { grid-template-columns: 1fr; } .layout { gap: 22px; } .nextSteps div { grid-template-columns: 1fr; } .sidebar { grid-template-columns: 1fr; } }

@@ -1,0 +1,9 @@
+import Link from "next/link";
+import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { Icon } from "@/components/common/Icon";
+import { updates } from "@/lib/data/content";
+import styles from "@/style/page/content/content.module.css";
+
+export default function UpdatesPage() {
+  return <main id="main-content"><div className="container"><Breadcrumb items={[{label:"Home",href:"/"},{label:"Updates"}]}/></div><header className={`container ${styles.simpleHero}`}><span><Icon name="spark" size={34}/></span><div><p className={styles.eyebrow}>PATCH NOTES &amp; SITE STATUS</p><h1>Scarlet Skips Updates</h1><p>Official changes, build impact and a clear record of which game version each guide covers.</p></div></header><div className={`container ${styles.updateLayout}`}><section className={styles.timeline} aria-labelledby="update-history"><h2 id="update-history" className="sr-only">Update history</h2>{updates.map((entry) => <article key={entry.slug}><div className={styles.timelineRail}><span/><i/></div><div className={styles.updateCard}><div className={styles.updateMeta}><span>v{entry.version}</span><time>{entry.date}</time></div><h2>{entry.title}</h2><p>{entry.summary}</p><ul>{entry.changes.slice(0,3).map((change) => <li key={change}><Icon name="check" size={16}/>{change}</li>)}</ul><Link href={`/updates/${entry.slug}`}>Read full patch impact <Icon name="arrow" size={17}/></Link></div></article>)}</section><aside className={styles.updateAside}><section><Icon name="shield" size={27}/><h2>Version policy</h2><p>Each strategy page states the game version checked. Player reports stay labeled, and undocumented numbers stay unknown.</p></section><section><Icon name="info" size={27}/><h2>Know of a later patch?</h2><p>Send the official announcement and we can re-check affected builds.</p><Link href="/contact">Contact the site</Link></section></aside></div></main>;
+}

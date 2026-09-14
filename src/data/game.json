@@ -1,0 +1,23 @@
+{
+  "name": "Scarlet Skips",
+  "developer": "Yerk Games",
+  "publisher": "Yerk Games",
+  "legalCopyright": "© 2026 YerkDiff",
+  "releaseDate": "September 3, 2026",
+  "releaseDateShort": "Sep 3, 2026",
+  "currentVersion": "1.0.1",
+  "versionDate": "September 8, 2026",
+  "price": "$4.99",
+  "platform": "Windows PC via Steam",
+  "interfaceLanguage": "English",
+  "storage": "2 GB available space",
+  "genres": ["Action", "Roguelike", "Arcade", "Score Attack"],
+  "playerMode": "Single-player",
+  "upgradeCardCount": 10,
+  "documentedCardCount": 7,
+  "choicesPerLevel": 3,
+  "achievementCount": 1,
+  "achievementName": "Off to a Great Start",
+  "updatedDate": "September 14, 2026",
+  "sourceIds": ["steam-store", "steam-api", "steam-update-101"]
+}

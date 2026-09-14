@@ -1,0 +1,27 @@
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; min-height: 340px; overflow: hidden; border: 1px solid #c2deef; border-radius: 26px; background: linear-gradient(135deg, #edf9ff, white); box-shadow: var(--shadow-md); }
+.heroImage { position: relative; min-height: 340px; }
+.heroImage img { object-fit: cover; }
+.heroImage::after { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, #f8fdff); content: ""; }
+.hero > div:last-child { align-self: center; padding: 40px; }
+.eyebrow { color: var(--color-primary-dark); font-family: var(--font-utility); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.hero h1 { margin-top: 5px; font-size: clamp(44px, 5vw, 68px); }
+.hero > div:last-child > p { margin-top: 11px; color: #405873; font-size: 17px; }
+.badges { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.guideSections { display: grid; gap: 54px; padding-top: 54px; }
+.categoryHead { display: flex; align-items: center; gap: 13px; margin-bottom: 17px; }
+.categoryHead > span { display: inline-flex; width: 49px; height: 49px; align-items: center; justify-content: center; border-radius: 15px; background: #e9f6ff; color: var(--color-secondary); }
+.categoryHead h2 { font-size: 28px; }
+.categoryHead p { color: var(--color-muted); font-size: 13px; }
+.guideGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+.guideGrid > a { overflow: hidden; border: 1px solid var(--color-border); border-radius: 17px; background: white; box-shadow: var(--shadow-sm); transition: transform 180ms ease-out; }
+.guideGrid > a:hover { transform: translateY(-4px); }
+.cardImage { position: relative; aspect-ratio: 16 / 8.5; overflow: hidden; }
+.cardImage img { object-fit: cover; transition: transform 280ms ease-out; }
+.guideGrid > a:hover img { transform: scale(1.04); }
+.guideGrid > a > div:last-child { padding: 18px; }
+.guideGrid span { color: var(--color-secondary); font-family: var(--font-utility); font-size: 9px; font-weight: 800; text-transform: uppercase; }
+.guideGrid h3 { margin-top: 3px; font-size: 21px; }
+.guideGrid p { margin-top: 6px; color: var(--color-muted); font-size: 13px; }
+.guideGrid strong { display: inline-flex; align-items: center; gap: 5px; margin-top: 13px; color: var(--color-secondary); font-size: 12px; }
+@media (max-width: 900px) { .guideGrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .hero { grid-template-columns: 1fr; } .heroImage { min-height: 230px; } .heroImage::after { background: linear-gradient(180deg, transparent 65%, #f8fdff); } .hero > div:last-child { padding: 28px 22px; } .guideGrid { grid-template-columns: 1fr; } }

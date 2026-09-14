@@ -1,0 +1,70 @@
+.header { position: sticky; top: 0; z-index: 100; min-height: 52px; border-bottom: 1px solid #dce8f1; background: rgba(255,255,255,.97); box-shadow: 0 2px 12px rgba(35,79,112,.05); backdrop-filter: blur(14px); }
+.headerInner { display: grid; grid-template-columns: auto 1fr minmax(210px, 265px); gap: 18px; align-items: center; min-height: 52px; }
+.brand { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; color: var(--color-primary); white-space: nowrap; }
+.brand svg { flex: 0 0 auto; overflow: visible; }
+.brandRope { fill: none; stroke: #ef2e65; stroke-width: 2.1; stroke-linecap: round; }
+.brandFigure { fill: #e5265c; stroke: none; }
+.brandBody { fill: none; stroke: #e5265c; stroke-width: 4.6; stroke-linecap: round; stroke-linejoin: round; }
+.brandHandle { fill: #e5265c; }
+.brand > span { display: inline-flex; gap: 4px; align-items: center; color: #ff3a71; font-family: var(--font-display); font-size: 23px; font-weight: 900; line-height: 1; letter-spacing: -.065em; -webkit-text-stroke: 1px white; filter: drop-shadow(0 2px 0 #f5b829); }
+.brand strong, .brand b { color: inherit; font: inherit; }
+.desktopNav { display: flex; justify-content: center; gap: clamp(10px, 1.45vw, 22px); }
+.desktopNav a { position: relative; display: inline-flex; align-items: center; min-height: 52px; color: #172d4b; font-size: 12px; font-weight: 760; white-space: nowrap; }
+.desktopNav a::after { position: absolute; right: 0; bottom: 7px; left: 0; height: 2px; border-radius: 9px; background: #1988e5; content: ""; opacity: 0; transform: scaleX(.45); transition: 160ms ease-out; }
+.desktopNav a:hover::after, .desktopNav a[aria-current="page"]::after { opacity: 1; transform: scaleX(1); }
+.desktopNav a[aria-current="page"] { color: #0866be; }
+.headerSearch { min-width: 0; }
+.searchForm { position: relative; display: flex; align-items: center; min-height: 34px; padding: 0 10px; border: 1px solid #d6e1ea; border-radius: 999px; background: #f4f8fb; color: #5d7189; }
+.searchForm:focus-within { border-color: #71b4ed; background: white; box-shadow: 0 0 0 3px rgba(29,132,219,.12); }
+.searchForm input { width: 100%; min-width: 0; height: 32px; padding: 0 6px; border: 0; outline: 0; background: transparent; color: var(--color-text); font-size: 11px; }
+.searchResults { position: absolute; top: calc(100% + 8px); right: 0; left: 0; z-index: 120; overflow: hidden; padding: 7px; border: 1px solid var(--color-border); border-radius: 13px; background: white; box-shadow: var(--shadow-md); }
+.searchResults > p { padding: 5px 8px; color: var(--color-muted); font-family: var(--font-utility); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+.searchResults button { display: flex; justify-content: space-between; align-items: center; width: 100%; min-height: 42px; padding: 7px 9px; border: 0; border-radius: 9px; background: transparent; color: var(--color-text); cursor: pointer; text-align: left; }
+.searchResults button:hover, .searchResults button:focus-visible { background: #edf7ff; }
+.searchResults button span { font-size: 12px; font-weight: 700; }
+.searchResults button small { color: var(--color-secondary); font-size: 10px; }
+.noResults { display: block; padding: 10px; font-size: 12px; }
+.menuButton { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--color-border); border-radius: 11px; background: white; color: var(--color-text); cursor: pointer; }
+.mobilePanel { display: none; }
+
+.footer { margin-top: 52px; border-top: 1px solid var(--color-border); background: linear-gradient(180deg, #f5f9fc, #edf5fb); }
+.footerMain { display: grid; grid-template-columns: auto minmax(280px, 1fr) minmax(260px, auto) auto; gap: 24px; align-items: center; min-height: 112px; padding-block: 18px; }
+.footerBrand { min-width: 180px; }
+.footerBrand > p { margin: 6px 0 0 35px; color: #64778c; font-size: 10px; }
+.footerExplore, .footerSite { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px 15px; }
+.footerExplore a, .footerSite a { color: #405873; font-size: 10px; }
+.footerExplore a:hover, .footerSite a:hover { color: var(--color-secondary); }
+.footerVersion { display: grid; justify-items: end; gap: 2px; }
+.footerVersion strong { padding: 3px 9px; border-radius: 999px; background: #ec3b70; color: white; font-size: 10px; }
+.footerVersion span { color: #66798d; font-size: 9px; }
+.footerBottom { border-top: 1px solid #d8e5ee; color: #697c90; font-size: 9px; }
+.footerBottom > div { display: flex; justify-content: space-between; gap: 16px; padding-block: 10px; }
+
+@media (max-width: 960px) {
+  .headerInner { grid-template-columns: auto 1fr auto; gap: 12px; }
+  .desktopNav { display: none; }
+  .headerSearch { justify-self: end; width: min(100%, 270px); }
+  .menuButton { display: inline-flex; }
+  .mobilePanel { display: block; border-top: 1px solid var(--color-border); background: white; box-shadow: var(--shadow-md); }
+  .mobilePanel > div { padding-block: 14px 18px; }
+  .mobilePanel .searchForm { display: none; }
+  .mobilePanel nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 6px; }
+  .mobilePanel nav a { display: flex; justify-content: space-between; align-items: center; min-height: 46px; padding: 7px 11px; border-radius: 10px; background: #f4f9fd; font-size: 12px; font-weight: 700; }
+  .footerMain { grid-template-columns: 1fr 1fr; }
+  .footerExplore, .footerSite { justify-content: flex-end; }
+  .footerVersion { display: none; }
+}
+
+@media (max-width: 768px) {
+  .header, .headerInner { min-height: 58px; }
+  .brand > span { font-size: 20px; }
+  .headerSearch { display: none; }
+  .headerInner { grid-template-columns: 1fr auto; }
+  .mobilePanel .searchForm { display: flex; min-height: 44px; }
+  .mobilePanel .searchForm input { height: 42px; }
+  .mobilePanel nav { grid-template-columns: 1fr 1fr; }
+  .footerMain { grid-template-columns: 1fr; justify-items: start; padding-block: 24px; }
+  .footerExplore, .footerSite { justify-content: flex-start; }
+  .footerBrand > p { margin-left: 0; }
+  .footerBottom > div { flex-direction: column; gap: 3px; }
+}

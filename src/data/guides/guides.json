@@ -1,0 +1,201 @@
+[
+  {
+    "slug": "beginner-guide",
+    "name": "Scarlet Skips Beginner Guide",
+    "shortName": "Beginner Guide",
+    "category": "Getting Started",
+    "description": "Learn a repeatable first-jump routine, read multi-rope gaps and choose upgrades without turning a promising run into an unreadable pattern.",
+    "image": "/images/official/screenshot-1.jpg",
+    "imageAlt": "Scarlet jumping a red and white rope in the park",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["steam-store", "official-screenshots", "steam-ending-guide", "steam-rhythm-guide", "full-gameplay-video"],
+    "sections": [
+      {
+        "heading": "What Is Scarlet Skips?",
+        "paragraphs": ["Scarlet Skips is a single-player, one-button roguelike score-attack game by Yerk Games. The official loop is deliberately small: press, hold and release to jump, level up, choose one of three random power-ups and adapt as stacked upgrades reshape the same park run.", "The difficulty comes from timing drift. Height changes the landing; speed changes the approach; extra ropes change the safe gaps; Rocket Fuel can eventually turn a jump-and-land game into a long aerial route."],
+        "bullets": ["Released September 3, 2026 for Windows PC through Steam.", "Official card pool: 10 upgrade cards, with three random choices at each level-up.", "Single-player with one listed Steam achievement and stackable upgrade combinations."]
+      },
+      {
+        "heading": "Basic Controls",
+        "paragraphs": ["The official store describes the whole input as press, hold and release on a single button. Press shortly before the rope reaches Scarlet's feet, hold only for the height the pattern needs, and release while already looking for the next ground crossing.", "Community timing guides emphasize rhythm: Scarlet's animation is expressive, but the rope-ground intersection is the more reliable mechanical cue."],
+        "bullets": ["Watch one complete rotation before forcing the first jump.", "Use short, repeatable inputs before testing maximum height.", "After an upgrade changes timing, spend a few loops learning the new beat.", "Check the in-game Settings menu for your preferred mouse, keyboard or controller binding."]
+      },
+      {
+        "heading": "A First-30-Seconds Practice Routine",
+        "paragraphs": ["Use the start of a fresh run as a calibration exercise. The objective is not an early score burst; it is to make the first rope predictable enough that later changes are obvious."],
+        "bullets": ["First pass: watch the full arc and locate the ground-crossing point.", "Next several passes: use the same short press and compare the landing position.", "If Scarlet lands too close to the next pass, release earlier rather than holding higher.", "When the first upgrade appears, change only one timing variable and immediately recalibrate."]
+      },
+      {
+        "heading": "How Jump Timing Works",
+        "paragraphs": ["The target is not the highest possible jump every time. It is enough clearance for the current rope pattern with a landing you can predict. Pressing too late clips the incoming rope; pressing too early or holding too long can move the problem to the landing.", "Jump Height and Rocket Fuel can make a developed run feel completely different from the opening seconds. Recalibration is part of the game, not evidence that the pick was bad."],
+        "bullets": ["Press early enough to clear the rope, but not so early that you land into the next pass.", "Hold longer only when the pattern needs more airtime.", "Use the apex to scan the next rope rather than watching Scarlet exclusively.", "Treat every new rope or speed pick as a rhythm change."]
+      },
+      {
+        "heading": "How Leveling and Upgrade Choices Work",
+        "paragraphs": ["A level-up pauses the action and offers three random power-ups from a pool of ten. There is no guaranteed sequence, so build around the choices you receive rather than waiting for a perfect checklist.", "On every choice screen ask three questions: what is ending the run now, which card moves the chosen goal forward, and which change can be learned on the very next cycle?"],
+        "bullets": ["Choose the card that supports the current goal, not the strongest-sounding card in isolation.", "Prefer a stabilizing pick if the next landing already looks dangerous.", "Do not chase a two-card synergy when neither half fixes the present problem.", "Use the Upgrade Picker when all three options pull in different directions."]
+      },
+      {
+        "heading": "Which Upgrades Should Beginners Prioritize?",
+        "paragraphs": ["Increase Jump Height and Reinforce Jump Rope are the clearest early effects. Height creates visible clearance; reinforcement protects the rope economy. Luck is widely prioritized by players because it appears to support progression, but Yerk Games has not published its formula.", "Delay rope speed, additional ropes and fire until you can read the current pattern. Rocket Fuel becomes meaningful after normal airtime already covers several rotations."],
+        "bullets": ["Foundation: Increase Jump Height, followed by a deliberate landing recalibration.", "Protection: Reinforce Jump Rope when a rope is vulnerable or a loss would shrink the engine.", "Progression: Increase Luck when the immediate pattern is safe, with community-source caveats.", "Airtime: Upgrade Rocket Fuel after height gives the fuel somewhere useful to go."]
+      },
+      {
+        "heading": "Common Beginner Mistakes",
+        "paragraphs": ["Most first-run problems come from changing too much at once. When a run fails, identify the first upgrade after which the rhythm stopped feeling predictable; that is more useful than blaming the final missed rope."],
+        "bullets": ["Watching only the character instead of the rope-ground crossing.", "Holding every jump to maximum height.", "Reacting to each rope separately instead of reading the full multi-rope cycle.", "Adding speed, a new rope and fire before relearning the beat.", "Following a high-score route when the immediate goal is survival."]
+      },
+      {
+        "heading": "First Build Recommendation",
+        "paragraphs": ["Start with a small protected rope set. Stack height until the landing window feels generous, then add Luck or Rocket Fuel one step at a time. That foundation can branch into an ending route, a high-score loop or a challenge build."],
+        "bullets": ["Keep the first plan simple.", "Pick one new timing variable at a time.", "Choose your goal before adding late-game pressure."]
+      },
+      {
+        "heading": "When Should You Add More Ropes?",
+        "paragraphs": ["Add another rope after the current set is reinforced and your longer jumps can clear several loops. Community high-score routes often delay quantity until the airtime engine is already producing upgrades quickly.", "After adding it, wait long enough to see the complete relationship between the ropes. Look for the repeatable gap where one jump clears several passes; panic-jumping at the nearest rope throws away the information the pattern is giving you."],
+        "bullets": ["One extra rope is a pattern change, not a free score bonus.", "Reinforcement matters more as the set grows.", "Use long airtime to clear a group of passes rather than one jump per rope.", "An ending route may intentionally return to fewer ropes."]
+      },
+      {
+        "heading": "Know When the Run Has Changed Shape",
+        "paragraphs": ["A beginner run eventually stops being a beginner run. If one jump clears many rotations, upgrades appear during the same aerial cycle and Rocket Fuel bridges the gaps, switch from landing practice to fuel and progression management.", "If those signals never arrive, that is not a failed build. Keep the rope set readable, practice consistent inputs and treat the run as useful mechanical training."],
+        "bullets": ["Normal phase: plan every landing.", "Developing phase: compare loops per jump and protect the rope set.", "Airtime phase: monitor fuel and time to the next upgrade.", "Score phase: add speed, rope count or fire only after the engine is repeatable."]
+      }
+    ],
+    "links": [
+      { "label": "Explore all documented upgrades", "href": "/upgrades" },
+      { "label": "Open the beginner build", "href": "/builds/beginner-build" },
+      { "label": "Try the Build Planner", "href": "/run-lab/build-planner" }
+    ],
+    "seo": {
+      "title": "Scarlet Skips Beginner Guide – First Runs",
+      "description": "Learn Scarlet Skips controls, jump timing, level-up choices and a safer first build without invented upgrade values."
+    }
+  },
+  {
+    "slug": "how-to-play",
+    "name": "How to Play Scarlet Skips",
+    "shortName": "How to Play",
+    "category": "Getting Started",
+    "description": "A complete explanation of the one-button control loop, timing cues, level-ups, scoring pressure, recovery and the transition into long-airtime play.",
+    "image": "/images/official/screenshot-4.jpg",
+    "imageAlt": "Scarlet clearing a standard rope in an official Scarlet Skips screenshot",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["steam-store", "official-screenshots", "steam-rhythm-guide", "steam-high-score-guide", "steam-ending-guide", "full-gameplay-video"],
+    "sections": [
+      { "heading": "Controls", "paragraphs": ["Scarlet Skips uses one gameplay input. Steam describes the mechanic as press, hold and release; official feature tags include keyboard-only, mouse-only and partial controller support. Confirm the actual binding you want in Settings rather than assuming a guide's key list matches your setup."], "bullets": ["Press to begin the jump input.", "Hold to extend the action and, later, powered airtime.", "Release to finish the input and control the landing.", "The same simple input gains different consequences as upgrades stack."] },
+      { "heading": "PC Version and Requirements", "paragraphs": ["Scarlet Skips is sold for Windows through Steam with an English interface. Price and review totals are live regional data, so use the store page for the current amount instead of treating an old search result as permanent."], "bullets": ["Minimum: Windows 10, Intel i7-6700HQ, 8 GB RAM, GTX 1060, DirectX 12 and 2 GB storage.", "Recommended: Ryzen 9 3900X, 16 GB RAM, RTX 2080, DirectX 12 and 2 GB storage.", "Steam lists single-player, Steam Achievements and Family Sharing.", "Developer and publisher: Yerk Games."] },
+      { "heading": "Press, Hold and Release", "paragraphs": ["Think in one smooth cycle rather than three unrelated commands. The rope position tells you when to begin; the pattern tells you how long to hold; the next ground crossing tells you when a predictable landing matters more than extra height.", "A short press is the baseline. A long hold is a tool for clearing grouped passes or spending Rocket Fuel—not the default answer to every rope."], "bullets": ["Start with consistent short cycles.", "Use longer holds only after height or Rocket Fuel changes the run.", "Release early enough to observe and plan the descent.", "Avoid automatic tapping once several ropes are active."] },
+      { "heading": "Jump Timing", "paragraphs": ["The strongest visual reference is the rope crossing the ground near Scarlet's feet. Begin shortly before contact, clear the pass, and shift attention toward the next rotation before the apex.", "With multiple ropes, do not react to each strand as a separate event. Watch a complete rotation, identify the largest repeating gap and use one jump to clear a group of passes when height allows."], "bullets": ["Higher is not always safer if it produces a blind landing.", "Speed compresses the reaction window.", "Extra ropes create a pattern of safe and unsafe gaps.", "After any rhythm-changing pick, use several low-risk cycles to recalibrate."] },
+      { "heading": "Level Ups", "paragraphs": ["Continuing to skip advances the run until play pauses for an upgrade choice. The official store confirms ten cards in total and three random choices at each level-up.", "Repeated cards matter because upgrades stack. The useful question is not only which card is strongest, but which stack makes the current run safer or moves it toward a specific goal."], "bullets": ["The game pauses for the decision.", "The same card can reappear because upgrades stack.", "Random offers make flexible plans stronger than fixed scripts.", "Community routes report that later aerial builds can receive more than one upgrade during a jump."] },
+      { "heading": "Upgrade Choices", "paragraphs": ["Choose for the run you have. Height and protection stabilize; Luck and fuel support progression and airtime; quantity, speed and fire add late pressure. Exact values have not been officially published.", "Before clicking, classify the offer: immediate survival, progression, airtime or score. If the run is already unstable, an indirect synergy can be weaker than a plain card that preserves the next cycle."], "bullets": ["Check the current weakness before chasing a synergy.", "Change one timing variable at a time when possible.", "Do not treat community priorities as guaranteed optimums.", "Version 1.0.1 specifically fixed Rocket Shoes and extinguished-rope behavior."] },
+      { "heading": "Scoring and Progression", "paragraphs": ["Successful rope loops raise the visible counter. Additional ropes, speed, long airtime and fire can change how quickly a developed run grows, but Yerk Games has not published a complete score or level-up formula.", "One community route reached roughly 200,000 and another player's footage reaches the ending; neither result defines an official leaderboard or required threshold."], "bullets": ["Survival keeps the counter and upgrade engine moving.", "Fire adds a visible multiplier state in official screenshots.", "A reported high-score route delays fire until height, Luck and fuel are stable.", "No official global leaderboard is currently documented."] },
+      { "heading": "The Airtime Transition", "paragraphs": ["A developed run can stop behaving like ordinary jump rope. Community guides report that high Jump Height, fast progression and Rocket Fuel may produce several level-ups in one jump; one guide also reports that each upgrade refreshes fuel.", "Treat this as a testable player-discovered loop. Watch the gauge, confirm the refill on the current patch and preserve a safe landing until the sequence repeats."], "bullets": ["Height creates more rotations per jump.", "Progression must arrive before fuel expires.", "Fuel bridges one upgrade to the next.", "Late rope count, speed and fire convert the stable engine into score pressure."] },
+      { "heading": "Losing and Recovering", "paragraphs": ["A missed rope ends the attempt. Diagnose backward from the miss: did launch timing drift, did a longer hold create a bad landing, or did the last upgrade add a pattern you never stopped to read?", "Use the next run to change one decision at a time. The first destabilizing choice usually teaches more than the final input."], "bullets": ["Identify the first decision that changed the rhythm.", "Practice the new timing before adding another variable.", "Keep a smaller protected rope set if visual tracking is the blocker.", "Record personal scores locally in Run Lab."] },
+      { "heading": "Win and Ending Basics", "paragraphs": ["Community evidence and long-form gameplay confirm that Scarlet Skips has an ending. A documented route uses early progression, simplifies and reinforces the rope set, then stacks height, Luck and fuel while avoiding fire.", "The final sequence begins around the Super Rocket Shoes state. The dedicated Ending Guide keeps the visual outcome hidden until you choose to reveal it."], "bullets": ["The ending route is separate from a pure high-score route.", "A smaller reinforced rope set is part of the documented approach.", "No official numeric height requirement has been published.", "Use the spoiler-controlled Ending Guide for the full route."] },
+      { "heading": "What Is Confirmed and What Is Not", "paragraphs": ["Official facts cover the one-button loop, ten-card pool, three choices per level, stackable upgrades, release details and a few example effects. Exact card formulas, caps and optimal routes remain undocumented.", "This site keeps player observations useful by labeling them. A reproduced result is stronger than a guess, but it is still not a developer guarantee."], "bullets": ["Official: store copy, API fields, patch notes and visible official media.", "Community Verified: corroborated behavior or clearly visible repeated play.", "Player Report: one route, threshold or interaction that still needs broader testing.", "Unconfirmed: rumor or inference that should not be used as a rule."] }
+    ],
+    "links": [
+      { "label": "Read the spoiler-free Ending Guide", "href": "/ending" },
+      { "label": "Learn with the Beginner Guide", "href": "/guides/beginner-guide" },
+      { "label": "Plan a high-score run", "href": "/high-score" }
+    ],
+    "seo": {
+      "title": "How to Play Scarlet Skips – Controls & Timing",
+      "description": "Learn Scarlet Skips press, hold and release controls, rope timing, level-ups, upgrades, scoring and spoiler-free ending basics."
+    }
+  },
+  {
+    "slug": "tips",
+    "name": "Scarlet Skips Tips & Tricks",
+    "shortName": "Tips & Tricks",
+    "category": "Strategy",
+    "description": "A run-state playbook for steadier openings, safer upgrade combinations, fuel-loop testing and cleaner transitions into ending or score routes.",
+    "image": "/images/official/screenshot-6.jpg",
+    "imageAlt": "Scarlet reacting as rope segments break during a difficult run",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["steam-store", "steam-high-score-guide", "steam-ending-guide", "official-screenshots", "steam-rhythm-guide", "full-gameplay-video"],
+    "sections": [
+      { "heading": "Early Run: Protect Information", "paragraphs": ["Use the opening to establish a repeatable beat. A run is easier to diagnose when early upgrades change one variable at a time; a score burst is less useful than knowing exactly why the next jump succeeds."], "bullets": ["Prefer readable height or protection picks.", "Delay fire and heavy rope pressure.", "Take Luck only when the current landing is safe.", "Watch a full rotation after every pattern-changing choice."] },
+      { "heading": "Jump Timing: Plan the Descent", "paragraphs": ["Read the rope against the ground and plan the landing, not only the launch. A jump can clear the incoming pass and still fail because the hold placed Scarlet into the next rotation."], "bullets": ["Short consistent jumps teach more than maximum holds.", "Shift attention to the next pass near the apex.", "After a height stack, reset your internal beat.", "Use Rocket Fuel as a controlled extension, not a panic button."] },
+      { "heading": "Upgrade Decisions: Ask Four Questions", "paragraphs": ["The best card is goal-dependent. On the paused choice screen, classify the run before comparing names."], "bullets": ["What ends the run now: clearance, landing, rope loss or slow progression?", "Which offer directly fixes that problem?", "Which card advances the chosen ending, score or airtime goal?", "Which change can you observe and relearn on the next cycle?"] },
+      { "heading": "Rope Management", "paragraphs": ["Every additional rope increases what you must read and maintain. Quantity becomes an advantage only when one jump can clear grouped passes and the build can protect or replace losses."], "bullets": ["Reinforce a small set before scaling it.", "Read the complete spacing pattern instead of the nearest rope.", "Let excess ropes go if an ending route needs more control.", "Add quantity late in community high-score routes."] },
+      { "heading": "Airtime and the Refill Test", "paragraphs": ["Height creates the opportunity; Rocket Fuel extends it; progression must arrive before the gauge empties if you want the reported loop.", "One high-score author reports that an upgrade refills fuel. Verify that behavior in the current run, then require it to succeed twice before abandoning a safe landing plan."], "bullets": ["Stack the height and progression foundation first.", "Watch the gauge at the exact moment a level-up resolves.", "Keep a recoverable landing until the loop repeats.", "Expect later level-ups to take longer and budget more fuel margin."] },
+      { "heading": "Luck Without an Invented Formula", "paragraphs": ["Players strongly prioritize Increase Luck, and a separate Spanish guide also describes it as affecting perk quality or availability. Yerk Games has not published a formula, so judge Luck through actual run feedback rather than a claimed percentage."], "bullets": ["Early value has more time to compound.", "Look for changes in Lucky feedback and upgrade cadence.", "A reported cap is not a confirmed cap.", "Direct survival still outranks an indirect benefit when the run is unstable."] },
+      { "heading": "High Score Transition", "paragraphs": ["Build the engine before the multiplier. One published route stayed near two to four ropes early and used roughly twelve loops per jump as a personal transition point before scaling harder.", "That number is not a requirement. The real signal is functional: several upgrades arrive during an extended jump and fuel still remains for the next bridge."], "bullets": ["Height and Luck first.", "Fuel loop second.", "Rope speed and quantity after the loop is repeatable.", "Fire last, when rope losses are sustainable."] },
+      { "heading": "Ending Transition", "paragraphs": ["The cited winning route uses the opposite late priorities from a score build. It grows progression early, allows surplus ropes to disappear, reinforces the controlled set, then stacks height, Luck and fuel while avoiding fire."], "bullets": ["Do not preserve every rope out of sunk-cost thinking.", "Reinforce before the long height push.", "Treat the reported 50,000 height as one run's snapshot, not a requirement.", "Super Rocket Shoes is the reported final-ascent signal."] },
+      { "heading": "Diagnose a Failed Run", "paragraphs": ["Runs often fail because several upgrades change the same timing window at once. Work backward from the miss and record the first point at which the pattern became unreadable."], "bullets": ["Late launch: recalibrate against the ground crossing.", "Unsafe landing: shorten the hold or save fuel for descent control.", "Rope overload: stop adding quantity and reinforce or simplify.", "Slow upgrade cadence: invest in progression before more fuel.", "Fire collapse: return to a protected non-fire engine."] },
+      { "heading": "Claims to Treat Carefully", "paragraphs": ["Launch-week guides are valuable but young. The roughly 200,000 run, suspected Luck and speed caps, fuel refills and specific transition counts are player observations rather than developer documentation."], "bullets": ["Do not call a reported score a world record.", "Do not publish a cap without a repeatable test and version.", "Do not turn one successful route into a mandatory card order.", "Recheck any behavior after patches mentioning Rocket Shoes or extinguished ropes."] }
+    ],
+    "links": [
+      { "label": "Compare the best upgrades by goal", "href": "/upgrades/best-upgrades" },
+      { "label": "Use the Upgrade Picker", "href": "/run-lab/upgrade-picker" },
+      { "label": "Read the High Score Guide", "href": "/high-score" }
+    ],
+    "seo": {
+      "title": "Scarlet Skips Tips & Tricks – Better Runs",
+      "description": "Use practical Scarlet Skips tips for jump timing, upgrades, rope management, Luck, airtime and high-score builds."
+    }
+  },
+  {
+    "slug": "achievement",
+    "name": "Scarlet Skips Achievement Guide",
+    "shortName": "Achievement Guide",
+    "category": "Completion",
+    "description": "Unlock Off to a Great Start with the first-failure method independently documented by two Steam Community guides, plus input and troubleshooting notes.",
+    "image": "/images/official/achievement-off-to-a-great-start.jpg",
+    "imageAlt": "Off to a Great Start achievement icon from Scarlet Skips",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["steam-store", "steam-api", "steam-achievement-guide", "steam-achievement-second-guide"],
+    "sections": [
+      { "heading": "Achievement Facts", "paragraphs": ["Steam lists one achievement for Scarlet Skips: Off to a Great Start. The official data confirms the count and name, while the trigger is documented by players rather than explained on the public store page."], "bullets": ["Total Steam achievements: 1.", "Name: Off to a Great Start.", "Steam category: Steam Achievements.", "Public official requirement text: not documented in the store data checked."] },
+      { "heading": "Before You Start", "paragraphs": ["The achievement is tied to the opening failure, so the cleanest attempt is a fresh launch or fresh first run. One guide notes that the opening sequence can be advanced with the same held input; release it before gameplay begins so Scarlet does not jump accidentally."], "bullets": ["Launch Scarlet Skips through Steam while online.", "Advance or watch the intro.", "Release every jump-capable input before the first rope reaches Scarlet.", "Do not perform a successful skip first."] },
+      { "heading": "How to Unlock Off to a Great Start", "paragraphs": ["Two independent Steam Community guides describe the same trigger: fail the first jump. When the first active rope arrives, do nothing and let it catch Scarlet."], "bullets": ["Start a new run.", "Keep mouse, keyboard and controller jump inputs untouched.", "Let the first rope hit Scarlet's feet.", "Wait for the Steam achievement notification before starting another attempt."] },
+      { "heading": "Why This Is Community Verified", "paragraphs": ["The method is stronger than a single anecdote because two separate Steam guides document the same first-failure trigger. It is still labeled Community Verified rather than Official because Yerk Games has not published the requirement in the checked store data."], "bullets": ["Official evidence confirms the achievement exists.", "Two community sources agree on the trigger.", "The method is simple enough to reproduce in a new run.", "Future patches could still change the behavior or add achievements."] },
+      { "heading": "Troubleshooting", "paragraphs": ["If it does not unlock, remove ambiguity before assuming the method is wrong. Restart the game, confirm Steam is online and make a clean attempt without any keyboard, mouse or controller input after the run becomes active."], "bullets": ["Check that Steam is online and achievement notifications are enabled.", "Disconnect or release a controller with a stuck or drifting input.", "Do not hold the intro-skip input into the first active rope cycle.", "Restart and try a fresh first miss before completing a successful skip.", "Recheck the current game version and linked guides after a future patch."] }
+    ],
+    "links": [
+      { "label": "Open the official Steam page", "href": "https://store.steampowered.com/app/4513480/Scarlet_Skips/" },
+      { "label": "Read the Beginner Guide", "href": "/guides/beginner-guide" },
+      { "label": "Check the latest update", "href": "/updates/1-0-1" }
+    ],
+    "seo": {
+      "title": "Scarlet Skips Achievement Guide – Off to a Great Start",
+      "description": "Unlock the one Scarlet Skips Steam achievement, Off to a Great Start, with a clearly labeled community-tested method."
+    }
+  },
+  {
+    "slug": "secrets",
+    "name": "Scarlet Skips Secrets & Hidden Mechanics",
+    "shortName": "Secrets",
+    "category": "Completion",
+    "description": "The fuel loop, Moon ending, achievement trigger, card-name ambiguity and unresolved formulas—organized by what the available evidence actually supports.",
+    "image": "/images/official/screenshot-5.jpg",
+    "imageAlt": "Scarlet hovering with Rocket Shoes active",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Player Report",
+    "sourceIds": ["steam-store", "official-screenshots", "steam-high-score-guide", "steam-ending-guide", "steam-update-101", "steam-achievement-guide", "steam-achievement-second-guide", "full-gameplay-video", "tpose-ending-report"],
+    "sections": [
+      { "heading": "The Rocket Fuel Refill Loop", "paragraphs": ["A high-score guide reports that receiving an upgrade refills Rocket Fuel. If the renewed gauge lasts until progression produces another upgrade, Scarlet can continue climbing without a normal landing.", "The same guide advises using the powered hold immediately after the upgrade. Long-form footage confirms extended Rocket Shoes movement, but the refill rule itself remains a player report rather than a published system description."], "bullets": ["Build Jump Height and Luck first.", "Reach another upgrade while airborne.", "Watch the gauge at the exact level-up transition.", "Confirm the refill on version 1.0.1 before relying on it."] },
+      { "heading": "A Run Can Stop Landing", "paragraphs": ["Once height, progression and fuel sustain one another, the game changes from jump-land-repeat into fly-upgrade-fly. One guide used roughly twelve loops per jump as a personal transition point and reported several upgrades in a single jump.", "Those numbers describe one run, not a hidden requirement. The functional test is whether the next upgrade arrives before fuel runs out for multiple consecutive cycles."], "bullets": ["The loop is conditional, not automatic.", "Rope quantity can raise progress after the air engine is safe.", "Later level-ups may take longer, increasing the fuel margin required.", "A missed refill still creates a landing problem."] },
+      { "heading": "Ending Route Versus Score Route", "paragraphs": ["A dedicated Steam guide documents an ending-focused route that avoids fire and controls rope count. It uses early progression, lets excess ropes disappear, reinforces the remaining set and then builds height, Luck and fuel.", "The author mentions roughly 50,000 Jump Height in the successful route. No official source identifies that value as a trigger, so the site treats it as an observation only."], "bullets": ["Ending: smaller reinforced rope set and no fire on the cited route.", "High score: stabilize airtime, then add rope count, speed and fire.", "Super Rocket Shoes is the reported endgame signal.", "Completion and score are different optimization problems."] },
+      { "heading": "Ending Sequence — Full Spoilers", "paragraphs": ["Long-form gameplay and a third-party ending breakdown show the final ascent after Super Rocket Shoes. Scarlet leaves the park, continues into space with Earth below and eventually reaches the Moon, where she rests as the credits begin.", "Interpretations about Scarlet's mood and the meaning of the Moon are editorial. The game does not provide a detailed public lore explanation, so the site separates the visible sequence from theories about what it means."], "bullets": ["Visual outcome: space ascent and Moon arrival.", "Credits follow after Scarlet settles on the Moon.", "No exact official height threshold is published.", "Meaning and symbolism remain open to interpretation."] },
+      { "heading": "Off to a Great Start Is Intentionally Backwards", "paragraphs": ["The only listed achievement is unlocked by failing the first skip rather than succeeding, according to two independent Steam Community guides. The store confirms the achievement count and name; the community evidence supplies the trigger."], "bullets": ["Start a fresh run and release all jump inputs.", "Do not jump on the first rope pass.", "Let the rope catch Scarlet's feet.", "Retest if later updates add achievements or change the trigger."] },
+      { "heading": "Card Names and Community Aliases", "paragraphs": ["The Steam store confirms ten cards and publishes example effects, while official screenshots visibly establish several in-game names. Community guides use shorter labels and sometimes mix card names with system names.", "The clearest example is the rocket system: the card is documented here as Upgrade Rocket Fuel, the patch notes say Rocket Shoes and players often write Rocket Boots. Those labels can describe the same build axis without proving that they are identical card titles."], "bullets": ["Keep effect names separate from exact card titles.", "Use official screenshot wording where visible.", "Treat community aliases as search terms, not new upgrades.", "Do not invent the remaining undocumented card names to fill a ten-card list."] },
+      { "heading": "What Is Still Unknown", "paragraphs": ["Yerk Games has confirmed ten cards, but only seven card names are documented in this site from official screenshots and recorded play. Exact Luck, fuel, speed, fire and durability formulas are not public."], "bullets": ["Three card names remain undocumented here.", "No official tier list or global record leaderboard is published.", "Fuel-refill behavior is not described in official copy.", "Suspected Luck and rope-speed caps have no confirmed values.", "The exact ending threshold is not published."] },
+      { "heading": "How to Verify a New Discovery", "paragraphs": ["A useful community claim needs enough context to be retested. Record the game version, starting state, stacks already taken, what changed on screen and whether the result repeated."], "bullets": ["Capture the choice card and the state before selecting it.", "Test one variable at a time when possible.", "Repeat the result in a second run.", "Separate visible facts from explanations of why they happened.", "Link the original footage or guide instead of copying its wording."] }
+    ],
+    "links": [
+      { "label": "Follow the Ending Route", "href": "/run-lab/ending-route" },
+      { "label": "Inspect documented upgrades", "href": "/upgrades" },
+      { "label": "Track a personal score", "href": "/run-lab/records" }
+    ],
+    "seo": {
+      "title": "Scarlet Skips Secrets – Fuel Loop & Ending",
+      "description": "Explore Scarlet Skips hidden mechanics, the Rocket Fuel loop, the ending route and what remains unconfirmed in version 1.0.1."
+    }
+  }
+]

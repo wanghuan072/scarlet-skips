@@ -1,0 +1,188 @@
+[
+  {
+    "slug": "best-build",
+    "name": "Scarlet Skips Best Build by Goal",
+    "shortName": "Best Build by Goal",
+    "goal": "Choose the right plan for the run you want",
+    "icon": "target",
+    "difficulty": "Adaptive",
+    "description": "There is no single fixed best build in a three-random-choice game. This route helps you identify the strongest next direction for ending, score, learning, airtime or a deliberate challenge.",
+    "strength": "Adapts to the cards offered instead of demanding a perfect draw.",
+    "weakness": "Requires the player to change priorities when a run develops differently.",
+    "verifiedVersion": "1.0.1",
+    "sourceStatus": "Community Verified",
+    "coreUpgrades": ["increase-jump-height", "increase-luck", "reinforce-jump-rope"],
+    "audience": "Players who want a reliable decision framework instead of a universal tier list.",
+    "phases": {
+      "early": ["Build a controllable base with Jump Height or reinforcement.", "Take Luck when the current rope pattern is already safe.", "Delay speed, fire and extra rope count until you can name the problem each card will solve."],
+      "mid": ["Commit to an ending, score or airtime direction based on the cards you actually received.", "Add Rocket Fuel only when longer jumps can use it.", "Re-evaluate after every rhythm-changing card instead of following a fixed priority blindly."],
+      "late": ["Protect the engine first, then add score pressure.", "Use the Run Lab picker to compare imperfect choices.", "Spend surplus safety on score only when the next landing and rope set remain recoverable." ]
+    },
+    "runSignals": ["The current pattern can be repeated without panic holds.", "A height pick creates more usable loops rather than only a later landing.", "Luck or fuel is producing visible progression before the run becomes fragile.", "The offered cards indicate a clear ending, score or airtime branch."],
+    "fallbackRules": ["If all three cards add risk, choose the change you can most easily observe and retime.", "If the intended core never appears, keep the rope set small and convert the run into a consistency attempt.", "If several score cards arrive before movement, bank safety instead of forcing the high-score route."],
+    "evidenceNote": "The official store confirms random three-card choices and stackable upgrades. Priority orders come from launch-week community routes, so this build is a decision framework rather than a solved meta.",
+    "avoid": ["Treating a tier list as a guaranteed card order.", "Adding speed and rope count before you can read the pattern.", "Mixing fire into a spoiler-free ending route without a reason."],
+    "mistakes": ["Waiting for one perfect card while ignoring a workable alternative.", "Copying a high-score route when the real goal is simply to finish.", "Forgetting that every stack can change the timing."],
+    "alternatives": ["Beginner Build for a forgiving first plan.", "Ending Build for a smaller protected rope set.", "Rocket Airtime Build for long-jump loops."],
+    "sourceIds": ["steam-store", "steam-high-score-guide", "steam-ending-guide", "steam-rhythm-guide"],
+    "seo": {
+      "title": "Scarlet Skips Best Build – Picks by Goal",
+      "description": "Choose the best Scarlet Skips build for endings, high scores, beginners or airtime with a flexible plan for random upgrade offers."
+    }
+  },
+  {
+    "slug": "high-score-build",
+    "name": "Scarlet Skips High Score Build",
+    "shortName": "High Score Build",
+    "goal": "Push score through long airtime and late fire scaling",
+    "icon": "trophy",
+    "difficulty": "Advanced",
+    "description": "A player-reported route that builds Jump Height and Luck first, closes a Rocket Fuel loop, then spends the late run on rope count, speed and fire.",
+    "strength": "Can turn a stable jump into repeated mid-air upgrades and very large scores.",
+    "weakness": "Depends on random offers and an unofficial fuel-refill interaction.",
+    "verifiedVersion": "1.0.1",
+    "sourceStatus": "Player Report",
+    "coreUpgrades": ["increase-jump-height", "increase-luck", "upgrade-rocket-fuel", "ignite-jump-rope"],
+    "audience": "Experienced players who can manage a run after its original timing has completely changed.",
+    "phases": {
+      "early": ["Prioritize Jump Height and Luck; the cited player treats both as the opening engine.", "Keep roughly two to four ropes in that reported route and reinforce the set.", "Rocket Fuel is optional early because a short jump cannot yet use much powered airtime."],
+      "mid": ["Stack Rocket Fuel when a jump already clears several loops.", "The cited run used roughly twelve loops per jump as a transition signal, not a requirement.", "After an upgrade, begin the powered hold promptly and confirm the gauge refills before planning around it."],
+      "late": ["Once several upgrades can arrive in one aerial cycle, add rope speed and quantity.", "Add Ignite Jump Rope only when replacement and reinforcement are sustainable.", "Expect later upgrades to take longer; keep enough fuel margin to bridge the widening gap." ]
+    },
+    "runSignals": ["Two to four ropes remain readable and protected.", "One jump produces several loops without a dangerous landing.", "Multiple upgrades can arrive during one extended jump.", "A level-up visibly refreshes the fuel gauge and the next upgrade arrives before it empties."],
+    "fallbackRules": ["If Luck or height offers do not appear, preserve the small rope set and treat the run as practice rather than forcing fire.", "If the gauge does not refill, land safely and downgrade the plan to a normal jump-and-land build.", "If extra ropes start disappearing faster than upgrades replace them, stop adding pressure and reinforce."],
+    "evidenceNote": "The roughly 200,000 score, the twelve-loop transition and the refill loop come from one self-described early player guide. They are useful observations, not an official record, formula or universal threshold.",
+    "avoid": ["Early fire before the engine works.", "Too many unreinforced ropes.", "Assuming the 200,000-score report is a verified global record."],
+    "mistakes": ["Calling Rocket Fuel mandatory in the first few upgrades.", "Holding the input without reading the fuel gauge.", "Chasing score multipliers while the next landing is already unsafe."],
+    "alternatives": ["Rocket Airtime Build for a cleaner flight focus.", "Multi-Rope Fire Build for a difficult score-first challenge.", "Ending Build when completion matters more than score."],
+    "sourceIds": ["steam-high-score-guide", "steam-store", "steam-update-101", "full-gameplay-video"],
+    "seo": {
+      "title": "Scarlet Skips High Score Build & Upgrade Order",
+      "description": "Build Jump Height, Luck and Rocket Fuel into a Scarlet Skips high-score loop, then add ropes and fire with clear community-source caveats."
+    }
+  },
+  {
+    "slug": "ending-build",
+    "name": "Scarlet Skips Ending Build",
+    "shortName": "Ending Build",
+    "goal": "Reach the ending with a controlled rope setup",
+    "icon": "route",
+    "difficulty": "Intermediate",
+    "description": "The documented community route grows progression early, simplifies and reinforces the rope set, then stacks Jump Height, Luck and Rocket Fuel while avoiding fire.",
+    "strength": "Focuses on control and the actual win condition rather than score multipliers.",
+    "weakness": "The required late trigger is community-documented, not explained by Yerk Games.",
+    "verifiedVersion": "1.0.1",
+    "sourceStatus": "Player Report",
+    "coreUpgrades": ["reinforce-jump-rope", "increase-jump-height", "increase-luck", "upgrade-rocket-fuel"],
+    "audience": "Players who want to finish a run and prefer a spoiler-light route.",
+    "phases": {
+      "early": ["For roughly the first five levels, the cited route favors progression through Luck, rope count or speed.", "Do not overdo those picks: the goal is to reach the setup phase, not create an unreadable pattern.", "Jump Height can be delayed briefly if its changed landing rhythm breaks the opening beat."],
+      "mid": ["Intentionally allow excess ropes to drop until the pattern is small enough to control.", "Take Reinforce Jump Rope before the long height push.", "Build Jump Height aggressively; one successful route reported about 50,000 height, but that number is not a verified requirement."],
+      "late": ["Continue Jump Height and Luck, adding Rocket Fuel for faster levels and aerial control.", "If only one rope remains vulnerable, add or reinforce a rope rather than gambling the run.", "Avoid Ignite Jump Rope on the cited route and watch for the Super Rocket Shoes state." ]
+    },
+    "runSignals": ["Early levels arrive without the rope pattern becoming chaotic.", "The active set has been reduced and reinforced before the height push.", "Height and Luck now generate long, productive aerial cycles.", "Super Rocket Shoes appears; video footage corroborates that this begins the final ascent."],
+    "fallbackRules": ["If early rope count becomes hard to read, stop accelerating progression and simplify sooner.", "If reinforcement is not offered, keep the remaining rope set small and prioritize survival until it appears.", "If fire is the only aggressive offer, choose a neutral alternative; the cited winning route deliberately avoids fire."],
+    "evidenceNote": "The route order and reported height snapshot come from one Steam guide. The final ascent into space, arrival at the Moon and credits are independently visible in long-form gameplay and summarized by a third-party ending report.",
+    "avoid": ["Ignite Jump Rope on the cited route.", "A large unprotected rope set.", "Treating a target height number from one guide as an official threshold."],
+    "mistakes": ["Building for score when the goal is completion.", "Keeping every extra rope out of sunk-cost thinking.", "Opening the spoiler section before deciding whether you want the reveal."],
+    "alternatives": ["Beginner Build if timing is still the main blocker.", "Rocket Airtime Build if fuel control is the missing piece.", "High Score Build after completing the ending."],
+    "sourceIds": ["steam-ending-guide", "steam-store", "steam-update-101", "full-gameplay-video", "tpose-ending-report"],
+    "seo": {
+      "title": "Scarlet Skips Ending Build – Spoiler-Light Setup",
+      "description": "Use a controlled rope set, Jump Height, Luck and Rocket Fuel for a Scarlet Skips ending build based on a documented player route."
+    }
+  },
+  {
+    "slug": "beginner-build",
+    "name": "Scarlet Skips Beginner Build",
+    "shortName": "Beginner Build",
+    "goal": "Create room to learn the rope rhythm",
+    "icon": "controller",
+    "difficulty": "Beginner",
+    "description": "A forgiving decision plan: choose direct, readable upgrades, protect the current rope set and delay speed, fire and extra-rope pressure.",
+    "strength": "Keeps the screen and timing understandable while fundamentals improve.",
+    "weakness": "Scores more slowly than aggressive multi-rope or fire paths.",
+    "verifiedVersion": "1.0.1",
+    "sourceStatus": "Community Verified",
+    "coreUpgrades": ["increase-jump-height", "reinforce-jump-rope", "increase-luck"],
+    "audience": "First-run players and anyone rebuilding consistency after a difficult upgrade combination.",
+    "phases": {
+      "early": ["Watch one complete rope rotation, then practice one clean press, hold and release cycle.", "Take Jump Height or Reinforce Jump Rope before adding complexity.", "After each upgrade, spend several loops learning the new landing point before chasing score."],
+      "mid": ["Add Luck once the current rope pattern feels repeatable.", "Take Rocket Fuel only after you understand how holding changes airtime.", "Read the gap across all active ropes instead of reacting to the rope nearest Scarlet."],
+      "late": ["Choose a goal and branch into ending, score or fun.", "Increase speed one step at a time rather than all at once.", "If consistency drops, stop scaling pressure and use the rest of the run to practice the current pattern." ]
+    },
+    "runSignals": ["You can clear ten or more basic passes without changing the input rhythm.", "After a height pick, you can predict where Scarlet will land.", "A second rope is readable as part of one full pattern rather than two separate emergencies.", "You can explain why the next card improves safety, progression, airtime or score."],
+    "fallbackRules": ["When no safe card appears, choose the smallest timing change and observe it immediately.", "If maximum holds cause misses, return to shorter presses and use only the airtime the pattern needs.", "If a new rope or speed stack overwhelms the run, stop adding variables and focus on recognizing the gap."],
+    "evidenceNote": "Press, hold and release and the three-choice upgrade loop are official. Specific timing cues and beginner priorities are synthesized from official footage and multiple community guides.",
+    "avoid": ["Early rope speed.", "Stacking extra ropes before the base beat is automatic.", "Treating every card offered as an upgrade you must take immediately."],
+    "mistakes": ["Watching only Scarlet instead of the rope-ground crossing.", "Holding every jump to maximum height.", "Changing three timing variables in quick succession."],
+    "alternatives": ["Best Build by Goal after the basics feel comfortable.", "Ending Build for the first completion attempt.", "Use Upgrade Picker for each three-card choice."],
+    "sourceIds": ["steam-store", "official-screenshots", "steam-ending-guide", "steam-rhythm-guide", "full-gameplay-video"],
+    "seo": {
+      "title": "Scarlet Skips Beginner Build – Safer First Runs",
+      "description": "Start a forgiving Scarlet Skips beginner build with jump height and rope protection before adding speed, fire or extra ropes."
+    }
+  },
+  {
+    "slug": "rocket-build",
+    "name": "Scarlet Skips Rocket Airtime Build",
+    "shortName": "Rocket Airtime Build",
+    "goal": "Stay airborne long enough to chain upgrades",
+    "icon": "rocket",
+    "difficulty": "Advanced",
+    "description": "Stack height and progression first, then use repeated Upgrade Rocket Fuel picks to bridge from one mid-air level-up to the next.",
+    "strength": "Reduces normal landing pressure once the loop closes.",
+    "weakness": "Before the loop closes, an empty fuel bar can create a difficult landing.",
+    "verifiedVersion": "1.0.1",
+    "sourceStatus": "Player Report",
+    "coreUpgrades": ["increase-jump-height", "increase-luck", "upgrade-rocket-fuel"],
+    "audience": "Players comfortable watching both rope patterns and the Rocket Shoes fuel gauge.",
+    "phases": {
+      "early": ["Stack Jump Height and Luck; Rocket Fuel is useful but not yet the engine.", "Keep a small, protected rope set.", "Learn the normal apex and landing so you can tell what the powered hold actually changes."],
+      "mid": ["Take Rocket Fuel until powered airtime can reach another upgrade.", "Test the reported level-up fuel refill directly.", "Start the burn with enough altitude to choose a safe landing if the next upgrade arrives late."],
+      "late": ["Hold to bridge continuously between level-ups only after the refill has repeated.", "Add score cards after the air loop survives several upgrade cycles.", "Monitor the growing time to the next upgrade instead of assuming the loop will remain self-sustaining." ]
+    },
+    "runSignals": ["Natural jump height already clears several rotations.", "The fuel gauge is large enough to change the next landing, not merely delay it briefly.", "A mid-air level-up visibly restores fuel on the current patch.", "The next level-up arrives with fuel remaining for at least two consecutive cycles."],
+    "fallbackRules": ["If fuel does not refill, use it only to correct landings and return to normal jumps.", "If progression is too slow, prioritize Luck or rope-loop volume before another fuel stack.", "If the next landing is unsafe, preserve fuel for the descent instead of spending the entire bar on height."],
+    "evidenceNote": "Long powered airtime is visible in recorded play. The level-up refill and self-sustaining loop are player-reported mechanics and should be retested after any patch that changes Rocket Shoes.",
+    "avoid": ["Depending on a refill that you have not observed.", "Adding landing difficulty before fuel is reliable.", "Ignoring version notes that mention Rocket Shoes fixes."],
+    "mistakes": ["Stacking fuel without enough height or progression.", "Starting the burn too late to rescue a landing.", "Assuming airtime alone guarantees a high score."],
+    "alternatives": ["High Score Build adds late fire and rope scaling.", "Ending Build uses the same foundation with stricter control.", "Beginner Build delays fuel while you learn the jump."],
+    "sourceIds": ["steam-high-score-guide", "steam-ending-guide", "steam-update-101"],
+    "seo": {
+      "title": "Scarlet Skips Rocket Build – Infinite Airtime Route",
+      "description": "Plan a Scarlet Skips Rocket Fuel build around Jump Height, Luck and reported mid-air refills, with honest version 1.0.1 caveats."
+    }
+  },
+  {
+    "slug": "multi-rope-build",
+    "name": "Scarlet Skips Multi-Rope Fire Build",
+    "shortName": "Multi-Rope Fire Build",
+    "goal": "Turn a stable engine into a chaotic score challenge",
+    "icon": "fire",
+    "difficulty": "Expert",
+    "description": "Scale rope count and the fire multiplier only after movement, fuel and reinforcement can support the maintenance cost.",
+    "strength": "Creates the most dramatic score-focused late-game pattern.",
+    "weakness": "Extra ropes, higher speed and fire combine several failure points at once.",
+    "verifiedVersion": "1.0.1",
+    "sourceStatus": "Player Report",
+    "coreUpgrades": ["add-jump-rope", "reinforce-jump-rope", "ignite-jump-rope", "increase-jump-rope-speed"],
+    "audience": "Players seeking a difficult, visually busy score build after mastering safer routes.",
+    "phases": {
+      "early": ["Do not start with the full concept; build height and protection first.", "Keep new ropes reinforced.", "Avoid taking rope count and speed in the same short stretch, because both change the pattern you must learn."],
+      "mid": ["Add rope count once several loops fit inside each jump.", "Increase speed only when the current pattern is readable.", "Observe the full set long enough to identify the largest repeatable gap before igniting anything."],
+      "late": ["Stack Ignite Jump Rope and maintain reinforcement.", "Use Rocket Fuel or height to avoid fragile landing windows.", "Stop adding fire when rope losses or visual clutter begin costing more loops than the multiplier gains." ]
+    },
+    "runSignals": ["Height or fuel already removes most normal landing pressure.", "Every active rope is protected or quickly replaceable.", "The complete multi-rope pattern has a gap you can identify consistently.", "Late upgrades arrive fast enough to repair losses before the engine shrinks."],
+    "fallbackRules": ["If reinforcement falls behind, take protection over another fire or rope-count pick.", "If speed destroys the readable gap, stop stacking it and extend airtime instead.", "If the goal changes to completion, abandon fire and simplify the rope set; the published ending route uses the opposite priorities."],
+    "evidenceNote": "Official media confirms multiple ropes and a visible fire multiplier. The order—airtime first, then rope volume, speed and fire—comes from community high-score routing rather than an official damage or score formula.",
+    "avoid": ["Using this as a first-run build.", "Combining several unreinforced ropes with early fire.", "Using it for the documented ending route."],
+    "mistakes": ["Adding quantity and speed on the same unstable level.", "Ignoring ropes that have lost protection.", "Chasing a multiplier before the engine can replace losses."],
+    "alternatives": ["High Score Build delays the dangerous scaling.", "Rocket Airtime Build focuses on flight control.", "Try a one-variable challenge from the Build Planner."],
+    "sourceIds": ["steam-high-score-guide", "steam-ending-guide", "steam-update-101", "official-screenshots", "full-gameplay-video"],
+    "seo": {
+      "title": "Scarlet Skips Multi-Rope & Fire Build",
+      "description": "Build a late-game Scarlet Skips multi-rope fire setup with reinforcement, controlled speed and clear warnings about the 1.0.1 fire system."
+    }
+  }
+]
