@@ -3,7 +3,7 @@ import styles from "@/style/layout/site-shell.module.css";
 
 export function BrandMark() {
   return (
-    <Link className={styles.brand} href="/" aria-label="Scarlet Skips Lab home">
+    <Link className={styles.brand} href="/" aria-label="Scarlet Skips Guide home">
       <svg aria-hidden="true" viewBox="0 0 42 48" width="31" height="36">
         <path className={styles.brandRope} d="M7 38C-1 27 2 11 13 7M35 38c8-11 5-27-6-31"/>
         <circle className={styles.brandFigure} cx="22" cy="7" r="4.5"/>

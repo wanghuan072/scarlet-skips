@@ -4,8 +4,7 @@ import type { CSSProperties } from "react";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourceBox } from "@/components/common/SourceBox";
-import { getBuild, getRelatedUpgrades, getSources } from "@/lib/data/content";
+import { getBuild, getRelatedUpgrades } from "@/lib/data/content";
 import { SpoilerPanel } from "@/page/ending/components/SpoilerPanel";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
@@ -24,7 +23,6 @@ const steps = [
 export default function EndingPage() {
   const endingBuild = getBuild("ending-build")!;
   const core = getRelatedUpgrades(endingBuild.coreUpgrades);
-  const sources = getSources(endingBuild.sourceIds);
 
   return (
     <main id="main-content">
@@ -38,7 +36,7 @@ export default function EndingPage() {
           <p className={styles.eyebrow}>SPOILER-LIGHT COMPLETION GUIDE</p>
           <h1>Scarlet Skips Ending Guide</h1>
           <p>Follow the documented community route, understand which thresholds are only player observations and reveal the video-corroborated Moon ending only when you want the spoiler.</p>
-          <Link href="/run-lab/ending-route">Open route tracker <Icon name="arrow" size={18}/></Link>
+          <Link href="/lab/ending-route">Open route tracker <Icon name="arrow" size={18}/></Link>
         </div>
       </header>
       <div className={`container ${styles.articleLayout}`}>
@@ -68,11 +66,10 @@ export default function EndingPage() {
             <div className={styles.sectionTitle}><span><Icon name="x" size={23}/></span><div><p className={styles.kicker}>RUN SAVERS</p><h2>Common ending-route mistakes</h2></div></div>
             <ul className={styles.calloutList}><li><Icon name="x" size={17}/><span><strong>Following a high-score script.</strong> An ending attempt does not need early fire or maximum rope pressure.</span></li><li><Icon name="x" size={17}/><span><strong>Protecting every rope forever.</strong> The published route intentionally simplifies the set before reinforcing it.</span></li><li><Icon name="x" size={17}/><span><strong>Taking height before stabilizing.</strong> The route reinforces the smaller set before farming height so rope loss does not interrupt the push.</span></li><li><Icon name="x" size={17}/><span><strong>Trusting an exact height target.</strong> Community numbers are observations, not official thresholds.</span></li><li><Icon name="x" size={17}/><span><strong>Ignoring a vulnerable last rope.</strong> If a single unprotected rope remains, add or reinforce rather than gambling the entire route.</span></li></ul>
           </section>
-          <SourceBox sources={sources} version="1.0.1"/>
         </article>
         <aside className={styles.stickyAside}>
           <section><p className={styles.kicker}>QUICK ROUTE</p><h2>Ending checklist</h2><ul><li><Icon name="check" size={16}/>Manageable early pressure</li><li><Icon name="check" size={16}/>Smaller reinforced rope set</li><li><Icon name="check" size={16}/>Height + Luck foundation</li><li><Icon name="check" size={16}/>Rocket Fuel late</li><li><Icon name="x" size={16}/>No fire on cited route</li></ul><Link href="/builds/ending-build">View full ending build <Icon name="arrow" size={16}/></Link></section>
-          <section><p className={styles.kicker}>NEXT TOOLS</p><nav><Link href="/run-lab/ending-route"><Icon name="route" size={18}/>Ending Route Tracker</Link><Link href="/run-lab/build-planner"><Icon name="flask" size={18}/>Build Planner</Link><Link href="/guides/secrets"><Icon name="spark" size={18}/>Secrets &amp; Mechanics</Link></nav></section>
+          <section><p className={styles.kicker}>NEXT TOOLS</p><nav><Link href="/lab/ending-route"><Icon name="route" size={18}/>Ending Route Tracker</Link><Link href="/lab/run-recovery"><Icon name="flask" size={18}/>Run Recovery</Link><Link href="/guides/secrets"><Icon name="spark" size={18}/>Secrets &amp; Mechanics</Link></nav></section>
         </aside>
       </div>
     </main>

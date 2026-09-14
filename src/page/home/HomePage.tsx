@@ -2,151 +2,242 @@ import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/common/Icon";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { SourceBadge } from "@/components/common/Badges";
 import { UpgradeCard } from "@/components/common/UpgradeCard";
-import { game, guides, updates, upgrades } from "@/lib/data/content";
+import { game, getGuide, getUpgrade, updates, upgrades } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { videoGameSchema, websiteSchema } from "@/seo/schema";
 import styles from "@/style/page/home/home.module.css";
+import type { IconName } from "@/types/content";
 
-const faq = [
-  { question: "What is Scarlet Skips?", answer: "Scarlet Skips is a one-button roguelike score-attack game by Yerk Games. You time jumps, level up and combine upgrade cards to change each run." },
-  { question: "How many upgrades are in Scarlet Skips?", answer: "The official Steam page says there are 10 upgrade cards. Seven card names are currently documented on this site; the remaining names are not guessed." },
-  { question: "How do upgrades work?", answer: "Each level-up offers three random power-ups. You choose one, and upgrades can stack and combine into different run builds." },
-  { question: "Does Scarlet Skips have an ending?", answer: "Yes. A Steam Community guide documents an ending route. Our ending page starts spoiler-free and hides the final sequence until you choose to reveal it." },
-  { question: "How do I get a high score?", answer: "Community routes first build Jump Height and Luck, then connect Rocket Fuel and later add rope quantity, speed and fire once the run is stable." },
-  { question: "Where can I play Scarlet Skips?", answer: "Scarlet Skips is a single-player Windows game on Steam. The official minimum listing starts at Windows 10, 8 GB RAM and 2 GB of storage; this website is a guide and does not host the game." },
-];
-
-const snapshot = [
-  { icon: "cards" as const, value: String(game.upgradeCardCount), label: "Upgrade cards", note: `${game.documentedCardCount} names documented` },
-  { icon: "spark" as const, value: String(game.choicesPerLevel), label: "Choices per level", note: "Random power-ups" },
-  { icon: "award" as const, value: String(game.achievementCount), label: "Achievement", note: game.achievementName },
-  { icon: "gauge" as const, value: game.currentVersion, label: "Current version", note: game.versionDate },
-  { icon: "calendar" as const, value: game.releaseDateShort, label: "Release date", note: "Available on Steam" },
-];
-
-const tools = [
-  { icon: "flask" as const, title: "Build Planner", text: "Create a goal-based build and inspect strengths, gaps and next picks.", href: "/run-lab/build-planner" },
-  { icon: "cards" as const, title: "Upgrade Picker", text: "Compare the three cards currently offered during your run.", href: "/run-lab/upgrade-picker" },
-  { icon: "route" as const, title: "Ending Route", text: "Save a spoiler-light completion checklist on this device.", href: "/run-lab/ending-route" },
-];
-
-const goals = [
-  { icon: "trophy" as const, title: "Reach the Ending", text: "Follow a controlled, spoiler-light route.", href: "/ending", tone: "green" },
-  { icon: "gauge" as const, title: "Get a High Score", text: "Build the airtime engine before scaling fire.", href: "/high-score", tone: "blue" },
-  { icon: "controller" as const, title: "Learn the Game", text: "Start with the rhythm and readable upgrades.", href: "/guides/beginner-guide", tone: "orange" },
-  { icon: "spark" as const, title: "Try Something Fun", text: "Plan a wild multi-rope or Rocket build.", href: "/builds", tone: "pink" },
+const goals: Array<{
+  icon: IconName;
+  title: string;
+  text: string;
+  href: string;
+  tone: string;
+}> = [
+  {
+    icon: "controller",
+    title: "Learn the Basics",
+    text: "Master the one-button rhythm and make safer first picks.",
+    href: "/guides/beginner-guide",
+    tone: "green",
+  },
+  {
+    icon: "route",
+    title: "Reach the Ending",
+    text: "Follow a spoiler-light route toward the Moon ending.",
+    href: "/ending",
+    tone: "blue",
+  },
+  {
+    icon: "trophy",
+    title: "Push a High Score",
+    text: "Build the height, Luck and Rocket Fuel airtime loop.",
+    href: "/high-score",
+    tone: "orange",
+  },
+  {
+    icon: "award",
+    title: "Unlock the Achievement",
+    text: `Learn the unusual trigger for “${game.achievementName}.”`,
+    href: "/guides/achievement",
+    tone: "pink",
+  },
 ];
 
 export default function HomePage() {
-  const latest = updates[0];
-  const heroAlt = "Editorial illustration of Scarlet skipping rope in a sunny park";
-  const heroImageCommon = { alt: heroAlt, sizes: "100vw" };
-  const { props: { srcSet: desktopHeroSrcSet } } = getImageProps({ ...heroImageCommon, width: 2172, height: 724, src: "/images/editorial/home-hero-v2.webp" });
-  const { props: { srcSet: mobileHeroSrcSet, ...mobileHeroProps } } = getImageProps({ ...heroImageCommon, width: 1122, height: 1402, src: "/images/editorial/home-hero-mobile.webp" });
+  const howToPlay = getGuide("how-to-play")!;
+  const rocketFuel = getUpgrade("upgrade-rocket-fuel")!;
+  const latestUpdate = updates[0];
+  const heroAlt = "Editorial illustration of Scarlet skipping rope through a sunny park";
+  const common = { alt: heroAlt, sizes: "100vw" };
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({
+    ...common,
+    width: 2172,
+    height: 724,
+    src: "/images/editorial/home-hero-v2.webp",
+  });
+  const {
+    props: { srcSet: mobileSrcSet, ...mobileProps },
+  } = getImageProps({
+    ...common,
+    width: 1122,
+    height: 1402,
+    src: "/images/editorial/home-hero-mobile.webp",
+  });
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
+  const featuredGuides = [
+    {
+      eyebrow: "Beginner Guide",
+      title: "How to Play Scarlet Skips",
+      text: howToPlay.description,
+      href: `/guides/${howToPlay.slug}`,
+      image: howToPlay.image,
+      alt: howToPlay.imageAlt,
+    },
+    {
+      eyebrow: "Build Mechanic",
+      title: "How the Rocket Fuel Loop Works",
+      text: "Learn when powered airtime becomes useful, what players report about fuel refills and why the loop is not guaranteed.",
+      href: `/upgrades/${rocketFuel.slug}`,
+      image: rocketFuel.image,
+      alt: rocketFuel.imageAlt,
+    },
+    {
+      eyebrow: "Ending Guide",
+      title: "Reach the Moon Without Chasing Fire",
+      text: "Use a smaller reinforced rope set, then build height, Luck and fuel toward the documented final ascent.",
+      href: "/ending",
+      image: "/images/editorial/ending-hero.webp",
+      alt: "Editorial illustration of Scarlet ascending toward the Moon",
+    },
+  ];
 
   return (
     <main id="main-content">
       <JsonLd data={websiteSchema} />
       <JsonLd data={videoGameSchema} />
-      <JsonLd data={faqSchema} />
 
       <section className={styles.hero}>
         <picture className={styles.heroPicture}>
-          <source media="(min-width: 769px)" srcSet={desktopHeroSrcSet} />
-          <img {...mobileHeroProps} alt={heroAlt} srcSet={mobileHeroSrcSet} fetchPriority="high" />
+          <source media="(min-width: 769px)" srcSet={desktopSrcSet} />
+          <img
+            {...mobileProps}
+            alt={heroAlt}
+            srcSet={mobileSrcSet}
+            fetchPriority="high"
+          />
         </picture>
         <div className={styles.heroShade} />
-        <p className={styles.heroMotto} aria-hidden="true">Same park.<br/>Higher run.</p>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>THE COMPLETE GUIDE FOR</span>
-            <h1>Scarlet Skips<span className="sr-only"> Guide and Run Lab</span></h1>
-            <p className={styles.heroTopics}>Guide · Upgrades · Builds · Run Lab</p>
-            <p className={styles.heroText}>Master the timing, compare verified upgrades, plan builds and follow player-tested routes toward the ending.</p>
+            <h1>Scarlet Skips Guide</h1>
+            <p className={styles.heroTopics}>
+              Upgrades <span>·</span> Builds <span>·</span> Ending <span>·</span> High Score
+            </p>
+            <p className={styles.heroText}>
+              Learn every documented upgrade, plan a build and follow source-labelled routes from your first skip to the Moon.
+            </p>
             <div className={styles.heroActions}>
-              <Link className={styles.primaryButton} href="/upgrades">Explore upgrades <Icon name="arrow" size={18}/></Link>
-              <Link className={styles.secondaryButton} href="/run-lab"><Icon name="flask" size={20}/> Open Run Lab</Link>
+              <Link href="/upgrades">
+                Explore Upgrades <Icon name="arrow" size={18} />
+              </Link>
+              <Link href="/ending">
+                <Icon name="route" size={19} /> Reach the Ending
+              </Link>
             </div>
             <div className={styles.trustRow}>
-              <span><Icon name="check" size={17}/> Accurate data</span>
-              <span><Icon name="shield" size={17}/> Community verified</span>
-              <span><Icon name="gauge" size={17}/> Version tracked</span>
+              <span><Icon name="check" size={16} /> Official facts checked</span>
+              <span><Icon name="shield" size={16} /> Community routes labelled</span>
+              <span><Icon name="gauge" size={16} /> Updated for v{game.currentVersion}</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={`container ${styles.snapshot}`} aria-labelledby="snapshot-heading">
-        <div className={styles.snapshotHeader}><div className={styles.snapshotTitle}><span><Icon name="controller" size={25}/></span><div><h2 id="snapshot-heading">Game Snapshot</h2><p>Scarlet Skips at a glance</p></div></div><Link href="/guides/how-to-play">View game details <Icon name="arrow" size={16}/></Link></div>
-        <div className={styles.snapshotGrid}>
-          {snapshot.map((item) => <article key={item.label}><span><Icon name={item.icon} size={29}/></span><div><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.note}</p></div></article>)}
-        </div>
-      </section>
-
-      <section className={styles.homeSection}>
-        <div className="container">
-          <div className={styles.labPanel}>
-            <SectionHeading icon="flask" title="Run Lab" description="Plan smarter. Jump higher." href="/run-lab" linkLabel="See all tools"/>
-            <div className={styles.toolGrid}>
-              {tools.map((tool) => <Link key={tool.href} href={tool.href}><span><Icon name={tool.icon} size={30}/></span><div><h3>{tool.title}</h3><p>{tool.text}</p></div><Icon name="arrow" size={20}/></Link>)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.homeSection}>
-        <div className="container">
-          <SectionHeading icon="cards" title="Popular upgrades" description="Browse the verified cards players use to shape a run." href="/upgrades" linkLabel="View all upgrades"/>
-          <div className={styles.upgradeGrid}>{upgrades.slice(0, 6).map((upgrade) => <UpgradeCard key={upgrade.slug} upgrade={upgrade} tile/>)}</div>
-        </div>
-      </section>
-
-      <section className={styles.goalSection}>
-        <div className="container">
-          <SectionHeading icon="target" title="What's your goal?" description="Start with what you want from the run, not a generic tier list." href="/builds" linkLabel="Compare builds"/>
-          <div className={styles.goalGrid}>
-            {goals.map((goal) => <Link key={goal.href} href={goal.href} data-tone={goal.tone}><span><Icon name={goal.icon} size={30}/></span><div><h3>{goal.title}</h3><p>{goal.text}</p></div><Icon name="arrow" size={18}/></Link>)}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.homeSection}>
-        <div className={`container ${styles.guidesUpdateGrid}`}>
+      <section className={`container ${styles.snapshot}`} aria-labelledby="snapshot-title">
+        <div className={styles.snapshotHeading}>
+          <span><Icon name="controller" size={27} /></span>
           <div>
-            <SectionHeading icon="book" title="Latest guides" description="Focused help for the next decision in your run." href="/guides" linkLabel="View all guides"/>
-            <div className={styles.guideGrid}>
-              {guides.slice(0, 3).map((guide) => <Link key={guide.slug} href={`/guides/${guide.slug}`} className={styles.guideCard}><div className={styles.guideImage}><Image src={guide.image} alt={guide.imageAlt} fill sizes="(max-width: 768px) 100vw, 28vw"/></div><div><span>{guide.category}</span><h3>{guide.shortName}</h3><p>{guide.description}</p><strong>Read guide <Icon name="arrow" size={15}/></strong></div></Link>)}
-            </div>
+            <h2 id="snapshot-title">Game Snapshot</h2>
+            <p>Verified basics before you start a run.</p>
           </div>
-          <aside className={styles.updateCard} aria-labelledby="latest-update-heading">
-            <div className={styles.updateHead}><span><Icon name="gauge" size={24}/></span><div><small>LATEST UPDATE</small><h2 id="latest-update-heading">Version {latest.version}</h2></div></div>
-            <div className={styles.updateImage}><Image src="/images/official/screenshot-5.jpg" alt="Scarlet using Rocket Shoes, a system fixed in update 1.0.1" fill sizes="360px"/></div>
-            <p>{latest.summary}</p>
-            <ul>{latest.changes.slice(0, 4).map((change) => <li key={change}><Icon name="check" size={15}/>{change}</li>)}</ul>
-            <div className={styles.updateMeta}><SourceBadge status="Official"/><span>{latest.date}</span></div>
-            <Link href={`/updates/${latest.slug}`}>Read patch summary <Icon name="arrow" size={17}/></Link>
-          </aside>
+          <Link href="/game-info">View game details <Icon name="arrow" size={15} /></Link>
+        </div>
+        <div className={styles.snapshotGrid}>
+          <div><Icon name="cards" size={28} /><strong>{game.upgradeCardCount}</strong><span>Upgrade Cards</span><small>{game.documentedCardCount} names documented</small></div>
+          <div><Icon name="spark" size={28} /><strong>{game.choicesPerLevel}</strong><span>Choices per Level</span><small>Random power-ups</small></div>
+          <div><Icon name="trophy" size={28} /><strong>{game.achievementCount}</strong><span>Steam Achievement</span><small>{game.achievementName}</small></div>
+          <div><Icon name="gauge" size={28} /><strong>v{game.currentVersion}</strong><span>Current Version</span><small>{game.versionDate}</small></div>
+          <div><Icon name="calendar" size={28} /><strong>{game.releaseDateShort}</strong><span>Release Date</span><small>Windows PC</small></div>
         </div>
       </section>
 
-      <section className={styles.faqSection}>
-        <div className="container">
-          <SectionHeading icon="info" title="Scarlet Skips FAQ" description="Short answers, with deeper routes when you need them."/>
-          <div className={styles.faqGrid}>{faq.map((item, index) => <details key={item.question} open={index === 0}><summary>{item.question}<Icon name="plus" size={18}/></summary><p>{item.answer}</p></details>)}</div>
-          <p className={styles.faqNote}>This is an independent fan resource. Gameplay facts are separated from community strategies, and unknown values stay unknown.</p>
+      <section className={`container ${styles.section}`}>
+        <SectionHeading
+          icon="cards"
+          title="Popular Upgrades"
+          description={`Explore ${game.documentedCardCount} documented cards without invented stats or names.`}
+          href="/upgrades"
+          linkLabel="View all upgrades"
+        />
+        <div className={styles.upgradeGrid}>
+          {upgrades.slice(0, 6).map((upgrade) => (
+            <UpgradeCard key={upgrade.slug} upgrade={upgrade} tile />
+          ))}
         </div>
+      </section>
+
+      <section className={`container ${styles.section}`}>
+        <SectionHeading
+          icon="target"
+          title="What’s Your Goal?"
+          description="Choose the result you want, then follow a focused route."
+          href="/builds"
+          linkLabel="View all builds"
+        />
+        <div className={styles.goalGrid}>
+          {goals.map((goal) => (
+            <Link key={goal.href} href={goal.href} data-tone={goal.tone}>
+              <span><Icon name={goal.icon} size={30} /></span>
+              <div><h3>{goal.title}</h3><p>{goal.text}</p></div>
+              <Icon name="arrow" size={18} />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className={`container ${styles.section}`}>
+        <SectionHeading
+          icon="book"
+          title="Featured Guides"
+          description="The answers players look for most: controls, airtime and the ending."
+          href="/guides"
+          linkLabel="View all guides"
+        />
+        <div className={styles.guideGrid}>
+          {featuredGuides.map((guide) => (
+            <Link key={guide.href} href={guide.href}>
+              <div className={styles.guideImage}>
+                <Image src={guide.image} alt={guide.alt} fill sizes="(max-width: 768px) 100vw, 33vw" />
+              </div>
+              <div className={styles.guideBody}>
+                <span>{guide.eyebrow}</span>
+                <h3>{guide.title}</h3>
+                <p>{guide.text}</p>
+                <strong>Read guide <Icon name="arrow" size={15} /></strong>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className={`container ${styles.pickerBanner}`}>
+        <span className={styles.pickerIcon}><Icon name="cards" size={34} /></span>
+        <div>
+          <p className={styles.kicker}>FREE RUN TOOL</p>
+          <h2>Stuck on a three-card choice?</h2>
+          <p>Enter the cards on your screen and get a contextual recommendation for your current goal and run state.</p>
+        </div>
+        <div className={styles.pickerLinks}>
+          <Link href="/lab/pick-my-upgrade">Pick My Upgrade <Icon name="arrow" size={17} /></Link>
+          <Link href="/tools">All tools</Link>
+        </div>
+      </section>
+
+      <section className={`container ${styles.updateSection}`}>
+        <div className={styles.updateIntro}>
+          <span><Icon name="gauge" size={28} /></span>
+          <div><p className={styles.kicker}>LATEST UPDATE</p><h2>Guide baseline: v{latestUpdate.version}</h2><p>{latestUpdate.summary}</p></div>
+        </div>
+        <div className={styles.updateChanges}>
+          {latestUpdate.changes.slice(0, 3).map((change) => <span key={change}><Icon name="check" size={15} />{change}</span>)}
+        </div>
+        <Link className={styles.updateLink} href={`/updates/${latestUpdate.slug}`}>Read patch notes <Icon name="arrow" size={16} /></Link>
       </section>
     </main>
   );

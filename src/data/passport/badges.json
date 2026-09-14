@@ -1,0 +1,8 @@
+[
+  { "id": "first-skip", "name": "First Skip", "description": "Complete your first fan-made Challenge.", "requirement": "challenge-1", "icon": "award" },
+  { "id": "daily-jumper", "name": "Daily Jumper", "description": "Complete three Daily Challenges.", "requirement": "challenge-3", "icon": "calendar" },
+  { "id": "moonbound", "name": "Moonbound", "description": "Complete an Ending run or the local ending route.", "requirement": "ending", "icon": "route" },
+  { "id": "score-chaser", "name": "Score Chaser", "description": "Save a personal score of 10,000 or more.", "requirement": "score-10000", "icon": "trophy" },
+  { "id": "rope-master", "name": "Rope Master", "description": "Complete a Rope Challenge.", "requirement": "rope-challenge", "icon": "rope" },
+  { "id": "lab-rat", "name": "Lab Rat", "description": "Use three different Lab tools.", "requirement": "tools-3", "icon": "flask" }
+]

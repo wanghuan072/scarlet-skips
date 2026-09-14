@@ -13,6 +13,11 @@
 .dataNotice strong { color: #6f4c00; }
 .dataNotice p { margin-top: 2px; color: #6c5c3c; font-size: 13px; }
 .explorerSection { padding-top: 30px; }
+.interactionCallout { display: grid; grid-template-columns: auto 1fr auto; gap: 15px; align-items: center; margin-top: 25px; padding: 20px; border: 1px solid #b8dbf4; border-radius: 17px; background: #eef8ff; }
+.interactionCallout > span { display: inline-flex; width: 52px; height: 52px; align-items: center; justify-content: center; border-radius: 14px; background: white; color: var(--color-secondary); }
+.interactionCallout strong { font-family: var(--font-display); font-size: 18px; }
+.interactionCallout p { margin-top: 3px; color: var(--color-muted); font-size: 12px; }
+.interactionCallout a { display: inline-flex; align-items: center; gap: 6px; color: var(--color-secondary); font-size: 12px; font-weight: 800; }
 .filterRow { display: flex; flex-wrap: wrap; gap: 8px; }
 .filterRow button { min-height: 44px; padding: 0 17px; border: 1px solid #cbddea; border-radius: 999px; background: white; color: #3e536a; cursor: pointer; font-size: 13px; font-weight: 750; }
 .filterRow button:hover { border-color: #7cb9e9; }
@@ -53,6 +58,8 @@
   .goalCards { grid-template-columns: 1fr; }
   .articleHero { grid-template-columns: 1fr; padding-top: 28px; }
   .miniUpgradeGrid { grid-template-columns: 1fr; }
+  .interactionCallout { grid-template-columns: auto 1fr; }
+  .interactionCallout a { grid-column: 2; }
 }
 
 @media (max-width: 430px) {

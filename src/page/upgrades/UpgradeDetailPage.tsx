@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourceBox } from "@/components/common/SourceBox";
 import { UpgradeCard } from "@/components/common/UpgradeCard";
 import { getRelatedBuilds, getRelatedUpgrades, getSources, upgrades } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
@@ -48,7 +47,6 @@ export default function UpgradeDetailPage({ upgrade }: { upgrade: Upgrade }) {
           <section className={styles.contentSection}><h2><Icon name="gauge" size={25}/>When to pick this upgrade</h2><div className={styles.stageGrid}><article><span>EARLY GAME</span><h3>Build the base</h3><p>{upgrade.stages.early}</p></article><article><span>MID GAME</span><h3>Shape the run</h3><p>{upgrade.stages.mid}</p></article><article><span>LATE GAME</span><h3>Protect the loop</h3><p>{upgrade.stages.late}</p></article></div></section>
           <section className={`${styles.contentSection} ${styles.avoidSection}`}><h2><Icon name="x" size={25}/>When to avoid it</h2><ul>{upgrade.avoid.map((item) => <li key={item}><Icon name="x" size={16}/>{item}</li>)}</ul></section>
           {upgrade.knownUnknowns && <section className={`${styles.contentSection} ${styles.evidenceSection}`}><h2><Icon name="shield" size={25}/>Evidence and open questions</h2><ul>{upgrade.knownUnknowns.map((item) => <li key={item}><Icon name="info" size={16}/>{item}</li>)}</ul></section>}
-          <SourceBox sources={sourceList} version={upgrade.verifiedVersion}/>
           <nav className={styles.bottomNav} aria-label="Previous and next upgrades"><Link href={`/upgrades/${previous.slug}`}><span>Previous</span><strong>← {previous.shortName}</strong></Link><Link href="/upgrades"><span>Database</span><strong>All upgrades</strong></Link><Link href={`/upgrades/${next.slug}`}><span>Next</span><strong>{next.shortName} →</strong></Link></nav>
         </article>
 
@@ -56,7 +54,7 @@ export default function UpgradeDetailPage({ upgrade }: { upgrade: Upgrade }) {
           <section><h2><Icon name="info" size={22}/>Upgrade info</h2><dl><div><dt>Type</dt><dd>{upgrade.category}</dd></div><div><dt>Status</dt><dd>{upgrade.sourceStatus}</dd></div><div><dt>Appears in</dt><dd>Level-up selection</dd></div><div><dt>Stackable</dt><dd>{upgrade.stackable.startsWith("Yes") ? "Yes" : "Observed"}</dd></div><div><dt>Best timing</dt><dd>{upgrade.bestTiming} game</dd></div><div><dt>Game version</dt><dd>{upgrade.verifiedVersion}</dd></div><div><dt>Source</dt><dd>{sourceList.some((source) => source.type === "official") ? "Official media + guides" : "Community guide"}</dd></div></dl></section>
           <section className={styles.tips}><h2><Icon name="spark" size={22}/>Quick tips</h2><ul>{upgrade.tips.map((tip) => <li key={tip}><Icon name="check" size={16}/>{tip}</li>)}</ul></section>
           <section><h2><Icon name="cards" size={22}/>Related upgrades</h2><div className={styles.relatedList}>{related.slice(0,4).map((item) => <UpgradeCard key={item.slug} upgrade={item} compact/>)}</div></section>
-          <section><h2><Icon name="book" size={22}/>Related guides</h2><nav className={styles.guideLinks}>{relatedBuilds.map((build) => <Link key={build.slug} href={`/builds/${build.slug}`}><Icon name={build.icon} size={19}/><span><strong>{build.shortName}</strong><small>{build.goal}</small></span><Icon name="arrow" size={15}/></Link>)}<Link href="/run-lab/upgrade-picker"><Icon name="flask" size={19}/><span><strong>Upgrade Picker</strong><small>Compare a live three-card choice</small></span><Icon name="arrow" size={15}/></Link></nav></section>
+          <section><h2><Icon name="book" size={22}/>Related guides</h2><nav className={styles.guideLinks}>{relatedBuilds.map((build) => <Link key={build.slug} href={`/builds/${build.slug}`}><Icon name={build.icon} size={19}/><span><strong>{build.shortName}</strong><small>{build.goal}</small></span><Icon name="arrow" size={15}/></Link>)}<Link href="/lab/pick-my-upgrade"><Icon name="flask" size={19}/><span><strong>Pick My Upgrade</strong><small>Compare a live three-card choice</small></span><Icon name="arrow" size={15}/></Link></nav></section>
         </aside>
       </div>
     </main>

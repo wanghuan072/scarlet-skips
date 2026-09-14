@@ -3,15 +3,13 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourceBox } from "@/components/common/SourceBox";
-import { getSources, guides } from "@/lib/data/content";
+import { guides } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import type { Guide } from "@/types/content";
 import styles from "@/style/page/guides/guide-detail.module.css";
 
 export default function GuideDetailPage({ guide }: { guide: Guide }) {
-  const sources = getSources(guide.sourceIds);
   const currentIndex = guides.findIndex((item) => item.slug === guide.slug);
   const next = guides[(currentIndex + 1) % guides.length];
   const articleSchema = {
@@ -21,7 +19,7 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
     description: guide.description,
     dateModified: "2026-09-14",
     image: guide.image,
-    author: { "@type": "Organization", name: "Scarlet Skips Lab" },
+    author: { "@type": "Organization", name: "Scarlet Skips Guide" },
   };
   return (
     <main id="main-content">
@@ -35,7 +33,6 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
         <article className={styles.content}>
           {guide.sections.map((section, index) => <section key={section.heading} id={`section-${index + 1}`}><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}><Icon name="check" size={17}/>{bullet}</li>)}</ul>}</section>)}
           <section className={styles.nextSteps}><h2>Next steps</h2><div>{guide.links.map((link) => <Link key={link.href} href={link.href}>{link.label}<Icon name="arrow" size={17}/></Link>)}</div></section>
-          <SourceBox sources={sources} version="1.0.1"/>
         </article>
         <aside className={styles.sidebar}>
           <section><h2>On this page</h2><nav>{guide.sections.map((section,index) => <a key={section.heading} href={`#section-${index + 1}`}><span>{String(index + 1).padStart(2,"0")}</span>{section.heading}</a>)}</nav></section>

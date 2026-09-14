@@ -11,6 +11,23 @@
   "platform": "Windows PC via Steam",
   "interfaceLanguage": "English",
   "storage": "2 GB available space",
+  "minimumRequirements": {
+    "os": "Windows 10",
+    "processor": "Intel Core i7-6700HQ",
+    "memory": "8 GB RAM",
+    "graphics": "NVIDIA GeForce GTX 1060",
+    "directX": "Version 12",
+    "storage": "2 GB available space"
+  },
+  "recommendedRequirements": {
+    "os": "Windows 10",
+    "processor": "AMD Ryzen 9 3900X",
+    "memory": "16 GB RAM",
+    "graphics": "NVIDIA GeForce RTX 2080",
+    "directX": "Version 12",
+    "storage": "2 GB available space"
+  },
+  "storeFeatures": ["Single-player", "Steam Achievements", "Family Sharing", "Partial Controller Support"],
   "genres": ["Action", "Roguelike", "Arcade", "Score Attack"],
   "playerMode": "Single-player",
   "upgradeCardCount": 10,

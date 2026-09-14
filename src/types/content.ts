@@ -28,6 +28,9 @@ export interface GameData {
   platform: string;
   interfaceLanguage: string;
   storage: string;
+  minimumRequirements: SystemRequirements;
+  recommendedRequirements: SystemRequirements;
+  storeFeatures: string[];
   genres: string[];
   playerMode: string;
   upgradeCardCount: number;
@@ -37,6 +40,15 @@ export interface GameData {
   achievementName: string;
   updatedDate: string;
   sourceIds: string[];
+}
+
+export interface SystemRequirements {
+  os: string;
+  processor: string;
+  memory: string;
+  graphics: string;
+  directX: string;
+  storage: string;
 }
 
 export interface Upgrade {

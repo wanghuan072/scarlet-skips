@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { builds, guides, updates, upgrades } from "@/lib/data/content";
+import { challenges } from "@/lib/data/lab";
 import { Icon } from "@/components/common/Icon";
 import styles from "@/style/layout/site-shell.module.css";
 
@@ -11,6 +12,12 @@ const index = [
   ...builds.map((item) => ({ title: item.shortName, subtitle: "Build", href: `/builds/${item.slug}`, text: `${item.name} ${item.goal} ${item.description}` })),
   ...guides.map((item) => ({ title: item.shortName, subtitle: "Guide", href: `/guides/${item.slug}`, text: `${item.name} ${item.description}` })),
   ...updates.map((item) => ({ title: item.title, subtitle: "Update", href: `/updates/${item.slug}`, text: `${item.title} ${item.summary}` })),
+  ...challenges.map((item) => ({ title: item.name, subtitle: "Challenge", href: "/challenges/generator", text: `${item.name} ${item.type} ${item.goal} ${item.description}` })),
+  { title: "Scarlet Skips Tools", subtitle: "Tools", href: "/tools", text: "tools upgrade picker run recovery ending route my runs matrix challenge generator" },
+  { title: "Pick My Upgrade", subtitle: "Lab tool", href: "/lab/pick-my-upgrade", text: "pick compare three upgrade choices card decision" },
+  { title: "Run Recovery", subtitle: "Lab tool", href: "/lab/run-recovery", text: "recover diagnose landing rope airtime fuel score" },
+  { title: "Upgrade Interactions", subtitle: "Lab tool", href: "/upgrades/matrix", text: "upgrade pairs synergy interaction matrix" },
+  { title: "Scarlet Skips Game Info", subtitle: "Game info", href: "/game-info", text: "release date price pc system requirements platform steam controller" },
 ];
 
 export function SearchBox() {
@@ -35,13 +42,13 @@ export function SearchBox() {
         setFocused(false);
       }}
     >
-      <label className="sr-only" htmlFor="site-search">Search upgrades, builds and guides</label>
+      <label className="sr-only" htmlFor="site-search">Search Scarlet Skips upgrades, builds and guides</label>
       <Icon name="search" size={18}/>
       <input
         id="site-search"
         type="search"
         value={query}
-        placeholder="Search upgrades, builds, guides…"
+        placeholder="Search upgrades, guides, builds…"
         autoComplete="off"
         onFocus={() => setFocused(true)}
         onBlur={() => window.setTimeout(() => setFocused(false), 120)}

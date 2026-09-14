@@ -31,7 +31,7 @@ export default function BestUpgradesPage() {
           return <article key={group.goal}><div className={styles.goalGuideHead}><span><Icon name={group.icon} size={27}/></span><div><h2>{group.title}</h2><p>{group.text}</p></div></div><div className={styles.miniUpgradeGrid}>{ranked.map((upgrade) => <UpgradeCard key={upgrade.slug} upgrade={upgrade} compact/>)}</div></article>;
         })}
       </section>
-      <section className={`container ${styles.callout}`}><Icon name="info" size={25}/><div><h2>How to use this guide</h2><p>These rankings are strategy suggestions, not guaranteed optimal choices. Exact card values are not public, random offers change every route, and player control still matters. For a live three-card decision, use the <Link href="/run-lab/upgrade-picker">Upgrade Picker</Link>.</p></div></section>
+      <section className={`container ${styles.callout}`}><Icon name="info" size={25}/><div><h2>How to use this guide</h2><p>These rankings are strategy suggestions, not guaranteed optimal choices. Exact card values are not public, random offers change every route, and player control still matters. For a live three-card decision, use <Link href="/lab/pick-my-upgrade">Pick My Upgrade</Link>.</p></div></section>
     </main>
   );
 }

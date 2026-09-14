@@ -39,8 +39,13 @@ export default function UpgradesPage() {
         <div className={`container ${styles.dataNotice}`}><span><Icon name="shield" size={25}/></span><div><strong>{game.upgradeCardCount} cards are official. {game.documentedCardCount} names are currently verified here.</strong><p>The official store confirms a pool of ten. We list only names visible in official screenshots or corroborated footage, so three cards remain intentionally undocumented.</p></div></div>
       </section>
       <section className={`container ${styles.explorerSection}`}>
-        <SectionHeading icon="cards" title="Upgrade Explorer" description="Filter by the part of the run each documented card changes."/>
+        <SectionHeading icon="cards" title="Upgrade Explorer" description="Filter by the part of the run each documented card changes." href="/upgrades/matrix" linkLabel="Compare two cards"/>
         <UpgradeExplorer upgrades={upgrades}/>
+      </section>
+      <section className={`container ${styles.interactionCallout}`}>
+        <span><Icon name="flask" size={31}/></span>
+        <div><strong>Two cards can solve one problem—or create two new ones.</strong><p>Explore six sourced upgrade pairings by timing, prerequisite and risk. Undocumented combinations stay marked as untested.</p></div>
+        <Link href="/upgrades/matrix">Open Interaction Lab <Icon name="arrow" size={16}/></Link>
       </section>
       <section className={styles.goalBand}>
         <div className="container">

@@ -2,9 +2,8 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourceBox } from "@/components/common/SourceBox";
 import { UpgradeCard } from "@/components/common/UpgradeCard";
-import { builds, getRelatedUpgrades, getSources } from "@/lib/data/content";
+import { builds, getRelatedUpgrades } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import type { Build } from "@/types/content";
@@ -12,7 +11,6 @@ import styles from "@/style/page/builds/build-detail.module.css";
 
 export default function BuildDetailPage({ build }: { build: Build }) {
   const core = getRelatedUpgrades(build.coreUpgrades);
-  const sourceList = getSources(build.sourceIds);
   return (
     <main id="main-content">
       <JsonLd data={breadcrumbSchema([{label:"Home",href:"/"},{label:"Builds",href:"/builds"},{label:build.shortName,href:`/builds/${build.slug}`}])}/>
@@ -33,10 +31,9 @@ export default function BuildDetailPage({ build }: { build: Build }) {
           <section className={styles.avoid}><h2><Icon name="x" size={25}/>What to avoid</h2><ul>{build.avoid.map((item) => <li key={item}><Icon name="x" size={16}/>{item}</li>)}</ul></section>
           <section><h2><Icon name="info" size={25}/>Common mistakes</h2><ul className={styles.checkList}>{build.mistakes.map((item) => <li key={item}><Icon name="info" size={16}/>{item}</li>)}</ul></section>
           <section><h2><Icon name="arrow" size={25}/>Alternative choices</h2><ul className={styles.checkList}>{build.alternatives.map((item) => <li key={item}><Icon name="check" size={16}/>{item}</li>)}</ul></section>
-          <SourceBox sources={sourceList} version={build.verifiedVersion}/>
         </article>
         <aside className={styles.sidebar}>
-          <section><h2><Icon name="flask" size={21}/>Run Lab</h2><p>Load this goal into the planner, add your real stacks and see what the current run is missing.</p><Link href={`/run-lab/build-planner?goal=${build.slug.includes("ending") ? "ending" : build.slug.includes("high-score") ? "high-score" : build.slug.includes("beginner") ? "beginner" : build.slug.includes("rocket") ? "airtime" : "fun"}`}>Open planner <Icon name="arrow" size={16}/></Link></section>
+          <section><h2><Icon name="flask" size={21}/>Field Lab</h2><p>Compare the exact three cards offered or diagnose the bottleneck before the next selection.</p><Link href="/lab/pick-my-upgrade">Open decision tool <Icon name="arrow" size={16}/></Link></section>
           <section><h2><Icon name="cards" size={21}/>Core cards</h2><nav>{core.map((upgrade) => <Link key={upgrade.slug} href={`/upgrades/${upgrade.slug}`}><Icon name={upgrade.icon} size={18}/><span>{upgrade.shortName}</span><Icon name="arrow" size={14}/></Link>)}</nav></section>
           <section><h2><Icon name="book" size={21}/>Related guides</h2><nav><Link href="/guides/beginner-guide"><Icon name="controller" size={18}/><span>Beginner Guide</span><Icon name="arrow" size={14}/></Link><Link href="/ending"><Icon name="route" size={18}/><span>Ending Guide</span><Icon name="arrow" size={14}/></Link><Link href="/high-score"><Icon name="trophy" size={18}/><span>High Score Guide</span><Icon name="arrow" size={14}/></Link></nav></section>
           <section><h2><Icon name="target" size={21}/>Other builds</h2><nav>{builds.filter((item) => item.slug !== build.slug).slice(0,4).map((item) => <Link key={item.slug} href={`/builds/${item.slug}`}><Icon name={item.icon} size={18}/><span>{item.shortName}</span><Icon name="arrow" size={14}/></Link>)}</nav></section>

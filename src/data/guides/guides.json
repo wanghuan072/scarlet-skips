@@ -65,7 +65,7 @@
     "links": [
       { "label": "Explore all documented upgrades", "href": "/upgrades" },
       { "label": "Open the beginner build", "href": "/builds/beginner-build" },
-      { "label": "Try the Build Planner", "href": "/run-lab/build-planner" }
+      { "label": "Try Run Recovery", "href": "/lab/run-recovery" }
     ],
     "seo": {
       "title": "Scarlet Skips Beginner Guide – First Runs",
@@ -131,7 +131,7 @@
     ],
     "links": [
       { "label": "Compare the best upgrades by goal", "href": "/upgrades/best-upgrades" },
-      { "label": "Use the Upgrade Picker", "href": "/run-lab/upgrade-picker" },
+      { "label": "Use Pick My Upgrade", "href": "/lab/pick-my-upgrade" },
       { "label": "Read the High Score Guide", "href": "/high-score" }
     ],
     "seo": {
@@ -189,9 +189,9 @@
       { "heading": "How to Verify a New Discovery", "paragraphs": ["A useful community claim needs enough context to be retested. Record the game version, starting state, stacks already taken, what changed on screen and whether the result repeated."], "bullets": ["Capture the choice card and the state before selecting it.", "Test one variable at a time when possible.", "Repeat the result in a second run.", "Separate visible facts from explanations of why they happened.", "Link the original footage or guide instead of copying its wording."] }
     ],
     "links": [
-      { "label": "Follow the Ending Route", "href": "/run-lab/ending-route" },
+      { "label": "Follow the Ending Route", "href": "/lab/ending-route" },
       { "label": "Inspect documented upgrades", "href": "/upgrades" },
-      { "label": "Track a personal score", "href": "/run-lab/records" }
+      { "label": "Track a personal score", "href": "/lab/my-runs" }
     ],
     "seo": {
       "title": "Scarlet Skips Secrets – Fuel Loop & Ending",

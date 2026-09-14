@@ -7,12 +7,12 @@ import "@/style/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: "Scarlet Skips Guide, Builds & Run Lab", template: "%s | Scarlet Skips Lab" },
+  title: { default: "Scarlet Skips Guide", template: "%s | Scarlet Skips Guide" },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: ["Scarlet Skips", "Scarlet Skips guide", "Scarlet Skips upgrades", "Scarlet Skips builds", "Scarlet Skips ending"],
-  authors: [{ name: "Scarlet Skips Lab" }],
-  creator: "Scarlet Skips Lab",
+  authors: [{ name: "Scarlet Skips Guide" }],
+  creator: "Scarlet Skips Guide",
   category: "games",
 };
 

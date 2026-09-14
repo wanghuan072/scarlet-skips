@@ -28,10 +28,12 @@
 .mobilePanel { display: none; }
 
 .footer { margin-top: 52px; border-top: 1px solid var(--color-border); background: linear-gradient(180deg, #f5f9fc, #edf5fb); }
-.footerMain { display: grid; grid-template-columns: auto minmax(280px, 1fr) minmax(260px, auto) auto; gap: 24px; align-items: center; min-height: 112px; padding-block: 18px; }
+.footerMain { display: grid; grid-template-columns: 1.2fr .8fr .8fr .8fr auto; gap: 30px; align-items: start; min-height: 148px; padding-block: 28px; }
 .footerBrand { min-width: 180px; }
 .footerBrand > p { margin: 6px 0 0 35px; color: #64778c; font-size: 10px; }
-.footerExplore, .footerSite { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px 15px; }
+.footerNavGroup { display: grid; gap: 8px; }
+.footerNavGroup > strong { font-family: var(--font-utility); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.footerExplore, .footerSite { display: grid; gap: 4px; }
 .footerExplore a, .footerSite a { color: #405873; font-size: 10px; }
 .footerExplore a:hover, .footerSite a:hover { color: var(--color-secondary); }
 .footerVersion { display: grid; justify-items: end; gap: 2px; }
@@ -50,8 +52,8 @@
   .mobilePanel .searchForm { display: none; }
   .mobilePanel nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 6px; }
   .mobilePanel nav a { display: flex; justify-content: space-between; align-items: center; min-height: 46px; padding: 7px 11px; border-radius: 10px; background: #f4f9fd; font-size: 12px; font-weight: 700; }
-  .footerMain { grid-template-columns: 1fr 1fr; }
-  .footerExplore, .footerSite { justify-content: flex-end; }
+  .footerMain { grid-template-columns: 1fr 1fr 1fr; }
+  .footerBrand { grid-column: 1 / -1; }
   .footerVersion { display: none; }
 }
 
@@ -63,8 +65,9 @@
   .mobilePanel .searchForm { display: flex; min-height: 44px; }
   .mobilePanel .searchForm input { height: 42px; }
   .mobilePanel nav { grid-template-columns: 1fr 1fr; }
-  .footerMain { grid-template-columns: 1fr; justify-items: start; padding-block: 24px; }
-  .footerExplore, .footerSite { justify-content: flex-start; }
+  .footerMain { grid-template-columns: 1fr 1fr; justify-items: start; padding-block: 24px; }
+  .footerBrand { grid-column: 1 / -1; }
+  .footerNavGroup:last-of-type { grid-column: 1 / -1; }
   .footerBrand > p { margin-left: 0; }
   .footerBottom > div { flex-direction: column; gap: 3px; }
 }
