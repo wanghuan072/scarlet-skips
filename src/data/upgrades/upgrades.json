@@ -371,5 +371,60 @@
       "title": "Ignite Jump Rope – Scarlet Skips Fire Rope Guide",
       "description": "Learn how fire ropes and the flame multiplier fit Scarlet Skips score builds, plus version 1.0.1 caveats and when to avoid Ignite."
     }
+  },
+  {
+    "id": "extinguish-jump-rope",
+    "slug": "extinguish-jump-rope",
+    "name": "Extinguish Jump Rope",
+    "shortName": "Extinguish Rope",
+    "icon": "minus",
+    "color": "teal",
+    "category": "Rope",
+    "description": "Removes the fire state from a jump rope. Recorded gameplay confirms the card name, while patch 1.0.1 confirms extinguished ropes are a tracked game state.",
+    "effect": "Extinguishes an ignited jump rope; target selection and any side effects are not publicly documented.",
+    "exactValues": "No official targeting, priority or score-change formula has been published.",
+    "stackable": "Situational rather than a normal stat stack; repeated use depends on having ignited ropes.",
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "September 14, 2026",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["ending-card-video", "steam-update-101", "official-screenshots"],
+    "image": "/images/official/screenshot-2.jpg",
+    "imageAlt": "Official Scarlet Skips gameplay showing a rope in its burning state",
+    "imageCaption": "This official screenshot shows the fire state the card removes. The Extinguish card name is visible in recorded gameplay, not in this still.",
+    "goals": ["Ending", "Recovery", "Control"],
+    "tags": ["fire", "rope", "recovery", "control"],
+    "goalWeights": { "beginner": 2, "ending": 4, "high-score": 1, "airtime": 1, "fun": 2 },
+    "synergies": ["ignite-jump-rope", "reinforce-jump-rope", "add-jump-rope"],
+    "builds": ["ending-build", "multi-rope-build"],
+    "whatItDoes": [
+      "Turns a burning rope back into an extinguished state.",
+      "Can reduce fire pressure when control matters more than the current multiplier.",
+      "Does not solve low jump height, an overcrowded pattern or an unprotected rope set by itself."
+    ],
+    "stackingNote": "Treat this as a state-change card, not a permanent stat increase. The game has not published how it selects a target when several ropes are burning.",
+    "stages": {
+      "early": "Usually irrelevant because a controlled opening should not need fire in the first place.",
+      "mid": "A recovery option if a fire pick arrived before the run was ready for it.",
+      "late": "Useful when preserving an ending route or stabilizing a crowded fire setup matters more than the current score layer."
+    },
+    "decisionChecks": [
+      "Take it only when at least one burning rope is creating a real control or maintenance problem.",
+      "For the Moon route, removing fire can bring the run back toward the published low-pressure plan.",
+      "For a score route, skip it while the fire setup is stable and the multiplier is the point of the build.",
+      "Watch which rope changes after the pick; multi-rope target rules are still undocumented."
+    ],
+    "knownUnknowns": [
+      "Recorded gameplay visibly confirms the Extinguish Jump Rope card name.",
+      "Official patch 1.0.1 says extinguished-rope issues were fixed, confirming the state is part of the game logic.",
+      "Unknown: target selection, whether every ignited rope is eligible, and how extinguishing changes the visible multiplier.",
+      "The successful Moon route avoids fire rather than relying on Extinguish, so this is a recovery option—not a required ending pick."
+    ],
+    "avoid": ["Skip it when no rope is burning.", "Do not trade away an urgent height or reinforcement fix for a fire state that is not hurting the run.", "Avoid using it automatically in a stable late score build."],
+    "tips": ["Check which rope is burning before the pick.", "Use it as recovery, not a default opening.", "Retest targeting after patches that mention extinguished ropes."],
+    "seo": {
+      "title": "Extinguish Jump Rope – Scarlet Skips Upgrade Guide",
+      "description": "See what Extinguish Jump Rope does in Scarlet Skips, when it can rescue a fire-heavy run and which targeting rules remain undocumented."
+    }
   }
 ]

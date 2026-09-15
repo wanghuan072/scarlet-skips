@@ -1,33 +1,57 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { BuildCard } from "@/components/common/BuildCard";
 import { Icon } from "@/components/common/Icon";
-import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { builds, game } from "@/lib/data/content";
+import { RunBuilder } from "@/page/builds/components/RunBuilder";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import styles from "@/style/page/builds/builds.module.css";
 
+const routeLinks = [
+  { title: "I want to reach the Moon", text: "Use the spoiler-light ending route when completion matters more than the multiplier.", href: "/ending", icon: "route" as const },
+  { title: "I want a bigger score", text: "Learn when height, Luck and Rocket Fuel are ready for more ropes and fire.", href: "/high-score", icon: "trophy" as const },
+  { title: "I am still learning", text: "Start with a repeatable jump and leave the noisy upgrades for later.", href: "/guides/beginner-guide", icon: "controller" as const },
+];
+
 export default function BuildsPage() {
   return (
     <main id="main-content">
-      <JsonLd data={breadcrumbSchema([{label:"Home",href:"/"},{label:"Builds",href:"/builds"}])}/>
-      <div className="container"><Breadcrumb items={[{label:"Home",href:"/"},{label:"Builds"}]}/></div>
+      <JsonLd data={breadcrumbSchema([{ label: "Home", href: "/" }, { label: "Builds", href: "/builds" }])}/>
+      <div className="container"><Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Builds" }]}/></div>
+
       <header className={`container ${styles.hero}`}>
-        <div><span className={styles.eyebrow}>GOAL-BASED ROUTES</span><h1>Scarlet Skips Builds</h1><p>Choose a build based on what you want to achieve, then adapt it to the three random upgrade cards the game actually offers.</p><div className={styles.badges}><SourceBadge status="Community Verified"/><VersionBadge version={game.currentVersion}/></div></div>
-        <div className={styles.heroImage}><Image src="/images/editorial/builds-hero.webp" alt="Editorial illustration of Scarlet comparing three build-defining upgrade cards" fill priority sizes="(max-width: 768px) 100vw, 45vw"/><span><Icon name="target" size={30}/> Goal first. Cards second.</span></div>
+        <div className={styles.heroCopy}>
+          <span className={styles.eyebrow}>PLAY A FULL RUN, ONE UPGRADE AT A TIME</span>
+          <h1>How far can your jump rope run climb?</h1>
+          <p>Jump rope circles to earn a level-up, choose one of the three cards, then see the ropes, score and altitude change before your next jump.</p>
+          <Link href="#simulator">Start the run simulator <Icon name="arrow" size={18}/></Link>
+        </div>
+        <figure className={styles.heroImage}>
+          <Image src="/images/official/screenshot-3.jpg" alt="Official Scarlet Skips level-up screen showing three upgrade cards" fill priority sizes="(max-width: 760px) 100vw, 48vw"/>
+          <figcaption>Level-up cards are the heart of every simulated run.</figcaption>
+        </figure>
       </header>
-      <section className={`container ${styles.introStrip}`}><Icon name="cards" size={26}/><p><strong>No fixed draw order.</strong> Every level-up offers three random cards. Build pages describe priorities and pivots, not a guaranteed shopping list.</p><Link href="/lab/pick-my-upgrade">Compare the next cards <Icon name="arrow" size={17}/></Link></section>
-      <section className={`container ${styles.buildSection}`}>
-        <div className={styles.sectionHead}><div><span>BUILD LIBRARY</span><h2>Pick the destination</h2><p>Each route states its evidence level, version and main failure point.</p></div><Link href="/builds/best-build">How to choose <Icon name="arrow" size={16}/></Link></div>
-        <div className={styles.buildGrid}>{builds.filter((build) => build.slug !== "best-build").map((build) => <BuildCard key={build.slug} build={build}/>)}</div>
+
+      <ol className={`container ${styles.howItWorks}`} aria-label="How the run simulator works">
+        <li><span>1</span><div><strong>Clear rope circles</strong><p>Fill the level-up meter.</p></div></li>
+        <li><span>2</span><div><strong>Choose one card</strong><p>Three upgrades appear each level.</p></div></li>
+        <li><span>3</span><div><strong>Climb to the Moon</strong><p>Your choice changes the next run.</p></div></li>
+      </ol>
+
+      <div className="container"><RunBuilder/></div>
+
+      <section className={`container ${styles.explainer}`}>
+          <div className={styles.explainerIntro}><span>HOW THE SIMULATION WORKS</span><h2>A playable run, with honest simulated numbers.</h2><p>Yerk Games confirms ten stackable upgrade cards and three random choices per level, but does not publish its full formulas. This simulator makes its own circle, altitude and score rules visible so you can explore trade-offs without treating them as official values.</p></div>
+        <div className={styles.explainerGrid}>
+          <article><span><Icon name="check" size={24}/></span><h3>What changes in a run</h3><ul><li>Circles required for the next level</li><li>Altitude gained after each card</li><li>Active ropes, fire and score</li><li>Pressure from a busier rope set</li></ul></article>
+          <article><span><Icon name="info" size={24}/></span><h3>What remains simulated</h3><ul><li>Circle and altitude numbers</li><li>Fuel and durability formulas</li><li>Exact random card odds</li><li>The real game&apos;s timing and physics</li></ul></article>
+        </div>
       </section>
-      <section className={styles.compareBand}>
-        <div className={`container ${styles.compareGrid}`}>
-          <div><span className={styles.eyebrow}>ONE DECISION AT A TIME</span><h2>Turn random cards into a plan</h2><p>Name the current bottleneck or compare the exact three-card offer instead of waiting for a perfect draw.</p></div>
-          <Link href="/lab/run-recovery"><span><Icon name="flask" size={29}/></span><div><strong>Run Recovery</strong><small>Diagnose the bottleneck</small></div><Icon name="arrow" size={19}/></Link>
-          <Link href="/lab/pick-my-upgrade"><span><Icon name="cards" size={29}/></span><div><strong>Pick My Upgrade</strong><small>Compare the live offer</small></div><Icon name="arrow" size={19}/></Link>
+
+      <section className={styles.routeBand}>
+        <div className="container">
+          <div className={styles.routeHead}><span>NEED THE WHOLE STRATEGY?</span><h2>Open the route that matches the result you want.</h2></div>
+          <div className={styles.routeGrid}>{routeLinks.map((route) => <Link key={route.href} href={route.href}><span><Icon name={route.icon} size={27}/></span><div><h3>{route.title}</h3><p>{route.text}</p></div><Icon name="arrow" size={18}/></Link>)}</div>
         </div>
       </section>
     </main>

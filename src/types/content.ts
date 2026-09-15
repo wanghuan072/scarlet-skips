@@ -146,6 +146,21 @@ export interface UpdateEntry {
   seo: { title: string; description: string };
 }
 
+export interface ModEntry {
+  slug: string;
+  name: string;
+  author: string;
+  kind: "Loader" | "Gameplay" | "Character";
+  uploadedDate: string;
+  fileSize: string;
+  description: string;
+  requirement: string;
+  usage: string;
+  sourceUrl: string;
+  sourceStatus: "Author listed" | "Listing only";
+  lastChecked: string;
+}
+
 export type IconName =
   | "arrow"
   | "award"

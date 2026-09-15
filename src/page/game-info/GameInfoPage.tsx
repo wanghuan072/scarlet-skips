@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
-import { SourceBadge } from "@/components/common/Badges";
 import { siteConfig } from "@/config/site";
 import { game } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
@@ -56,11 +55,10 @@ export default function GameInfoPage() {
         />
         <div className={styles.heroShade} />
         <div className={`container ${styles.heroContent}`}>
-          <SourceBadge status="Official" />
-          <p>OFFICIAL STORE FACTS</p>
-          <h1>Scarlet Skips Game Info</h1>
-          <p>Release date, price reference, platform support and PC requirements—kept separate from community strategy claims.</p>
-          <a href={siteConfig.steamUrl} target="_blank" rel="noreferrer">View on Steam <Icon name="arrow" size={18} /></a>
+          <p>THINKING OF PLAYING?</p>
+          <h1>What to know before buying Scarlet Skips</h1>
+          <p>It is a small, one-button score game for Windows. Here is the price reference, hardware check and what you actually get.</p>
+          <a href={siteConfig.steamUrl} target="_blank" rel="noreferrer">Check the current Steam page <Icon name="arrow" size={18} /></a>
         </div>
       </header>
 
@@ -68,7 +66,7 @@ export default function GameInfoPage() {
         <section aria-labelledby="quick-facts-title">
           <div className={styles.sectionTitle}>
             <span><Icon name="info" size={25} /></span>
-            <div><p>AT A GLANCE</p><h2 id="quick-facts-title">Quick facts</h2></div>
+            <div><p>THE SHORT VERSION</p><h2 id="quick-facts-title">Scarlet Skips at a glance</h2></div>
           </div>
           <div className={styles.factGrid}>
             <article><Icon name="calendar" size={25} /><span>Release date</span><strong>{game.releaseDate}</strong></article>
@@ -97,13 +95,13 @@ export default function GameInfoPage() {
               <span><Icon name="controller" size={25} /></span>
               <div><p>STEAM LISTING</p><h2 id="store-title">Price and features</h2></div>
             </div>
-            <p className={styles.storeCopy}>The checked US store price is <strong>{game.price}</strong>. Regional pricing, discounts and review totals can change, so Steam remains the source of truth before purchase.</p>
+            <p className={styles.storeCopy}>The checked US price is <strong>{game.price}</strong>. Your local price or a sale may be different, so check Steam before buying.</p>
             <div className={styles.featureList}>{game.storeFeatures.map((feature) => <span key={feature}><Icon name="check" size={16} />{feature}</span>)}</div>
           </div>
           <aside>
-            <p>New to Scarlet Skips?</p>
-            <h3>Learn the rhythm before planning the build.</h3>
-            <Link href="/guides/beginner-guide">Open the beginner guide <Icon name="arrow" size={17} /></Link>
+            <p>Already installed it?</p>
+            <h3>Spend five minutes learning the rope before worrying about a build.</h3>
+            <Link href="/guides/beginner-guide">Help with my first run <Icon name="arrow" size={17} /></Link>
           </aside>
         </section>
 

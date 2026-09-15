@@ -2,25 +2,23 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { builds, guides, updates, upgrades } from "@/lib/data/content";
-import { challenges } from "@/lib/data/lab";
+import { builds, guides, mods, updates, upgrades } from "@/lib/data/content";
 import { Icon } from "@/components/common/Icon";
 import styles from "@/style/layout/site-shell.module.css";
 
 const index = [
   ...upgrades.map((item) => ({ title: item.name, subtitle: "Upgrade", href: `/upgrades/${item.slug}`, text: `${item.name} ${item.effect} ${item.category}` })),
-  ...builds.map((item) => ({ title: item.shortName, subtitle: "Build", href: `/builds/${item.slug}`, text: `${item.name} ${item.goal} ${item.description}` })),
+  ...builds.map((item) => ({ title: item.shortName, subtitle: "Build route", href: "/builds#planner", text: `${item.name} ${item.goal} ${item.description}` })),
   ...guides.map((item) => ({ title: item.shortName, subtitle: "Guide", href: `/guides/${item.slug}`, text: `${item.name} ${item.description}` })),
   ...updates.map((item) => ({ title: item.title, subtitle: "Update", href: `/updates/${item.slug}`, text: `${item.title} ${item.summary}` })),
-  ...challenges.map((item) => ({ title: item.name, subtitle: "Challenge", href: "/challenges/generator", text: `${item.name} ${item.type} ${item.goal} ${item.description}` })),
-  { title: "Scarlet Skips Tools", subtitle: "Tools", href: "/tools", text: "tools upgrade picker run recovery ending route my runs matrix challenge generator" },
-  { title: "Pick My Upgrade", subtitle: "Lab tool", href: "/lab/pick-my-upgrade", text: "pick compare three upgrade choices card decision" },
-  { title: "Run Recovery", subtitle: "Lab tool", href: "/lab/run-recovery", text: "recover diagnose landing rope airtime fuel score" },
-  { title: "Upgrade Interactions", subtitle: "Lab tool", href: "/upgrades/matrix", text: "upgrade pairs synergy interaction matrix" },
+  ...mods.map((item) => ({ title: item.name, subtitle: "Mod", href: `/mods#${item.slug}`, text: `${item.name} ${item.author} ${item.kind} ${item.description}` })),
+  { title: "Build Planner", subtitle: "Builds", href: "/builds#planner", text: "build planner compare three upgrade choices card decision level route" },
+  { title: "Moon Ending Route", subtitle: "Ending", href: "/ending", text: "moon ending route super rocket shoes finish credits" },
+  { title: "High Score Route", subtitle: "Guide", href: "/high-score", text: "high score rocket fuel airtime fire rope luck" },
   { title: "Scarlet Skips Game Info", subtitle: "Game info", href: "/game-info", text: "release date price pc system requirements platform steam controller" },
 ];
 
-export function SearchBox() {
+export function SearchBox({ inputId = "site-search" }: { inputId?: string }) {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const router = useRouter();
@@ -42,10 +40,10 @@ export function SearchBox() {
         setFocused(false);
       }}
     >
-      <label className="sr-only" htmlFor="site-search">Search Scarlet Skips upgrades, builds and guides</label>
+      <label className="sr-only" htmlFor={inputId}>Search Scarlet Skips upgrades, builds and guides</label>
       <Icon name="search" size={18}/>
       <input
-        id="site-search"
+        id={inputId}
         type="search"
         value={query}
         placeholder="Search upgrades, guides, builds…"
@@ -58,7 +56,7 @@ export function SearchBox() {
         <div className={styles.searchResults}>
           <p>{query ? `${results.length} matches` : "Popular pages"}</p>
           {results.length ? results.map((result) => (
-            <button key={result.href} type="button" onMouseDown={() => router.push(result.href)}>
+            <button key={`${result.href}-${result.title}`} type="button" onMouseDown={() => router.push(result.href)}>
               <span>{result.title}</span><small>{result.subtitle}</small>
             </button>
           )) : <span className={styles.noResults}>No exact match. Press Enter for search help.</span>}

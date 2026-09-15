@@ -31,7 +31,7 @@
   "genres": ["Action", "Roguelike", "Arcade", "Score Attack"],
   "playerMode": "Single-player",
   "upgradeCardCount": 10,
-  "documentedCardCount": 7,
+  "documentedCardCount": 8,
   "choicesPerLevel": 3,
   "achievementCount": 1,
   "achievementName": "Off to a Great Start",

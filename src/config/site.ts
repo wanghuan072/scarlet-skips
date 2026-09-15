@@ -6,5 +6,5 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://scarletskips.guide",
   steamUrl: "https://store.steampowered.com/app/4513480/Scarlet_Skips/",
   email: "hello@scarletskips.guide",
-  ogImage: "/images/editorial/home-hero-v2.webp",
+  ogImage: "/images/official/screenshot-1.jpg",
 } as const;

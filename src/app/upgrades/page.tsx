@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
 import UpgradesPage from "@/page/upgrades/UpgradesPage";
 import { createMetadata } from "@/seo/metadata";
-export const metadata: Metadata = createMetadata({title:"Scarlet Skips Upgrades – All Documented Cards",description:"Explore every documented Scarlet Skips upgrade by category, timing, goal and evidence status without invented card names or values.",path:"/upgrades",image:"/images/editorial/upgrades-hero.webp"});
+export const metadata: Metadata = createMetadata({title:"Scarlet Skips Upgrades – Every Documented Card",description:"Find each documented Scarlet Skips upgrade, what it changes, when players take it and which exact values remain unpublished.",path:"/upgrades",image:"/images/official/screenshot-3.jpg"});
 export default UpgradesPage;

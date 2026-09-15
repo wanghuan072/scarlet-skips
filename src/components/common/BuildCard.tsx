@@ -1,10 +1,18 @@
 import Link from "next/link";
 import { Icon } from "@/components/common/Icon";
-import { SourceBadge, VersionBadge } from "@/components/common/Badges";
 import styles from "@/style/common/cards.module.css";
 import type { Build } from "@/types/content";
 
 export function BuildCard({ build }: { build: Build }) {
+  const destination = build.slug === "ending-build"
+    ? "/ending"
+    : build.slug === "high-score-build"
+      ? "/high-score"
+      : build.slug === "beginner-build"
+        ? "/guides/beginner-guide"
+        : build.slug === "rocket-build"
+          ? "/upgrades/upgrade-rocket-fuel"
+          : "/upgrades/ignite-jump-rope";
   return (
     <article className={styles.buildCard}>
       <div className={styles.buildCardTop}>
@@ -13,12 +21,10 @@ export function BuildCard({ build }: { build: Build }) {
       </div>
       <p>{build.description}</p>
       <dl className={styles.buildFacts}>
-        <div><dt>Difficulty</dt><dd>{build.difficulty}</dd></div>
-        <div><dt>Strength</dt><dd>{build.strength}</dd></div>
-        <div><dt>Weakness</dt><dd>{build.weakness}</dd></div>
+        <div><dt>Works well when</dt><dd>{build.strength}</dd></div>
+        <div><dt>Watch out for</dt><dd>{build.weakness}</dd></div>
       </dl>
-      <div className={styles.buildBadges}><SourceBadge status={build.sourceStatus}/><VersionBadge version={build.verifiedVersion}/></div>
-      <Link className={styles.cardButton} href={`/builds/${build.slug}`}>View build <Icon name="arrow" size={17}/></Link>
+      <Link className={styles.cardButton} href={destination}>Read the route notes <Icon name="arrow" size={17}/></Link>
     </article>
   );
 }

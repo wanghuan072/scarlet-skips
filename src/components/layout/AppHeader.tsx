@@ -29,7 +29,7 @@ export function AppHeader() {
       {open && (
         <div className={styles.mobilePanel}>
           <div className="container">
-            <SearchBox />
+            <SearchBox inputId="mobile-site-search" />
             <nav aria-label="Mobile navigation">
               {primaryNavigation.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<Icon name="arrow" size={17}/></Link>)}
             </nav>

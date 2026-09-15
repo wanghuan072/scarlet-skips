@@ -20,8 +20,8 @@ Do not promote a claim merely because it is repeated. Prefer official notes, rep
 
 ## Adding documented cards
 
-Yerk Games states that Scarlet Skips contains 10 upgrade cards. This site currently names only the seven cards supported by official screenshots and sourced player material. Add another entry to `src/data/upgrades/upgrades.json` only when its exact in-game name and effect are visible. Never create placeholder names to reach the official count.
+Yerk Games states that Scarlet Skips contains 10 upgrade cards. This site currently names only the eight cards supported by official screenshots, recorded gameplay and sourced player material. Add another entry to `src/data/upgrades/upgrades.json` only when its exact in-game name and effect are visible. Never create placeholder names to reach the official count.
 
 ## Interactive recommendations
 
-The Build Planner and Upgrade Picker use transparent goal weights from each upgrade entry. These weights are editorial guidance, not hidden game statistics. When changing them, update the displayed reasoning and verify that beginner, ending, high-score, airtime and fun goals still produce coherent results.
+The Build Planner uses transparent goal weights from each upgrade entry. These weights are editorial guidance, not hidden game statistics. When changing them, update the displayed reasoning and verify that beginner, ending and high-score goals still produce coherent results.

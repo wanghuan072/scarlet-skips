@@ -1,5 +1,5 @@
 import type { Upgrade } from "@/types/content";
-import type { RunGoal, RunStage } from "@/types/lab";
+import type { RunGoal, RunStage } from "@/types/build";
 
 export interface PickContext {
   goal: RunGoal;
@@ -20,8 +20,6 @@ const goalWeightKey: Record<RunGoal, string> = {
   ending: "ending",
   "high-score": "high-score",
   survival: "beginner",
-  challenge: "fun",
-  general: "airtime",
 };
 
 const pressureCards = new Set(["add-jump-rope", "increase-jump-rope-speed", "ignite-jump-rope"]);
@@ -30,8 +28,6 @@ const goalLabel: Record<RunGoal, string> = {
   ending: "an ending",
   "high-score": "a high-score",
   survival: "a survival",
-  challenge: "a challenge",
-  general: "an airtime",
 };
 
 function timingScore(upgrade: Upgrade, stage: RunStage) {

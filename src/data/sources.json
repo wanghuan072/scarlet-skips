@@ -86,5 +86,13 @@
     "url": "https://tposegaming.com/scarlet-skips-ending/",
     "dateChecked": "2026-09-14",
     "note": "Third-party ending breakdown cross-referenced against the justonegamr full-gameplay video; interpretation is treated as editorial, not official lore."
+  },
+  {
+    "id": "ending-card-video",
+    "label": "Scarlet Skips ending gameplay video",
+    "type": "video",
+    "url": "https://www.youtube.com/watch?v=FIMs9bPh8Lg",
+    "dateChecked": "2026-09-14",
+    "note": "Gameplay footage supplied for review; it visibly shows the Extinguish Jump Rope card and the completed Moon sequence. It does not establish an official formula or required card order."
   }
 ]

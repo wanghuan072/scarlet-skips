@@ -1,6 +1,7 @@
 import buildsJson from "@/data/builds/builds.json";
 import gameJson from "@/data/game.json";
 import guidesJson from "@/data/guides/guides.json";
+import modsJson from "@/data/mods/mods.json";
 import sourcesJson from "@/data/sources.json";
 import updatesJson from "@/data/updates/updates.json";
 import upgradesJson from "@/data/upgrades/upgrades.json";
@@ -8,6 +9,7 @@ import type {
   Build,
   GameData,
   Guide,
+  ModEntry,
   Source,
   UpdateEntry,
   Upgrade,
@@ -17,6 +19,7 @@ export const game = gameJson as GameData;
 export const upgrades = upgradesJson as Upgrade[];
 export const builds = buildsJson as Build[];
 export const guides = guidesJson as Guide[];
+export const mods = modsJson as ModEntry[];
 export const updates = updatesJson as UpdateEntry[];
 export const sources = sourcesJson as Source[];
 

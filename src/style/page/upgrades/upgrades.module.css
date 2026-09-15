@@ -3,9 +3,9 @@
 .heroShade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(12,102,166,.82), rgba(13,131,193,.45) 42%, rgba(9,68,111,.12) 70%), linear-gradient(0deg, rgba(9,79,85,.18), transparent 60%); }
 .heroCopy { display: flex; flex-direction: column; justify-content: center; min-height: 195px; }
 .eyebrow { font-family: var(--font-utility); font-size: 9px; font-weight: 800; letter-spacing: .14em; }
-.hero h1, .articleHero h1 { margin-top: 2px; font-size: clamp(44px, 5.3vw, 66px); }
+.hero h1, .articleHero h1 { margin-top: 2px; font-size: clamp(40px, 5vw, 62px); }
 .hero h1 { color: white; -webkit-text-stroke: 1.5px #ef2f65; text-shadow: 0 3px 0 #ef2f65, 0 7px 16px rgba(3,59,98,.2); }
-.heroCopy > p, .articleHero > div > p { max-width: 54ch; margin-top: 6px; color: #f4fbff; font-size: 14px; line-height: 1.45; }
+.heroCopy > p, .articleHero > div > p { margin-top: 6px; color: #f4fbff; font-size: 14px; line-height: 1.45; }
 .heroBadges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .noticeSection { padding-top: 0; }
 .dataNotice { display: flex; align-items: flex-start; gap: 13px; padding: 18px 20px; border: 1px solid #efce86; border-radius: 16px; background: #fff9e9; }
@@ -23,24 +23,33 @@
 .filterRow button:hover { border-color: #7cb9e9; }
 .filterRow button[aria-pressed="true"] { border-color: var(--color-secondary); background: var(--color-secondary); color: white; }
 .resultCount { margin: 13px 0; color: var(--color-muted); font-family: var(--font-utility); font-size: 11px; text-transform: uppercase; }
-.explorerGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+.explorerGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+.upgradeTile { display: grid; grid-template-columns: auto 1fr; gap: 11px; min-height: 250px; padding: 17px; border: 1px solid #c9dfe9; border-radius: 17px; background: white; color: var(--color-text); box-shadow: var(--shadow-sm); transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+.upgradeTile:hover { transform: translateY(-3px); border-color: #77bce6; box-shadow: var(--shadow-md); }
+.upgradeTile:focus-visible { outline: 3px solid #78c8f2; outline-offset: 3px; }
+.tileIcon { display: inline-flex; width: 50px; height: 50px; align-items: center; justify-content: center; border-radius: 14px; background: #eaf7ff; color: #0873cb; }
+.upgradeTile[data-tone="green"] .tileIcon { background: #ebf9ef; color: #148049; }.upgradeTile[data-tone="purple"] .tileIcon { background: #f1edff; color: #6a4ab8; }.upgradeTile[data-tone="gold"] .tileIcon { background: #fff5e4; color: #9c6200; }.upgradeTile[data-tone="red"] .tileIcon, .upgradeTile[data-tone="pink"] .tileIcon { background: #fff0f4; color: var(--color-primary-dark); }.upgradeTile[data-tone="teal"] .tileIcon { background: #e7f9f5; color: #087466; }
+.tileTop { display: grid; align-content: center; }.tileTop small { color: #678093; font: 800 9px var(--font-utility); letter-spacing: .1em; }.tileTop strong { margin-top: 3px; font-size: 19px; }
+.tileEffect { grid-column: 1 / -1; color: #435d72; font-size: 13px; line-height: 1.48; }
+.tileFacts { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 8px; }.tileFacts > span { display: grid; padding: 8px; border-radius: 9px; background: #f1f8fc; color: #274e6c; font-size: 12px; font-weight: 800; }.tileFacts b { color: #73889a; font-size: 9px; text-transform: uppercase; }
+.tileLink { display: inline-flex; grid-column: 1 / -1; align-self: end; align-items: center; gap: 5px; color: var(--color-secondary); font-size: 12px; font-weight: 850; }
 .goalBand { margin-top: 42px; padding: 34px 0; border-block: 1px solid #dcebf6; background: linear-gradient(180deg, #eff9ff, #f7fcff); }
 .goalCards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .goalCards > a { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; min-height: 110px; padding: 17px; border: 1px solid #cbdfea; border-radius: 16px; background: white; color: var(--color-secondary); }
 .goalCards > a:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .goalCards h3 { color: var(--color-text); font-size: 17px; }
 .goalCards p { color: var(--color-muted); font-size: 12px; line-height: 1.45; }
-.articleHero { display: grid; grid-template-columns: auto 1fr; align-items: flex-start; gap: 24px; max-width: 1000px; padding: 42px 0 24px; }
-.articleHero > div > p { max-width: 58ch; margin-top: 13px; color: #405873; font-size: 17px; }
+.articleHero { display: grid; grid-template-columns: auto 1fr; align-items: flex-start; gap: 24px; padding: 42px 0 24px; }
+.articleHero > div > p { margin-top: 13px; color: #405873; font-size: 17px; }
 .iconBubble { display: inline-flex; width: 74px; height: 74px; align-items: center; justify-content: center; border-radius: 22px; background: #ffe6ed; color: var(--color-primary-dark); }
-.goalGuide { display: grid; gap: 20px; max-width: 1000px; padding-top: 26px; }
+.goalGuide { display: grid; gap: 20px; padding-top: 26px; }
 .goalGuide > article { padding: 24px; border: 1px solid var(--color-border); border-radius: 20px; background: white; box-shadow: var(--shadow-sm); }
 .goalGuideHead { display: flex; gap: 14px; align-items: flex-start; }
 .goalGuideHead > span { display: inline-flex; width: 50px; height: 50px; flex: 0 0 auto; align-items: center; justify-content: center; border-radius: 14px; background: #e9f5ff; color: var(--color-secondary); }
 .goalGuideHead h2 { font-size: 25px; }
 .goalGuideHead p { margin-top: 4px; color: var(--color-muted); font-size: 14px; }
 .miniUpgradeGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
-.callout { display: flex; gap: 14px; max-width: 1000px; margin-top: 24px; padding: 22px; border: 1px solid #b8dbf4; border-radius: 17px; background: #eef8ff; color: var(--color-secondary); }
+.callout { display: flex; gap: 14px; margin-top: 24px; padding: 22px; border: 1px solid #b8dbf4; border-radius: 17px; background: #eef8ff; color: var(--color-secondary); }
 .callout h2 { color: var(--color-text); font-size: 21px; }
 .callout p { margin-top: 3px; color: #405873; font-size: 14px; }
 .callout a { color: var(--color-secondary); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }

@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
 import { UpgradeCard } from "@/components/common/UpgradeCard";
-import { getRelatedBuilds, getRelatedUpgrades, getSources, upgrades } from "@/lib/data/content";
+import { getRelatedUpgrades, upgrades } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import type { Upgrade } from "@/types/content";
@@ -12,49 +12,79 @@ import styles from "@/style/page/upgrades/upgrade-detail.module.css";
 
 export default function UpgradeDetailPage({ upgrade }: { upgrade: Upgrade }) {
   const related = getRelatedUpgrades(upgrade.synergies);
-  const relatedBuilds = getRelatedBuilds(upgrade.builds);
-  const sourceList = getSources(upgrade.sourceIds);
   const currentIndex = upgrades.findIndex((item) => item.slug === upgrade.slug);
   const previous = upgrades[(currentIndex - 1 + upgrades.length) % upgrades.length];
   const next = upgrades[(currentIndex + 1) % upgrades.length];
   const crumbs = [{label:"Home",href:"/"},{label:"Upgrades",href:"/upgrades"},{label:upgrade.name,href:`/upgrades/${upgrade.slug}`}];
+  const decisionChecks = upgrade.decisionChecks ?? upgrade.tips;
 
   return (
     <main id="main-content">
       <JsonLd data={breadcrumbSchema(crumbs)}/>
-      <section className={styles.banner}><Image src="/images/editorial/upgrades-hero.webp" alt="Editorial illustration of Scarlet and three upgrade choices" fill priority sizes="100vw"/><div className={`container ${styles.bannerCopy}`}><span>SCARLET SKIPS DATABASE</span><strong>Upgrades</strong><p>Discover every verified upgrade, compare effects and find the best combinations.</p></div></section>
       <div className="container"><Breadcrumb items={[{label:"Home",href:"/"},{label:"Upgrades",href:"/upgrades"},{label:upgrade.name}]}/></div>
+
+      <header className={`container ${styles.upgradeHero}`}>
+        <div className={styles.identity}><span className={styles.upgradeIcon} data-tone={upgrade.color}><Icon name={upgrade.icon} size={46}/></span><div><p>{upgrade.category} CARD</p><h1>{upgrade.name}</h1><span>{upgrade.description}</span></div></div>
+        <div className={styles.effectCard}>
+          <p>WHAT THIS CARD DOES</p><strong>{upgrade.effect}</strong><span>{upgrade.exactValues}</span>
+          <div><SourceBadge status={upgrade.sourceStatus}/><VersionBadge version={upgrade.verifiedVersion}/></div>
+        </div>
+      </header>
+
       <div className={`container ${styles.detailGrid}`}>
-        <aside className={styles.leftRail} aria-label="Upgrade navigation">
-          <div className={styles.leftSidebar}>
-            <div className={styles.sidebarTitle}><Icon name="cards" size={22}/><h2>Upgrades</h2></div>
-            <nav><Link href="/upgrades">All documented cards</Link>{upgrades.map((item) => <Link key={item.slug} href={`/upgrades/${item.slug}`} aria-current={item.slug === upgrade.slug ? "page" : undefined}><Icon name={item.icon} size={18}/>{item.shortName}</Link>)}<Link href="/upgrades/best-upgrades"><Icon name="target" size={18}/>Best by goal</Link></nav>
-          </div>
-          <Link className={styles.sidePromo} href="/upgrades"><Image src="/images/editorial/home-hero-v2.webp" alt="Editorial illustration of Scarlet skipping in the park" fill sizes="188px"/><span>More upgrades.<br/>More possibilities.</span></Link>
-        </aside>
-
         <article className={styles.mainColumn}>
-          <header className={styles.upgradeHeader}>
-            <span className={styles.upgradeIcon} data-tone={upgrade.color}><Icon name={upgrade.icon} size={43}/></span>
-            <div><h1>{upgrade.name}</h1><p>{upgrade.description}</p><div className={styles.headerBadges}><span className={styles.category}>{upgrade.category}</span><SourceBadge status={upgrade.sourceStatus}/><VersionBadge version={upgrade.verifiedVersion}/></div></div>
-          </header>
-          <figure className={styles.gameplayFigure}><div><Image src={upgrade.image} alt={upgrade.imageAlt} fill priority sizes="(max-width: 768px) 100vw, 650px"/></div><figcaption>{upgrade.imageCaption}</figcaption></figure>
+          <section className={styles.answerPanel} id="what-it-does">
+            <div className={styles.sectionHeading}><span><Icon name="target" size={24}/></span><div><p>THE PLAYER ANSWER</p><h2>What do I get when I take it?</h2></div></div>
+            <p className={styles.answerLead}>{upgrade.whatItDoes[0]}</p>
+            <ul>{upgrade.whatItDoes.slice(1).map((item) => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul>
+          </section>
 
-          <section className={styles.contentSection}><h2><Icon name="info" size={25}/>What it does</h2><p>{upgrade.effect}</p><ul>{upgrade.whatItDoes.map((item) => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul></section>
-          <section className={styles.contentSection}><h2><Icon name="cards" size={25}/>How it stacks</h2><div className={styles.tableWrap}><table><thead><tr><th>Pick state</th><th>Observed effect</th><th>What is verified</th></tr></thead><tbody><tr><td>First pick</td><td>{upgrade.effect}</td><td>{upgrade.exactValues}</td></tr><tr><td>Repeated picks</td><td>{upgrade.stackable}</td><td>Exact numeric scaling has not been officially documented.</td></tr></tbody></table></div><p className={styles.tableNote}>{upgrade.stackingNote}</p></section>
-          {upgrade.decisionChecks && <section className={styles.contentSection}><h2><Icon name="target" size={25}/>Decision checklist</h2><p>Use the current run state—not a fixed tier list—to decide whether this card solves the next problem.</p><div className={styles.decisionGrid}>{upgrade.decisionChecks.map((item, index) => <article key={item}><span>{String(index + 1).padStart(2,"0")}</span><p>{item}</p></article>)}</div></section>}
-          <section className={styles.contentSection}><h2><Icon name="spark" size={25}/>Best synergies</h2><div className={styles.synergyGrid}>{related.map((item) => <UpgradeCard key={item.slug} upgrade={item} compact/>)}</div></section>
-          <section className={styles.contentSection}><h2><Icon name="gauge" size={25}/>When to pick this upgrade</h2><div className={styles.stageGrid}><article><span>EARLY GAME</span><h3>Build the base</h3><p>{upgrade.stages.early}</p></article><article><span>MID GAME</span><h3>Shape the run</h3><p>{upgrade.stages.mid}</p></article><article><span>LATE GAME</span><h3>Protect the loop</h3><p>{upgrade.stages.late}</p></article></div></section>
-          <section className={`${styles.contentSection} ${styles.avoidSection}`}><h2><Icon name="x" size={25}/>When to avoid it</h2><ul>{upgrade.avoid.map((item) => <li key={item}><Icon name="x" size={16}/>{item}</li>)}</ul></section>
-          {upgrade.knownUnknowns && <section className={`${styles.contentSection} ${styles.evidenceSection}`}><h2><Icon name="shield" size={25}/>Evidence and open questions</h2><ul>{upgrade.knownUnknowns.map((item) => <li key={item}><Icon name="info" size={16}/>{item}</li>)}</ul></section>}
-          <nav className={styles.bottomNav} aria-label="Previous and next upgrades"><Link href={`/upgrades/${previous.slug}`}><span>Previous</span><strong>← {previous.shortName}</strong></Link><Link href="/upgrades"><span>Database</span><strong>All upgrades</strong></Link><Link href={`/upgrades/${next.slug}`}><span>Next</span><strong>{next.shortName} →</strong></Link></nav>
+          <section className={styles.statSection} id="stacks">
+            <div className={styles.sectionHeading}><span><Icon name="cards" size={24}/></span><div><p>LEVELS AND STACKS</p><h2>What does each extra pick add?</h2></div></div>
+            <div className={styles.statCards}>
+              <article><span>PER PICK / STACK</span><strong>{upgrade.exactValues}</strong><p>Only published or visibly confirmed values belong here. A missing formula stays marked as unknown.</p></article>
+              <article><span>CAN IT STACK?</span><strong>{upgrade.stackable}</strong><p>{upgrade.stackingNote}</p></article>
+              <article><span>BEST WINDOW</span><strong>{upgrade.bestTiming} run</strong><p>{decisionChecks[0]}</p></article>
+            </div>
+          </section>
+
+          <section className={styles.contentSection} id="when-to-pick">
+            <div className={styles.sectionHeading}><span><Icon name="gauge" size={24}/></span><div><p>WHEN TO TAKE IT</p><h2>Does it help this part of your run?</h2></div></div>
+            <div className={styles.stageGrid}>
+              <article><span>EARLY</span><h3>First few levels</h3><p>{upgrade.stages.early}</p></article>
+              <article><span>MID</span><h3>Once the run settles</h3><p>{upgrade.stages.mid}</p></article>
+              <article><span>LATE</span><h3>Long-run scaling</h3><p>{upgrade.stages.late}</p></article>
+            </div>
+          </section>
+
+          <section className={styles.contentSection} id="pairs">
+            <div className={styles.sectionHeading}><span><Icon name="spark" size={24}/></span><div><p>GOOD PAIRS</p><h2>What should I take with it?</h2></div></div>
+            <p className={styles.sectionIntro}>These are the cards that give this upgrade a clearer job in the same run.</p>
+            <div className={styles.synergyGrid}>{related.map((item) => <UpgradeCard key={item.slug} upgrade={item} compact/>)}</div>
+          </section>
+
+          <section className={styles.contentSection} id="skip">
+            <div className={styles.skipPanel}><div className={styles.sectionHeading}><span><Icon name="x" size={24}/></span><div><p>DO NOT AUTO-PICK</p><h2>When should I leave it?</h2></div></div><ul>{upgrade.avoid.map((item) => <li key={item}><Icon name="x" size={17}/>{item}</li>)}</ul></div>
+          </section>
+
+          <figure className={styles.gameplayFigure}><div><Image src={upgrade.image} alt={upgrade.imageAlt} fill sizes="(max-width: 768px) 100vw, 820px"/></div><figcaption>{upgrade.imageCaption}</figcaption></figure>
+
+          {upgrade.knownUnknowns && <details className={styles.evidenceDetails}>
+            <summary><span><Icon name="shield" size={21}/>What is confirmed, and what is still unknown?</span><Icon name="plus" size={18}/></summary>
+            <div><ul>{upgrade.knownUnknowns.map((item) => <li key={item}>{item}</li>)}</ul></div>
+          </details>}
+
+          <nav className={styles.bottomNav} aria-label="Previous and next upgrades">
+            <Link href={`/upgrades/${previous.slug}`}><span>Previous</span><strong>← {previous.shortName}</strong></Link>
+            <Link href="/upgrades"><span>All cards</span><strong>Back to upgrades</strong></Link>
+            <Link href={`/upgrades/${next.slug}`}><span>Next</span><strong>{next.shortName} →</strong></Link>
+          </nav>
         </article>
 
-        <aside className={styles.rightSidebar}>
-          <section><h2><Icon name="info" size={22}/>Upgrade info</h2><dl><div><dt>Type</dt><dd>{upgrade.category}</dd></div><div><dt>Status</dt><dd>{upgrade.sourceStatus}</dd></div><div><dt>Appears in</dt><dd>Level-up selection</dd></div><div><dt>Stackable</dt><dd>{upgrade.stackable.startsWith("Yes") ? "Yes" : "Observed"}</dd></div><div><dt>Best timing</dt><dd>{upgrade.bestTiming} game</dd></div><div><dt>Game version</dt><dd>{upgrade.verifiedVersion}</dd></div><div><dt>Source</dt><dd>{sourceList.some((source) => source.type === "official") ? "Official media + guides" : "Community guide"}</dd></div></dl></section>
-          <section className={styles.tips}><h2><Icon name="spark" size={22}/>Quick tips</h2><ul>{upgrade.tips.map((tip) => <li key={tip}><Icon name="check" size={16}/>{tip}</li>)}</ul></section>
-          <section><h2><Icon name="cards" size={22}/>Related upgrades</h2><div className={styles.relatedList}>{related.slice(0,4).map((item) => <UpgradeCard key={item.slug} upgrade={item} compact/>)}</div></section>
-          <section><h2><Icon name="book" size={22}/>Related guides</h2><nav className={styles.guideLinks}>{relatedBuilds.map((build) => <Link key={build.slug} href={`/builds/${build.slug}`}><Icon name={build.icon} size={19}/><span><strong>{build.shortName}</strong><small>{build.goal}</small></span><Icon name="arrow" size={15}/></Link>)}<Link href="/lab/pick-my-upgrade"><Icon name="flask" size={19}/><span><strong>Pick My Upgrade</strong><small>Compare a live three-card choice</small></span><Icon name="arrow" size={15}/></Link></nav></section>
+        <aside className={styles.sidebar}>
+          <section className={styles.pickNow}><p>GOT THIS IN A DRAW?</p><strong>{upgrade.name}</strong><span>Open the simulator and see how this card changes a full run.</span><Link href="/builds#simulator">Try it in a run <Icon name="arrow" size={16}/></Link></section>
+          <nav aria-label="On this page"><span>ON THIS PAGE</span><a href="#what-it-does">What it does</a><a href="#stacks">Levels and stacks</a><a href="#when-to-pick">When to take it</a><a href="#pairs">Good pairs</a><a href="#skip">When to skip it</a></nav>
+          <section className={styles.remember}><h2><Icon name="spark" size={20}/>Quick reminder</h2><ul>{upgrade.tips.slice(0,3).map((tip) => <li key={tip}><Icon name="check" size={16}/>{tip}</li>)}</ul></section>
         </aside>
       </div>
     </main>
