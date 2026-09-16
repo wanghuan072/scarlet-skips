@@ -78,6 +78,7 @@ export default function CharacterPage() {
       </div>
       <PageHero
         eyebrow="CHARACTER"
+        titlePrefix="Scarlet Skips Character"
         title="Scarlet"
         description="She’s the jumper. We press one button, she skips, and the park gets weirder from there."
         image="/images/official/screenshot-1.jpg"

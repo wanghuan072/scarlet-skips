@@ -39,17 +39,17 @@ export default function UpgradesPage() {
         ]}
       />
       <section className={`container ${styles.explorerSection}`}>
-        <SectionHeading icon="cards" title="Regular offer" description="These rows have a real AppearsAfterLevel in the shipping table. Use this while the level-up screen is open." href="/builds#simulator" linkLabel="Practice a full run"/>
+        <SectionHeading icon="cards" title="Regular upgrade cards" description="These rows have a real AppearsAfterLevel in the shipping table. Use this while the level-up screen is open." href="/builds#simulator" linkLabel="Practice a full run"/>
         <UpgradeCompareTable upgrades={regularUpgrades}/>
       </section>
       <section className={`container ${styles.explorerSection}`}>
-        <SectionHeading icon="info" title="Special table rows" description="The shipping table still names these cards, but stores AppearsAfterLevel 9999 — a usual Unreal sentinel for 'not on the regular curve.' Do not plan a run around them."/>
+        <SectionHeading icon="info" title="Cards outside the regular offer" description="The shipping table still names these cards, but stores AppearsAfterLevel 9999 — a usual Unreal sentinel for 'not on the regular curve.' Do not plan a run around them."/>
         <UpgradeCompareTable upgrades={specialUpgrades}/>
       </section>
       <section className={`container ${styles.routeNotes}`}>
-        <article><p>IF YOU WANT THE MOON</p><h2>Keep the rope set readable.</h2><span>Height, Luck, fuel and rope protection are the useful pieces. Fire is a score tool, not part of the documented ending route. If the pause still feels new, <Link href="/guides/beginner-guide">learn the jump</Link> before copying a card order.</span><Link href="/ending">Open the ending route</Link></article>
-        <article><p>IF YOU WANT SCORE</p><h2>Make airtime work first.</h2><span>More ropes, speed and fire pay off after your jumps already generate enough time and levels to control them. The <Link href="/guides/tips">tips page</Link> is the shorter version of that sequence.</span><Link href="/guides/high-score">Open the score guide</Link></article>
-        <article><p>IF YOU WANT THE WILD SCREEN</p><h2>Take the loud pick on purpose.</h2><span>Extra ropes, fire, speed and tricks are the look. That is not the Moon climb. Play it as spectacle, or keep those cards late on a score run.</span><Link href="/guides/spectacle">Open the spectacle guide</Link></article>
+        <article><p>IF YOU WANT THE MOON</p><h2>Choose cards for a readable Moon run</h2><span>Height, Luck, fuel and rope protection are the useful pieces. Fire is a score tool, not part of the documented ending route. If the pause still feels new, <Link href="/guides/beginner-guide">learn the jump</Link> before copying a card order.</span><Link href="/ending">Open the ending route</Link></article>
+        <article><p>IF YOU WANT SCORE</p><h2>Build airtime before score pressure</h2><span>More ropes, speed and fire pay off after your jumps already generate enough time and levels to control them. Add pressure only after the fuel loop repeats.</span><Link href="/guides/high-score">Open the score guide</Link></article>
+        <article><p>IF YOU WANT THE WILD SCREEN</p><h2>Pick ropes, fire and tricks for spectacle</h2><span>Extra ropes, fire, speed and tricks are the look. That is not the Moon climb. Play it as spectacle, or keep those cards late on a score run.</span><Link href="/guides/spectacle">Open the spectacle guide</Link></article>
       </section>
     </main>
   );

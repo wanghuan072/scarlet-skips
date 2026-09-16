@@ -80,10 +80,7 @@
 .updateMeta time { color: var(--color-muted); font-size: 12px; }
 .updateCard h2 { margin-top: 12px; font-size: 28px; }
 .updateCard > p { margin-top: 8px; color: #4d627a; }
-.updateCard ul { display: grid; gap: 7px; margin: 17px 0; padding: 0; list-style: none; }
-.updateCard li { display: flex; align-items: flex-start; gap: 8px; color: #405873; font-size: 13px; }
-.updateCard li svg { flex: 0 0 auto; margin-top: 3px; color: var(--color-success); }
-.updateCard > a { display: inline-flex; align-items: center; gap: 6px; color: var(--color-secondary); font-size: 13px; font-weight: 800; }
+.updateCard > a { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: var(--color-secondary); font-size: 13px; font-weight: 800; }
 .updateAside { position: sticky; top: 95px; display: grid; gap: 16px; }
 .updateAside section > svg { color: var(--color-secondary); }
 .updateAside p { margin-top: 8px; color: var(--color-muted); font-size: 13px; }

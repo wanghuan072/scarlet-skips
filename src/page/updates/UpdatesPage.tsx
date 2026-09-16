@@ -34,7 +34,6 @@ export default function UpdatesPage() {
                 <div className={styles.updateMeta}><span>v{entry.version}</span><time>{entry.date}</time></div>
                 <h2>{entry.title}</h2>
                 <p>{entry.summary}</p>
-                <ul>{entry.changes.slice(0, 3).map((change) => <li key={change}><Icon name="check" size={16}/>{change}</li>)}</ul>
                 <Link href={`/updates/${entry.slug}`}>What does this change for my run? <Icon name="arrow" size={17}/></Link>
               </div>
             </article>
@@ -42,7 +41,7 @@ export default function UpdatesPage() {
         </section>
         <aside className={styles.updateAside}>
           <section><Icon name="shield" size={27}/><h2>Why the version matters</h2><p>Patch 1.0.1 mentions Rocket Shoes and extinguished ropes. If an older route depends on either one, check the current behavior before following it; the <Link href="/guides/tips">tips page</Link> helps diagnose a changed run.</p></section>
-          <section><Icon name="info" size={27}/><h2>Found a newer patch?</h2><p>Send us the official announcement and we will re-check the affected guides.</p><Link href="/contact">Contact the site</Link></section>
+          <section><Icon name="info" size={27}/><h2>Keep the patch record current</h2><p>If a newer official announcement is missing, send us its link so we can re-check the affected guides.</p><Link href="/contact">Contact the site</Link></section>
         </aside>
       </div>
     </main>

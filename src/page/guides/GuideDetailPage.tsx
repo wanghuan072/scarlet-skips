@@ -23,6 +23,13 @@ const quickTakes: Record<string, string> = {
   spectacle: "Extra ropes, fire, speed and tricks. Take the loud card on purpose — not if this run is actually going to the Moon.",
 };
 
+const heroTitles: Record<string, string> = {
+  tips: "Fix a Failing Run",
+  achievement: "Off to a Great Start",
+  "high-score": "High Score Route",
+  spectacle: "Spectacle Route",
+};
+
 const heroCaptions: Record<string, string> = {
   "beginner-guide": "Watch the rope, not her hair.",
   "how-to-play": "One miss ends the run.",
@@ -117,11 +124,11 @@ const friendlyHeadings: Record<string, string> = {
   "Jump Timing: Plan the Descent": "Land where you can still see the next rope",
   "Upgrade Decisions: Ask Four Questions": "Ask this before you click",
   "Rope Management": "Don’t add ropes you can’t read",
-  "Airtime and the Refill Test": "The Rocket Fuel trick",
+  "Airtime and the Refill Test": "If Rocket Fuel runs out before the next card",
   "Luck Without an Invented Formula": "Luck helps. Nobody knows the math.",
-  "High Score Transition": "When to start chasing score",
-  "Ending Transition": "When to start going for the Moon",
-  "Diagnose a Failed Run": "Why that run died",
+  "High Score Transition": "If the score stalls, check the fuel loop",
+  "Ending Transition": "If a Moon run starts looking like a score run",
+  "Diagnose a Failed Run": "Work backward from the missed rope",
   "Claims to Treat Carefully": "Don’t treat these numbers as rules",
   "Achievement Facts": "There’s only one achievement",
   "Before You Start": "Start a fresh run",
@@ -154,7 +161,7 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: guide.shortName,
+    headline: guide.name,
     description: guide.description,
     dateModified: guide.updatedDate,
     image: guide.image,
@@ -172,7 +179,8 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
 
       <PageHero
         eyebrow={guide.category}
-        title={guide.shortName}
+        titlePrefix="Scarlet Skips"
+        title={heroTitles[guide.slug] ?? guide.shortName}
         description={quickTakes[guide.slug] ?? guide.description}
         image={guide.image}
         imageAlt={guide.imageAlt}

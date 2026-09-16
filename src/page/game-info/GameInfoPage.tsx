@@ -96,7 +96,8 @@ export default function GameInfoPage() {
           </div>
           <aside>
             <p>Already installed it?</p>
-            <h3>Spend five minutes learning the rope before worrying about a build.</h3>
+            <h3>Before your first run</h3>
+            <p>Learn the basic jump before choosing a build.</p>
             <Link href="/guides/beginner-guide">Help with my first run <Icon name="arrow" size={17} /></Link>
           </aside>
         </section>

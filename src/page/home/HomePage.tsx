@@ -297,10 +297,7 @@ export default function HomePage() {
       <section className={`container ${styles.updateSection}`}>
         <div className={styles.updateIntro}>
           <span><Icon name="gauge" size={28} /></span>
-          <div><p className={styles.kicker}>WHAT CHANGED?</p><h2>Patch v{latestUpdate.version}</h2><p>{latestUpdate.summary}</p></div>
-        </div>
-        <div className={styles.updateChanges}>
-          {latestUpdate.changes.slice(0, 3).map((change) => <span key={change}><Icon name="check" size={15} />{change}</span>)}
+          <div><p className={styles.kicker}>WHAT CHANGED?</p><h2>Patch v{latestUpdate.version}</h2><p>Using Rocket Shoes or extinguished ropes in a route? Check the hotfix before following older advice.</p></div>
         </div>
         <Link className={styles.updateLink} href={`/updates/${latestUpdate.slug}`}>Read the patch notes <Icon name="arrow" size={16} /></Link>
       </section>
