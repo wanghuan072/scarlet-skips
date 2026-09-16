@@ -1,0 +1,719 @@
+[
+  {
+    "id": "fast-fall",
+    "slug": "fast-fall",
+    "name": "Fast Fall",
+    "shortName": "Fast Fall",
+    "tableRow": "FastFall",
+    "gameTitle": "Let Go to Fast Fall",
+    "appearsAfterLevel": 8,
+    "offerPool": "regular",
+    "icon": "fall",
+    "color": "teal",
+    "category": "Movement",
+    "description": "The table title is Let Go to Fast Fall. A late movement card, not a beginner save.",
+    "effect": "Lets you drop faster by releasing the jump.",
+    "playerSummary": "Take this when you already stay up too long and need a cleaner drop. Skip it while you are still learning the landing.",
+    "hudChange": "The shipping card reads Let Go to Fast Fall. That is a control prompt, not a published drop-speed number.",
+    "exactValues": "No official drop-speed, air-control or damage-on-land values have been published.",
+    "stackable": "Unknown. The shipping table lists the card; it does not say whether copies stack.",
+    "stackableShort": "Unknown",
+    "perStackShort": "No published number",
+    "perStack": {
+      "official": "The shipping table row FastFall uses the title Let Go to Fast Fall and AppearsAfterLevel 8.",
+      "observed": "Not yet documented in the cited Steam guides. Treat any 'I use this to land' report as unconfirmed until more runs show it.",
+      "unknown": "Whether it stacks, how much faster the drop is, and whether it can slam you into a rope."
+    },
+    "synergyNotes": [
+      { "slug": "increase-jump-height", "why": "A faster drop only helps if you were already staying up long enough to need one." },
+      { "slug": "charge-jump", "why": "Both are late movement cards. Do not take both until you can name the landing problem each one solves." },
+      { "slug": "upgrade-rocket-fuel", "why": "Fuel keeps you up; Fast Fall is how you come down on purpose." }
+    ],
+    "antiSynergies": [
+      "Do not take Fast Fall to fix a jump that still clips the first rope — take Height.",
+      "Do not stack it in the same stretch as a new rope and fire."
+    ],
+    "stackTiers": [
+      { "label": "1st pick", "feel": "You get a new way to leave the apex. Spend a few jumps learning the release, not the next card." },
+      { "label": "Later copies", "feel": "Unknown. Stop if the drop starts putting you into the rope." },
+      { "label": "With fuel", "feel": "Useful only if you can tell hold-to-rise apart from release-to-drop." }
+    ],
+    "routeLinks": [
+      { "href": "/guides/high-score", "label": "High score", "note": "A late control tool after airtime is already working." },
+      { "href": "/upgrades/increase-jump-height", "label": "Jump Height", "note": "The usual pickup before a faster drop is useful." },
+      { "href": "/ending", "label": "Moon / ending", "note": "Not part of the documented ending card order." }
+    ],
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-15",
+    "sourceStatus": "Official",
+    "sourceIds": ["cooked-dt-upgrades"],
+    "image": "/images/official/screenshot-4.jpg",
+    "imageAlt": "Scarlet clearing an active jump rope in an official Scarlet Skips screenshot",
+    "imageCaption": "Official airborne still. Fast Fall is named in the shipping table; this screenshot does not show the drop.",
+    "goals": ["High Score", "Airtime", "Control"],
+    "tags": ["movement", "airtime", "late-game", "control"],
+    "goalWeights": { "beginner": 0, "ending": 2, "high-score": 3, "airtime": 4, "fun": 3 },
+    "synergies": ["increase-jump-height", "upgrade-rocket-fuel", "charge-jump"],
+    "builds": ["high-score-build", "rocket-build"],
+    "whatItDoes": [
+      "The in-game title tells you to let go to drop faster.",
+      "The shipping table can offer it from level 8.",
+      "It does not publish how much faster, or whether a miss still breaks a rope."
+    ],
+    "stackingNote": "Do not invent a drop-speed number. One copy already changes the landing; extra copies are unconfirmed.",
+    "stages": {
+      "early": "Skip it. You still need a readable jump more than a faster descent.",
+      "mid": "Only if height is already keeping you in the air too long to hit the gap.",
+      "late": "A control pick on score or airtime routes after the engine is stable."
+    },
+    "decisionChecks": [
+      "You are overshooting the landing window, not clipping on the way up.",
+      "Height or Fuel already makes the jump long enough that a faster drop would help.",
+      "You can spend a few cycles learning the release without risking the last rope."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists FastFall with the title Let Go to Fast Fall and AppearsAfterLevel 8.",
+      "The title is a control instruction. It is not a published formula.",
+      "Unknown: stacking, drop speed, rope collisions during a fast drop, and whether this is one of Steam's advertised ten cards.",
+      "The cited ending and high-score guides do not walk through this card yet."
+    ],
+    "avoid": [
+      "You are still learning the basic skip.",
+      "The real problem is clearance, not staying up too long.",
+      "A rope is about to break — take Reinforce."
+    ],
+    "tips": ["Learn the release on a safe set.", "Do not treat the title as a speed percentage.", "Pair with height, not panic tapping."],
+    "seo": {
+      "title": "Fast Fall — Landing Control in Scarlet Skips",
+      "description": "Game data names this card Let Go to Fast Fall and lists level 8. The exact drop speed is not published; consider it once you can control a long jump."
+    }
+  },
+  {
+    "id": "bounce-tricks",
+    "slug": "bounce-tricks",
+    "name": "Bounce Tricks",
+    "shortName": "Bounce Tricks",
+    "tableRow": "BounceTricks",
+    "gameTitle": "Bounce Tricks",
+    "appearsAfterLevel": 9,
+    "offerPool": "regular",
+    "icon": "spark",
+    "color": "pink",
+    "category": "Score",
+    "description": "A late trick card. The table names it Bounce Tricks; it does not say what a bounce is worth.",
+    "effect": "Enables bounce tricks. Score and movement details are unpublished.",
+    "playerSummary": "Treat this as a late extra, not a foundation pick. The name is confirmed; the payoff is not.",
+    "hudChange": "The shipping card title is Bounce Tricks. BounceTrick, BounceTrickX2, BounceTrickX3 and BounceTrickInf textures also exist in the game files — that is art, not a published multiplier table.",
+    "exactValues": "No official trick score, timing window or stack rule has been published.",
+    "stackable": "Unknown. Extra bounce textures exist; that does not prove each pick is a multiplier tier.",
+    "stackableShort": "Unknown",
+    "perStackShort": "No published number",
+    "perStack": {
+      "official": "The shipping table row BounceTricks uses the title Bounce Tricks and AppearsAfterLevel 9.",
+      "observed": "Not covered by the cited Steam guides. Do not assume X2/X3 textures are how stacking works in a run.",
+      "unknown": "Score per bounce, whether bounces need a landing, and how this interacts with fire."
+    },
+    "synergyNotes": [
+      { "slug": "air-tricks", "why": "Both are trick cards. One is bounce, one is press-in-air. Learn one before stacking the other." },
+      { "slug": "increase-jump-height", "why": "Tricks need time in the air. Height is the usual setup." },
+      { "slug": "ignite-jump-rope", "why": "Score tools stack only after the pattern is already readable." }
+    ],
+    "antiSynergies": [
+      "Do not take Bounce Tricks to fix a rope you cannot jump.",
+      "Do not take it on a Moon attempt that wants a calm set."
+    ],
+    "stackTiers": [
+      { "label": "1st pick", "feel": "You get a new action named Bounce. Spend jumps finding it before taking another trick card." },
+      { "label": "More copies", "feel": "Unconfirmed. X2/X3 textures exist in files; they may be unused, Super-menu, or stack art." },
+      { "label": "With fire", "feel": "Only after the rope set can survive a miss." }
+    ],
+    "routeLinks": [
+      { "href": "/guides/high-score", "label": "High score", "note": "A late extra after airtime, not a replacement for height and Luck." },
+      { "href": "/upgrades/air-tricks", "label": "Air Tricks", "note": "The other trick card in the same table." },
+      { "href": "/ending", "label": "Moon / ending", "note": "Skip tricks on the documented climb." }
+    ],
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-16",
+    "sourceStatus": "Official",
+    "sourceIds": ["cooked-dt-upgrades"],
+    "image": "/images/official/screenshot-4.jpg",
+    "imageAlt": "Scarlet clearing an active jump rope in Scarlet Skips",
+    "imageCaption": "Official skip still. Bounce Tricks is a table name; this shot does not show a bounce.",
+    "goals": ["High Score", "Fun"],
+    "tags": ["tricks", "score", "late-game", "movement"],
+    "goalWeights": { "beginner": 0, "ending": 1, "high-score": 3, "airtime": 3, "fun": 5 },
+    "synergies": ["air-tricks", "increase-jump-height", "ignite-jump-rope"],
+    "builds": ["high-score-build"],
+    "whatItDoes": [
+      "The shipping table names the card Bounce Tricks.",
+      "It can appear from level 9.",
+      "Bounce art variants exist; they are not a published scoring table."
+    ],
+    "stackingNote": "Do not treat BounceTrickX2 art as an official ×2 rule. Watch what the run actually does.",
+    "stages": {
+      "early": "Skip it. Foundation cards still matter more than a named trick.",
+      "mid": "Only if the jump is already easy and you want to learn a new action.",
+      "late": "A score or fun extra after height and protection are in."
+    },
+    "decisionChecks": [
+      "You can already clear the current set without panic.",
+      "You want a trick layer, not a save.",
+      "You are chasing score or style, not the documented Moon route."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists BounceTricks with the title Bounce Tricks and AppearsAfterLevel 9.",
+      "Game files also contain BounceTrick, BounceTrickX2, BounceTrickX3 and BounceTrickInf card textures. That is not proof of in-run stacking tiers.",
+      "Unknown: score, timing window, required landing, and whether this card is part of Steam's advertised ten.",
+      "Cited community routes do not yet explain this pick."
+    ],
+    "avoid": [
+      "You cannot already clear the rope.",
+      "The Moon route needs fewer moving parts.",
+      "You have not learned what a bounce looks like in your own run."
+    ],
+    "tips": ["Find the bounce before stacking another trick.", "Do not invent a multiplier from texture names.", "Keep Reinforce available."],
+    "seo": {
+      "title": "Bounce Tricks — A Later Scarlet Skips Card",
+      "description": "Scarlet Skips game data lists Bounce Tricks at level 9. Its exact score effect is not published, so treat it as a later option rather than an early-run plan."
+    }
+  },
+  {
+    "id": "air-tricks",
+    "slug": "air-tricks",
+    "name": "Air Tricks",
+    "shortName": "Air Tricks",
+    "tableRow": "AirTricks",
+    "gameTitle": "Press Button in Air to Trick",
+    "appearsAfterLevel": 10,
+    "offerPool": "regular",
+    "icon": "spark",
+    "color": "purple",
+    "category": "Score",
+    "description": "The table title is Press Button in Air to Trick. Late extra, not a first-learn card.",
+    "effect": "Lets you trick by pressing the jump button in the air.",
+    "playerSummary": "Take this only after you already stay up long enough to press again on purpose. Skip it if you still mash to survive.",
+    "hudChange": "The shipping card reads Press Button in Air to Trick. Scarlet Skips is a one-button game, so this is a second press during a hang — not a new key.",
+    "exactValues": "No official trick score, air-window or stack rule has been published.",
+    "stackable": "Unknown. The shipping table lists the card; it does not say whether copies add more tricks or more score.",
+    "stackableShort": "Unknown",
+    "perStackShort": "No published number",
+    "perStack": {
+      "official": "The shipping table row AirTricks uses the title Press Button in Air to Trick and AppearsAfterLevel 10.",
+      "observed": "Not covered by the cited Steam guides.",
+      "unknown": "Score per trick, how long the air window lasts, and whether a mistimed press becomes a hold."
+    },
+    "synergyNotes": [
+      { "slug": "bounce-tricks", "why": "The other trick card. Learn one action before taking both." },
+      { "slug": "increase-jump-height", "why": "You need hang time before a mid-air press is a choice." },
+      { "slug": "upgrade-rocket-fuel", "why": "Fuel is extra hang time. Tricks spend that hang time." }
+    ],
+    "antiSynergies": [
+      "Do not take Air Tricks while you still hold every jump to panic-height.",
+      "Do not take it on the documented Moon route."
+    ],
+    "stackTiers": [
+      { "label": "1st pick", "feel": "You get a mid-air press. Try it on a safe hang before the next trick card." },
+      { "label": "More copies", "feel": "Unknown. Stop if extra presses start eating the landing." },
+      { "label": "With fuel", "feel": "Only after you can tell a trick press from a fuel hold." }
+    ],
+    "routeLinks": [
+      { "href": "/guides/high-score", "label": "High score", "note": "A late extra after the airtime engine works." },
+      { "href": "/upgrades/bounce-tricks", "label": "Bounce Tricks", "note": "The bounce-side trick card." },
+      { "href": "/ending", "label": "Moon / ending", "note": "Skip tricks on the documented climb." }
+    ],
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-16",
+    "sourceStatus": "Official",
+    "sourceIds": ["cooked-dt-upgrades"],
+    "image": "/images/official/screenshot-5.jpg",
+    "imageAlt": "Scarlet airborne with Rocket Shoes in Scarlet Skips",
+    "imageCaption": "Official airborne still. Air Tricks needs hang time; this shot is not the trick itself.",
+    "goals": ["High Score", "Fun", "Airtime"],
+    "tags": ["tricks", "score", "airtime", "late-game"],
+    "goalWeights": { "beginner": 0, "ending": 1, "high-score": 3, "airtime": 4, "fun": 5 },
+    "synergies": ["bounce-tricks", "increase-jump-height", "upgrade-rocket-fuel"],
+    "builds": ["high-score-build", "rocket-build"],
+    "whatItDoes": [
+      "The in-game title tells you to press the button in the air to trick.",
+      "The shipping table can offer it from level 10.",
+      "It does not publish score, the air window, or whether a second press spends fuel."
+    ],
+    "stackingNote": "One copy already adds a new press. Extra copies are unconfirmed — do not invent a trick multiplier.",
+    "stages": {
+      "early": "Skip it. A second press will fight the jump you are still learning.",
+      "mid": "Only if hangs are already long and you can spare a press that is not a save.",
+      "late": "A score or style extra after height and Fuel make airtime real."
+    },
+    "decisionChecks": [
+      "You already stay up long enough to press on purpose.",
+      "You can tell a trick tap from a fuel hold.",
+      "Score or fun matters more than a calm Moon climb."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists AirTricks with the title Press Button in Air to Trick and AppearsAfterLevel 10.",
+      "The title is a control instruction on the game's one button. It is not a published score table.",
+      "Unknown: score, air window, stacking, and interaction with Rocket Shoes holds.",
+      "Cited community routes do not yet explain this pick."
+    ],
+    "avoid": [
+      "You still mash or panic-hold to survive.",
+      "The Moon route needs fewer inputs.",
+      "You cannot already clear several loops in one jump."
+    ],
+    "tips": ["Practice the mid-air press on a safe hang.", "Do not confuse it with holding for fuel.", "Keep the rope set readable."],
+    "seo": {
+      "title": "Air Tricks — Timing and Use in Scarlet Skips",
+      "description": "Scarlet Skips game data calls this card Press Button in Air to Trick and lists level 10. Try it when long jumps leave room for another deliberate press."
+    }
+  },
+  {
+    "id": "charge-jump",
+    "slug": "charge-jump",
+    "name": "Charge Jump",
+    "shortName": "Charge Jump",
+    "tableRow": "ChargeJump",
+    "gameTitle": "Charge Jump",
+    "appearsAfterLevel": 11,
+    "offerPool": "regular",
+    "icon": "gauge",
+    "color": "blue",
+    "category": "Movement",
+    "description": "A very late movement card. The table names it Charge Jump; it does not say how a charge works.",
+    "effect": "Adds a charged jump. Hold timing and payoff are unpublished.",
+    "playerSummary": "Take this only after the normal jump is already easy. Skip it if you still cannot land a basic skip.",
+    "hudChange": "The shipping card title is Charge Jump. Scarlet Skips already uses hold-and-release, so this likely changes that hold — but the game does not publish the new window.",
+    "exactValues": "No official charge time, extra height or stack rule has been published.",
+    "stackable": "Unknown. The shipping table lists the card; it does not say whether copies shorten the charge or add height.",
+    "stackableShort": "Unknown",
+    "perStackShort": "No published number",
+    "perStack": {
+      "official": "The shipping table row ChargeJump uses the title Charge Jump and AppearsAfterLevel 11.",
+      "observed": "Not covered by the cited Steam guides.",
+      "unknown": "Charge time, extra height, whether a full charge is required, and how it mixes with Rocket Shoes."
+    },
+    "synergyNotes": [
+      { "slug": "increase-jump-height", "why": "Charge Jump is not a substitute for the first height picks." },
+      { "slug": "fast-fall", "why": "A stronger launch often needs a way back down. Learn one change at a time." },
+      { "slug": "upgrade-rocket-fuel", "why": "Fuel already extends a hold. Confirm you need a charge on top of that." }
+    ],
+    "antiSynergies": [
+      "Do not take Charge Jump to learn the basic skip.",
+      "Do not take it in the same stretch as Fast Fall unless you can name both problems."
+    ],
+    "stackTiers": [
+      { "label": "1st pick", "feel": "The hold probably changes. Spend jumps finding the new release before stacking anything else." },
+      { "label": "More copies", "feel": "Unknown. Stop if the charge window starts eating landings." },
+      { "label": "With fuel", "feel": "Easy to confuse with a Rocket Shoes hold. Watch the gauge." }
+    ],
+    "routeLinks": [
+      { "href": "/guides/high-score", "label": "High score", "note": "A late movement extra, not a replacement for height and Luck." },
+      { "href": "/upgrades/fast-fall", "label": "Fast Fall", "note": "The other late movement card in the table." },
+      { "href": "/ending", "label": "Moon / ending", "note": "Not part of the documented ending card order." }
+    ],
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-16",
+    "sourceStatus": "Official",
+    "sourceIds": ["cooked-dt-upgrades"],
+    "image": "/images/official/screenshot-1.jpg",
+    "imageAlt": "Scarlet clearing a jump rope in the sunny park in Scarlet Skips",
+    "imageCaption": "Official basic skip. Charge Jump is a table name; this still is not a charged jump.",
+    "goals": ["High Score", "Airtime"],
+    "tags": ["movement", "airtime", "late-game"],
+    "goalWeights": { "beginner": 0, "ending": 2, "high-score": 3, "airtime": 4, "fun": 3 },
+    "synergies": ["increase-jump-height", "fast-fall", "upgrade-rocket-fuel"],
+    "builds": ["high-score-build", "rocket-build"],
+    "whatItDoes": [
+      "The shipping table names the card Charge Jump.",
+      "It can appear from level 11.",
+      "It does not publish charge time, extra height, or how it shares the hold with Rocket Shoes."
+    ],
+    "stackingNote": "One copy already changes the hold. Extra copies are unconfirmed — do not invent a charge-time number.",
+    "stages": {
+      "early": "Skip it. You still need the basic jump more than a new charge.",
+      "mid": "Usually still early. AppearsAfterLevel 11 means the table treats it as a late unlock.",
+      "late": "A movement extra after height already works and you can afford a new hold."
+    },
+    "decisionChecks": [
+      "The normal jump is already easy.",
+      "You can spend cycles learning a new hold without losing the last rope.",
+      "You are not counting on an unpublished height bonus to finish the Moon."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists ChargeJump with the title Charge Jump and AppearsAfterLevel 11.",
+      "The name suggests a charged jump on the existing hold. That is not a published formula.",
+      "Unknown: charge time, extra height, stacking, and overlap with Rocket Shoes.",
+      "Cited community routes do not yet explain this pick."
+    ],
+    "avoid": [
+      "You are still learning press, hold and release.",
+      "Fuel already covers the hang you wanted.",
+      "A rope is about to break — take Reinforce."
+    ],
+    "tips": ["Retune the hold after the pick.", "Do not invent a charge-time number.", "Learn it on a protected set."],
+    "seo": {
+      "title": "Charge Jump — Timing and Use in Scarlet Skips",
+      "description": "Game data lists Charge Jump at level 11, but does not publish a charge time or height value. Learn the basic landing before adding another hold."
+    }
+  },
+  {
+    "id": "super-rocket-shoes",
+    "slug": "super-rocket-shoes",
+    "name": "Super Rocket Shoes",
+    "shortName": "Super Rocket Shoes",
+    "tableRow": "SuperRocketShoes",
+    "gameTitle": "They're Rocket And Super",
+    "appearsAfterLevel": 12,
+    "offerPool": "regular",
+    "icon": "rocket",
+    "color": "gold",
+    "category": "Ending",
+    "description": "The late Super Rocket Shoes card. Community routes treat the state as the start of the final ascent.",
+    "effect": "The Super Rocket Shoes upgrade. Exact flight rules are unpublished.",
+    "playerSummary": "This is the late Super card, not a first Rocket Shoes pick. Ending routes watch for it; they do not explain a formula.",
+    "hudChange": "The shipping card title is They're Rocket And Super. Community routes treat Super Rocket Shoes as the signal that the final climb can begin. That is a player reading of a state, not a published height target.",
+    "exactValues": "No official height, fuel or unlock formula has been published.",
+    "stackable": "Unknown as a repeated card. The ending state is treated as a one-time trigger in community routes.",
+    "stackableShort": "Unknown",
+    "perStackShort": "No published number",
+    "perStack": {
+      "official": "The shipping table row SuperRocketShoes uses the title They're Rocket And Super and AppearsAfterLevel 12. A SuperRocketShoes actor and card texture exist in the build.",
+      "observed": "Ending guides and long-form video treat Super Rocket Shoes as the start of the final ascent, not as a normal early stack.",
+      "unknown": "Whether the 3-card screen can offer it like any other card, whether it replaces Rocket Shoes, and any numeric change."
+    },
+    "synergyNotes": [
+      { "slug": "upgrade-rocket-fuel", "why": "Super is the late form. Build ordinary Rocket Shoes first." },
+      { "slug": "increase-jump-height", "why": "The documented climb still stacks height before the Super state." },
+      { "slug": "increase-luck", "why": "Faster cards are how a run reaches this late row." }
+    ],
+    "antiSynergies": [
+      "Do not expect this as a level-1 pick. The table marks it AppearsAfterLevel 12.",
+      "Do not skip ordinary Rocket Shoes because Super exists later."
+    ],
+    "stackTiers": [
+      { "label": "Before it appears", "feel": "Keep a small, reinforced set and stack height, Luck and ordinary Rocket Shoes." },
+      { "label": "When it shows", "feel": "Community routes treat this as the final-ascent signal. Confirm in your own run." },
+      { "label": "After", "feel": "Video shows the space / Moon sequence. That is the ending, not a new stack rule." }
+    ],
+    "routeLinks": [
+      { "href": "/ending", "label": "Moon / ending", "note": "The documented climb watches for this state." },
+      { "href": "/upgrades/upgrade-rocket-fuel", "label": "Rocket Shoes", "note": "The ordinary fuel card you build first." },
+      { "href": "/guides/high-score", "label": "High score", "note": "Score routes still use ordinary fuel; Super is the ending beat." }
+    ],
+    "bestTiming": "Late",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-15",
+    "sourceStatus": "Community Verified",
+    "sourceIds": ["cooked-dt-upgrades", "steam-ending-guide", "full-gameplay-video", "tpose-ending-report"],
+    "image": "/images/official/screenshot-5.jpg",
+    "imageAlt": "Scarlet using glowing Rocket Shoes during a jump in Scarlet Skips",
+    "imageCaption": "Official Rocket Shoes still. Super Rocket Shoes is a later table row and an ending signal — not this screenshot's caption.",
+    "goals": ["Ending", "Airtime"],
+    "tags": ["rocket", "ending", "late-game", "airtime"],
+    "goalWeights": { "beginner": 0, "ending": 5, "high-score": 1, "airtime": 4, "fun": 4 },
+    "synergies": ["upgrade-rocket-fuel", "increase-jump-height", "increase-luck"],
+    "builds": ["ending-build", "rocket-build"],
+    "whatItDoes": [
+      "The shipping table names it Super Rocket Shoes, title They're Rocket And Super.",
+      "It is marked to appear from level 12.",
+      "Community routes treat the Super state as the start of the final ascent — not a published height number."
+    ],
+    "stackingNote": "Treat this as a late trigger, not a stack you farm like Jump Height. No official Super formula is published.",
+    "stages": {
+      "early": "It will not help a first-learn run. The table does not offer it that early.",
+      "mid": "Keep building ordinary height, Luck and Rocket Shoes.",
+      "late": "Watch for it on an ending attempt. Score routes still care more about fire and ropes."
+    },
+    "decisionChecks": [
+      "The rope set is small and protected.",
+      "Ordinary Rocket Shoes already work.",
+      "You are going for the Moon, not a first high-score experiment."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists SuperRocketShoes with the title They're Rocket And Super and AppearsAfterLevel 12.",
+      "Community verified: recorded play and ending guides treat Super Rocket Shoes as the final-ascent signal.",
+      "Unknown: whether the level-up screen offers it like other cards, whether it replaces Add Rocket Shoes, and any numeric change.",
+      "Steam still advertises ten upgrade cards. Super may sit outside that marketing count."
+    ],
+    "avoid": [
+      "You have not built a stable jump yet.",
+      "You are still taking fire on an ending attempt.",
+      "You treat Super as a published height requirement."
+    ],
+    "tips": ["Build ordinary Rocket Shoes first.", "Keep the set readable.", "Open the ending route for the climb order."],
+    "seo": {
+      "title": "Super Rocket Shoes — Scarlet Skips Ending Card",
+      "description": "Game data lists Super Rocket Shoes at level 12. Player ending routes treat it as a late ascent signal; no official unlock formula is published."
+    }
+  },
+  {
+    "id": "safety-bounce",
+    "slug": "safety-bounce",
+    "name": "Safety Bounce",
+    "shortName": "Safety Bounce",
+    "tableRow": "SafetyBounce",
+    "gameTitle": "Safety Bounce",
+    "appearsAfterLevel": null,
+    "offerPool": "special",
+    "icon": "heart",
+    "color": "green",
+    "category": "Rope",
+    "description": "Named in game data with a level 9999 marker. Its normal-draw availability has not been established.",
+    "effect": "A Safety Bounce card exists in the table. Offer rules and effect values are unpublished.",
+    "playerSummary": "Do not plan around seeing this on a normal three-card screen; its actual availability remains unconfirmed.",
+    "hudChange": "The shipping title is Safety Bounce. AppearsAfterLevel is stored as 9999, a usual Unreal sentinel for 'do not offer this on the normal curve.' That is table data, not a video of the card appearing.",
+    "exactValues": "No official bounce window, rope-save rule or stack value has been published.",
+    "stackable": "Unknown. The card is in the enum and the table, not in the regular offer list.",
+    "stackableShort": "Unknown",
+    "perStackShort": "Not in regular offer",
+    "perStack": {
+      "official": "The shipping table row SafetyBounce uses the title Safety Bounce. AppearsAfterLevel is 9999.",
+      "observed": "Cited Steam guides do not walk through this card as a normal pick.",
+      "unknown": "Whether debug, Super-upgrade menus, or a hidden event can still offer it, and what a safety bounce does."
+    },
+    "synergyNotes": [
+      { "slug": "reinforce-jump-rope", "why": "The regular save for a fragile rope is still Reinforce." },
+      { "slug": "add-jump-rope", "why": "Do not add ropes expecting Safety Bounce to catch a miss." },
+      { "slug": "fast-fall", "why": "A named bounce is not the same card as a fast drop." }
+    ],
+    "antiSynergies": [
+      "Do not skip Reinforce because this name exists in the files.",
+      "Do not plan a route around a card the table marks as not regularly offered."
+    ],
+    "stackTiers": [
+      { "label": "Normal run", "feel": "You should not see this in the usual 3-card draw." },
+      { "label": "If it appears", "feel": "Record what it does. There is no published bounce rule to trust yet." },
+      { "label": "Menus", "feel": "A Super upgrades menu exists in the build. That is a possible home, not a confirmed one." }
+    ],
+    "routeLinks": [
+      { "href": "/upgrades", "label": "All cards", "note": "The regular offer list is the table rows with real appear levels." },
+      { "href": "/upgrades/reinforce-jump-rope", "label": "Reinforce Rope", "note": "The save you can actually take." },
+      { "href": "/guides/beginner-guide", "label": "Learning the jump", "note": "Learn landings. Do not wait on an unoffered bounce." }
+    ],
+    "bestTiming": "Any",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-15",
+    "sourceStatus": "Official",
+    "sourceIds": ["cooked-dt-upgrades"],
+    "image": "/images/official/screenshot-1.jpg",
+    "imageAlt": "Scarlet clearing a jump rope in the sunny park in Scarlet Skips",
+    "imageCaption": "Official skip still. Safety Bounce is a table name; this shot does not show a bounce save.",
+    "goals": ["Recovery", "Control"],
+    "tags": ["rope", "recovery", "special", "unoffered"],
+    "goalWeights": { "beginner": 1, "ending": 1, "high-score": 1, "airtime": 1, "fun": 2 },
+    "synergies": ["reinforce-jump-rope", "add-jump-rope", "fast-fall"],
+    "builds": ["beginner-build"],
+    "whatItDoes": [
+      "The shipping table names the card Safety Bounce.",
+      "AppearsAfterLevel 9999 keeps it out of the regular offer curve.",
+      "The bounce itself is unnamed in published notes and cited guides."
+    ],
+    "stackingNote": "This is not a stack you plan around. If a run ever offers it, write down what changed.",
+    "stages": {
+      "early": "Plan as if this card will not appear.",
+      "mid": "Reinforce is still the rope save.",
+      "late": "Same. A name in the files is not a late-game engine."
+    },
+    "decisionChecks": [
+      "It actually appeared on your 3-card screen — then it is worth taking notes.",
+      "Otherwise, pick a card the table actually offers."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists SafetyBounce with the title Safety Bounce and AppearsAfterLevel 9999.",
+      "9999 is a common Unreal 'never on this curve' sentinel. The Blueprint that reads the table has not been fully traced here.",
+      "Unknown: effect, whether Super or debug menus can still offer it, and whether it is leftover content.",
+      "Steam's ten-card copy should not be filled in with this row."
+    ],
+    "avoid": [
+      "Waiting for it on a normal level-up.",
+      "Skipping Reinforce because the name sounds like a save.",
+      "Inventing a bounce window."
+    ],
+    "tips": ["Use Reinforce for rope safety.", "If you ever see this card, record the pick.", "Do not add it to a forced route."],
+    "seo": {
+      "title": "Safety Bounce — Scarlet Skips Game-Data Entry",
+      "description": "Safety Bounce has a level 9999 marker in game data, so this guide keeps it outside the regular offer list. Its actual availability and effect are unconfirmed."
+    }
+  },
+  {
+    "id": "slam-down",
+    "slug": "slam-down",
+    "name": "Slam Down",
+    "shortName": "Slam Down",
+    "tableRow": "SlamDown",
+    "gameTitle": "Hold to Slam Down",
+    "appearsAfterLevel": null,
+    "offerPool": "special",
+    "icon": "minus",
+    "color": "red",
+    "category": "Movement",
+    "description": "Game data calls this Hold to Slam Down and gives it a level 9999 marker. Its normal-draw availability is unconfirmed.",
+    "effect": "A slam-down card exists in the table. Offer rules and slam values are unpublished.",
+    "playerSummary": "Do not plan around this appearing beside Fast Fall; it is listed separately because of its level marker.",
+    "hudChange": "The shipping card reads Hold to Slam Down. AppearsAfterLevel is 9999. Fast Fall is the separate regular row titled Let Go to Fast Fall.",
+    "exactValues": "No official slam speed, shockwave or rope interaction has been published.",
+    "stackable": "Unknown. The row is in the table, not in the enum list of 14 regular upgrade types.",
+    "stackableShort": "Unknown",
+    "perStackShort": "Not in regular offer",
+    "perStack": {
+      "official": "The shipping table row SlamDown uses the title Hold to Slam Down. AppearsAfterLevel is 9999. It is not one of the 14 E_Upgrades enum names.",
+      "observed": "Cited guides do not walk through a slam-down pick.",
+      "unknown": "Whether hold-to-slam is leftover, debug, or a hidden event, and how it differs from Fast Fall."
+    },
+    "synergyNotes": [
+      { "slug": "fast-fall", "why": "Fast Fall is the regular drop card. Slam Down is the special hold version in the same table." },
+      { "slug": "charge-jump", "why": "Both names talk about holds. Do not mix unpublished hold cards into one plan." },
+      { "slug": "increase-jump-height", "why": "A slam is useless if you cannot get off the ground." }
+    ],
+    "antiSynergies": [
+      "Do not skip Fast Fall because Slam Down sounds stronger.",
+      "Do not plan a route around a 9999 sentinel row."
+    ],
+    "stackTiers": [
+      { "label": "Normal run", "feel": "You should not see this in the usual 3-card draw." },
+      { "label": "If it appears", "feel": "Compare it to Fast Fall in the same run and write down the difference." },
+      { "label": "Files", "feel": "FastFall and FasterFall textures both exist. That still does not put Slam Down in the regular pool." }
+    ],
+    "routeLinks": [
+      { "href": "/upgrades/fast-fall", "label": "Fast Fall", "note": "The regular drop card from level 8." },
+      { "href": "/upgrades", "label": "All cards", "note": "Special rows sit under the regular offer list." },
+      { "href": "/guides/beginner-guide", "label": "Learning the jump", "note": "Learn release timing on the cards you can actually be offered." }
+    ],
+    "bestTiming": "Any",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-16",
+    "sourceStatus": "Official",
+    "sourceIds": ["cooked-dt-upgrades"],
+    "image": "/images/official/screenshot-4.jpg",
+    "imageAlt": "Scarlet clearing an active jump rope in Scarlet Skips",
+    "imageCaption": "Official skip still. Slam Down is a special table row; this shot does not show a slam.",
+    "goals": ["Control"],
+    "tags": ["movement", "special", "unoffered"],
+    "goalWeights": { "beginner": 0, "ending": 1, "high-score": 1, "airtime": 2, "fun": 2 },
+    "synergies": ["fast-fall", "charge-jump", "increase-jump-height"],
+    "builds": [],
+    "whatItDoes": [
+      "The shipping table title is Hold to Slam Down.",
+      "AppearsAfterLevel 9999 keeps it out of the regular offer curve.",
+      "It is a table row, not one of the 14 E_Upgrades enum names."
+    ],
+    "stackingNote": "Not a card to stack on purpose. If it appears, compare it to Fast Fall instead of guessing a slam number.",
+    "stages": {
+      "early": "Plan as if this card will not appear.",
+      "mid": "Fast Fall is the drop tool the table actually offers.",
+      "late": "Same. A sentinel row is not a late-game slam engine."
+    },
+    "decisionChecks": [
+      "It actually appeared on your 3-card screen — then record hold vs Fast Fall's release.",
+      "Otherwise, use Fast Fall if you need a drop card."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists SlamDown with the title Hold to Slam Down and AppearsAfterLevel 9999.",
+      "The row is extra to the 14-value E_Upgrades enum, which is another sign it may be leftover or special-case.",
+      "Unknown: effect, menus that can still offer it, and the difference from Fast Fall.",
+      "Do not use this row to complete Steam's ten-card count."
+    ],
+    "avoid": [
+      "Waiting for it instead of taking Fast Fall.",
+      "Inventing a slam-damage or shockwave rule.",
+      "Calling it official run advice."
+    ],
+    "tips": ["Use Fast Fall for a regular drop.", "If Slam Down appears, write down the hold.", "Do not force it into a build."],
+    "seo": {
+      "title": "Slam Down — Scarlet Skips Game-Data Entry",
+      "description": "Slam Down is titled Hold to Slam Down in Scarlet Skips game data and carries a level 9999 marker. Its availability in a normal card draw is unconfirmed."
+    }
+  },
+  {
+    "id": "remove-clothing",
+    "slug": "remove-clothing",
+    "name": "Remove Piece of Clothing",
+    "shortName": "Remove Clothing",
+    "tableRow": "RemoveClothing",
+    "gameTitle": "Remove Piece of Clothing",
+    "appearsAfterLevel": null,
+    "offerPool": "special",
+    "icon": "spark",
+    "color": "gold",
+    "category": "Ending",
+    "description": "A named game-data row with a level 9999 marker. Its availability as a normal level-up choice is unconfirmed.",
+    "effect": "The table title is Remove Piece of Clothing. When — and whether — it is offered is unpublished.",
+    "playerSummary": "This is a special table row, not a card to hunt on every level-up. Ending media shows costume changes; that still does not make this a published pick rule.",
+    "hudChange": "The shipping title is Remove Piece of Clothing. AppearsAfterLevel is 9999. It is not one of the 14 E_Upgrades enum names.",
+    "exactValues": "No official costume list, trigger or stack rule has been published.",
+    "stackable": "Unknown. The joke-looking title does not prove it repeats, or that it is the ending undress sequence.",
+    "stackableShort": "Unknown",
+    "perStackShort": "Not in regular offer",
+    "perStack": {
+      "official": "The shipping table row RemoveClothing uses the title Remove Piece of Clothing. AppearsAfterLevel is 9999. It is not in E_Upgrades.",
+      "observed": "Ending footage shows Scarlet's look changing on the way up. That is not the same as proving this card is offered on the 3-card screen.",
+      "unknown": "Whether this row drives the ending costume, a gag, leftover content, or something debug menus can still fire."
+    },
+    "synergyNotes": [
+      { "slug": "super-rocket-shoes", "why": "Both are late / special rows people connect to the ending. Neither has a published costume formula." },
+      { "slug": "increase-jump-height", "why": "The documented climb still stacks height. It does not wait on this card." },
+      { "slug": "upgrade-rocket-fuel", "why": "Ordinary Rocket Shoes are the fuel engine. This row is not a fuel card." }
+    ],
+    "antiSynergies": [
+      "Do not skip real upgrades hoping this will appear.",
+      "Do not treat ending costume changes as proof of a 3-card offer."
+    ],
+    "stackTiers": [
+      { "label": "Normal run", "feel": "You should not see this in the usual 3-card draw." },
+      { "label": "Ending footage", "feel": "Look changes on the way to the Moon are visible in video. The trigger is unpublished." },
+      { "label": "If it appears", "feel": "Record it. There is no published clothing list to check off." }
+    ],
+    "routeLinks": [
+      { "href": "/ending", "label": "Moon / ending", "note": "The documented climb does not depend on taking this card." },
+      { "href": "/upgrades/super-rocket-shoes", "label": "Super Rocket Shoes", "note": "The late Super row that ending routes actually watch for." },
+      { "href": "/upgrades", "label": "All cards", "note": "Special rows are listed separately from the regular offer." }
+    ],
+    "bestTiming": "Any",
+    "verifiedVersion": "1.0.1",
+    "updatedDate": "2026-09-15",
+    "sourceStatus": "Unconfirmed",
+    "sourceIds": ["cooked-dt-upgrades", "full-gameplay-video", "tpose-ending-report"],
+    "image": "/images/official/screenshot-5.jpg",
+    "imageAlt": "Scarlet airborne with Rocket Shoes in Scarlet Skips",
+    "imageCaption": "Official airborne still. Remove Clothing is a table name; this shot is not a costume checklist.",
+    "goals": ["Ending", "Fun"],
+    "tags": ["ending", "special", "unoffered"],
+    "goalWeights": { "beginner": 0, "ending": 2, "high-score": 0, "airtime": 1, "fun": 3 },
+    "synergies": ["super-rocket-shoes", "increase-jump-height", "upgrade-rocket-fuel"],
+    "builds": ["ending-build"],
+    "whatItDoes": [
+      "The shipping table names the card Remove Piece of Clothing.",
+      "AppearsAfterLevel 9999 keeps it out of the regular offer curve.",
+      "Ending videos show look changes. Connecting those to this row is still a guess."
+    ],
+    "stackingNote": "Do not farm this. If it ever appears, it is a note in the run log — not a published costume table.",
+    "stages": {
+      "early": "Ignore it. Learn the jump.",
+      "mid": "The documented climb still uses height, Luck, Reinforce and Rocket Shoes.",
+      "late": "Watch for Super Rocket Shoes. Do not stall a Moon attempt waiting on this row."
+    },
+    "decisionChecks": [
+      "It actually appeared — then take notes instead of inventing a clothing order.",
+      "Otherwise, follow the ending route's real cards."
+    ],
+    "knownUnknowns": [
+      "Official: the shipping DataTable lists RemoveClothing with the title Remove Piece of Clothing and AppearsAfterLevel 9999.",
+      "The row is extra to the 14-value E_Upgrades enum.",
+      "Community footage shows costume changes during the ending sequence. That does not confirm this card is offered at level-up.",
+      "Unknown: trigger, clothing order, and whether the row is leftover, gag, or event-only."
+    ],
+    "avoid": [
+      "Waiting for it on a normal level-up.",
+      "Writing a clothing-order guide from the row name alone.",
+      "Skipping Super Rocket Shoes or height to hunt this."
+    ],
+    "tips": ["Follow the ending route's real cards.", "Treat costume changes as video evidence, not this row.", "If it appears, record it."],
+    "seo": {
+      "title": "Remove Piece of Clothing — Scarlet Skips Game Data",
+      "description": "This game-data entry has a level 9999 marker. Costume changes visible in ending footage do not establish when or whether this appears as a card."
+    }
+  }
+]

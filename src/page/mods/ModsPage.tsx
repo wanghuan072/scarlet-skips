@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
+import { PageHero } from "@/components/common/PageHero";
 import { mods } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
@@ -15,18 +15,22 @@ export default function ModsPage() {
       <JsonLd data={breadcrumbSchema([{ label: "Home", href: "/" }, { label: "Mods", href: "/mods" }])}/>
       <div className="container"><Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Mods" }]}/></div>
 
-      <header className={`container ${styles.hero}`}>
-        <div className={styles.heroCopy}>
-          <span className={styles.eyebrow}>UNOFFICIAL, SO CHECK BEFORE YOU COPY</span>
-          <h1>Scarlet Skips mods, with the important part explained.</h1>
-          <p>The scene is tiny and very new. Here is what each public Nexus listing actually changes, which ones need UE4SS, and what that means for a normal run.</p>
-          <div className={styles.heroActions}><a href="https://www.nexusmods.com/games/scarletskips" target="_blank" rel="noreferrer">Open the Nexus hub <Icon name="arrow" size={17}/></a><Link href="/updates">Check the game version</Link></div>
-        </div>
-        <figure className={styles.heroImage}><Image src="/images/official/screenshot-2.jpg" alt="Official base-game screenshot of Scarlet jumping a flaming rope" fill priority sizes="(max-width: 800px) 100vw, 48vw"/><figcaption>Official base-game screenshot—not a mod preview.</figcaption></figure>
-      </header>
+      <PageHero
+        eyebrow="THIRD-PARTY GAME CHANGES"
+        titlePrefix="Scarlet Skips Mods"
+        title="What each listing changes"
+        description="Compare the listed mods and their stated requirements before installing. Modded runs may behave differently from the base game."
+        image="/images/official/screenshot-7.jpg"
+        imageAlt="Scarlet missing a skip with the rope tangled around her legs"
+        imageCaption="A base-game miss. We don’t host mod files here — grab them from the author."
+        actions={[
+          { href: "https://www.nexusmods.com/games/scarletskips", label: "Open the Nexus hub", external: true },
+          { href: "/updates", label: "Check the game version" },
+        ]}
+      />
 
       <section className={`container ${styles.snapshot}`} aria-label="Current mod snapshot">
-        <div><strong>7</strong><span>mods shown on the Nexus game hub</span><small>Checked September 14, 2026</small></div>
+        <div><strong>7</strong><span>Nexus hub entries at the last check</span><small>Checked September 14, 2026</small></div>
         <div><strong>{mods.length}</strong><span>public non-adult listings documented here</span><small>One hub entry is not reproduced without enough public detail</small></div>
         <div><strong>{loaderMods.length}</strong><span>gameplay scripts that state a loader requirement</span><small>The Rope Ladder is the dependency</small></div>
         <div><strong>0</strong><span>files hosted by this guide</span><small>Download from the author&apos;s listing</small></div>
@@ -34,11 +38,11 @@ export default function ModsPage() {
 
       <section className={`container ${styles.notice}`}>
         <span><Icon name="shield" size={25}/></span>
-        <div><h2>Mods are not the same thing as an upgrade build.</h2><p>Gym, Lit and Luck change the game&apos;s normal card economy. A score from those sessions should not be compared with an unmodded route, and their behavior should not be used to explain base-game mechanics.</p></div>
+        <div><h2>Mods are not the same thing as an upgrade build.</h2><p>Gym, Lit and Luck change the game&apos;s normal <Link href="/upgrades">card</Link> economy. A score from those sessions should not be compared with an unmodded <Link href="/guides/high-score">score route</Link>, and their behavior should not be used to explain base-game mechanics.</p></div>
       </section>
 
       <section className={`container ${styles.catalog}`}>
-        <div className={styles.sectionHead}><div><span>WHAT IS AVAILABLE</span><h2>The current public listings</h2><p>Descriptions below stay close to the author&apos;s listing. If a requirement is not stated, we say so.</p></div></div>
+        <div className={styles.sectionHead}><div><span>LISTINGS CHECKED SEPTEMBER 14</span><h2>The listed mods and what they claim</h2><p>Descriptions stay close to the authors&apos; pages. Check each listing again before installing; requirements can change.</p></div></div>
         <div className={styles.modGrid}>
           {mods.map((mod) => (
             <article key={mod.slug} id={mod.slug}>

@@ -45,7 +45,7 @@
     "type": "community",
     "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3795233342",
     "dateChecked": "2026-09-14",
-    "note": "Player-tested unlock method for the launch achievement."
+    "note": "The guide author describes missing the first jump to unlock the launch achievement."
   },
   {
     "id": "official-screenshots",
@@ -61,7 +61,7 @@
     "type": "community",
     "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3797967179",
     "dateChecked": "2026-09-14",
-    "note": "Independent Steam Community confirmation that failing the first jump unlocks Off to a Great Start."
+    "note": "A second Steam guide describes the same first-jump miss method for Off to a Great Start."
   },
   {
     "id": "steam-rhythm-guide",
@@ -85,7 +85,7 @@
     "type": "community",
     "url": "https://tposegaming.com/scarlet-skips-ending/",
     "dateChecked": "2026-09-14",
-    "note": "Third-party ending breakdown cross-referenced against the justonegamr full-gameplay video; interpretation is treated as editorial, not official lore."
+    "note": "This article discusses the ending. Compare its interpretation with the linked full-gameplay video; it is not official story information."
   },
   {
     "id": "ending-card-video",
@@ -94,5 +94,21 @@
     "url": "https://www.youtube.com/watch?v=FIMs9bPh8Lg",
     "dateChecked": "2026-09-14",
     "note": "Gameplay footage supplied for review; it visibly shows the Extinguish Jump Rope card and the completed Moon sequence. It does not establish an official formula or required card order."
+  },
+  {
+    "id": "cooked-dt-upgrades",
+    "label": "Shipping upgrade table DT_Upgrades",
+    "type": "official",
+    "url": "https://store.steampowered.com/app/4513480/Scarlet_Skips/",
+    "dateChecked": "2026-09-15",
+    "note": "Card row names, two-line titles and AppearsAfterLevel values read from the cooked Unreal DataTable in the Steam Windows build. This is game data, not a published design document. It does not include per-stack numeric formulas."
+  },
+  {
+    "id": "cooked-character-assets",
+    "label": "Shipping character assets (BP_Scarlet, E_FaceAnimations)",
+    "type": "official",
+    "url": "https://store.steampowered.com/app/4513480/Scarlet_Skips/",
+    "dateChecked": "2026-09-15",
+    "note": "Pawn, mesh, animation, input, voice and enum names read from cooked Unreal assets in the Steam Windows build. These are asset labels, not a published biography or numeric jump sheet."
   }
 ]

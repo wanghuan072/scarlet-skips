@@ -1,148 +1,328 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/common/Icon";
+import { UpgradeArt } from "@/components/common/UpgradeArt";
 import { upgrades } from "@/lib/data/content";
-import type { IconName, Upgrade } from "@/types/content";
-import styles from "@/style/page/builds/run-builder.module.css";
+import {
+  applyUpgrade,
+  advanceSkipBatch,
+  drawForLevel,
+  expectedLoops,
+  freshState,
+  igniteMultiplier,
+  jumpsNeeded,
+  offerDetail,
+  offerTitle,
+  snapshot,
+  type SimState,
+  type StatDelta,
+} from "@/lib/builds/sim";
+import { destinationHint, destinations, type RunDestination } from "@/lib/data/destinations";
+import type { Upgrade } from "@/types/content";
+import styles from "@/style/page/builds/sim.module.css";
 
-type Phase = "jumping" | "choosing" | "finished";
+type Phase = "skipping" | "choosing" | "finished";
 
-const MOON_HEIGHT = 1_000;
-
-const simulatedEffects: Record<string, { icon: IconName; detail: string; change: string }> = {
-  "increase-jump-height": { icon: "shoe", detail: "Adds more altitude after every level-up.", change: "+18 m level-up height" },
-  "increase-luck": { icon: "clover", detail: "Makes the next upgrade come a little sooner.", change: "−1 circle to the next level" },
-  "upgrade-rocket-fuel": { icon: "rocket", detail: "Adds a fuel-assisted lift after every level-up.", change: "+12 m level-up height" },
-  "add-jump-rope": { icon: "rope", detail: "Adds another active rope and more score per cleared circle.", change: "+1 rope · +5 score/circle" },
-  "reinforce-jump-rope": { icon: "shield", detail: "Adds one protection charge to the rope set.", change: "+1 rope shield" },
-  "increase-jump-rope-speed": { icon: "speed", detail: "Lets one jump action clear more circles, but raises pressure.", change: "+1 speed" },
-  "ignite-jump-rope": { icon: "fire", detail: "Adds a visible score multiplier to every cleared circle.", change: "+1 fire multiplier" },
-  "extinguish-jump-rope": { icon: "minus", detail: "Removes one fire layer when a run needs control.", change: "−1 fire multiplier" },
-};
-
-function countPicks(picks: string[]) {
-  return picks.reduce<Record<string, number>>((result, slug) => ({ ...result, [slug]: (result[slug] ?? 0) + 1 }), {});
+function ropeClass(rope: { ignited: boolean; reinforced: boolean; negative: boolean }) {
+  if (rope.ignited) return "fire";
+  if (rope.negative) return "neg";
+  if (rope.reinforced) return "shield";
+  return "plain";
 }
 
-function cardDraw(level: number, picks: string[]) {
-  const seed = picks.reduce((total, slug) => total + slug.length, level * 7);
-  const draw: Upgrade[] = [];
-  for (let index = 0; draw.length < 3; index += 1) {
-    const candidate = upgrades[(seed + index * 3) % upgrades.length];
-    if (!draw.some((item) => item.slug === candidate.slug)) draw.push(candidate);
-  }
-  return draw;
+function ropeNote(rope: { speed: number; ignited: boolean; reinforced: boolean; negative: boolean }) {
+  const bits: string[] = [];
+  if (rope.speed) bits.push(`speed ${rope.speed}`);
+  if (rope.ignited) bits.push("fire");
+  if (rope.reinforced) bits.push("shield");
+  if (rope.negative) bits.push("negative");
+  return bits.length ? bits.join(" · ") : "plain";
 }
 
-export function RunBuilder() {
-  const [phase, setPhase] = useState<Phase>("jumping");
-  const [level, setLevel] = useState(1);
-  const [circles, setCircles] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [score, setScore] = useState(0);
-  const [picks, setPicks] = useState<string[]>([]);
-  const [lastUpgrade, setLastUpgrade] = useState<string | null>(null);
-  const [lastChange, setLastChange] = useState("Start jumping to fill the first upgrade meter.");
+export function RunBuilder({
+  destination = null,
+  onPickDestination,
+}: {
+  destination?: RunDestination | null;
+  onPickDestination?: (id: RunDestination, scrollToSim?: boolean) => void;
+}) {
+  const [state, setState] = useState<SimState>(freshState);
+  const [phase, setPhase] = useState<Phase>("skipping");
+  const [draw, setDraw] = useState<Upgrade[]>([]);
+  const [log, setLog] = useState("Skip. Each rope loop fills the bar. Three cards when it fills.");
+  const [deltas, setDeltas] = useState<StatDelta[]>([]);
+  const [luckyFlash, setLuckyFlash] = useState(false);
+  const [skipping, setSkipping] = useState(false);
+  const [autoRunning, setAutoRunning] = useState(false);
+  const autoActive = useRef(false);
+  const autoTimer = useRef<number | null>(null);
 
-  const stacks = useMemo(() => countPicks(picks), [picks]);
-  const ropes = 1 + (stacks["add-jump-rope"] ?? 0);
-  const speed = stacks["increase-jump-rope-speed"] ?? 0;
-  const fire = Math.max(0, (stacks["ignite-jump-rope"] ?? 0) - (stacks["extinguish-jump-rope"] ?? 0));
-  const shields = stacks["reinforce-jump-rope"] ?? 0;
-  const luck = stacks["increase-luck"] ?? 0;
-  const jumpHeightBonus = (stacks["increase-jump-height"] ?? 0) * 18;
-  const fuelHeightBonus = (stacks["upgrade-rocket-fuel"] ?? 0) * 12;
-  const targetCircles = Math.max(8, 10 + level * 2 - luck);
-  const draw = useMemo(() => cardDraw(level, picks), [level, picks]);
-  const jumpActionCircles = 1 + Math.floor(speed / 2);
-  const pressure = Math.min(100, Math.round((ropes - 1) * 13 + speed * 10 + fire * 12));
-  const progress = Math.min(100, Math.round((circles / targetCircles) * 100));
-  const moonProgress = Math.min(100, Math.round((height / MOON_HEIGHT) * 100));
+  const needed = jumpsNeeded(state.level);
+  const remaining = Math.max(0, needed - state.jumpProgress);
+  const meter = Math.min(100, Math.round((state.jumpProgress / needed) * 100));
+  const multiplier = igniteMultiplier(state.ropes);
+  const preview = expectedLoops(state);
+  const stats = snapshot(state);
+  const changed = new Set(deltas.map((item) => item.key));
 
-  function jump(requestedCircles: number) {
-    if (phase !== "jumping") return;
-    const cleared = Math.min(targetCircles - circles, requestedCircles * jumpActionCircles);
-    const scorePerCircle = (10 + ropes * 5) * (1 + fire);
-    const nextCircles = circles + cleared;
-    setCircles(nextCircles);
-    setScore((current) => current + cleared * scorePerCircle);
-    setLastChange(`Cleared ${cleared} ${cleared === 1 ? "circle" : "circles"}. ${targetCircles - nextCircles} until the next card draw.`);
-    if (nextCircles >= targetCircles) setPhase("choosing");
+  const stopAuto = useCallback(() => {
+    autoActive.current = false;
+    if (autoTimer.current !== null) window.clearTimeout(autoTimer.current);
+    autoTimer.current = null;
+    setAutoRunning(false);
+  }, []);
+
+  useEffect(() => () => {
+    autoActive.current = false;
+    if (autoTimer.current !== null) window.clearTimeout(autoTimer.current);
+  }, []);
+
+  const skip = useCallback((untilLevel = false) => {
+    if (phase !== "skipping" || autoActive.current) return;
+    autoActive.current = true;
+    if (untilLevel) setAutoRunning(true);
+
+    function advance(current: SimState, totals: { loops: number; lucky: number; fuelBurned: number; scoreGained: number; jumps: number }) {
+      if (!autoActive.current) return;
+      const batch = advanceSkipBatch(current, untilLevel ? 40 : 1);
+      const next = {
+        loops: totals.loops + batch.loops,
+        lucky: totals.lucky + batch.lucky,
+        fuelBurned: totals.fuelBurned + batch.fuelBurned,
+        scoreGained: totals.scoreGained + batch.scoreGained,
+        jumps: totals.jumps + batch.jumps,
+      };
+      setState(batch.state);
+      setDeltas([]);
+      setSkipping(true);
+      window.setTimeout(() => setSkipping(false), 180);
+      setLuckyFlash(next.lucky > 0);
+      if (next.lucky > 0) window.setTimeout(() => setLuckyFlash(false), 700);
+
+      if (untilLevel && !batch.leveled) {
+        setLog(`${next.jumps} skips · ${next.loops} loops · ${Math.max(0, jumpsNeeded(batch.state.level) - batch.state.jumpProgress)} left — continuing…`);
+        autoTimer.current = window.setTimeout(() => advance(batch.state, next), 0);
+        return;
+      }
+      autoActive.current = false;
+      autoTimer.current = null;
+      setAutoRunning(false);
+      if (batch.leveled) {
+        setDraw(drawForLevel(batch.state));
+        setPhase("choosing");
+        setLog(next.lucky ? `LUCKY ×${next.lucky}. ${next.loops} loops — pick a card.` : `${next.loops} loops filled the bar. Pick one.`);
+      } else {
+        const left = jumpsNeeded(batch.state.level) - batch.state.jumpProgress;
+        setLog(`${next.loops} loops` + (next.lucky ? ` · LUCKY ×${next.lucky}` : "") +
+          (next.fuelBurned ? " · fuel" : "") + ` · +${next.scoreGained} score · ${left} left`);
+      }
+    }
+    advance(state, { loops: 0, lucky: 0, fuelBurned: 0, scoreGained: 0, jumps: 0 });
+  }, [phase, state]);
+
+  useEffect(() => {
+    if (phase !== "skipping") return;
+    function onKey(event: KeyboardEvent) {
+      if (event.code !== "Space") return;
+      const tag = (event.target as HTMLElement | null)?.tagName;
+      if (tag === "BUTTON" || tag === "A" || tag === "INPUT" || tag === "TEXTAREA") return;
+      event.preventDefault();
+      skip(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [phase, skip]);
+
+  function choose(upgrade: Upgrade) {
+    const result = applyUpgrade(state, upgrade.slug);
+    setState(result.state);
+    setDeltas(result.deltas);
+    setDraw([]);
+    if (result.state.superRocket) {
+      setPhase("finished");
+      setLog(`${offerTitle(upgrade, state)}. ${result.change}`);
+      return;
+    }
+    setPhase("skipping");
+    setLog(`${offerTitle(upgrade, state)}: ${result.change}.`);
   }
 
-  function chooseUpgrade(upgrade: Upgrade) {
-    const nextPicks = [...picks, upgrade.slug];
-    const nextStacks = countPicks(nextPicks);
-    const levelLift = 52 + (nextStacks["increase-jump-height"] ?? 0) * 18 + (nextStacks["upgrade-rocket-fuel"] ?? 0) * 12;
-    const nextHeight = Math.min(MOON_HEIGHT, height + levelLift);
-    const effect = simulatedEffects[upgrade.slug];
-    setPicks(nextPicks);
-    setLastUpgrade(upgrade.slug);
-    setHeight(nextHeight);
-    setCircles(0);
-    setScore((current) => current + 100 + level * 20);
-    setLastChange(`${upgrade.name}: ${effect.change}. Level-up lift: +${levelLift} m.`);
-    if (nextHeight >= MOON_HEIGHT) setPhase("finished");
-    else { setLevel((current) => current + 1); setPhase("jumping"); }
+  function reset() {
+    stopAuto();
+    setState(freshState());
+    setPhase("skipping");
+    setDraw([]);
+    setDeltas([]);
+    setLuckyFlash(false);
+    setLog("Fresh run. One rope. One loop per skip.");
   }
 
-  function resetRun() {
-    setPhase("jumping"); setLevel(1); setCircles(0); setHeight(0); setScore(0); setPicks([]); setLastUpgrade(null);
-    setLastChange("Fresh run started. Clear circles to reveal your first three cards.");
-  }
+  const cells = [
+    { key: "jump" as const, label: "Jump", value: stats.jump },
+    { key: "luck" as const, label: "Luck", value: stats.luck ? `${stats.luck} · ${stats.lucky}%` : "0" },
+    { key: "fuel" as const, label: "Fuel", value: stats.fuel },
+    { key: "ropes" as const, label: "Ropes", value: stats.ropes },
+    { key: "speed" as const, label: "Speed", value: stats.speed },
+    { key: "shields" as const, label: "Shields", value: stats.shields },
+    { key: "ignite" as const, label: "Ignite", value: `×${stats.ignite}` },
+    { key: "loops" as const, label: "Loops/skip", value: stats.loops },
+  ];
 
   return (
-    <section className={styles.simulator} id="simulator" aria-labelledby="simulator-title">
-      <header className={styles.simHeader}>
-        <div><p className={styles.kicker}>PLAYABLE RUN SIMULATOR</p><h2 id="simulator-title">Jump, level up, choose a card — make it to the Moon.</h2><p>Each button press clears rope circles. Fill the meter, choose one of three upgrade cards, watch the run change, then keep climbing.</p></div>
-        <div className={styles.runIdentity}><span>CURRENT RUN</span><strong>Level {level}</strong><small>{phase === "jumping" ? "Jumping" : phase === "choosing" ? "Choose an upgrade" : "Moon reached"}</small></div>
-      </header>
+    <section className={styles.sim} id="simulator" aria-labelledby="simulator-title" data-phase={phase} data-lucky={luckyFlash ? "true" : undefined}>
+      <div className={styles.stage}>
+        <div className={styles.park} data-skipping={skipping ? "true" : undefined}>
+          <Image
+            src="/images/official/screenshot-4.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 1400px) 100vw, 1400px"
+          />
+        </div>
+        <div className={styles.veil} />
 
-      <div className={styles.simGrid}>
-        <section className={styles.playArea} aria-live="polite">
-          <div className={styles.altitudePanel}>
-            <div className={styles.panelTop}><span><Icon name="route" size={18}/> ALTITUDE</span><strong>{height.toLocaleString()} m <small>/ {MOON_HEIGHT.toLocaleString()} m</small></strong></div>
-            <div className={styles.meter} aria-label={`${moonProgress}% of the route to the Moon`}><span style={{ width: `${moonProgress}%` }}/></div>
-            <p>{height >= MOON_HEIGHT ? "Scarlet reached the Moon." : `${MOON_HEIGHT - height} m left to the Moon.`}</p>
+        <header className={styles.top}>
+          <div>
+            <p>PLAYABLE RUN</p>
+            <h2 id="simulator-title">Skip. Fill the rope. Take a card.</h2>
+            {onPickDestination ? (
+              <div className={styles.destSwitch} role="group" aria-label="Run destination">
+                {destinations.map((route) => (
+                  <button
+                    key={route.id}
+                    type="button"
+                    aria-pressed={destination === route.id}
+                    data-active={destination === route.id ? "true" : undefined}
+                    onClick={() => onPickDestination(route.id)}
+                  >
+                    {route.id === "moon" ? "Moon" : route.id === "score" ? "Score" : "Spectacle"}
+                  </button>
+                ))}
+              </div>
+            ) : null}
           </div>
-
-          {phase === "jumping" && <section className={styles.jumpStage} aria-labelledby="jump-title">
-            <div className={styles.stageLabel}><span>JUMP PHASE</span><h3 id="jump-title">Clear {targetCircles - circles} more rope {targetCircles - circles === 1 ? "circle" : "circles"} to level up.</h3></div>
-            <div className={styles.circleReadout}><strong>{circles}</strong><span>/ {targetCircles} circles</span></div>
-            <div className={styles.meter} aria-label={`${progress}% to the next upgrade`}><span style={{ width: `${progress}%` }}/></div>
-            <p className={styles.jumpHint}>Every jump action currently clears {jumpActionCircles} {jumpActionCircles === 1 ? "circle" : "circles"}. Score grows with ropes and fire.</p>
-            <div className={styles.jumpActions}><button type="button" onClick={() => jump(5)}><Icon name="rope" size={22}/>Jump 5 circles</button><button type="button" onClick={() => jump(1)}>Jump 1 circle</button></div>
-          </section>}
-
-          {phase === "choosing" && <section className={styles.choiceStage} aria-labelledby="choice-title">
-            <div className={styles.stageLabel}><span>LEVEL {level} COMPLETE</span><h3 id="choice-title">Pick one upgrade for the next climb.</h3><p>Each choice immediately changes this simulated run.</p></div>
-            <div className={styles.cardGrid}>{draw.map((upgrade) => { const effect = simulatedEffects[upgrade.slug]; return <button className={styles.upgradeCard} type="button" key={upgrade.slug} onClick={() => chooseUpgrade(upgrade)}><span className={styles.cardIcon}><Icon name={effect.icon} size={32}/></span><span className={styles.cardCategory}>{upgrade.category}</span><strong>{upgrade.name}</strong><small>{effect.detail}</small><em>{effect.change}</em><span className={styles.cardAction}>Choose this card <Icon name="arrow" size={16}/></span></button>; })}</div>
-          </section>}
-
-          {phase === "finished" && <section className={styles.finishStage} aria-labelledby="finish-title"><Icon name="trophy" size={38}/><p>RUN COMPLETE</p><h3 id="finish-title">You reached the Moon.</h3><span>Final score: {score.toLocaleString()}</span><div><button type="button" onClick={resetRun}>Start another run</button><Link href="/ending">Read the ending route <Icon name="arrow" size={17}/></Link></div></section>}
-          <div className={styles.eventLog}><Icon name="spark" size={18}/><p>{lastChange}</p></div>
-        </section>
-
-        <aside className={styles.runPanel} aria-label="Current run statistics">
-          <div className={styles.scoreBlock}><span>RUN SCORE</span><strong>{score.toLocaleString()}</strong><small>Score rises each cleared circle.</small></div>
-          <dl className={styles.statGrid}>
-            <div data-changed={lastUpgrade === "increase-jump-height" || undefined}><dt><Icon name="shoe" size={17}/> Height</dt><dd>+{jumpHeightBonus} m</dd></div>
-            <div data-changed={lastUpgrade === "upgrade-rocket-fuel" || undefined}><dt><Icon name="rocket" size={17}/> Fuel</dt><dd>+{fuelHeightBonus} m</dd></div>
-            <div data-changed={lastUpgrade === "increase-luck" || undefined}><dt><Icon name="clover" size={17}/> Luck</dt><dd>{luck}</dd></div>
-            <div data-changed={lastUpgrade === "add-jump-rope" || undefined}><dt><Icon name="rope" size={17}/> Ropes</dt><dd>{ropes}</dd></div>
-            <div data-changed={lastUpgrade === "increase-jump-rope-speed" || undefined}><dt><Icon name="speed" size={17}/> Speed</dt><dd>{speed}</dd></div>
-            <div data-changed={(lastUpgrade === "ignite-jump-rope" || lastUpgrade === "extinguish-jump-rope") || undefined}><dt><Icon name="fire" size={17}/> Fire</dt><dd>×{1 + fire}</dd></div>
-            <div data-changed={lastUpgrade === "reinforce-jump-rope" || undefined}><dt><Icon name="shield" size={17}/> Shields</dt><dd>{shields}</dd></div>
-            <div data-changed={(lastUpgrade === "increase-jump-height" || lastUpgrade === "upgrade-rocket-fuel") || undefined}><dt><Icon name="route" size={17}/> Next lift</dt><dd>+{52 + jumpHeightBonus + fuelHeightBonus} m</dd></div>
+          <dl>
+            <div data-lucky={luckyFlash ? "true" : undefined}>
+              <dt>{luckyFlash ? "LUCKY" : "Level"}</dt>
+              <dd>{state.level}</dd>
+            </div>
+            <div data-changed={changed.has("ignite") ? "true" : undefined}>
+              <dt>Score</dt>
+              <dd>{state.score.toLocaleString()}{multiplier > 1 ? <small> ×{multiplier}</small> : null}</dd>
+            </div>
           </dl>
-          <section className={styles.pressure}><div><span>Rope pressure</span><strong>{pressure < 35 ? "Calm" : pressure < 65 ? "Busy" : "Wild"}</strong></div><div className={styles.meter} aria-label={`Rope pressure ${pressure} out of 100`}><span style={{ width: `${pressure}%` }}/></div><p>More ropes, speed and fire make the simulated rhythm harder to manage.</p></section>
-          <section className={styles.pickHistory}><h3>Upgrade history</h3>{picks.length ? <ol>{picks.map((slug, index) => { const upgrade = upgrades.find((item) => item.slug === slug); return upgrade ? <li key={`${slug}-${index}`}><span>{index + 1}</span><Icon name={simulatedEffects[slug].icon} size={18}/><strong>{upgrade.shortName}</strong></li> : null; })}</ol> : <p>No cards yet. Reach the first level-up to start your build.</p>}</section>
-          <button className={styles.resetButton} type="button" onClick={resetRun}>Reset this run</button>
-        </aside>
+        </header>
+
+        {phase === "skipping" ? (
+          <div className={styles.play}>
+            <p className={styles.remain}>
+              <strong>{remaining}</strong>
+              <span>{remaining === 1 ? "loop to a card" : "loops to a card"}</span>
+            </p>
+            <div className={styles.ropeMeter} aria-label={`${meter}% to the next upgrade`}>
+              <i />
+              <b><span style={{ width: `${meter}%` }} /></b>
+              <i />
+            </div>
+            <p className={styles.hint} data-changed={changed.has("loops") ? "true" : undefined}>
+              This skip clears <strong>{preview}</strong> {preview === 1 ? "loop" : "loops"}
+              {state.chargeJump ? " · Charge" : ""}
+              {state.airTricks ? " · Air tricks" : ""}
+              {state.fastFall ? ` · ${state.fastFall > 1 ? "Faster Fall" : "Fast Fall"}` : ""}
+              {state.rocketShoes ? ` · Fuel ${state.fuel}/${state.maxFuel}` : ""}.
+            </p>
+            {deltas.length ? (
+              <p className={styles.delta}>
+                {deltas.filter((item) => item.key !== "lucky" || changed.has("luck")).map((item) => (
+                  <span key={item.key}>{item.label} {item.from} → {item.to}</span>
+                ))}
+              </p>
+            ) : null}
+            <div className={styles.actions}>
+              <button type="button" className={styles.jump} disabled={autoRunning} onClick={() => skip(false)}>Skip</button>
+              <button type="button" className={styles.until} disabled={autoRunning} onClick={() => skip(true)}>Until level-up</button>
+              {autoRunning ? <button type="button" className={styles.until} onClick={() => { stopAuto(); setLog("Stopped. Continue with Skip or Until level-up."); }}>Stop</button> : null}
+            </div>
+            <p className={styles.space}>Space also skips</p>
+          </div>
+        ) : null}
+
+        {phase === "choosing" ? (
+          <div className={styles.choice} aria-labelledby="choice-title">
+            <p>
+              {destination
+                ? `Level ${state.level} — pick for ${destination === "moon" ? "the Moon" : destination === "score" ? "score" : "spectacle"}. The green line is what moves.`
+                : `Level ${state.level} — pick one. Choose a destination above to see which card helps.`}
+            </p>
+            <h3 id="choice-title" className="sr-only">Three cards. One pick.</h3>
+            <div className={styles.cards}>
+              {draw.map((upgrade, index) => {
+                const offer = offerDetail(upgrade, state);
+                const title = offerTitle(upgrade, state);
+                const hint = destinationHint(upgrade, destination);
+                return (
+                  <button type="button" key={upgrade.slug} style={{ animationDelay: `${index * 70}ms` }} onClick={() => choose(upgrade)} data-fit={hint?.kind}>
+                    <UpgradeArt
+                      slug={upgrade.slug}
+                      title={title}
+                      variant={{ bounceLevel: state.bounceLevel, rocketShoes: state.rocketShoes, fastFall: state.fastFall }}
+                    />
+                    <p>{offer.detail}</p>
+                    {hint ? <small className={styles.fit}>{hint.text}</small> : null}
+                    <em>{offer.change}</em>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
+
+        {phase === "finished" ? (
+          <div className={styles.finish}>
+            <p>SUPER ROCKET SHOES</p>
+            <h3>That late pair ends this climb.</h3>
+            <p>
+              Score {state.score.toLocaleString()} · {state.picks.length} cards · Jump {state.jumpLevel} · {state.ropes.length} ropes · {preview} loops/skip.
+              {destination === "moon" ? " Super Rocket Shoes is the late beat on the Moon climb." : " The Moon route is still a different destination."}
+            </p>
+            <div>
+              <button type="button" onClick={reset}>Play another run</button>
+              <Link href="/ending">How we actually reach the Moon <Icon name="arrow" size={16} /></Link>
+            </div>
+          </div>
+        ) : null}
+
+        <ul className={styles.ropes} aria-label="Ropes in the air">
+          {state.ropes.map((rope) => (
+            <li key={rope.id} data-kind={ropeClass(rope)} data-changed={changed.has("ropes") || changed.has("speed") || changed.has("shields") || changed.has("ignite") ? "true" : undefined}>
+              <strong>Rope {rope.id}</strong>
+              <span>{ropeNote(rope)}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <footer className={styles.simNote}><Icon name="info" size={18}/><p><strong>About these numbers:</strong> the game confirms three upgrade choices and stackable cards, but does not publish its full formulas. Circle targets, metres, score and attribute changes here are a transparent playable approximation—not official game values.</p></footer>
+
+      <footer className={styles.bar}>
+        <dl>
+          {cells.map((cell) => (
+            <div key={cell.key} data-changed={changed.has(cell.key) || (cell.key === "luck" && changed.has("lucky")) ? "true" : undefined}>
+              <dt>{cell.label}</dt>
+              <dd>{cell.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <ol className={styles.history} aria-label="Cards taken">
+          {state.picks.length ? state.picks.map((slug, index) => {
+            const upgrade = upgrades.find((item) => item.slug === slug);
+            return upgrade ? <li key={`${slug}-${index}`}>{upgrade.shortName}</li> : null;
+          }) : <li className={styles.empty}>No cards yet</li>}
+        </ol>
+        <p className={styles.log} data-lucky={luckyFlash ? "true" : undefined}>{log}</p>
+        <button type="button" className={styles.reset} onClick={reset}>Reset</button>
+      </footer>
     </section>
   );
 }

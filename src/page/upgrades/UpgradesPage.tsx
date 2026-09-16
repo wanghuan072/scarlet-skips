@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
-import { Icon } from "@/components/common/Icon";
+import { PageHero } from "@/components/common/PageHero";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { UpgradeExplorer } from "@/page/upgrades/components/UpgradeExplorer";
-import { game, upgrades } from "@/lib/data/content";
+import { UpgradeCompareTable } from "@/page/upgrades/components/UpgradeCompareTable";
+import { regularUpgrades, specialUpgrades, upgrades } from "@/lib/data/content";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
@@ -23,38 +22,34 @@ export default function UpgradesPage() {
     <main id="main-content">
       <JsonLd data={breadcrumbSchema([{ label: "Home", href: "/" }, { label: "Upgrades", href: "/upgrades" }])}/>
       <JsonLd data={itemList}/>
-      <section className={styles.hero}>
-        <Image className={styles.heroImage} src="/images/official/screenshot-3.jpg" alt="Official Scarlet Skips upgrade screen showing Reinforce Jump Rope, Increase Luck and Add Jump Rope" fill priority sizes="100vw"/>
-        <div className={styles.heroShade}/>
-        <div className={`container ${styles.heroCopy}`}>
-          <span className={styles.eyebrow}>THREE CARDS. ONE PICK.</span>
-          <h1><span className="sr-only">Scarlet Skips upgrades: </span>What should you choose?</h1>
-          <p>Find the card on your screen, see what it changes and decide whether it helps the run you have right now.</p>
-        </div>
-      </section>
       <div className="container"><Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Upgrades" }]}/></div>
-      <section className={styles.noticeSection}>
-        <div className={`container ${styles.dataNotice}`}><span><Icon name="shield" size={25}/></span><div><strong>The game has {game.upgradeCardCount} cards; {game.documentedCardCount} names are confirmed here.</strong><p>We would rather leave two slots blank than make up names or stats the game never published.</p></div></div>
+      <PageHero
+        eyebrow="PICK WITH A PURPOSE"
+        titlePrefix="Scarlet Skips Upgrades"
+        title="Choose the card your run needs"
+        description="Compare what each card changes, when it can appear and when it helps. There are 13 regular entries here, plus three special game-data entries outside the usual offer."
+        image="/images/official/screenshot-3.jpg"
+        imageAlt="Scarlet Skips upgrade screen showing Reinforce Jump Rope, Increase Luck and Add Jump Rope"
+        imageCaption="Three cards. One pick. That’s the whole pause."
+        imagePosition="center 42%"
+        facts={[
+          { label: "Named here", value: String(upgrades.length) },
+          { label: "On screen", value: "3" },
+          { label: "Special", value: String(specialUpgrades.length) },
+        ]}
+      />
+      <section className={`container ${styles.explorerSection}`}>
+        <SectionHeading icon="cards" title="Regular offer" description="These rows have a real AppearsAfterLevel in the shipping table. Use this while the level-up screen is open." href="/builds#simulator" linkLabel="Practice a full run"/>
+        <UpgradeCompareTable upgrades={regularUpgrades}/>
       </section>
       <section className={`container ${styles.explorerSection}`}>
-        <SectionHeading icon="cards" title="Find the card on your screen" description="Each card starts with the same player questions: what it changes, whether it stacks, when to take it and what to pair it with." href="/builds#simulator" linkLabel="Try a full run"/>
-        <UpgradeExplorer upgrades={upgrades}/>
+        <SectionHeading icon="info" title="Special table rows" description="The shipping table still names these cards, but stores AppearsAfterLevel 9999 — a usual Unreal sentinel for 'not on the regular curve.' Do not plan a run around them."/>
+        <UpgradeCompareTable upgrades={specialUpgrades}/>
       </section>
-      <section className={`container ${styles.interactionCallout}`}>
-        <span><Icon name="flask" size={31}/></span>
-        <div><strong>Two good cards can still be wrong for this level.</strong><p>Enter the exact three-card draw and compare it with your goal, current stage, active ropes and earlier picks.</p></div>
-        <Link href="/builds#simulator">Open the run simulator <Icon name="arrow" size={16}/></Link>
-      </section>
-      <section className={styles.goalBand}>
-        <div className="container">
-          <SectionHeading icon="target" title="The best pick depends on the run" description="These are route directions, not fixed shopping lists—the three-card draw still decides the next question." href="/builds#simulator" linkLabel="Start a run"/>
-          <div className={styles.goalCards}>
-            <Link href="/ending"><Icon name="route" size={28}/><div><h3>Ending</h3><p>Control, reinforcement, height and Luck.</p></div><Icon name="arrow" size={18}/></Link>
-            <Link href="/high-score"><Icon name="trophy" size={28}/><div><h3>High score</h3><p>Airtime first, then rope volume and fire.</p></div><Icon name="arrow" size={18}/></Link>
-            <Link href="/guides/beginner-guide"><Icon name="controller" size={28}/><div><h3>Beginner</h3><p>Readable effects and forgiving timing.</p></div><Icon name="arrow" size={18}/></Link>
-            <Link href="/builds#simulator"><Icon name="rocket" size={28}/><div><h3>Run simulator</h3><p>Jump, choose cards and climb to the Moon.</p></div><Icon name="arrow" size={18}/></Link>
-          </div>
-        </div>
+      <section className={`container ${styles.routeNotes}`}>
+        <article><p>IF YOU WANT THE MOON</p><h2>Keep the rope set readable.</h2><span>Height, Luck, fuel and rope protection are the useful pieces. Fire is a score tool, not part of the documented ending route. If the pause still feels new, <Link href="/guides/beginner-guide">learn the jump</Link> before copying a card order.</span><Link href="/ending">Open the ending route</Link></article>
+        <article><p>IF YOU WANT SCORE</p><h2>Make airtime work first.</h2><span>More ropes, speed and fire pay off after your jumps already generate enough time and levels to control them. The <Link href="/guides/tips">tips page</Link> is the shorter version of that sequence.</span><Link href="/guides/high-score">Open the score guide</Link></article>
+        <article><p>IF YOU WANT THE WILD SCREEN</p><h2>Take the loud pick on purpose.</h2><span>Extra ropes, fire, speed and tricks are the look. That is not the Moon climb. Play it as spectacle, or keep those cards late on a score run.</span><Link href="/guides/spectacle">Open the spectacle guide</Link></article>
       </section>
     </main>
   );

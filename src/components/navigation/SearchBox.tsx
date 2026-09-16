@@ -1,24 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { builds, guides, mods, updates, upgrades } from "@/lib/data/content";
 import { Icon } from "@/components/common/Icon";
+import type { SearchSuggestion } from "@/lib/data/search-index";
 import styles from "@/style/layout/site-shell.module.css";
 
-const index = [
-  ...upgrades.map((item) => ({ title: item.name, subtitle: "Upgrade", href: `/upgrades/${item.slug}`, text: `${item.name} ${item.effect} ${item.category}` })),
-  ...builds.map((item) => ({ title: item.shortName, subtitle: "Build route", href: "/builds#planner", text: `${item.name} ${item.goal} ${item.description}` })),
-  ...guides.map((item) => ({ title: item.shortName, subtitle: "Guide", href: `/guides/${item.slug}`, text: `${item.name} ${item.description}` })),
-  ...updates.map((item) => ({ title: item.title, subtitle: "Update", href: `/updates/${item.slug}`, text: `${item.title} ${item.summary}` })),
-  ...mods.map((item) => ({ title: item.name, subtitle: "Mod", href: `/mods#${item.slug}`, text: `${item.name} ${item.author} ${item.kind} ${item.description}` })),
-  { title: "Build Planner", subtitle: "Builds", href: "/builds#planner", text: "build planner compare three upgrade choices card decision level route" },
-  { title: "Moon Ending Route", subtitle: "Ending", href: "/ending", text: "moon ending route super rocket shoes finish credits" },
-  { title: "High Score Route", subtitle: "Guide", href: "/high-score", text: "high score rocket fuel airtime fire rope luck" },
-  { title: "Scarlet Skips Game Info", subtitle: "Game info", href: "/game-info", text: "release date price pc system requirements platform steam controller" },
-];
-
-export function SearchBox({ inputId = "site-search" }: { inputId?: string }) {
+export function SearchBox({ index, inputId = "site-search" }: { index: SearchSuggestion[]; inputId?: string }) {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const router = useRouter();
@@ -27,7 +16,7 @@ export function SearchBox({ inputId = "site-search" }: { inputId?: string }) {
     if (!normalized) return index.slice(0, 5);
     const words = normalized.split(/\s+/);
     return index.filter((item) => words.every((word) => item.text.toLowerCase().includes(word))).slice(0, 6);
-  }, [query]);
+  }, [index, query]);
 
   return (
     <form
@@ -35,9 +24,11 @@ export function SearchBox({ inputId = "site-search" }: { inputId?: string }) {
       role="search"
       onSubmit={(event) => {
         event.preventDefault();
-        if (results[0]) router.push(results[0].href);
-        else if (query.trim()) router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+        router.push(query.trim() ? `/search?q=${encodeURIComponent(query.trim())}` : "/search");
         setFocused(false);
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false);
       }}
     >
       <label className="sr-only" htmlFor={inputId}>Search Scarlet Skips upgrades, builds and guides</label>
@@ -46,19 +37,21 @@ export function SearchBox({ inputId = "site-search" }: { inputId?: string }) {
         id={inputId}
         type="search"
         value={query}
-        placeholder="Search upgrades, guides, builds…"
+        placeholder="Search cards, routes, patches…"
         autoComplete="off"
         onFocus={() => setFocused(true)}
-        onBlur={() => window.setTimeout(() => setFocused(false), 120)}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") setFocused(false);
+        }}
         onChange={(event) => setQuery(event.target.value)}
       />
       {focused && (
         <div className={styles.searchResults}>
           <p>{query ? `${results.length} matches` : "Popular pages"}</p>
           {results.length ? results.map((result) => (
-            <button key={`${result.href}-${result.title}`} type="button" onMouseDown={() => router.push(result.href)}>
+            <Link key={`${result.href}-${result.title}`} href={result.href} onClick={() => setFocused(false)}>
               <span>{result.title}</span><small>{result.subtitle}</small>
-            </button>
+            </Link>
           )) : <span className={styles.noResults}>No exact match. Press Enter for search help.</span>}
         </div>
       )}

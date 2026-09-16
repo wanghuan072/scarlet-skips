@@ -4,6 +4,7 @@ import guidesJson from "@/data/guides/guides.json";
 import modsJson from "@/data/mods/mods.json";
 import sourcesJson from "@/data/sources.json";
 import updatesJson from "@/data/updates/updates.json";
+import extraUpgradesJson from "@/data/upgrades/extra-upgrades.json";
 import upgradesJson from "@/data/upgrades/upgrades.json";
 import type {
   Build,
@@ -16,7 +17,9 @@ import type {
 } from "@/types/content";
 
 export const game = gameJson as GameData;
-export const upgrades = upgradesJson as Upgrade[];
+export const upgrades = [...(upgradesJson as Upgrade[]), ...(extraUpgradesJson as Upgrade[])];
+export const regularUpgrades = upgrades.filter((upgrade) => upgrade.offerPool !== "special");
+export const specialUpgrades = upgrades.filter((upgrade) => upgrade.offerPool === "special");
 export const builds = buildsJson as Build[];
 export const guides = guidesJson as Guide[];
 export const mods = modsJson as ModEntry[];

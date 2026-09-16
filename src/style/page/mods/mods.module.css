@@ -1,15 +1,4 @@
-.hero { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; min-height: 390px; border: 1px solid #bdd8e9; border-radius: 25px; background: linear-gradient(135deg, #f8fcff, #eaf7ff); box-shadow: var(--shadow-md); }
-.heroCopy { align-self: center; padding: 46px; }
-.eyebrow, .sectionHead span, .installIntro > span { color: var(--color-secondary); font-family: var(--font-utility); font-size: 11px; font-weight: 800; letter-spacing: .13em; }
-.hero h1 { max-width: 15ch; margin-top: 5px; font-size: clamp(39px, 4.7vw, 61px); }
-.heroCopy > p { max-width: 58ch; margin-top: 12px; color: #405873; font-size: 17px; }
-.heroActions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 21px; }
-.heroActions a { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 6px; padding: 0 16px; border: 1px solid #1b70b0; border-radius: 11px; color: #075da2; font-weight: 900; }
-.heroActions a:first-child { background: #0873cb; color: white; }
-.heroImage { position: relative; min-height: 390px; margin: 0; }
-.heroImage img { object-fit: cover; }
-.heroImage::before { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #edf8ff 0%, transparent 28%); content: ""; }
-.heroImage figcaption { position: absolute; right: 14px; bottom: 14px; z-index: 2; padding: 7px 9px; border-radius: 8px; background: rgba(5,31,56,.82); color: white; font-size: 10px; }
+.sectionHead span, .installIntro > span { color: var(--color-secondary); font-family: var(--font-utility); font-size: 11px; font-weight: 800; letter-spacing: .13em; }
 .snapshot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
 .snapshot > div { padding: 18px; border: 1px solid #cedfeb; border-radius: 15px; background: white; box-shadow: var(--shadow-sm); }
 .snapshot strong, .snapshot span, .snapshot small { display: block; }
@@ -20,6 +9,12 @@
 .notice > span { display: inline-flex; width: 43px; height: 43px; align-items: center; justify-content: center; border-radius: 12px; background: white; color: #ba7200; }
 .notice h2 { font-size: 18px; }
 .notice p { margin-top: 3px; color: #5e5745; font-size: 13px; }
+.notice a {
+  color: #9b5c00;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .catalog { padding-top: 58px; }
 .sectionHead { margin-bottom: 19px; }
 .sectionHead h2 { margin-top: 3px; font-size: 32px; }
@@ -56,5 +51,5 @@
 .checklist h2 { margin-top: 11px; font-size: 21px; }
 .checklist ul { margin-top: 11px; padding-left: 18px; color: #4a6177; font-size: 13px; }
 .checklist li + li { margin-top: 6px; }
-@media (max-width: 900px) { .hero, .installGrid { grid-template-columns: 1fr; } .heroImage { min-height: 270px; } .snapshot { grid-template-columns: 1fr 1fr; } .installGrid { gap: 30px; } .installIntro h2 { max-width: none; } }
-@media (max-width: 650px) { .heroCopy { padding: 30px 22px; } .snapshot, .modGrid, .checklist { grid-template-columns: 1fr; } .catalog { padding-top: 42px; } }
+@media (max-width: 1024px) { .installGrid { grid-template-columns: 1fr; } .snapshot { grid-template-columns: 1fr 1fr; } .installGrid { gap: 30px; } .installIntro h2 { max-width: none; } }
+@media (max-width: 768px) { .snapshot, .modGrid, .checklist { grid-template-columns: 1fr; } .catalog { padding-top: 42px; } }

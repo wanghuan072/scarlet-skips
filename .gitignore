@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local extraction working files (preserved, not part of the site)
+/__pycache__/
+/tmp-crop-cards.py
+/tmp-extract-cards.py
+/tmp-fix-cards.py
+/tmp-tex-inventory.py
+/tmp-steam-ss/
+/tmp-tex/

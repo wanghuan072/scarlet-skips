@@ -2,136 +2,260 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
+import { PageHero } from "@/components/common/PageHero";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
+import { SourcesList } from "@/components/common/SourcesList";
 import { guides } from "@/lib/data/content";
+import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
+import { RichText } from "@/page/guides/RichText";
 import type { Guide } from "@/types/content";
 import styles from "@/style/page/guides/guide-detail.module.css";
 
-const pageTitles: Record<string, string> = {
-  "beginner-guide": "Your first good Scarlet Skips run",
-  "how-to-play": "How Scarlet Skips actually works",
-  tips: "Tips that make the next run easier",
-  achievement: "How to unlock Off to a Great Start",
-  secrets: "Secrets, strange mechanics and what players found",
+const quickTakes: Record<string, string> = {
+  "beginner-guide": "Watch the rope hit the ground, make the same small jump a few times, and only change one thing after each card.",
+  "how-to-play": "Press to jump, hold to stay up, let go to come down. The hard part is the landing after a card changes the rhythm.",
+  tips: "If a run breaks after a new card, check what changed: the landing, rope count or speed. Fix that before adding more pressure.",
+  achievement: "Start a fresh run. Don’t jump. Let the first rope hit Scarlet. That’s the unlock.",
+  secrets: "Players report a Rocket Shoes refill during long jumps; the Moon ending and first-jump achievement are visible, but their exact rules are not all published.",
+  "high-score": "Height and Luck first. Rocket Fuel once a jump already hangs. Fire, speed and extra ropes only after that loop has worked twice.",
+  spectacle: "Extra ropes, fire, speed and tricks. Take the loud card on purpose — not if this run is actually going to the Moon.",
 };
 
-const quickTakes: Record<string, string> = {
-  "beginner-guide": "Forget the score for a minute. Watch the rope touch the ground, make the same safe jump a few times, and only change one part of the run with each upgrade.",
-  "how-to-play": "Press to jump, hold to keep rising, and release to come back down. The hard part is not the button—it is relearning the landing every time a card changes the run.",
-  tips: "Most runs do not die because you picked a weak card. They die because you changed height, rope count or speed before you understood the new rhythm.",
-  achievement: "Start a fresh run and do nothing on the first rope. Let Scarlet trip before completing a successful skip; that is the player-documented trigger.",
-  secrets: "The big discoveries are the Rocket Fuel refill loop, the Moon ending and the backwards first-failure achievement. Exact formulas and stat caps are still not public.",
+const heroCaptions: Record<string, string> = {
+  "beginner-guide": "Watch the rope, not her hair.",
+  "how-to-play": "One miss ends the run.",
+  tips: "If we can’t see the gap, we have too many ropes.",
+  achievement: "Hands off. Let the first rope hit.",
+  "high-score": "Fire looks like score. Take it last.",
+  spectacle: "The busy screen. That’s the point.",
+};
+
+const heroFacts: Record<string, { label: string; value: string }[]> = {
+  "beginner-guide": [
+    { label: "First job", value: "See the rope" },
+    { label: "Early cards", value: "Height, shield" },
+    { label: "Leave alone", value: "Fire, speed" },
+  ],
+  "how-to-play": [
+    { label: "Press", value: "Jump" },
+    { label: "Hold", value: "Stay up" },
+    { label: "Let go", value: "Land" },
+  ],
+  tips: [
+    { label: "Start from", value: "The miss" },
+    { label: "Change", value: "One thing" },
+    { label: "Then", value: "Learn the beat" },
+  ],
+  achievement: [
+    { label: "Achievements", value: "1" },
+    { label: "How", value: "Miss first jump" },
+    { label: "Needs", value: "A fresh run" },
+  ],
+  "high-score": [
+    { label: "First", value: "Height + Luck" },
+    { label: "Then", value: "Rocket Fuel" },
+    { label: "Last", value: "Fire" },
+  ],
+  spectacle: [
+    { label: "The look", value: "Ropes + fire" },
+    { label: "Extras", value: "Speed, tricks" },
+    { label: "Not for", value: "The Moon" },
+  ],
+};
+
+const extraStills: Record<string, { src: string; alt: string; caption: string }[]> = {
+  "beginner-guide": [
+    { src: "/images/official/screenshot-3.jpg", alt: "Three upgrade cards on the level-up screen", caption: "Three cards. Pick for this run." },
+    { src: "/images/official/screenshot-7.jpg", alt: "Scarlet missing a skip with the rope around her legs", caption: "Late by a beat. That’s the run." },
+  ],
+  "how-to-play": [
+    { src: "/images/official/screenshot-4.jpg", alt: "Scarlet clearing an active rope", caption: "Watch the rope at her feet." },
+    { src: "/images/official/screenshot-3.jpg", alt: "Three upgrade cards on the level-up screen", caption: "The pause. Fix the next problem here." },
+  ],
+  tips: [
+    { src: "/images/official/screenshot-7.jpg", alt: "Scarlet missing a skip with the rope around her legs", caption: "Work backward from the miss." },
+    { src: "/images/official/screenshot-5.jpg", alt: "Scarlet airborne with Rocket Shoes", caption: "Watch the gauge. Land until it refills twice." },
+  ],
+  achievement: [
+    { src: "/images/official/screenshot-1.jpg", alt: "Scarlet skipping in the park", caption: "After it pops, learn the real jump." },
+  ],
+  "high-score": [
+    { src: "/images/official/screenshot-5.jpg", alt: "Scarlet airborne with Rocket Shoes", caption: "The fuel loop. That’s the engine." },
+    { src: "/images/official/screenshot-6.jpg", alt: "A jump rope breaking into segments", caption: "More ropes after we can already stay up." },
+  ],
+  spectacle: [
+    { src: "/images/official/screenshot-2.jpg", alt: "Scarlet above a flaming rope", caption: "Fire is the look. Unprotected fire is a short show." },
+    { src: "/images/official/screenshot-3.jpg", alt: "Three upgrade cards on the level-up screen", caption: "Change one rhythm card at a time." },
+  ],
 };
 
 const friendlyHeadings: Record<string, string> = {
-  "What Is Scarlet Skips?": "So, what kind of game is this?",
-  "Basic Controls": "The one button you need",
-  "A First-30-Seconds Practice Routine": "Try this for your first 30 seconds",
-  "How Jump Timing Works": "Where should you watch the rope?",
-  "How Leveling and Upgrade Choices Work": "What happens when you level up?",
-  "Which Upgrades Should Beginners Prioritize?": "What should a beginner pick?",
-  "Common Beginner Mistakes": "What usually ends an early run?",
-  "First Build Recommendation": "A simple build for learning",
-  "When Should You Add More Ropes?": "When are more ropes worth it?",
-  "Know When the Run Has Changed Shape": "Notice when the old timing stops working",
-  Controls: "How do the controls work?",
-  "PC Version and Requirements": "Can your PC run it?",
-  "Press, Hold and Release": "Press, hold, then let go",
-  "Jump Timing": "Getting the timing to feel natural",
-  "Level Ups": "When the upgrade screen appears",
-  "Upgrade Choices": "How to choose between three cards",
-  "Scoring and Progression": "What makes the score climb?",
-  "The Airtime Transition": "When a jump turns into real airtime",
-  "Losing and Recovering": "What to learn from a miss",
-  "Win and Ending Basics": "Yes, there is an ending",
-  "What Is Confirmed and What Is Not": "What do we actually know?",
-  "Early Run: Protect Information": "Keep the opening easy to read",
-  "Jump Timing: Plan the Descent": "Plan the landing, not just the jump",
-  "Upgrade Decisions: Ask Four Questions": "Ask these four things before picking",
-  "Rope Management": "Do not add ropes faster than you can read them",
-  "Airtime and the Refill Test": "Test the Rocket Fuel loop safely",
-  "Luck Without an Invented Formula": "Luck is useful, but the formula is unknown",
-  "High Score Transition": "When to switch into score mode",
-  "Ending Transition": "When to commit to the ending",
-  "Diagnose a Failed Run": "Why did that run fall apart?",
-  "Claims to Treat Carefully": "Numbers you should not treat as rules",
-  "Achievement Facts": "The quick achievement answer",
-  "Before You Start": "Before you press Play",
-  "How to Unlock Off to a Great Start": "Do this on the first rope",
-  "Why This Is Community Verified": "Why we think this trigger is right",
-  Troubleshooting: "It did not unlock—now what?",
-  "The Rocket Fuel Refill Loop": "The Rocket Fuel trick players found",
-  "A Run Can Stop Landing": "How players stay in the air",
-  "Ending Route Versus Score Route": "Ending run or score run? Pick one",
-  "Ending Sequence — Full Spoilers": "What happens at the end (spoilers)",
-  "Off to a Great Start Is Intentionally Backwards": "The achievement rewards a bad start",
-  "Card Names and Community Aliases": "Why the same card has different names online",
-  "What Is Still Unknown": "Things nobody has pinned down yet",
-  "How to Verify a New Discovery": "Found something new? Test it like this",
+  "What Is Scarlet Skips?": "It’s jump rope. Then the cards cheat.",
+  "Basic Controls": "One button: press, hold, let go",
+  "A First-30-Seconds Practice Routine": "Give the first 30 seconds to one boring jump",
+  "How Jump Timing Works": "Watch the rope hit the ground, not Scarlet",
+  "How Leveling and Upgrade Choices Work": "Three cards. Pick the one that saves this run.",
+  "Which Upgrades Should Beginners Prioritize?": "Early cards: height, a shield, then Luck",
+  "Common Beginner Mistakes": "Mistakes that make early runs harder",
+  "First Build Recommendation": "A simple first plan",
+  "When Should You Add More Ropes?": "Another rope is not free points",
+  "Know When the Run Has Changed Shape": "When it stops feeling like jump rope",
+  Controls: "There’s only one button",
+  "PC Version and Requirements": "Will it run on this PC?",
+  "Press, Hold and Release": "How that one button actually feels",
+  "Jump Timing": "Time the rope, not the character",
+  "Level Ups": "When the game pauses for a card",
+  "Upgrade Choices": "How to pick between three cards",
+  "Scoring and Progression": "What actually raises the score",
+  "The Airtime Transition": "When we stop landing",
+  "Losing and Recovering": "You missed. What now?",
+  "Win and Ending Basics": "Yes, there’s an ending",
+  "What the game confirms": "What the game confirms",
+  "Early Run: Protect Information": "Keep the first minute readable",
+  "Jump Timing: Plan the Descent": "Land where you can still see the next rope",
+  "Upgrade Decisions: Ask Four Questions": "Ask this before you click",
+  "Rope Management": "Don’t add ropes you can’t read",
+  "Airtime and the Refill Test": "The Rocket Fuel trick",
+  "Luck Without an Invented Formula": "Luck helps. Nobody knows the math.",
+  "High Score Transition": "When to start chasing score",
+  "Ending Transition": "When to start going for the Moon",
+  "Diagnose a Failed Run": "Why that run died",
+  "Claims to Treat Carefully": "Don’t treat these numbers as rules",
+  "Achievement Facts": "There’s only one achievement",
+  "Before You Start": "Start a fresh run",
+  "How to Unlock Off to a Great Start": "Do nothing. Let the first rope hit.",
+  "What backs this method?": "What backs this method?",
+  Troubleshooting: "It didn’t pop. Try this.",
+  "The pick order": "One player-reported card order",
+  "Early run: make room for a long jump": "First: make the jump long enough",
+  "Mid run: make the fuel loop repeat": "Then: make Rocket Fuel refill",
+  "Late run: turn spare safety into score": "Last: ropes, speed, fire",
+  "Signs the engine is ready": "Check the fuel gauge before adding pressure",
+  "What usually ruins a score attempt": "What kills a score run",
+  "What this route is for": "This is the loud run, not the Moon run",
+  "Do not start loud": "Get a clean jump first",
+  "Add ropes when the gap is readable": "Add ropes when you can still see the gap",
+  "Fire is the look": "Fire is the show — and it can end the run",
+  "Speed and tricks": "Speed and tricks come after we can still read it",
+  "This is not the Moon": "Want the Moon? Switch routes.",
 };
+
+function headingFor(heading: string) {
+  return friendlyHeadings[heading] ?? heading;
+}
 
 export default function GuideDetailPage({ guide }: { guide: Guide }) {
   const currentIndex = guides.findIndex((item) => item.slug === guide.slug);
   const next = guides[(currentIndex + 1) % guides.length];
-  const title = pageTitles[guide.slug] ?? guide.name;
+  const stills = extraStills[guide.slug] ?? [];
+  const facts = heroFacts[guide.slug];
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: guide.name,
+    headline: guide.shortName,
     description: guide.description,
-    dateModified: "2026-09-14",
+    dateModified: guide.updatedDate,
     image: guide.image,
-    author: { "@type": "Organization", name: "Scarlet Skips Guide" },
+    author: { "@type": "Organization", name: siteConfig.name, url: `${siteConfig.url}/about` },
   };
 
   return (
     <main id="main-content">
-      <JsonLd data={breadcrumbSchema([{label:"Home",href:"/"},{label:"Guides",href:"/guides"},{label:guide.shortName,href:`/guides/${guide.slug}`}])}/>
-      <JsonLd data={articleSchema}/>
-      <div className="container"><Breadcrumb items={[{label:"Home",href:"/"},{label:"Guides",href:"/guides"},{label:guide.shortName}]}/></div>
+      <JsonLd data={breadcrumbSchema([{ label: "Home", href: "/" }, { label: "Guides", href: "/guides" }, { label: guide.shortName, href: `/guides/${guide.slug}` }])} />
+      <JsonLd data={articleSchema} />
 
-      <header className={`container ${styles.hero}`}>
-        <div className={styles.heroCopy}>
-          <span className={styles.eyebrow}>{guide.category}</span>
-          <h1>{title}</h1>
-          <p>{guide.description}</p>
-          <div className={styles.badges}><SourceBadge status={guide.sourceStatus}/><VersionBadge version="1.0.1"/><span>{guide.sections.length + 2} min read</span></div>
-        </div>
-        <figure><div><Image src={guide.image} alt={guide.imageAlt} fill priority sizes="(max-width: 768px) 100vw, 45vw"/></div><figcaption>Scarlet Skips gameplay image.</figcaption></figure>
-      </header>
+      <div className="container">
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Guides", href: "/guides" }, { label: guide.shortName }]} />
+      </div>
+
+      <PageHero
+        eyebrow={guide.category}
+        title={guide.shortName}
+        description={quickTakes[guide.slug] ?? guide.description}
+        image={guide.image}
+        imageAlt={guide.imageAlt}
+        imageCaption={heroCaptions[guide.slug] ?? guide.imageAlt}
+        lead={(
+          <>
+            <SourceBadge status={guide.sourceStatus} />
+            <VersionBadge version="1.0.1" />
+          </>
+        )}
+        facts={facts}
+        actions={guide.links.slice(0, 2).map((link, index) => ({
+          href: link.href,
+          label: link.label,
+          external: link.href.startsWith("http"),
+          variant: (index === 0 ? "primary" : "ghost") as "primary" | "ghost",
+        }))}
+      />
 
       <div className={`container ${styles.layout}`}>
-        <article className={styles.content}>
-          <section className={styles.quickTake}>
-            <span><Icon name="spark" size={25}/></span>
-            <div><p className={styles.kicker}>IF YOU ONLY READ ONE THING</p><h2>The quick answer</h2><p>{quickTakes[guide.slug] ?? guide.description}</p></div>
-          </section>
-
+        <article className={styles.paper}>
           {guide.sections.map((section, index) => (
-            <section key={section.heading} id={`section-${index + 1}`}>
-              <h2>{friendlyHeadings[section.heading] ?? section.heading}</h2>
-              {section.paragraphs.map((paragraph, paragraphIndex) => <p className={paragraphIndex === 0 ? styles.sectionLead : undefined} key={paragraph}>{paragraph}</p>)}
-              {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}><Icon name="check" size={17}/><span>{bullet}</span></li>)}</ul>}
+            <section key={section.heading} id={`section-${index + 1}`} className={styles.block}>
+              <header>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h2>{headingFor(section.heading)}</h2>
+              </header>
+              <div className={styles.prose}>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph}><RichText text={paragraph} /></p>
+                ))}
+              </div>
+              {section.bullets ? (
+                <ul>
+                  {section.bullets.map((bullet) => (
+                    <li key={bullet}><Icon name="check" size={16} /><span><RichText text={bullet} /></span></li>
+                  ))}
+                </ul>
+              ) : null}
             </section>
           ))}
-
-          <section className={styles.nextSteps}>
-            <p className={styles.kicker}>KEEP GOING</p>
-            <h2>What do you want to do next?</h2>
-            <div>{guide.links.map((link, index) => <Link key={`${link.href}-${link.label}-${index}`} href={link.href}>{link.label}<Icon name="arrow" size={17}/></Link>)}</div>
-          </section>
         </article>
 
-        <aside className={styles.sidebar}>
-          <section>
-            <h2>Jump to the answer</h2>
-            <nav>{guide.sections.map((section,index) => <a key={section.heading} href={`#section-${index + 1}`}><span>{String(index + 1).padStart(2,"0")}</span>{friendlyHeadings[section.heading] ?? section.heading}</a>)}</nav>
-          </section>
-          <Link className={styles.nextGuide} href={`/guides/${next.slug}`}><span>READ NEXT</span><strong>{pageTitles[next.slug] ?? next.shortName}</strong><Icon name="arrow" size={19}/></Link>
+        <aside className={styles.aside}>
+          <nav className={styles.toc} aria-label="On this page">
+            <p>On this page</p>
+            <ol>
+              {guide.sections.map((section, index) => (
+                <li key={section.heading}>
+                  <a href={`#section-${index + 1}`}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    {headingFor(section.heading)}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+          {stills.map((still) => (
+            <figure key={still.src}>
+              <Image src={still.src} alt={still.alt} fill sizes="280px" />
+              <figcaption>{still.caption}</figcaption>
+            </figure>
+          ))}
         </aside>
       </div>
+
+      <section className={`container ${styles.next}`} aria-labelledby="next-title">
+        <p>NEXT</p>
+        <h2 id="next-title">Keep going from here</h2>
+        <div className={styles.nextLinks}>
+          {guide.links.map((link) => (
+            <Link key={`${link.href}-${link.label}`} href={link.href}>
+              <strong>{link.label}</strong>
+              <Icon name="arrow" size={16} />
+            </Link>
+          ))}
+          <Link href={`/guides/${next.slug}`}>
+            <strong>{next.shortName}</strong>
+            <Icon name="arrow" size={16} />
+          </Link>
+        </div>
+      </section>
+      <SourcesList ids={guide.sourceIds} />
     </main>
   );
 }

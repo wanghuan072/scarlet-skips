@@ -1,0 +1,9 @@
+.sources { margin-block: 36px 80px; padding: clamp(20px, 3vw, 36px); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.sources h2 { font-size: clamp(22px, 2.5vw, 32px); }
+.sources > p { margin-top: 8px; color: var(--color-muted); }
+.sources ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 14px; margin: 20px 0 0; padding: 0; list-style: none; }
+.sources li { padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+.sources a { color: var(--color-secondary); font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
+.sources span { display: block; margin-top: 5px; color: var(--color-muted); font-size: 12px; }
+.sources li p { margin-top: 8px; }
+.sources small { display: block; margin-top: 8px; color: var(--color-muted); }

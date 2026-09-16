@@ -31,10 +31,11 @@
   "genres": ["Action", "Roguelike", "Arcade", "Score Attack"],
   "playerMode": "Single-player",
   "upgradeCardCount": 10,
-  "documentedCardCount": 8,
+  "documentedCardCount": 16,
+  "tableRowCount": 16,
   "choicesPerLevel": 3,
   "achievementCount": 1,
   "achievementName": "Off to a Great Start",
-  "updatedDate": "September 14, 2026",
-  "sourceIds": ["steam-store", "steam-api", "steam-update-101"]
+  "updatedDate": "September 15, 2026",
+  "sourceIds": ["steam-store", "steam-api", "steam-update-101", "cooked-dt-upgrades"]
 }

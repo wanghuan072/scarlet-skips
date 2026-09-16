@@ -1,10 +1,11 @@
 export const siteConfig = {
-  name: "Scarlet Skips Guide",
+  name: "Scarlet Skips Hub",
   shortName: "Scarlet Skips",
   description:
-    "Scarlet Skips upgrades, beginner guides, goal-based builds, ending help, high-score strategies and transparent source labels.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://scarletskips.guide",
+    "Learn the jump, compare upgrade cards, plan a Moon or score run, and check what changed in Scarlet Skips.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://scarlet-skips-gamma.vercel.app",
+  indexable: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true",
   steamUrl: "https://store.steampowered.com/app/4513480/Scarlet_Skips/",
-  email: "hello@scarletskips.guide",
-  ogImage: "/images/official/screenshot-1.jpg",
+  email: "wyong@scarletskips.test",
+  ogImage: "/images/og-image.png",
 } as const;

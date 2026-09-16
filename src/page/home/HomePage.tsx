@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/common/Icon";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { UpgradeArt } from "@/components/common/UpgradeArt";
 import { game, getGuide, getUpgrade, updates } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { videoGameSchema, websiteSchema } from "@/seo/schema";
 import styles from "@/style/page/home/home.module.css";
+import { RichText } from "@/page/guides/RichText";
 import type { IconName } from "@/types/content";
 
 const goals: Array<{
@@ -24,23 +26,23 @@ const goals: Array<{
   },
   {
     icon: "route",
-    title: "I want to see the ending",
-    text: "Build a small, safe rope setup and work toward the Super Rocket Shoes.",
-    href: "/ending",
+    title: "I want the Moon as soon as we can",
+    text: "Keep the ropes readable, skip fire, and work toward Super Rocket Shoes.",
+    href: "/builds#moon",
     tone: "blue",
   },
   {
     icon: "trophy",
     title: "I want a much bigger score",
     text: "Turn height, Luck and Rocket Fuel into a run that barely needs to land.",
-    href: "/high-score",
+    href: "/builds#score",
     tone: "orange",
   },
   {
-    icon: "award",
-    title: "I only want the achievement",
-    text: `“${game.achievementName}” is quicker—and sillier—than you probably expect.`,
-    href: "/guides/achievement",
+    icon: "fire",
+    title: "I want the wildest screen",
+    text: "Extra ropes, fire, speed and tricks. This is the loud run, not the Moon climb.",
+    href: "/builds#spectacle",
     tone: "pink",
   },
 ];
@@ -58,8 +60,8 @@ const runLessons: Array<{ icon: IconName; title: string; text: string }> = [
   },
   {
     icon: "target",
-    title: "Choose score or ending",
-    text: "Both routes share early upgrades, but their late picks pull in different directions.",
+    title: "Choose Moon, score or spectacle",
+    text: "They share early cards. Late picks pull apart. Fire helps a score run and wrecks a Moon climb.",
   },
   {
     icon: "gauge",
@@ -71,27 +73,27 @@ const runLessons: Array<{ icon: IconName; title: string; text: string }> = [
 const quickAnswers = [
   {
     question: "What should I pick first?",
-    answer: "Jump Height and Increase Luck are the usual early priorities. If the rope setup feels fragile, Reinforce Jump Rope can be the better pick right now.",
-    href: "/builds#planner",
-    link: "See picks by goal",
+    answer: "If the first rope is still hard to clear, Jump Height may give you more room. If the pattern is already comfortable, Luck can help the run progress; Reinforce is useful when losing a rope would hurt. The [beginner guide](/guides/beginner-guide) explains those trade-offs.",
+    href: "/builds#simulator",
+    link: "Try those picks in a run",
   },
   {
     question: "Are more ropes always better?",
-    answer: "No. Extra ropes create more action, but they also give you more chances to lose control. Many long-run strategies stay around two to four ropes early.",
+    answer: "No. Another rope changes the pattern and can make a landing harder to read. Add one when you can already handle the current set; the [beginner guide](/guides/beginner-guide) starts with control instead.",
     href: "/upgrades/add-jump-rope",
     link: "When to add a rope",
   },
   {
     question: "Does Scarlet Skips have an ending?",
-    answer: "Yes. Players have documented a Moon ending. The route is real, but the exact height requirement has not been published by the developer.",
+    answer: "Yes. Recorded gameplay shows Scarlet reaching the Moon. The [ending guide](/ending) explains a player-reported route, but no official height requirement has been published.",
     href: "/ending",
     link: "Read the spoiler-light route",
   },
   {
     question: "How does the Rocket Fuel loop work?",
-    answer: "A community high-score route reports that fuel refills when an upgrade appears. If the next upgrade arrives before the gauge runs dry, the loop can keep Scarlet airborne.",
-    href: "/upgrades/upgrade-rocket-fuel",
-    link: "Check the full explanation",
+    answer: "One player route reports a fuel refill when an upgrade appears. If the next upgrade arrives before the gauge empties, a long jump may continue. Watch the gauge in your own run; the [high-score guide](/guides/high-score) explains the setup.",
+    href: "/guides/high-score",
+    link: "Read the score route",
   },
 ];
 
@@ -149,23 +151,23 @@ export default function HomePage() {
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>STUCK ON A RUN? START HERE.</span>
-            <h1>Scarlet Skips, without the guesswork.</h1>
-            <p className={styles.heroTopics}>Learn the timing. Pick better cards. Reach the Moon.</p>
+            <h1>Scarlet Skips — Learn the jump, choose your cards, go further.</h1>
+            <p className={styles.heroTopics}>From the first rope to a Moon or score run.</p>
             <p className={styles.heroText}>
-              Straight answers for the moments that actually stop a run—from the first rope to the first time Scarlet stays in the air.
+              Need help with a landing, a three-card choice or a longer run? Start with the <Link href="/guides/beginner-guide">beginner guide</Link>, compare <Link href="/upgrades">upgrades</Link>, or choose a route that fits your goal.
             </p>
             <div className={styles.heroActions}>
               <Link href="/guides/beginner-guide">
                 Help with my first run <Icon name="arrow" size={18} />
               </Link>
-              <Link href="/builds#planner">
-                <Icon name="cards" size={19} /> What should I pick?
+              <Link href="/builds#simulator">
+                <Icon name="cards" size={19} /> Play a run
               </Link>
             </div>
             <div className={styles.trustRow}>
               <span><Icon name="check" size={16} /> Updated for v{game.currentVersion}</span>
               <span><Icon name="cards" size={16} /> {game.upgradeCardCount} cards, {game.choicesPerLevel} choices</span>
-              <span><Icon name="shield" size={16} /> Player claims marked clearly</span>
+              <span><Icon name="shield" size={16} /> Player reports identified</span>
             </div>
           </div>
         </div>
@@ -181,7 +183,7 @@ export default function HomePage() {
           <Link href="/game-info">Game details <Icon name="arrow" size={15} /></Link>
         </div>
         <div className={styles.snapshotGrid}>
-          <div><Icon name="cards" size={28} /><strong>{game.upgradeCardCount}</strong><span>Upgrade cards</span><small>{game.documentedCardCount} names confirmed here</small></div>
+          <div><Icon name="cards" size={28} /><strong>{game.upgradeCardCount}</strong><span>Upgrade cards</span><small>{game.documentedCardCount} names in the shipping table</small></div>
           <div><Icon name="spark" size={28} /><strong>{game.choicesPerLevel}</strong><span>Choices each level</span><small>The draw is random</small></div>
           <div><Icon name="controller" size={28} /><strong>1</strong><span>Button to learn</span><small>Press, hold and release</small></div>
           <div><Icon name="gauge" size={28} /><strong>v{game.currentVersion}</strong><span>Guide version</span><small>{game.versionDate}</small></div>
@@ -207,11 +209,9 @@ export default function HomePage() {
         <div className={styles.starterGrid}>
           {starterUpgrades.map((upgrade, index) => (
             <Link key={upgrade.slug} href={`/upgrades/${upgrade.slug}`} data-tone={upgrade.color}>
-              <span className={styles.starterNumber}>0{index + 1}</span>
-              <span className={styles.starterIcon}><Icon name={upgrade.icon} size={35} /></span>
+              <UpgradeArt slug={upgrade.slug} title={upgrade.gameTitle ?? upgrade.name} size="tile" />
               <div>
                 <p>{index === 0 ? "More room to breathe" : index === 1 ? "More value later" : "Less rope panic"}</p>
-                <h3>{upgrade.shortName}</h3>
                 <span>{starterNotes[index]}</span>
               </div>
               <strong>When should I take it? <Icon name="arrow" size={16} /></strong>
@@ -225,7 +225,7 @@ export default function HomePage() {
           <div className={styles.runBandIntro}>
             <p className={styles.kicker}>A BETTER WAY TO LEARN</p>
             <h2>What a good run actually looks like</h2>
-            <p>You do not need perfect reactions. You need a rhythm you can still read after the next upgrade changes it.</p>
+            <p>You do not need perfect reactions. You need a rhythm you can still read after the next upgrade changes it. The <Link href="/guides/beginner-guide">first-run guide</Link> is that rhythm, written slowly.</p>
           </div>
           <ol className={styles.runSteps}>
             {runLessons.map((lesson, index) => (
@@ -258,15 +258,26 @@ export default function HomePage() {
       </section>
 
       <section className={`container ${styles.section}`}>
-        <SectionHeading icon="info" title="Quick answers before you jump again" description="The questions most players ask after the first few runs." />
+        <SectionHeading icon="info" title="Questions before the next run" description="Quick answers when a card choice or an ending route is still unclear." />
         <div className={styles.answerGrid}>
           {quickAnswers.map((item) => (
             <article key={item.question}>
               <h3>{item.question}</h3>
-              <p>{item.answer}</p>
+              <p><RichText text={item.answer} /></p>
               <Link href={item.href}>{item.link} <Icon name="arrow" size={15} /></Link>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className={`container ${styles.aboutSection}`} aria-labelledby="about-this-site">
+        <div>
+          <p className={styles.kicker}>ABOUT THIS GUIDE</p>
+          <h2 id="about-this-site">Find the next useful move, not a guaranteed build.</h2>
+        </div>
+        <div>
+          <p>This independent Scarlet Skips fan guide is for the moment a run gives you a question: how to land, which card to take, or whether to aim for the Moon or a bigger score. The guides, card pages and patch notes keep official game details separate from player-reported routes. Exact scoring and upgrade values are left open when the game has not published them.</p>
+          <Link href="/about">How this guide handles game information <Icon name="arrow" size={16} /></Link>
         </div>
       </section>
 
@@ -274,11 +285,11 @@ export default function HomePage() {
         <span className={styles.pickerIcon}><Icon name="cards" size={34} /></span>
         <div>
           <p className={styles.kicker}>THREE CARDS ON SCREEN?</p>
-          <h2>Tell us what you drew.</h2>
-          <p>Choose your goal and current problem, then compare the exact three cards in front of you.</p>
+          <h2>Play the pause.</h2>
+          <p>Skip until the rope fills, take one of the three cards, and watch Jump Level, Luck and the ropes move.</p>
         </div>
         <div className={styles.pickerLinks}>
-          <Link href="/builds#planner">Help me pick <Icon name="arrow" size={17} /></Link>
+          <Link href="/builds#simulator">Play a run <Icon name="arrow" size={17} /></Link>
           <Link href="/upgrades">Check every card</Link>
         </div>
       </section>
@@ -286,7 +297,7 @@ export default function HomePage() {
       <section className={`container ${styles.updateSection}`}>
         <div className={styles.updateIntro}>
           <span><Icon name="gauge" size={28} /></span>
-          <div><p className={styles.kicker}>WHAT CHANGED?</p><h2>We’re checking against v{latestUpdate.version}</h2><p>{latestUpdate.summary}</p></div>
+          <div><p className={styles.kicker}>WHAT CHANGED?</p><h2>Patch v{latestUpdate.version}</h2><p>{latestUpdate.summary}</p></div>
         </div>
         <div className={styles.updateChanges}>
           {latestUpdate.changes.slice(0, 3).map((change) => <span key={change}><Icon name="check" size={15} />{change}</span>)}

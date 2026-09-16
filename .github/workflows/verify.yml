@@ -1,0 +1,44 @@
+name: Verify
+on:
+  push:
+  pull_request:
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:data
+      - run: npm run report:seo
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npx tsc --noEmit --incremental false
+      - name: Smoke test production routes
+        shell: bash
+        run: |
+          npm run start -- -p 3107 > /tmp/scarlet-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS -o /dev/null http://localhost:3107/; then break; fi
+            sleep 1
+          done
+          headers=$(curl -sS -D - -o /dev/null http://localhost:3107/high-score)
+          printf '%s' "$headers" | grep -q '^HTTP/1.1 404'
+          ! printf '%s' "$headers" | grep -qi '^location:'
+          for path in /guides/high-score /guides/spectacle /search?q=rocket /sitemap.xml; do
+            test "$(curl -sS -o /dev/null -w '%{http_code}' "http://localhost:3107$path")" = 200
+          done
+          for path in /privacy /terms /copyright /about /contact /images/og-image.png; do
+            test "$(curl -sS -o /dev/null -w '%{http_code}' "http://localhost:3107$path")" = 200
+          done
+          curl -fsS -o /tmp/scarlet-privacy.html http://localhost:3107/privacy
+          grep -q 'noindex, follow' /tmp/scarlet-privacy.html
+          curl -fsS -o /tmp/scarlet-sitemap.xml http://localhost:3107/sitemap.xml
+          grep -q '/upgrades/increase-luck' /tmp/scarlet-sitemap.xml
+          test "$(curl -sS -o /dev/null -w '%{http_code}' http://localhost:3107/guides/not-a-guide)" = 404

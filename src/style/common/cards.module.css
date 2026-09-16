@@ -1,4 +1,4 @@
-.upgradeCard { --tone-bg: #edf7ff; --tone-border: #b9dbf7; --tone-ink: #126fb9; position: relative; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 218px; padding: 20px; overflow: hidden; border: 1px solid var(--tone-border); border-radius: var(--radius-md); background: linear-gradient(150deg, white 5%, var(--tone-bg)); box-shadow: var(--shadow-sm); transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out; }
+.upgradeCard { --tone-bg: #edf7ff; --tone-border: #b9dbf7; --tone-ink: #126fb9; position: relative; display: flex; flex-direction: column; align-items: stretch; min-width: 0; padding: 10px 10px 16px; overflow: hidden; border: 1px solid var(--tone-border); border-radius: var(--radius-md); background: white; box-shadow: var(--shadow-sm); transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out; }
 .upgradeCard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .upgradeCard[data-tone="green"] { --tone-bg: #ecfbf2; --tone-border: #b9e4cb; --tone-ink: #16884f; }
 .upgradeCard[data-tone="purple"] { --tone-bg: #f3efff; --tone-border: #d6c8fb; --tone-ink: #6b49b9; }
@@ -6,24 +6,20 @@
 .upgradeCard[data-tone="red"] { --tone-bg: #fff0f2; --tone-border: #f1c4cd; --tone-ink: #bd3454; }
 .upgradeCard[data-tone="teal"] { --tone-bg: #e9fbf8; --tone-border: #b7e6df; --tone-ink: #087a6a; }
 .upgradeCard[data-tone="pink"] { --tone-bg: #fff0f5; --tone-border: #f3c3d3; --tone-ink: #cc2861; }
-.upgradeIcon { display: inline-flex; width: 64px; height: 64px; align-items: center; justify-content: center; border-radius: 18px; background: white; box-shadow: 0 8px 20px rgba(38, 80, 116, .1); color: var(--tone-ink); }
-.cardBody { display: grid; gap: 3px; margin-top: 16px; }
+.cardBody { display: grid; gap: 3px; margin-top: 12px; padding: 0 6px; }
 .cardBody strong { font-family: var(--font-display); font-size: 18px; }
 .cardBody > span { color: #405873; font-size: 13px; line-height: 1.45; }
 .cardBody small { width: max-content; margin-top: 4px; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--tone-ink) 13%, white); color: var(--tone-ink); font-size: 10px; font-weight: 800; text-transform: uppercase; }
 .upgradeCard > :global(.common_badge) { margin-top: auto; }
-.upgradeCard > span[class*="badge"] { margin-top: auto; }
+.upgradeCard > span[class*="badge"] { margin: 10px 6px 0; }
 .cardArrow { position: absolute; right: 16px; top: 20px; color: var(--tone-ink); opacity: .75; }
-.upgradeCard.compact { flex-direction: row; align-items: center; gap: 12px; min-height: 72px; padding: 10px 14px; }
-.compact .upgradeIcon { width: 46px; height: 46px; border-radius: 13px; }
+.upgradeCard.compact { flex-direction: row; align-items: center; gap: 12px; min-height: 72px; padding: 8px 14px; }
 .compact .cardBody { gap: 0; margin: 0; padding-right: 24px; }
 .compact .cardBody strong { font-size: 14px; }
 .compact .cardBody small { margin-top: 2px; }
 .compact .cardArrow { top: 50%; transform: translateY(-50%); }
-.upgradeCard.tile { align-items: center; min-height: 138px; padding: 13px 9px 11px; border-radius: 11px; text-align: center; }
-.tile .upgradeIcon { width: 62px; height: 62px; border-radius: 16px; box-shadow: none; background: transparent; filter: drop-shadow(0 5px 5px rgba(33,67,96,.16)); }
-.tile .upgradeIcon svg { stroke-width: 2.15; }
-.tile .cardBody { justify-items: center; gap: 2px; margin-top: 7px; }
+.upgradeCard.tile { align-items: stretch; min-height: 0; padding: 8px; border-radius: 11px; text-align: center; }
+.tile .cardBody { justify-items: center; gap: 2px; margin-top: 8px; padding: 0; }
 .tile .cardBody strong { font-size: 12px; }
 .tile .cardBody small { margin-top: 2px; font-size: 7px; }
 .buildCard { display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: white; box-shadow: var(--shadow-sm); }
@@ -41,7 +37,6 @@
 .cardButton:hover { background: #0c65b5; }
 
 @media (max-width: 768px) {
-  .upgradeCard { min-height: 190px; padding: 17px; }
-  .upgradeIcon { width: 54px; height: 54px; }
+  .upgradeCard { padding: 10px 10px 14px; }
   .cardBody strong { font-size: 16px; }
 }

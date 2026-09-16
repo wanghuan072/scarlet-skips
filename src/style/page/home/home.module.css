@@ -9,6 +9,19 @@
 .hero h1 { max-width: 720px; margin-top: 10px; color: white; font-size: clamp(54px, 5.7vw, 82px); letter-spacing: -.055em; line-height: .98; text-shadow: 0 5px 0 rgba(180,28,72,.9), 0 13px 28px rgba(4,35,68,.3); }
 .heroTopics { max-width: 30ch; margin-top: 20px; font-family: var(--font-display); font-size: clamp(18px, 2vw, 24px); line-height: 1.3; }
 .heroText { max-width: 55ch; margin-top: 12px; color: #edf9ff; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.6; }
+.heroText a {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.runBandIntro > p:last-child a,
+.answerGrid p a {
+  color: var(--color-secondary);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .heroActions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 26px; }
 .heroActions a { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 8px; padding: 0 21px; border: 1px solid white; border-radius: 12px; background: white; color: var(--color-secondary); font-weight: 850; box-shadow: 0 8px 20px rgba(5,56,91,.18); transition: transform 180ms ease, box-shadow 180ms ease; }
 .heroActions a:first-child { border-color: var(--color-primary); background: var(--color-primary); color: white; }
@@ -47,17 +60,14 @@
 .goalGrid > a > svg { color: var(--goal-ink); }
 
 .starterGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.starterGrid > a { --starter-ink: var(--color-secondary); --starter-tint: #eef8ff; position: relative; display: grid; grid-template-columns: auto 1fr; gap: 13px; min-height: 245px; align-content: start; overflow: hidden; padding: 24px; border: 1px solid #bfdcf0; border-radius: 18px; background: linear-gradient(150deg, white 5%, var(--starter-tint)); box-shadow: var(--shadow-sm); transition: transform 180ms ease, box-shadow 180ms ease; }
+.starterGrid > a { --starter-ink: var(--color-secondary); --starter-tint: #eef8ff; display: grid; gap: 12px; min-height: 0; align-content: start; overflow: hidden; padding: 12px 12px 18px; border: 1px solid #bfdcf0; border-radius: 18px; background: white; box-shadow: var(--shadow-sm); transition: transform 180ms ease, box-shadow 180ms ease; }
 .starterGrid > a:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.starterGrid > a[data-tone="green"] { --starter-ink: var(--color-success); --starter-tint: #eefbf3; border-color: #bce2c9; }
-.starterGrid > a[data-tone="red"] { --starter-ink: var(--color-primary-dark); --starter-tint: #fff1f5; border-color: #edc5d1; }
-.starterNumber { position: absolute; top: 6px; right: 15px; color: color-mix(in srgb, var(--starter-ink) 13%, transparent); font-family: var(--font-display); font-size: 70px; line-height: 1; }
-.starterIcon { display: inline-flex; width: 58px; height: 58px; align-items: center; justify-content: center; border-radius: 16px; background: white; color: var(--starter-ink); box-shadow: 0 7px 18px rgba(31,83,124,.09); }
-.starterGrid > a > div { position: relative; padding-right: 16px; }
+.starterGrid > a[data-tone="green"] { --starter-ink: var(--color-success); border-color: #bce2c9; }
+.starterGrid > a[data-tone="red"] { --starter-ink: var(--color-primary-dark); border-color: #edc5d1; }
+.starterGrid > a > div { position: relative; padding: 0 6px; }
 .starterGrid > a > div > p { color: var(--starter-ink); font-size: 11px; font-weight: 850; text-transform: uppercase; }
-.starterGrid h3 { margin-top: 3px; font-size: 23px; }
-.starterGrid > a > div > span { display: block; margin-top: 8px; color: #405873; font-size: 14px; line-height: 1.55; }
-.starterGrid strong { display: inline-flex; grid-column: 1 / -1; align-items: center; gap: 5px; align-self: end; margin-top: 15px; color: var(--starter-ink); font-size: 13px; }
+.starterGrid > a > div > span { display: block; margin-top: 6px; color: #405873; font-size: 14px; line-height: 1.55; }
+.starterGrid strong { display: inline-flex; align-items: center; gap: 5px; align-self: end; margin-top: 4px; padding: 0 6px; color: var(--starter-ink); font-size: 13px; }
 
 .runBand { margin-top: 76px; padding-block: 58px 64px; border-block: 1px solid #cbe1f0; background: linear-gradient(120deg, #eaf7ff, #f4fbff 52%, #fff8e8); }
 .runBandIntro { display: grid; grid-template-columns: minmax(300px, .8fr) 1.2fr; gap: 5px 42px; align-items: end; }
@@ -90,6 +100,11 @@
 .answerGrid p { max-width: 65ch; margin-top: 8px; color: #405873; font-size: 14px; line-height: 1.6; }
 .answerGrid a { display: inline-flex; min-height: 44px; align-items: center; gap: 5px; margin-top: 10px; color: var(--color-secondary); font-size: 13px; font-weight: 800; }
 
+.aboutSection { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: start; margin-top: 68px; padding: 30px; border: 1px solid var(--color-border); border-radius: 18px; background: #f4faff; }
+.aboutSection h2 { max-width: 18ch; margin-top: 8px; font-size: clamp(26px, 3vw, 38px); }
+.aboutSection p:not(.kicker) { max-width: 69ch; color: #405873; line-height: 1.65; }
+.aboutSection a { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; margin-top: 14px; color: var(--color-secondary); font-weight: 800; }
+
 .pickerBanner { display: grid; grid-template-columns: auto 1fr auto; gap: 19px; align-items: center; margin-top: 68px; padding: 27px 29px; overflow: hidden; border: 1px solid #b8dcf4; border-radius: 19px; background: linear-gradient(110deg, #e9f7ff 0%, #f8fcff 57%, #fff1d6 100%); box-shadow: var(--shadow-sm); }
 .pickerIcon { display: inline-flex; width: 64px; height: 64px; align-items: center; justify-content: center; border-radius: 18px; background: var(--color-secondary); color: white; box-shadow: 0 9px 20px rgba(22,120,211,.2); }
 .pickerBanner h2 { margin-top: 2px; font-size: clamp(24px, 2.7vw, 34px); }
@@ -108,7 +123,7 @@
 .updateChanges svg { flex: 0 0 auto; margin-top: 2px; color: var(--color-success); }
 .updateLink { display: inline-flex; min-height: 44px; align-items: center; gap: 5px; color: var(--color-secondary); font-size: 13px; font-weight: 850; white-space: nowrap; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .snapshotGrid { grid-template-columns: repeat(3, 1fr); }
   .starterGrid { grid-template-columns: 1fr 1fr; }
   .starterGrid > a:last-child { grid-column: 1 / -1; }
@@ -123,12 +138,13 @@
   .heroPicture img { object-position: center top; }
   .heroShade { background: linear-gradient(0deg, rgba(6,48,88,.98) 0, rgba(6,66,112,.88) 46%, rgba(8,75,124,.05) 76%); }
   .heroInner { min-height: 720px; align-items: end; }
-  .heroCopy { width: 100%; padding: 250px 0 48px; }
-  .hero h1 { font-size: clamp(45px, 13vw, 66px); }
+  .heroCopy { width: 100%; padding: 220px 0 48px; }
+  .hero h1 { font-size: clamp(38px, 10vw, 52px); }
   .snapshot { margin-top: -22px; }
   .snapshotGrid { grid-template-columns: repeat(2, 1fr); }
   .snapshotGrid > div:last-child { grid-column: 1 / -1; }
   .goalGrid, .starterGrid, .answerGrid { grid-template-columns: 1fr; }
+  .aboutSection { grid-template-columns: 1fr; gap: 14px; }
   .starterGrid > a:last-child { grid-column: auto; }
   .runBandIntro { grid-template-columns: 1fr; }
   .runBandIntro .kicker { grid-column: auto; }
@@ -142,7 +158,7 @@
   .updateLink { grid-column: auto; }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 768px) {
   .heroActions { display: grid; }
   .trustRow { gap: 8px 12px; }
   .snapshotHeading { grid-template-columns: auto 1fr; }
@@ -152,7 +168,7 @@
   .section { padding-top: 54px; }
   .goalGrid > a { grid-template-columns: auto 1fr; }
   .goalGrid > a > svg { display: none; }
-  .starterGrid > a { grid-template-columns: auto 1fr; min-height: 230px; padding: 20px; }
+  .starterGrid > a { padding: 10px 10px 16px; }
   .runBand { margin-top: 58px; padding-block: 45px; }
   .runSteps { grid-template-columns: 1fr; text-align: left; }
   .runSteps li { display: grid; grid-template-columns: auto 1fr; gap: 0 13px; padding: 0; text-align: left; }

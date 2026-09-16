@@ -7,12 +7,12 @@ export function BuildCard({ build }: { build: Build }) {
   const destination = build.slug === "ending-build"
     ? "/ending"
     : build.slug === "high-score-build"
-      ? "/high-score"
+      ? "/guides/high-score"
       : build.slug === "beginner-build"
         ? "/guides/beginner-guide"
         : build.slug === "rocket-build"
-          ? "/upgrades/upgrade-rocket-fuel"
-          : "/upgrades/ignite-jump-rope";
+          ? "/guides/high-score"
+          : "/guides/spectacle";
   return (
     <article className={styles.buildCard}>
       <div className={styles.buildCardTop}>

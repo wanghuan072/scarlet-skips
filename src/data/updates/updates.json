@@ -3,6 +3,7 @@
     "slug": "1-0-1",
     "version": "1.0.1",
     "date": "September 8, 2026",
+    "updatedDate": "2026-09-16",
     "title": "Scarlet Skips Hotfix 1.0.1",
     "summary": "The first hotfix added display options, filled out the park background and corrected issues affecting Rocket Shoes and extinguished ropes.",
     "changes": [
@@ -15,8 +16,8 @@
     "guideImpact": "Mechanics pages on this site are marked for version 1.0.1. Older player advice may describe pre-hotfix behavior, especially around Rocket Shoes and extinguished ropes.",
     "sourceIds": ["steam-update-101"],
     "seo": {
-      "title": "Scarlet Skips Update 1.0.1 – Patch Notes",
-      "description": "Read the official Scarlet Skips 1.0.1 hotfix summary, including VSync, FPS Limit, Rocket Shoes and extinguished rope fixes."
+      "title": "Scarlet Skips Hotfix 1.0.1 — Patch Notes",
+      "description": "Read the Scarlet Skips 1.0.1 hotfix notes: FPS and VSync options, park changes, and fixes to Rocket Shoes and extinguished ropes that affect older advice."
     }
   }
 ]

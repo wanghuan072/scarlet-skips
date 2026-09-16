@@ -1,34 +1,40 @@
-# Scarlet Skips Lab
+# Scarlet Skips Hub
 
-An independent, English-language Scarlet Skips guide and Run Lab built with Next.js 16. Content is data-driven, versioned, and labeled by evidence strength.
+[Scarlet Skips Hub](https://scarlet-skips-gamma.vercel.app/) is an independent English-language fan guide for Scarlet Skips. The game turns a simple press, hold and release jump into a run shaped by random upgrade choices. This site helps you understand what changed, choose a card that fits your goal and find a route to try next. It is not an official game website.
 
-## Local development
+The current address is a Vercel development preview, not a final public domain. Its pages are marked `noindex` until a production domain and working contact address are ready. The listed `wyong@scarletskips.test` mailbox is a placeholder and is not verified for delivery.
 
-```bash
-npm install
-npm run dev
-```
+## Start with the game
 
-Open `http://localhost:3000`. Production verification:
+Scarlet Skips is a one-button jump-rope game from Yerk Games. Timing the rope is the first challenge; upgrades then change your jump, rope pattern and options for a longer run. Card offers are random, so a route is a set of decisions rather than a guaranteed sequence. For release details, requirements and supported features, use [Game Info](https://scarlet-skips-gamma.vercel.app/game-info) and the [official Steam listing](https://store.steampowered.com/app/4513480/Scarlet_Skips/).
 
-```bash
-npm run lint
-npm run build
-```
+## Navigate
 
-## Configuration
+- [Home](https://scarlet-skips-gamma.vercel.app/) — choose a starting point and see the site's main routes.
+- [Character](https://scarlet-skips-gamma.vercel.app/character) — meet Scarlet and understand the one-button controls.
+- [Guides](https://scarlet-skips-gamma.vercel.app/guides) — learn the first jump, troubleshoot timing and explore goal-based routes.
+- [Upgrades](https://scarlet-skips-gamma.vercel.app/upgrades) — compare documented card entries, including the distinction between regular offers and special game-data entries.
+- [Builds](https://scarlet-skips-gamma.vercel.app/builds) — think through Moon, score and spectacle goals. The playable run is a teaching model, not the game's scoring engine.
+- [Ending](https://scarlet-skips-gamma.vercel.app/ending) — read a player-reported Moon route and its remaining uncertainties.
+- [Mods](https://scarlet-skips-gamma.vercel.app/mods) — see listed mods and follow their original authors' pages.
+- [Updates](https://scarlet-skips-gamma.vercel.app/updates) — check announced changes that may affect older advice.
 
-Set `NEXT_PUBLIC_SITE_URL` to the production origin before deployment. The fallback is `https://scarletskips.guide`; canonical URLs, Open Graph URLs, JSON-LD, robots and the sitemap all use this value.
+## Common questions
 
-## Structure
+**Where should a new player begin?** Start with the [beginner guide](https://scarlet-skips-gamma.vercel.app/guides/beginner-guide). Make the first rope feel repeatable before stacking cards that alter its timing.
 
-- `src/app`: thin App Router entry files and SEO route handlers
-- `src/page`: page implementations
-- `src/components`: shared UI and layout
-- `src/data`: JSON content for game facts, upgrades, builds, guides, updates and sources
-- `src/lib`: data access and recommendation logic
-- `src/seo`: metadata and structured-data helpers
-- `src/style`: global, shared and page-scoped styles
-- `docs/data-maintenance.md`: content and source update workflow
+**Is there one best card?** No single pick works for every random offer or every goal. The [upgrade pages](https://scarlet-skips-gamma.vercel.app/upgrades) explain what a card changes, when it may help and what is still unknown.
 
-Official images in `public/images/official` come from the Scarlet Skips Steam listing. The listing identifies the game copyright as © 2026 YerkDiff and lists Yerk Games as developer and publisher. This project is not affiliated with the developer, publisher or Valve.
+**Does the Builds simulator match real scores?** No. It is a teaching model for choices and routes, not a reproduction of unpublished game formulas.
+
+**Are Moon and high-score routes official requirements?** No. They are player guidance or reports, with important uncertainties called out on the relevant pages.
+
+## Legal and contact
+
+- [Privacy Policy](https://scarlet-skips-gamma.vercel.app/privacy) — current site behavior, hosting requests and external links.
+- [Terms of Service](https://scarlet-skips-gamma.vercel.app/terms) — conditions and limits of using this fan guide.
+- [Copyright](https://scarlet-skips-gamma.vercel.app/copyright) — game ownership, site content and rights-holder concerns.
+- [About Us](https://scarlet-skips-gamma.vercel.app/about) — what this guide covers and how claims are handled.
+- [Contact Us](https://scarlet-skips-gamma.vercel.app/contact) — what to include in a correction or gameplay report; the displayed email is currently a development placeholder.
+
+Scarlet Skips Hub is not affiliated with Yerk Games, YerkDiff, Valve or Steam. Game materials remain with their respective rights holders.

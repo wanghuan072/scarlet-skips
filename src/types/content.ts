@@ -6,6 +6,8 @@ export type SourceStatus =
 
 export type Timing = "Early" | "Mid" | "Late" | "Any";
 
+export type UpgradeOfferPool = "regular" | "special";
+
 export interface Source {
   id: string;
   label: string;
@@ -35,6 +37,7 @@ export interface GameData {
   playerMode: string;
   upgradeCardCount: number;
   documentedCardCount: number;
+  tableRowCount: number;
   choicesPerLevel: number;
   achievementCount: number;
   achievementName: string;
@@ -51,18 +54,54 @@ export interface SystemRequirements {
   storage: string;
 }
 
+export interface UpgradePerStack {
+  official: string;
+  observed: string;
+  unknown: string;
+}
+
+export interface UpgradeSynergyNote {
+  slug: string;
+  why: string;
+}
+
+export interface UpgradeStackTier {
+  label: string;
+  feel: string;
+}
+
+export interface UpgradeRoute {
+  href: string;
+  label: string;
+  note: string;
+}
+
 export interface Upgrade {
   id: string;
   slug: string;
   name: string;
   shortName: string;
+  tableRow?: string;
+  gameTitle?: string;
+  aliases?: string[];
+  appearsAfterLevel?: number | null;
+  offerPool?: UpgradeOfferPool;
   icon: IconName;
   color: string;
   category: string;
   description: string;
   effect: string;
+  playerSummary?: string;
+  hudChange?: string;
   exactValues: string;
   stackable: string;
+  stackableShort?: string;
+  perStackShort?: string;
+  perStack?: UpgradePerStack;
+  synergyNotes?: UpgradeSynergyNote[];
+  antiSynergies?: string[];
+  stackTiers?: UpgradeStackTier[];
+  routeLinks?: UpgradeRoute[];
   bestTiming: Timing;
   verifiedVersion: string;
   updatedDate: string;
@@ -137,6 +176,7 @@ export interface UpdateEntry {
   slug: string;
   version: string;
   date: string;
+  updatedDate: string;
   title: string;
   summary: string;
   changes: string[];
@@ -170,6 +210,7 @@ export type IconName =
   | "check"
   | "clover"
   | "controller"
+  | "fall"
   | "fire"
   | "flask"
   | "gauge"
@@ -178,6 +219,7 @@ export type IconName =
   | "info"
   | "menu"
   | "minus"
+  | "person"
   | "plus"
   | "rocket"
   | "rope"

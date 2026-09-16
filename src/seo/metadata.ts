@@ -18,17 +18,17 @@ export function createMetadata({
   const imageUrl = new URL(image, siteConfig.url).toString();
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical },
-    robots: noIndex ? { index: false, follow: false } : undefined,
+    robots: { index: !noIndex && siteConfig.indexable, follow: !noIndex },
     openGraph: {
       type: "website",
       siteName: siteConfig.name,
       title,
       description,
       url: canonical,
-      images: [{ url: imageUrl, width: 1920, height: 1080 }],
+      images: [{ url: imageUrl, width: 1672, height: 941 }],
     },
     twitter: {
       card: "summary_large_image",
