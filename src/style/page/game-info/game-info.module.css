@@ -18,6 +18,7 @@
 .requirementsCard dl > div:last-child { border: 0; }
 .requirementsCard dt { color: var(--color-muted); font-size: 11px; font-weight: 750; }
 .requirementsCard dd { margin: 0; font-size: 12px; }
+.requirementsNote { max-width: 80ch; margin-top: 14px; color: #435a73; font-size: 14px; line-height: 1.6; }
 .storeSection { display: grid; grid-template-columns: 1.35fr .65fr; gap: 20px; align-items: stretch; }
 .storeCopy { max-width: 780px; color: #435a73; font-size: 14px; }
 .storeCopy a {

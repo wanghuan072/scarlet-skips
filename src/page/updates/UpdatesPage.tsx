@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { PageHero } from "@/components/common/PageHero";
-import { updates } from "@/lib/data/content";
+import { game, updates } from "@/lib/data/content";
 import styles from "@/style/page/content/content.module.css";
 
 export default function UpdatesPage() {
@@ -40,7 +40,7 @@ export default function UpdatesPage() {
           ))}
         </section>
         <aside className={styles.updateAside}>
-          <section><Icon name="shield" size={27}/><h2>Why the version matters</h2><p>Patch 1.0.1 mentions Rocket Shoes and extinguished ropes. If an older route depends on either one, check the current behavior before following it; the <Link href="/guides/tips">tips page</Link> helps diagnose a changed run.</p></section>
+          <section><Icon name="shield" size={27}/><h2>Guide baseline: v{game.currentVersion}</h2><p>Our card and route advice is written for this version. Hotfix 1.0.1 mentions Rocket Shoes and extinguished ropes, so re-check <Link href="/upgrades/upgrade-rocket-fuel">Rocket Fuel</Link> or <Link href="/upgrades/extinguish-jump-rope">Extinguish Jump Rope</Link> before relying on an older player route. The patch does not publish new card values.</p></section>
           <section><Icon name="info" size={27}/><h2>Keep the patch record current</h2><p>If a newer official announcement is missing, send us its link so we can re-check the affected guides.</p><Link href="/contact">Contact the site</Link></section>
         </aside>
       </div>

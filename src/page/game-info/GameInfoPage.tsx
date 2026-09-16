@@ -83,6 +83,7 @@ export default function GameInfoPage() {
             <RequirementsCard title="Minimum" requirements={game.minimumRequirements} />
             <RequirementsCard title="Recommended" requirements={game.recommendedRequirements} />
           </div>
+          <p className={styles.requirementsNote}>These are Steam’s listed specifications, not measured frame rates. If your PC falls below the minimum, this page cannot promise a playable run; compare your hardware with the current Steam listing before buying. Meeting the recommended list is not a guarantee of a particular frame rate either.</p>
         </section>
 
         <section className={styles.storeSection} aria-labelledby="store-title">
@@ -91,7 +92,7 @@ export default function GameInfoPage() {
               <span><Icon name="controller" size={25} /></span>
               <div><p>STEAM LISTING</p><h2 id="store-title">Price and features</h2></div>
             </div>
-            <p className={styles.storeCopy}>The US Steam price recorded on September 14 was <strong>{game.price}</strong>. Your local price or a sale may differ, so check Steam before buying. Steam advertises <strong>{game.upgradeCardCount} upgrade cards</strong>; the game-data table names <strong>{game.documentedCardCount}</strong> entries, three of which carry a special level marker and are listed separately here. For the controls, see <Link href="/guides/how-to-play">how to play</Link>. The listed achievement is <Link href="/guides/achievement">Off to a Great Start</Link>.</p>
+            <p className={styles.storeCopy}>The US Steam price recorded on September 14, 2026 was <strong>{game.price}</strong>. Your local price or a sale may differ, so check Steam before buying. Whether it is worth buying depends on how much you enjoy one-button timing and random card choices; we have not measured playtime or performance to make that call for you. Steam advertises <strong>{game.upgradeCardCount} upgrade cards</strong>; the game-data table names <strong>{game.documentedCardCount}</strong> entries, three of which carry a special level marker and are listed separately here. For the controls, see <Link href="/guides/how-to-play">how to play</Link>. The listed achievement is <Link href="/guides/achievement">Off to a Great Start</Link>.</p>
             <div className={styles.featureList}>{game.storeFeatures.map((feature) => <span key={feature}><Icon name="check" size={16} />{feature}</span>)}</div>
           </div>
           <aside>
