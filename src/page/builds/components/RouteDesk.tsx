@@ -37,7 +37,7 @@ export function RouteDesk() {
       <section className={styles.routes} aria-labelledby="routes-title">
         <div className={styles.sectionHead}>
           <p>WHERE THIS RUN CAN GO</p>
-          <h2 id="routes-title">Pick a destination. Then take cards that move it.</h2>
+          <h2 id="routes-title">Pick a route: Moon, score or spectacle</h2>
           <p>
             The early picks overlap. The late ones do not. Fire helps a score run and wrecks a Moon climb. Extra ropes look great and slow the ending down. Choose first, then play the pause.
           </p>

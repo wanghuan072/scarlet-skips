@@ -37,7 +37,7 @@ function sectionId(heading: string) {
 
 export const legalPages: Record<string, PageData> = {
   about: {
-    title: "About Us", eyebrow: "ABOUT THE FAN GUIDE", icon: "heart",
+    title: "About Scarlet Skips Hub", eyebrow: "ABOUT THE FAN GUIDE", icon: "heart",
     intro: "Scarlet Skips Hub is an independent place to work out the next jump, card or route. We explain what can be checked and say when a strategy is only a player's account.",
     sections: [
       { heading: "Who writes the guides", paragraphs: [
@@ -132,7 +132,7 @@ export const legalPages: Record<string, PageData> = {
     ],
   },
   contact: {
-    title: "Contact Us", eyebrow: "CORRECTIONS AND QUESTIONS", icon: "info",
+    title: "Contact Scarlet Skips Hub", eyebrow: "CORRECTIONS AND QUESTIONS", icon: "info",
     intro: "Found a card detail, route step or credit that needs another look? Email the exact page and what you saw. There is no contact form or public comment feed.",
     sections: [
       { heading: "How to reach us", paragraphs: [

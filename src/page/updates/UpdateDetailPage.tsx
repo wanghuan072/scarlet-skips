@@ -46,7 +46,7 @@ export default function UpdateDetailPage({ entry }: { entry: UpdateEntry }) {
           <section>
             <div className={styles.sectionTitle}>
               <span><Icon name="spark" size={23}/></span>
-              <div><p className={styles.kicker}>{entry.kind === "hotfix" ? "YERKDIFF’S POST" : "STORE LISTING"}</p><h2>The official wording</h2></div>
+              <div><p className={styles.kicker}>{entry.kind === "hotfix" ? "YERKDIFF’S POST" : "STORE LISTING"}</p><h2>{entry.kind === "hotfix" ? "What YerkDiff's hotfix post says" : "What the Steam store page says"}</h2></div>
             </div>
             <blockquote className={styles.officialQuote}>
               {entry.officialLines.map((line) => <p key={line}>{line}</p>)}

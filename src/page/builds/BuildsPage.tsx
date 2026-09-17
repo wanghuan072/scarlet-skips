@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { PageHero } from "@/components/common/PageHero";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
 import { RouteDesk } from "@/page/builds/components/RouteDesk";
-import { builds, regularUpgrades } from "@/lib/data/content";
+import { regularUpgrades } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import styles from "@/style/page/builds/builds.module.css";
@@ -28,7 +28,7 @@ export default function BuildsPage() {
         description="Compare three routes before you take the next card. Then try the choices in a teaching simulator; its scores are not the game's scores."
         image="/images/official/screenshot-4.jpg"
         imageAlt="Scarlet clearing an active rope in Scarlet Skips"
-        imageCaption="The park still. The destination is the tool under this."
+        imageCaption="Scarlet clears a rope in the park. The routes below compare what to build next."
         imagePosition="center 60%"
         facts={[
           { label: "Destinations", value: "3" },
@@ -48,7 +48,7 @@ export default function BuildsPage() {
         <section className={styles.pick} id="how" aria-labelledby="how-title">
           <div>
             <p>INSIDE THE RUN</p>
-            <h2 id="how-title">Practice the three-card decision.</h2>
+            <h2 id="how-title">Practice the three-card decision: skip, pause and watch</h2>
             <p>
               If the first rope still feels random, the <Link href="/guides/beginner-guide">first-run guide</Link> is the slower version of this. If we just need the button, that&apos;s <Link href="/guides/how-to-play">how it actually works</Link>. The names on the cards live on the <Link href="/upgrades">card list</Link>.
             </p>
@@ -76,7 +76,7 @@ export default function BuildsPage() {
 
         <section className={styles.note} aria-labelledby="note-title">
           <p>WHAT THE RUN IS COUNTING</p>
-          <h2 id="note-title">The cards and ropes are from the build. The hang is a model.</h2>
+          <h2 id="note-title">What comes from the game files—and what the simulator models</h2>
           <p>
             Three cards, appear-after-level, Reinforce showing up half as often, fire and shields on a rope, Luck flashing LUCKY — that is in the shipping files. Score in the run is loops times the ignite multiplier. Jump Level changing how many loops one skip clears is a working model of hang time, not a dumped centimetre formula. If a jump felt different after a patch, check the <Link href="/updates">notes</Link> and re-test on the <Link href="/guides/tips">tips page</Link>.
           </p>

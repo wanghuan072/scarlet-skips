@@ -187,7 +187,7 @@ export function RunBuilder({
         <header className={styles.top}>
           <div>
             <p>PLAYABLE RUN</p>
-            <h2 id="simulator-title">Skip. Fill the rope. Take a card.</h2>
+            <h2 id="simulator-title">The run simulator: skip, fill the rope, take a card</h2>
             {onPickDestination ? (
               <div className={styles.destSwitch} role="group" aria-label="Run destination">
                 {destinations.map((route) => (
