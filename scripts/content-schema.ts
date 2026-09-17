@@ -115,7 +115,7 @@ export function validateContent(raw: unknown, assetExists: (path: string) => boo
   unique("mod slug", mods.map((item) => item.slug));
   const sourceIdSet = unique("source id", sources.map((item) => item.id));
   const routes = new Set([
-    "/", "/builds", "/character", "/ending", "/game-info", "/guides", "/mods", "/search", "/updates",
+    "/", "/builds", "/character", "/ending", "/guides", "/mods", "/search", "/updates",
     "/upgrades", "/about", "/contact", "/privacy", "/terms", "/copyright", "/sitemap.xml",
     ...[...upgradeIds].map((slug) => `/upgrades/${slug}`),
     ...[...guideIds].map((slug) => `/guides/${slug}`),

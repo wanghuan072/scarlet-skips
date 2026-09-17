@@ -14,6 +14,5 @@ export function getSearchIndex(): SearchSuggestion[] {
     { title: "Play a run", subtitle: "Builds", href: "/builds#simulator", text: "build run simulator skip pick climb upgrade cards level rope moon score spectacle" },
     { title: "Scarlet Skips Character", subtitle: "Character", href: "/character", text: "scarlet skips character scarlet jumper who is scarlet rocket shoes jump rope yerk" },
     { title: "Moon Ending Route", subtitle: "Ending", href: "/ending", text: "moon ending route super rocket shoes finish credits" },
-    { title: "Scarlet Skips Game Info", subtitle: "Game info", href: "/game-info", text: "release date price pc system requirements platform steam controller" },
   ];
 }

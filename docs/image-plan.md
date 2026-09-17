@@ -6,7 +6,7 @@ Live pages use official Steam media and captured base-game states. Generated edi
 | --- | --- | --- |
 | `steam-header.jpg` | Compact Steam header / OG fallback | Promotional art, not gameplay evidence |
 | `steam-header-2x.jpg` | Updates listing hero; higher-res Steam key art | Promotional identity, not patch-note evidence |
-| `trailer-art.jpg` | Game Info hero; official reveal-trailer thumbnail | Promotional, not a gameplay still or hardware proof |
+| `trailer-art.jpg` | Retained official reveal-trailer thumbnail; no current page uses it | Promotional, not a gameplay still or hardware proof |
 | `screenshot-1.jpg` | Baseline jumping; Builds hero; Jump Height / beginner context | Does not prove a numeric jump-height value |
 | `screenshot-2.jpg` | Fire-rope state; High Score hero | Does not prove the fire formula or Extinguish targeting |
 | `screenshot-3.jpg` | Upgrade choice screen; Upgrades listing hero | Shows one random draw, not tier order |
@@ -26,7 +26,6 @@ Inner-page heroes stay unique across the main nav:
 | `/guides/high-score` | `screenshot-2.jpg` | Fire multiplier used late for score |
 | `/ending` | `screenshot-5.jpg` | Rocket Shoes / height climb |
 | `/mods` | `screenshot-7.jpg` | Base-game miss; not a Nexus thumbnail |
-| `/game-info` | `trailer-art.jpg` | Official trailer art for a buy/info page |
 | `/character` | `screenshot-1.jpg` | Clearest full-body look at Scarlet; also used on Builds |
 | `/updates` | `steam-header-2x.jpg` | Store identity for the shipped product |
 | `/updates/[slug]` | `screenshot-6.jpg` | Broken-rope still beside the actual patch list |

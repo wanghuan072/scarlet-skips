@@ -63,7 +63,7 @@
     "buildImpact": "Treat 1.0.0 as the shipping build players had for five days. Any Rocket Shoes or Extinguish behaviour from those first days may be the bug 1.0.1 later named. Do not mix a launch-week clip with current 1.0.1 advice.",
     "guideImpact": "Beginner, card and route pages on this site assume the post-launch hotfix. Use this launch record to date a Steam guide, a video or a review that went up before September 8, 2026.",
     "related": [
-      { "href": "/game-info", "label": "Game info", "text": "Store specs, price, features and the one-button control line." },
+      { "href": "https://store.steampowered.com/app/4513480/Scarlet_Skips/", "label": "Current Steam listing", "text": "Check the current price, PC requirements and store features with the publisher." },
       { "href": "/guides/beginner-guide", "label": "Beginner guide", "text": "How the one-button jump actually feels in a first run." },
       { "href": "/upgrades", "label": "Upgrade cards", "text": "The ten advertised cards, plus extra shipping-table rows." },
       { "href": "/guides/achievement", "label": "Off to a Great Start", "text": "The only Steam achievement listed at launch." }

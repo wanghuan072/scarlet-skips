@@ -10,7 +10,7 @@ import { pageTdk } from "@/seo/tdk";
 
 describe("fixed page SEO", () => {
   it("covers each fixed route with distinct, useful copy", () => {
-    const paths = ["/", ...primaryNavigation.map(({ href }) => href), "/game-info", ...siteNavigation.map(({ href }) => href), "/search"];
+    const paths = ["/", ...primaryNavigation.map(({ href }) => href), ...siteNavigation.map(({ href }) => href), "/search"];
     expect(Object.keys(pageTdk).sort()).toEqual([...new Set(paths)].sort());
     expect(new Set(Object.values(pageTdk).map(({ title }) => title)).size).toBe(Object.keys(pageTdk).length);
     for (const [path, copy] of Object.entries(pageTdk)) {
@@ -37,6 +37,7 @@ describe("fixed page SEO", () => {
     const entries = sitemap();
     const byUrl = new Map(entries.map((entry) => [entry.url, entry]));
     expect(byUrl.has(siteConfig.url + "/search")).toBe(false);
+    expect(byUrl.has(siteConfig.url + "/game-info")).toBe(false);
     expect(byUrl.get(siteConfig.url + "/privacy")?.lastModified).toBeUndefined();
     for (const guide of guides) expect(byUrl.get(`${siteConfig.url}/guides/${guide.slug}`)?.lastModified).toBe(guide.updatedDate);
     for (const upgrade of upgrades) expect(byUrl.get(`${siteConfig.url}/upgrades/${upgrade.slug}`)?.lastModified).toBe(upgrade.updatedDate);

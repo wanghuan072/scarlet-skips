@@ -6,7 +6,7 @@ The public site is [scarletskips.org](https://scarletskips.org). Contact: [wyong
 
 ## Start with the game
 
-Scarlet Skips is a one-button jump-rope game from Yerk Games. Timing the rope is the first challenge; upgrades then change your jump, rope pattern and options for a longer run. Card offers are random, so a route is a set of decisions rather than a guaranteed sequence. For release details, requirements and supported features, use [Game Info](https://scarletskips.org/game-info) and the [official Steam listing](https://store.steampowered.com/app/4513480/Scarlet_Skips/).
+Scarlet Skips is a one-button jump-rope game from Yerk Games. Timing the rope is the first challenge; upgrades then change your jump, rope pattern and options for a longer run. Card offers are random, so a route is a set of decisions rather than a guaranteed sequence. For current release details, requirements and supported features, check the [official Steam listing](https://store.steampowered.com/app/4513480/Scarlet_Skips/).
 
 ## Navigate
 

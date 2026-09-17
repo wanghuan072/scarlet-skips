@@ -26,7 +26,7 @@ export function UpgradeArt({
       {src ? (
         <Image
           src={src}
-          alt=""
+          alt={`${title} card artwork in Scarlet Skips`}
           width={native.width}
           height={native.height}
           unoptimized
@@ -35,7 +35,6 @@ export function UpgradeArt({
       ) : (
         <span className={styles.missing}>{title}</span>
       )}
-      <span className="sr-only">{title}</span>
     </span>
   );
 }

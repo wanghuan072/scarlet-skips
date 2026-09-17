@@ -20,7 +20,6 @@ const index: SearchItem[] = [
   ...mods.map((item) => ({title:item.name,description:item.description,href:`/mods#${item.slug}`,type:"Mod"})),
   {title:"Scarlet Skips Character",description:"Who Scarlet is, how she looks, why we take her outside, and the rope, shoes and cards we put on her in a run.",href:"/character",type:"Character",keywords:"scarlet character jumper who is scarlet rocket shoes jump rope"},
   {title:"Scarlet Skips Ending Guide",description:"A spoiler-light, player-reported route to the ending.",href:"/ending",type:"Guide"},
-  {title:"Scarlet Skips Game Info",description:"One-button controls, release details and Windows PC requirements, with a link to the current Steam listing.",href:"/game-info",type:"Game Info"},
   {title:"Scarlet Skips Builds",description:"Pick Moon, score or spectacle, then play a simulated Scarlet Skips run until Super Rocket Shoes.",href:"/builds",type:"Build"},
 ];
 

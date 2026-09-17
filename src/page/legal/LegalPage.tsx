@@ -50,7 +50,7 @@ export const legalPages: Record<string, PageData> = {
         "The guide is focused on this one game. It is not the game's official manual and it does not speak for its developer or publisher. Its value rests on clear explanations and traceable claims, not on a promise that every possible route has been personally completed.",
       ] },
       { heading: "What you can use", paragraphs: [
-        "The Guides pages cover the first rope, recovering after a missed jump and choosing a goal. Upgrades lists named card entries and separates the regular progression from special rows in the game data. Builds compares Moon, score and spectacle plans; its playable run is a teaching model, not the game's scoring engine. Ending marks spoilers and distinguishes the visible Moon sequence from reported card orders. Game Info and Updates give version context before you follow older advice.",
+        "The Guides pages cover the first rope, recovering after a missed jump and choosing a goal. Upgrades lists named card entries and separates the regular progression from special rows in the game data. Builds compares Moon, score and spectacle plans; its playable run is a teaching model, not the game's scoring engine. Ending marks spoilers and distinguishes the visible Moon sequence from reported card orders. Updates gives version context, while the official Steam listing has current store details.",
         "Start with the problem in front of you. If the timing changed, open How to Play. If three cards are on screen, compare their effects and availability. If you are planning a longer run, read the relevant route and its failure cases before committing to it.",
       ] },
       { heading: "How claims are handled", paragraphs: [

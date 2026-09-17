@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Icon } from "@/components/common/Icon";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { UpgradeArt } from "@/components/common/UpgradeArt";
+import { siteConfig } from "@/config/site";
 import { game, getGuide, getUpgrade, updates } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
 import { videoGameSchema, websiteSchema } from "@/seo/schema";
@@ -214,7 +215,7 @@ export default function HomePage() {
             <h2 id="snapshot-title">The game in 20 seconds</h2>
             <p>One button, three random choices, one increasingly strange run.</p>
           </div>
-          <Link href="/game-info">Game details <Icon name="arrow" size={15} /></Link>
+          <a href={siteConfig.steamUrl} target="_blank" rel="noopener noreferrer">Official Steam details <Icon name="arrow" size={15} /></a>
         </div>
         <div className={styles.snapshotGrid}>
           <div><Icon name="cards" size={28} /><strong>{game.upgradeCardCount}</strong><span>Upgrade cards</span><small>{game.documentedCardCount} names in the shipping table</small></div>

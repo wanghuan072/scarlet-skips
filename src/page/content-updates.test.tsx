@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { guides } from "@/lib/data/content";
+import { guides, upgrades } from "@/lib/data/content";
 import { destinations } from "@/lib/data/destinations";
 import GuideDetailPage from "@/page/guides/GuideDetailPage";
 import GuidesPage from "@/page/guides/GuidesPage";
@@ -9,6 +9,8 @@ import CharacterPage from "@/page/character/CharacterPage";
 import { SpoilerPanel } from "@/page/ending/components/SpoilerPanel";
 import HomePage from "@/page/home/HomePage";
 import UpgradesPage from "@/page/upgrades/UpgradesPage";
+import UpgradeDetailPage from "@/page/upgrades/UpgradeDetailPage";
+import { UpgradeArt } from "@/components/common/UpgradeArt";
 import { siteConfig } from "@/config/site";
 
 describe("player-question additions", () => {
@@ -68,5 +70,19 @@ describe("player-question additions", () => {
     expect(character).toContain('id="mature-content-title"');
     expect(character).toContain("suggestive themes");
     expect(character).toContain("Scarlet above the rope in an official gameplay screenshot");
+  });
+
+  it("names every upgrade in its H1 and gives card art a meaningful alt", () => {
+    for (const upgrade of upgrades) {
+      const html = renderToStaticMarkup(<UpgradeDetailPage upgrade={upgrade} />);
+      expect(html).toContain("Scarlet Skips Upgrade");
+      expect(html).toContain(upgrade.name);
+      expect(html.match(/<h1\b/g)).toHaveLength(1);
+      const art = renderToStaticMarkup(<UpgradeArt slug={upgrade.slug} title={upgrade.gameTitle ?? upgrade.name} />);
+      const image = new DOMParser().parseFromString(art, "text/html").querySelector("img");
+      if (image) expect(image.getAttribute("alt")).toBe(`${upgrade.gameTitle ?? upgrade.name} card artwork in Scarlet Skips`);
+      else expect(art).toContain(upgrade.gameTitle ?? upgrade.name);
+      expect(art).not.toContain("sr-only");
+    }
   });
 });

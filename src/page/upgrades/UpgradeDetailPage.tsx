@@ -46,6 +46,7 @@ export default function UpgradeDetailPage({ upgrade }: { upgrade: Upgrade }) {
 
       <PageHero
         eyebrow={upgrade.category}
+        titlePrefix="Scarlet Skips Upgrade"
         title={upgrade.name}
         description={summary}
         image={upgrade.image}

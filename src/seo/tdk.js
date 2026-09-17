@@ -32,10 +32,6 @@ export const pageTdk = {
     title: "Scarlet Skips Updates — Launch and Hotfix 1.0.1",
     description: "Scarlet Skips launched on Steam on September 3, 2026. The only official news post so far is hotfix 1.0.1, which names Rocket Shoes, Extinguished Ropes, FPS Limit and VSync.",
   },
-  "/game-info": {
-    title: "Scarlet Skips Game Info — Controls and PC Specs",
-    description: "Check how Scarlet Skips plays, its Windows PC requirements, Steam features and release details. See what the game offers before deciding whether to play.",
-  },
   "/about": {
     title: "About Scarlet Skips Hub — Independent Fan Guide",
     description: "Learn who Scarlet Skips Hub is for, how this fan guide checks game claims, and where player advice stops short of official rules or guaranteed results.",

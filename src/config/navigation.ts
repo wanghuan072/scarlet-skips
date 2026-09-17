@@ -12,7 +12,6 @@ export const primaryNavigation = [
 ] as const;
 
 export const resourceNavigation = [
-  { label: "Game Info", href: "/game-info" },
   { label: "High Score Guide", href: "/guides/high-score" },
   { label: "Achievement Guide", href: "/guides/achievement" },
   { label: "Steam Page", href: "https://store.steampowered.com/app/4513480/Scarlet_Skips/" },
