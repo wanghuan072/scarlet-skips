@@ -38,3 +38,5 @@ Rules:
 - Do not reuse third-party mod thumbnails or author files. The Mods page links to original listings.
 - Meaningful images use descriptive alt text. Decorative backgrounds carry no factual claim.
 - Do not turn a screenshot into evidence for numeric speed, height, durability, probability or score formulas.
+
+The How to Play guide now shows three official game screenshots: the opening rope, an airborne skip and a miss. They are separate game states, not a frame-by-frame input sequence or proof of an exact timing window. The ending's existing spoiler reveal loads an externally hosted YouTube player only after the reader opens it. No frame or image from the comparison site is stored locally.

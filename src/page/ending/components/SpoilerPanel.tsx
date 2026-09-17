@@ -21,6 +21,17 @@ export function SpoilerPanel() {
         <div className={styles.spoilerReveal}>
           <p>The player guide describes <strong>Super Rocket Shoes</strong> as the endgame signal. In the recorded completion, Scarlet continues climbing beyond the park, reaches space with Earth below, and eventually arrives at the Moon.</p>
           <p>Scarlet settles on the Moon and the credits begin. That visual outcome is corroborated; any claim about its emotional meaning is interpretation, and no official numeric height requirement or exact formula has been published.</p>
+          <div className={styles.spoilerVideo}>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/FIMs9bPh8Lg"
+              title="Scarlet Skips ending gameplay footage on YouTube"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+          <p>Video playback is provided by YouTube after you reveal this panel. If the player does not load, <a href="https://www.youtube.com/watch?v=FIMs9bPh8Lg" target="_blank" rel="noopener noreferrer">open the ending footage on YouTube</a>.</p>
         </div>
       )}
       <button type="button" aria-expanded={open} onClick={() => setOpen((value) => !value)}>

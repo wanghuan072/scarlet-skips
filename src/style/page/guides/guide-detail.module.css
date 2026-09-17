@@ -13,6 +13,17 @@
   border-radius: 16px;
   background: white;
 }
+.timingFrames { padding: 27px 32px 30px; border-bottom: 1px solid #d1e1ea; }
+.framesLabel { color: var(--color-secondary); font: 850 10px var(--font-utility); letter-spacing: .08em; }
+.timingFrames h2 { margin-top: 4px; font-size: clamp(22px, 2.4vw, 28px); }
+.timingFrames > p:not(.framesLabel) { max-width: 75ch; margin-top: 8px; color: #435a73; font-size: 14px; line-height: 1.5; }
+.frameGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 19px; }
+.frameGrid figure { overflow: hidden; margin: 0; border-radius: 12px; background: #f4f9fc; }
+.frameGrid figure > div { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.frameGrid img { object-fit: cover; }
+.frameGrid figcaption { display: grid; gap: 3px; padding: 11px 2px 3px; }
+.frameGrid strong { color: #174064; font-size: 15px; }
+.frameGrid figcaption span { color: #50647a; font-size: 12px; line-height: 1.4; }
 
 .block {
   padding: 28px 32px;
@@ -217,8 +228,10 @@
 
   .aside figure:nth-of-type(n + 2) { display: none; }
 }
-
 @media (max-width: 768px) {
+  .timingFrames { padding: 22px 18px; }
+  .frameGrid { grid-template-columns: 1fr; gap: 20px; }
+  .frameGrid figure > div { aspect-ratio: 16 / 9; }
   .block { padding: 22px 18px; }
   .aside { grid-template-columns: 1fr; }
   .nextLinks { grid-template-columns: 1fr; }

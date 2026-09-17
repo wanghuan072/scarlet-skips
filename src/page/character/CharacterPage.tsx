@@ -15,22 +15,22 @@ const looks = [
     src: "/images/official/screenshot-1.jpg",
     alt: "Scarlet skipping rope in the park",
     label: "In the park",
-    title: "This is her, most of a run",
-    text: "Pink hair, school clothes, a rope in both hands. If we last more than a few skips, this is the Scarlet we’re looking at.",
+    title: "The opening skip",
+    text: "The rope and the ground crossing are easier to follow here than in a crowded late run.",
   },
   {
     src: "/images/official/screenshot-5.jpg",
     alt: "Scarlet airborne with glowing Rocket Shoes in Scarlet Skips",
     label: "Rocket Shoes",
-    title: "When she doesn’t come down",
-    text: "Pick Rocket Shoes and the jump can keep going. We hold, she rises, and the ropes keep spinning underneath.",
+    title: "A longer jump",
+    text: "Rocket Shoes can keep Scarlet airborne while the ropes continue below her.",
   },
   {
     src: "/images/official/screenshot-7.jpg",
     alt: "Scarlet missing a skip with the rope tangled around her legs",
     label: "A miss",
-    title: "When we mistime it",
-    text: "Late by a beat and the rope wraps her legs. That’s the run. We start over.",
+    title: "A missed rope",
+    text: "The run ends when the skip fails. This still shows the result, not the exact input that caused it.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function CharacterPage() {
   ];
   const skills = [
     { item: getUpgrade("increase-jump-height")!, blurb: "She jumps higher, so one skip can clear more turns." },
-    { item: getUpgrade("increase-luck")!, blurb: "The next three cards tend to show up sooner." },
+    { item: getUpgrade("increase-luck")!, blurb: "Players use Luck to seek faster progression; its exact effect is unpublished." },
     { item: getUpgrade("charge-jump")!, blurb: "Hold a little longer and the next jump hits harder." },
     { item: getUpgrade("fast-fall")!, blurb: "Let go and she drops faster, so we can land on purpose." },
     { item: getUpgrade("air-tricks")!, blurb: "Press jump again in the air and she tricks." },
@@ -97,24 +97,35 @@ export default function CharacterPage() {
       />
 
       <div className={`container ${styles.content}`}>
-        <section className={styles.intro} aria-labelledby="who-title">
-          <p>THE JUMPER</p>
-          <h2 id="who-title">We don’t pick a character. We skip as Scarlet.</h2>
-          <p>
-            Scarlet is the only character you control. <Link href="/guides/how-to-play">One button</Link>: press, hold, release. The Steam page says the game is about helping her out of a funk and into the grass. From there, the <Link href="/guides/beginner-guide">timing</Link> and card choices shape each run.
-          </p>
+        <section className={styles.opening} aria-labelledby="who-title">
+          <div className={styles.intro}>
+            <p>THE CHARACTER</p>
+            <h2 id="who-title">You play as Scarlet.</h2>
+            <p>
+              Scarlet is the character you control in the runs shown here. The game uses <Link href="/guides/how-to-play">one button</Link>—press, hold and release—to time her jump rope. Steam&apos;s short story setup asks you to help her get out of a funk and touch grass. The <Link href="/guides/beginner-guide">first-run guide</Link> covers the timing; the cards change what each run feels like.
+            </p>
+          </div>
+          <figure className={styles.openingImage}>
+            <Image src="/images/official/screenshot-4.jpg" alt="Scarlet airborne above a jump rope in the park" fill sizes="(max-width: 1024px) 100vw, 38vw" />
+            <figcaption>Scarlet above the rope in an official gameplay screenshot.</figcaption>
+          </figure>
+        </section>
+
+        <section className={styles.contentNotice} aria-labelledby="mature-content-title">
+          <div><p>BEFORE YOU BUY</p><h2 id="mature-content-title">Why does Steam warn about suggestive content?</h2></div>
+          <p>Yerk Games&apos; <a href={siteConfig.steamUrl} target="_blank" rel="noopener noreferrer">Steam description</a> lists suggestive themes, revealing clothing, exaggerated animation of suggestive body parts and general mature content. That warning describes the material the developer says may appear; it is not a hidden gameplay mode or a promise that every scene is suitable for every viewer. Check Steam&apos;s current warning and trailer if that matters to your purchase.</p>
         </section>
 
         <section aria-labelledby="looks-title">
           <div className={styles.sectionTitle}>
             <span><Icon name="person" size={22} /></span>
             <div>
-              <p>HOW SHE LOOKS</p>
-              <h2 id="looks-title">Pink hair, a rope, and a lot of bounce</h2>
+              <p>ON SCREEN</p>
+              <h2 id="looks-title">Scarlet through a run</h2>
             </div>
           </div>
           <p className={styles.lead}>
-            Pink hair, school clothes, a jump rope. When you play, the useful timing cue is <Link href="/guides/beginner-guide">where the rope meets the ground</Link>. Upgrades can add ropes, fire or glowing shoes, but the character remains Scarlet.
+            The screenshots show the first rope, a Rocket Shoes jump and a miss. When you play, watch <Link href="/guides/beginner-guide">where the rope meets the ground</Link> rather than trying to time the jump from Scarlet&apos;s pose alone.
           </p>
           <div className={styles.looks}>
             {looks.map((look) => (
@@ -135,7 +146,7 @@ export default function CharacterPage() {
         <section className={styles.story} aria-labelledby="story-title">
           <div>
             <p>HER STORY</p>
-            <h2 id="story-title">Scarlet starts in a funk</h2>
+            <h2 id="story-title">The story Steam gives her</h2>
             <p>
               The Steam description says Scarlet needs to get out of her funk and touch grass. It introduces a simple setup, then leaves the jump-rope run to the player. The page does not explain more about her background.
             </p>
@@ -145,7 +156,7 @@ export default function CharacterPage() {
             <Link href="/ending">How we get her there <Icon name="arrow" size={16} /></Link>
           </div>
           <aside>
-            <p>WHAT WE’RE DOING</p>
+            <p>IN A RUN</p>
             <ul>
               <li>Keep the rope off her legs</li>
               <li>Pick the card that saves this run</li>
@@ -160,11 +171,11 @@ export default function CharacterPage() {
             <span><Icon name="rope" size={22} /></span>
             <div>
               <p>WHAT SHE USES</p>
-              <h2 id="gear-title">The rope, then the shoes</h2>
+              <h2 id="gear-title">Ropes and Rocket Shoes</h2>
             </div>
           </div>
           <p className={styles.lead}>
-            A run starts with one rope. The <Link href="/upgrades">card list</Link> covers extra ropes, protection, fire and Rocket Shoes. Player ending routes look for the later Super Rocket Shoes card.
+            A run starts with one rope. The <Link href="/upgrades">card list</Link> covers extra ropes, protection, fire and Rocket Shoes, with each card&apos;s details and availability. The links below are a quick way to recognize what changed on screen; player ending routes look for the later Super Rocket Shoes card.
           </p>
           <div className={styles.picks}>
             {gear.map(({ item, blurb }) => (
@@ -182,7 +193,7 @@ export default function CharacterPage() {
             <span><Icon name="controller" size={22} /></span>
             <div>
               <p>WHAT SHE CAN DO</p>
-              <h2 id="skills-title">One jump, then the cards that change it</h2>
+              <h2 id="skills-title">Cards that change the jump</h2>
             </div>
           </div>
           <p className={styles.lead}>
@@ -204,7 +215,7 @@ export default function CharacterPage() {
             <span><Icon name="arrow" size={22} /></span>
             <div>
               <p>KEEP PLAYING</p>
-              <h2 id="next-title">Take her into a run</h2>
+              <h2 id="next-title">Keep exploring</h2>
             </div>
           </div>
           <div className={styles.links}>

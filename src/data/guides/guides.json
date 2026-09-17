@@ -80,7 +80,7 @@
     "description": "Press, hold, let go. Then three cards. Then the jump changes. Here’s what that loop actually is.",
     "image": "/images/official/screenshot-7.jpg",
     "imageAlt": "Scarlet missing a skip with the rope tangled around her legs in an official screenshot",
-    "updatedDate": "2026-09-16",
+    "updatedDate": "2026-09-17",
     "sourceStatus": "Community Verified",
     "sourceIds": ["steam-store", "official-screenshots", "steam-rhythm-guide", "steam-high-score-guide", "steam-ending-guide", "full-gameplay-video"],
     "sections": [
@@ -88,13 +88,14 @@
       { "heading": "PC Version and Requirements", "paragraphs": ["Steam lists a Windows version. Price and reviews can change; check the current Steam listing. [Game Info](/game-info) covers controls and system requirements."], "bullets": ["Minimum: Windows 10, Intel i7-6700HQ, 8 GB RAM, GTX 1060, DirectX 12, 2 GB.", "Recommended: Ryzen 9 3900X, 16 GB RAM, RTX 2080, DirectX 12, 2 GB.", "Single-player. One achievement. Family Sharing.", "Yerk Games made it."] },
       { "heading": "Press, Hold and Release", "paragraphs": ["Treat it as one motion, not three commands. The rope says when to press. The pattern says how long to hold. The next ground hit says when to let go.", "A short jump is the default. A long hold is for grouped ropes or [Rocket Fuel](/upgrades/upgrade-rocket-fuel) — not every skip."], "bullets": ["Same short jump until it feels boring.", "Hold longer only after height or fuel changes the run.", "Let go early enough to see the landing.", "Don’t mash once there are extra ropes."] },
       { "heading": "Jump Timing", "paragraphs": ["Watch the rope hit the ground by [Scarlet](/character)’s feet. Jump just before it. At the top, look for the next pass — not her hair.", "With extra ropes, don’t chase each strand. Watch one full turn, find the gap, and clear a group with one skip. Still fuzzy? [The first-run guide](/guides/beginner-guide) is slower on purpose."], "bullets": ["Higher is not safer if we land blind.", "Speed makes the window smaller.", "Extra ropes make a pattern, not a panic.", "After a new card, take a few easy skips."] },
+      { "heading": "When an upgrade breaks your timing", "paragraphs": ["Before changing the build, name what you actually saw. Did the rope reach Scarlet before she left the ground, did she clear it but land into the next pass, or did an extra rope make the old gap disappear? Those are different problems. The press–hold–release labels here are practice cues, not the game's published collision rules.", "On the next attempt, change one thing: start the press a little sooner if the rope caught the takeoff; try a shorter hold if the landing was late; or watch one full rope pattern before pressing if an extra rope appeared. A single miss cannot prove the cause, so repeat the same adjustment before blaming a card or your device."], "bullets": ["After height or fuel: watch the landing before extending another hold.", "After an extra rope or speed: find the new ground-crossing pattern before pressing faster.", "After fire: keep your eyes on the rope path, not the effect.", "If the whole image stutters, treat that as a separate performance question; [Game Info](/game-info) lists the published PC requirements."] },
       { "heading": "Level Ups", "paragraphs": ["Keep skipping until the game pauses. Three cards. If the name is new, [the card list](/upgrades) has the short answer — including later movement cards the store never lists.", "The same card can show up again. That’s stacking. Ask which stack saves this run, not which name sounds strongest."], "bullets": ["The game pauses. We pick one.", "Repeats stack.", "Don’t wait for a perfect order.", "Late airtime runs can get more than one card in a jump.", "Safety Bounce is in the files, not in the usual three-card draw."] },
       { "heading": "Upgrade Choices", "paragraphs": ["Pick for the run we have. Height and a shield keep us alive. Luck and fuel grow the run. Extra ropes, speed and fire add pressure. Nobody published the numbers.", "Before we click: is this survival, more cards, more air, or more score? If we’re already dying, the plain card that saves the next skip beats a fancy combo."], "bullets": ["Fix what’s about to kill us.", "Change one timing thing at a time.", "Player orders are not guaranteed best.", "Patch 1.0.1 fixed Rocket Shoes and extinguished ropes."] },
       { "heading": "Scoring and Progression", "paragraphs": ["Clean skips raise the counter. Extra ropes, speed, long airtime and fire can make it climb faster. Nobody published the formula.", "Someone wrote up ~200,000. Someone else [reached the Moon](/ending). Neither is a leaderboard. Want the counter? [This is the order](/guides/high-score)."], "bullets": ["Staying alive is what keeps the number going.", "Fire is a multiplier we can see.", "Score runs take fire last.", "No official global leaderboard."] },
       { "heading": "The Airtime Transition", "paragraphs": ["At some point it stops feeling like jump rope. [Jump Height](/upgrades/increase-jump-height) plus [Rocket Fuel](/upgrades/upgrade-rocket-fuel) can keep her up long enough for another card. One player says that card refills the tank.", "Watch the gauge. Land until the refill happens twice. That’s the [score loop](/guides/high-score)."], "bullets": ["Height makes the jump long.", "The next card has to arrive before fuel runs out.", "Fuel bridges one card to the next.", "Then we add ropes, speed or fire."] },
       { "heading": "Losing and Recovering", "paragraphs": ["One miss ends it. Work backward: late jump, held too long, or the last card changed a pattern we never learned?", "Next run, change one thing. [The tips page](/guides/tips) is for that first bad pick. [Practice a pause](/builds#simulator) if we just want to see the cards."], "bullets": ["Find the first card that wrecked the rhythm.", "Learn that new beat before adding another.", "Too many ropes? Shield a smaller set.", "Use the run on this site if we just need to see the pause."] },
       { "heading": "Win and Ending Basics", "paragraphs": ["A long run can leave the park. That route grows early, drops extra ropes, shields what’s left, then takes height, Luck and fuel — and skips fire.", "[Super Rocket Shoes](/upgrades/super-rocket-shoes) is the late signal. [How we reach the Moon](/ending) hides the ending until we ask for it."], "bullets": ["Moon and score are different routes.", "Fewer shielded ropes for the climb.", "Nobody published a height number.", "Open the ending guide when this run is actually going there."] },
-      { "heading": "What the game confirms", "paragraphs": ["The Steam page describes one-button controls, ten upgrade cards, three choices at level-up and stackable cards. It does not publish the scoring formula or a guaranteed best route.", "A player route may be useful to try, but it is not a developer rule. Check the linked records below when a specific claim matters to your run."], "bullets": ["Steam page: controls and the advertised card count.", "Patch notes: announced changes for that version.", "Player reports: routes to try, not guaranteed results.", "Unpublished values: do not treat guesses as rules."] }
+      { "heading": "What the game confirms", "paragraphs": ["The Steam page describes one-button controls, ten advertised upgrade cards, three choices at level-up and stackable cards. It does not publish the scoring formula or a guaranteed best route. The [card list](/upgrades) separately explains why the shipping data has more named rows.", "A player route may be useful to try, but it is not a developer rule. Check the linked records below when a specific claim matters to your run."], "bullets": ["Steam page: controls and the advertised card count.", "Patch notes: announced changes for that version.", "Player reports: routes to try, not guaranteed results.", "Unpublished values: do not treat guesses as rules."] }
     ],
     "links": [
       { "label": "I want the Moon", "href": "/ending" },
@@ -175,7 +176,7 @@
     "description": "Height and Luck first. Rocket Fuel once the jump already hangs. Fire, speed and extra ropes only after we can stay up without them.",
     "image": "/images/official/screenshot-2.jpg",
     "imageAlt": "Scarlet above a flaming rope with a fire multiplier",
-    "updatedDate": "2026-09-16",
+    "updatedDate": "2026-09-17",
     "sourceStatus": "Player Report",
     "sourceIds": ["steam-high-score-guide", "steam-store", "steam-update-101", "full-gameplay-video"],
     "sections": [
@@ -192,7 +193,7 @@
       {
         "heading": "Mid run: make the fuel loop repeat",
         "paragraphs": ["Add [Rocket Fuel](/upgrades/upgrade-rocket-fuel) after height is already doing work. We want several rope passes — and later another card — inside one jump.", "A player says a new card refills the tank. Watch the gauge when it resolves. Make that happen twice before we bet the run on it. First rope still random? [Learn the jump](/guides/beginner-guide) first."],
-        "bullets": ["Height makes the jump long.", "Luck is how the next card shows up in the air.", "Fuel bridges one card to the next.", "Land until the refill happens twice."]
+        "bullets": ["Height makes the jump long.", "A player reports that Luck helps cards arrive sooner; no exact formula is published.", "Fuel may bridge one card to the next.", "Land until a refill has visibly repeated in this run."]
       },
       {
         "heading": "Late run: turn spare safety into score",
@@ -208,6 +209,16 @@
         "heading": "What usually ruins a score attempt",
         "paragraphs": ["Copying this order on a Moon run is how a clean skip turns into a miss. If we want the ending, that’s [a different route](/builds#moon)."],
         "bullets": ["Fire too early.", "Extra ropes before they’re shielded.", "Fuel without enough height.", "Holding until the tank is empty.", "Treating ~200,000 as a world record."]
+      },
+      {
+        "heading": "If the score cards do not arrive",
+        "paragraphs": ["Three random offers mean this order is a route to attempt, not a shopping list. If Luck or height is missing, keep the current rope pattern readable and take the card that preserves the next landing. If Fuel arrives before a long jump is useful, do not stay airborne just to justify the pick.", "When the next upgrade no longer arrives before the gauge empties, return to safe landings instead of assuming a refill. Fire and extra ropes can wait; neither repairs a broken airtime loop."],
+        "bullets": ["No height yet: prioritize a jump you can land repeatedly.", "No fuel refill: land with room to read the next rope.", "Offered a risky score card: preserve the run before chasing the multiplier."]
+      },
+      {
+        "heading": "Compare personal bests without guessing",
+        "paragraphs": ["Write down the number the game actually displayed. A score total, a jump count and a creator's video title are not interchangeable, and this site does not certify a world record. The scoring formula has not been published by the developer.", "After a promising run, record the visible score or count, the cards you had when it ended, and the first pick after which the pattern became hard to read. On the next attempt, change one choice. That comparison is more useful than copying a large number from a clip with a different stack."],
+        "bullets": ["Label the HUD field, not just the biggest number in a screenshot.", "Keep one screenshot of the final stack if the game shows it.", "Note whether the miss followed height, rope count, speed or fire.", "Call a video record claim a claim unless its category and evidence are clear."]
       }
     ],
     "links": [
@@ -228,7 +239,7 @@
     "description": "Extra ropes, fire, speed and tricks. This is the store-shot run — not the one that reaches the Moon.",
     "image": "/images/official/screenshot-6.jpg",
     "imageAlt": "A jump rope breaking into segments during a busy run",
-    "updatedDate": "2026-09-16",
+    "updatedDate": "2026-09-17",
     "sourceStatus": "Player Report",
     "sourceIds": ["steam-high-score-guide", "steam-ending-guide", "steam-update-101", "official-screenshots", "full-gameplay-video"],
     "sections": [
@@ -261,6 +272,11 @@
         "heading": "This is not the Moon",
         "paragraphs": ["The Moon route uses fewer ropes and skips fire. If Super Rocket Shoes is the point, switch on [Builds](/builds#moon) and read [how we get there](/ending).", "If we still want the counter more than the mess, the [score guide](/guides/high-score) delays the same loud cards until the fuel loop repeats."],
         "bullets": ["Moon: fewer ropes, no fire.", "Score: same loud cards, later.", "Spectacle: take the loud pick on purpose."]
+      },
+      {
+        "heading": "When the show stops being readable",
+        "paragraphs": ["A flashy offer is not an obligation. If the next card is not a rope, fire or trick, keep skipping with the pattern you can already follow. The route works as a goal for the run, not a guarantee about which three cards appear.", "If an added rope removes the gap you were using, do not add speed on the next pause. Relearn one full turn, reinforce what remains, or let the run become a quieter practice attempt. If fire hides the crossing you watch, stop adding effects until you can see the rope again."],
+        "bullets": ["No show card offered: keep the readable stack.", "Lost the gap: pause rope-count and speed picks.", "Visual effects hide the rope: choose clarity over another multiplier."]
       }
     ],
     "links": [

@@ -30,7 +30,7 @@ export default function UpgradesPage() {
         description="Compare what each card changes, when it can appear and when it helps. There are 13 regular entries here, plus three special game-data entries outside the usual offer."
         image="/images/official/screenshot-3.jpg"
         imageAlt="Scarlet Skips upgrade screen showing Reinforce Jump Rope, Increase Luck and Add Jump Rope"
-        imageCaption="Three cards. One pick. That’s the whole pause."
+        imageCaption="One level-up offers three cards. This screenshot is one draw, not the full card pool."
         imagePosition="center 42%"
         facts={[
           { label: "Named here", value: String(upgrades.length) },
@@ -38,6 +38,12 @@ export default function UpgradesPage() {
           { label: "Special", value: String(specialUpgrades.length) },
         ]}
       />
+      <section className={`container ${styles.callout}`} aria-labelledby="card-count-title">
+        <div>
+          <h2 id="card-count-title">Why does Steam say 10 cards when this list has 16 entries?</h2>
+          <p><a href={siteConfig.steamUrl} target="_blank" rel="noopener noreferrer">Steam&apos;s store description</a> advertises 10 upgrade cards. This site separately lists 16 named rows found in the shipping upgrade table: 13 with a regular appear-after-level value and three marked outside that usual progression. A data-table row is not proof that every card appears in a normal three-card offer, or that all 16 are available in the same run. We show the rows so you can identify a card you actually see; use the store count for its advertised pool and the table below for documented names and conditions.</p>
+        </div>
+      </section>
       <section className={`container ${styles.explorerSection}`}>
         <SectionHeading icon="cards" title="Regular upgrade cards" description="These rows have a real AppearsAfterLevel in the shipping table. Use this while the level-up screen is open." href="/builds#simulator" linkLabel="Practice a full run"/>
         <UpgradeCompareTable upgrades={regularUpgrades}/>

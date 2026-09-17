@@ -18,7 +18,7 @@ const steps = [
   ["Now lean into height and Luck", "Take Increase Jump Height and Increase Luck whenever the run is safe. One player mentioned about 50,000 height, but that is not a confirmed requirement."],
   ["Add Rocket Fuel once it buys real time", "Fuel matters when a long jump can already clear several loops or reach another upgrade. Watch the gauge and keep a safe landing available."],
   ["Leave fire alone on this route", "The documented ending run avoids Ignite Jump Rope. Fire is for a score run, not this climb."],
-  ["Super Rocket Shoes means you are there", "The community route treats Super Rocket Shoes as the signal that the final ascent is ready to begin."],
+  ["Look for Super Rocket Shoes late", "The documented player route treats Super Rocket Shoes as a sign to try the final ascent. It is not a published, guaranteed win trigger."],
 ];
 
 export default function EndingPage() {
@@ -61,6 +61,12 @@ export default function EndingPage() {
               <article><span className={styles.phaseNumber}>02</span><span className={styles.phaseIcon}><Icon name="route" size={27}/></span><p className={styles.kicker}>PLAYER ROUTE</p><h3>Card order</h3><p>Rope reduction, reinforcement, height, Luck and fuel come from a successful Steam guide.</p></article>
               <article><span className={styles.phaseNumber}>03</span><span className={styles.phaseIcon}><Icon name="info" size={27}/></span><p className={styles.kicker}>NOT A REQUIREMENT</p><h3>50,000 height</h3><p>The number describes one author&apos;s run; no official threshold is published.</p></article>
             </div>
+          </section>
+          <section>
+            <div className={styles.sectionTitle}><span><Icon name="route" size={23}/></span><div><p className={styles.kicker}>WHEN THE DRAW GOES SIDEWAYS</p><h2>Keep an ending attempt alive without a perfect hand</h2></div></div>
+            <p>Three random offers will not follow a seven-step checklist. If Luck or height does not appear, keep the rope pattern you can actually land and take protection when losing the last useful rope would end the attempt. Do not add fire or another rope just to force faster levels if the current pattern is already hard to read.</p>
+            <p>If extra ropes or fire are already in the run, that does not prove the Moon is locked. The player route avoided those choices because a quieter climb was easier to control, not because an official rule bans them. Try to simplify at the next useful offer; if the landing has become unreliable, treat this run as practice and make the next one calmer.</p>
+            <p>If Rocket Fuel empties before another upgrade, plan a landing rather than betting on a refill. No exact height threshold or guaranteed Super Rocket Shoes offer has been published. The <Link href="/upgrades">card list</Link> explains why the three offers cannot be scripted.</p>
           </section>
           <SpoilerPanel/>
           <section>

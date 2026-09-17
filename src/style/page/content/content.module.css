@@ -35,6 +35,9 @@
 .spoilerPanel h2 { margin-top: 2px; font-size: 24px; }
 .spoilerPanel p:not(.kicker) { margin-top: 7px; color: #53647b; }
 .spoilerReveal { margin-top: 18px; padding: 19px; border: 1px solid #edc1cf; border-radius: 13px; background: white; }
+.spoilerVideo { overflow: hidden; aspect-ratio: 16 / 9; margin-top: 18px; border-radius: 10px; background: #162437; }
+.spoilerVideo iframe { display: block; width: 100%; height: 100%; border: 0; }
+.spoilerReveal a { color: var(--color-secondary); font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
 .spoilerPanel button { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; margin-top: 18px; padding: 0 15px; border: 0; border-radius: 10px; background: var(--color-primary); color: white; font-weight: 800; cursor: pointer; }
 .calloutList,.patchList { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .calloutList li,.patchList li { display: flex; align-items: flex-start; gap: 10px; padding: 13px 15px; border: 1px solid #f0c7d3; border-radius: 12px; background: #fff7f9; color: #445a71; }

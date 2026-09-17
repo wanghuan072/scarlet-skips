@@ -6,7 +6,7 @@ export const pageTdk = {
   },
   "/character": {
     title: "Scarlet — Character and Controls in Scarlet Skips",
-    description: "Meet Scarlet, the jump-rope character at the center of Scarlet Skips. Learn how one-button controls work and how upgrade cards change the rhythm of a run.",
+    description: "Meet Scarlet, the jumper at the center of Scarlet Skips. Read her store-page story, see how cards change a run and check Steam's mature-content warning.",
   },
   "/guides": {
     title: "Scarlet Skips Guides — Help for Your Next Run",
@@ -14,7 +14,7 @@ export const pageTdk = {
   },
   "/upgrades": {
     title: "Scarlet Skips Upgrades — Compare Cards for Your Run",
-    description: "Compare the 13 regular Scarlet Skips upgrade entries and three special game-data entries. See what each card changes and where it may fit your route.",
+    description: "Compare Scarlet Skips upgrade entries and their effects. See why Steam advertises 10 cards while the shipping data names 13 regular and three special rows.",
   },
   "/builds": {
     title: "Scarlet Skips Builds — Choose a Route for Your Run",

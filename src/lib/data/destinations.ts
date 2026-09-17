@@ -25,7 +25,7 @@ export const destinations: Array<{
 }> = [
   {
     id: "moon",
-    kicker: "FASTEST ENDING",
+    kicker: "MOON ATTEMPT",
     title: "Get to the Moon",
     text: "Keep the ropes readable, stack height and Luck, add fuel later, and wait for Super Rocket Shoes. Fire and extra ropes slow this climb down.",
     sim: "In the run, skip Ignite. Take Jump Height, Luck and Fuel. Super Rocket Shoes is the late beat.",
@@ -41,7 +41,7 @@ export const destinations: Array<{
   },
   {
     id: "score",
-    kicker: "HIGHEST SCORE",
+    kicker: "SCORE ATTEMPT",
     title: "Stay up, then pile on",
     text: "Height and Luck first. Rocket Fuel when a jump can reach the next card. Ropes, speed and fire only after that loop already works.",
     sim: "Build the airtime engine before lighting ropes. Fire is the payoff, not the opening.",

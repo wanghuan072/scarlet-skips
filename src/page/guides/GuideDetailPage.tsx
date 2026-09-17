@@ -119,6 +119,7 @@ const friendlyHeadings: Record<string, string> = {
   "Losing and Recovering": "You missed. What now?",
   "Win and Ending Basics": "Yes, there’s an ending",
   "What the game confirms": "What the game confirms",
+  "When an upgrade breaks your timing": "After a card, which part of the jump changed?",
   "Early Run: Protect Information": "Keep the first minute readable",
   "Jump Timing: Plan the Descent": "Land where you can still see the next rope",
   "Upgrade Decisions: Ask Four Questions": "Ask this before you click",
@@ -140,12 +141,15 @@ const friendlyHeadings: Record<string, string> = {
   "Late run: turn spare safety into score": "Last: ropes, speed, fire",
   "Signs the engine is ready": "Check the fuel gauge before adding pressure",
   "What usually ruins a score attempt": "What kills a score run",
+  "If the score cards do not arrive": "When the score plan gets a different three cards",
+  "Compare personal bests without guessing": "Compare the number the game actually shows",
   "What this route is for": "This is the loud run, not the Moon run",
   "Do not start loud": "Get a clean jump first",
   "Add ropes when the gap is readable": "Add ropes when you can still see the gap",
   "Fire is the look": "Fire is the show — and it can end the run",
   "Speed and tricks": "Speed and tricks come after we can still read it",
   "This is not the Moon": "Want the Moon? Switch routes.",
+  "When the show stops being readable": "When the show gets too hard to follow",
 };
 
 function headingFor(heading: string) {
@@ -202,6 +206,18 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
 
       <div className={`container ${styles.layout}`}>
         <article className={styles.paper}>
+          {guide.slug === "how-to-play" ? (
+            <section className={styles.timingFrames} aria-labelledby="timing-frames-title">
+              <p className={styles.framesLabel}>IN-GAME SCREENSHOTS</p>
+              <h2 id="timing-frames-title">Watch the rope, then the landing</h2>
+              <p>These are separate game screenshots, not three frames from one jump. Use them to spot the rope and a missed skip; the text below explains how to practice the timing.</p>
+              <div className={styles.frameGrid}>
+                <figure><div><Image src="/images/official/screenshot-1.jpg" alt="Scarlet on the ground with the rope passing overhead" fill sizes="(max-width: 768px) 100vw, 25vw" /></div><figcaption><strong>Before a jump</strong><span>Find where the rope will cross the ground.</span></figcaption></figure>
+                <figure><div><Image src="/images/official/screenshot-4.jpg" alt="Scarlet airborne above the rope in an official screenshot" fill sizes="(max-width: 768px) 100vw, 25vw" /></div><figcaption><strong>Over the rope</strong><span>Look ahead to the next pass, not just this one.</span></figcaption></figure>
+                <figure><div><Image src="/images/official/screenshot-7.jpg" alt="Scarlet reacting after a missed skip in an official screenshot" fill sizes="(max-width: 768px) 100vw, 25vw" /></div><figcaption><strong>After a miss</strong><span>Work out whether takeoff or landing went wrong.</span></figcaption></figure>
+              </div>
+            </section>
+          ) : null}
           {guide.sections.map((section, index) => (
             <section key={section.heading} id={`section-${index + 1}`} className={styles.block}>
               <header>

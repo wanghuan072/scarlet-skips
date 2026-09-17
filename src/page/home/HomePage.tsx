@@ -95,6 +95,18 @@ const quickAnswers = [
     href: "/guides/high-score",
     link: "Read the score route",
   },
+  {
+    question: "Why does Steam say 10 cards when this site lists 16?",
+    answer: "Steam advertises 10 upgrade cards. Our [card list](/upgrades) also shows 16 named rows in the shipping data, including three outside the regular progression. Those counts describe different things; the list does not promise that every row appears in a normal three-card offer.",
+    href: "/upgrades#card-count-title",
+    link: "See how the counts differ",
+  },
+  {
+    question: "Why does Steam show a mature-content warning?",
+    answer: "The developer lists suggestive themes, revealing clothing and exaggerated animation among the reasons. The [Scarlet page](/character) explains the wording and links to the current Steam description so you can decide before buying.",
+    href: "/character#mature-content-title",
+    link: "Read the store warning",
+  },
 ];
 
 export default function HomePage() {
