@@ -161,6 +161,8 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
   const next = guides[(currentIndex + 1) % guides.length];
   const stills = extraStills[guide.slug] ?? [];
   const facts = heroFacts[guide.slug];
+  const updatedMonth = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" })
+    .format(new Date(`${guide.updatedDate}T00:00:00.000Z`));
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -168,7 +170,7 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
     description: guide.description,
     dateModified: guide.updatedDate,
     image: guide.image,
-    author: { "@type": "Organization", name: siteConfig.name, url: `${siteConfig.url}/about`, email: siteConfig.email },
+    author: { "@type": "Organization", name: siteConfig.guideAuthor, url: `${siteConfig.url}/about#who-writes-the-guides` },
     publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url, email: siteConfig.email },
   };
 
@@ -193,6 +195,11 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
           <>
             <SourceBadge status={guide.sourceStatus} />
             <VersionBadge version="1.0.1" />
+            <div className={styles.byline}>
+              <span>By <Link href="/about#who-writes-the-guides">{siteConfig.guideAuthor}</Link></span>
+              <span aria-hidden="true">·</span>
+              <span>Last updated <time dateTime={guide.updatedDate}>{updatedMonth}</time></span>
+            </div>
           </>
         )}
         facts={facts}

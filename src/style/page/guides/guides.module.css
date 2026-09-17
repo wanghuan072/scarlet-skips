@@ -1,4 +1,7 @@
 .guideSections { display: grid; gap: 54px; padding-top: 34px; }
+.byline { display:flex;flex-wrap:wrap;gap:5px 9px;color:#48627b;font-size:13px;line-height:1.4; }
+.byline a { color:var(--color-secondary);font-weight:800;text-decoration:underline;text-underline-offset:3px; }
+.byline time { color:#183b5b;font-weight:750; }
 .categoryHead { display: flex; align-items: center; gap: 13px; margin-bottom: 17px; }
 .categoryHead > span { display: inline-flex; width: 49px; height: 49px; align-items: center; justify-content: center; border-radius: 15px; background: #e9f6ff; color: var(--color-secondary); }
 .categoryHead h2 { font-size: 28px; }

@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { PageHero } from "@/components/common/PageHero";
 import { guides } from "@/lib/data/content";
+import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbSchema } from "@/seo/schema";
 import styles from "@/style/page/guides/guides.module.css";
@@ -44,6 +45,9 @@ const guideGroups = [
 ];
 
 export default function GuidesPage() {
+  const latestGuideDate = guides.reduce((latest, guide) => guide.updatedDate > latest ? guide.updatedDate : latest, "");
+  const latestGuideMonth = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" })
+    .format(new Date(`${latestGuideDate}T00:00:00.000Z`));
   return (
     <main id="main-content">
       <JsonLd data={breadcrumbSchema([{label:"Home",href:"/"},{label:"Guides",href:"/guides"}])}/>
@@ -56,7 +60,9 @@ export default function GuidesPage() {
         image="/images/official/screenshot-4.jpg"
         imageAlt="Scarlet clearing an active rope"
         imageCaption="Watch the loop. Then pick the guide we actually need."
-      />
+      >
+        <p className={styles.byline}>Guides by <Link href="/about#who-writes-the-guides">{siteConfig.guideAuthor}</Link><span aria-hidden="true">·</span> Latest guide update <time dateTime={latestGuideDate}>{latestGuideMonth}</time></p>
+      </PageHero>
       <section className={`container ${styles.guideSections}`}>
         {guideGroups.map((group) => {
           const cards = group.slugs

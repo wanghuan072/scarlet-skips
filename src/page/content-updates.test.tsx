@@ -9,6 +9,7 @@ import CharacterPage from "@/page/character/CharacterPage";
 import { SpoilerPanel } from "@/page/ending/components/SpoilerPanel";
 import HomePage from "@/page/home/HomePage";
 import UpgradesPage from "@/page/upgrades/UpgradesPage";
+import { siteConfig } from "@/config/site";
 
 describe("player-question additions", () => {
   it("keeps every guide and adds destination-specific answers", () => {
@@ -31,6 +32,20 @@ describe("player-question additions", () => {
     expect(detail).toContain('id="section-5"');
     expect(detail).toContain("not three frames from one jump");
     for (const image of ["screenshot-1.jpg", "screenshot-4.jpg", "screenshot-7.jpg"]) expect(detail).toContain(image);
+  });
+
+  it("shows the named guide author and a month derived from each content date", () => {
+    const hub = renderToStaticMarkup(<GuidesPage />);
+    expect(hub).toContain(`Guides by <a href="/about#who-writes-the-guides">${siteConfig.guideAuthor}</a>`);
+    expect(hub).toContain("Latest guide update");
+    for (const guide of guides) {
+      const html = renderToStaticMarkup(<GuideDetailPage guide={guide} />);
+      const month = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" })
+        .format(new Date(`${guide.updatedDate}T00:00:00.000Z`));
+      expect(html).toContain(`dateTime="${guide.updatedDate}"`);
+      expect(html).toContain(`>${month}</time>`);
+      expect(html).toContain(`"name":"${siteConfig.guideAuthor}"`);
+    }
   });
 
   it("loads the ending player only after spoiler reveal and removes it when hidden", () => {
