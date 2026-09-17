@@ -7,6 +7,7 @@ export const websiteSchema = {
   name: siteConfig.name,
   url: siteConfig.url,
   description: siteConfig.description,
+  email: siteConfig.email,
   potentialAction: {
     "@type": "SearchAction",
     target: `${siteConfig.url}/search?q={search_term_string}`,

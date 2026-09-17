@@ -9,6 +9,7 @@
 .layout article section:not(:last-child) { border-bottom:1px solid var(--color-border); }
 .layout article h2 { font-size:24px; }
 .layout article p { margin-top:10px;color:#485e75; }
+.layout article a { color:var(--color-secondary);font-weight:750;text-decoration:underline;text-underline-offset:3px; }
 .layout article ul { display:grid;gap:8px;margin:16px 0 0;padding:0;list-style:none; }
 .layout article li { display:flex;align-items:flex-start;gap:8px;color:#485e75; }
 .layout article li svg { flex:0 0 auto;margin-top:4px;color:var(--color-success); }

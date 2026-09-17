@@ -1,6 +1,6 @@
 .hero {
   display: grid;
-  grid-template-columns: .88fr 1.12fr;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
   overflow: hidden;
   min-height: 328px;
   border: 1px solid #c5deee;
@@ -8,7 +8,14 @@
   background: linear-gradient(135deg, #f7fcff, #eef8ff 58%, #fff8f0);
   box-shadow: var(--shadow-md);
 }
-.copy { align-self: center; min-width: 0; padding: 36px 18px 36px 40px; }
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  min-width: 0;
+  padding: 32px 36px 32px 40px;
+}
 .lead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
 .eyebrow {
   color: var(--color-primary-dark);
@@ -16,19 +23,14 @@
   letter-spacing: .14em;
 }
 .hero h1 {
-  max-width: 16ch;
   margin-top: 8px;
   color: #123653;
   font-size: clamp(34px, 4.2vw, 52px);
   letter-spacing: -.04em;
-  line-height: 1.02;
-}
-.hero h1:has(.keyword) {
-  max-width: 22ch;
+  line-height: 1.06;
 }
 .keyword {
   display: block;
-  max-width: 28ch;
   margin: 0 0 8px;
   color: #3a5d78;
   font-size: clamp(15px, 1.7vw, 20px);
@@ -37,7 +39,6 @@
   line-height: 1.15;
 }
 .copy > p {
-  max-width: 46ch;
   margin-top: 12px;
   color: #405873;
   font-size: 16px;
@@ -45,14 +46,14 @@
 }
 .facts {
   display: grid;
-  width: min(100%, 332px);
+  width: 100%;
   margin: 22px 0 0;
   overflow: hidden;
   border: 1px solid #d0e4f0;
   border-radius: 14px;
   background: white;
 }
-.facts > div { min-width: 0; padding: 11px 13px; }
+.facts > div { min-width: 0; padding: 14px 16px; }
 .facts > div:not(:last-child) { border-right: 1px solid #e1eef5; }
 .facts dt {
   color: #7190a5;
@@ -61,14 +62,14 @@
   text-transform: uppercase;
 }
 .facts dd {
-  margin: 5px 0 0;
+  margin: 6px 0 0;
   color: #1a4e72;
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 30px);
-  letter-spacing: -.04em;
-  line-height: 1.05;
+  font-size: clamp(20px, 2.1vw, 28px);
+  letter-spacing: -.03em;
+  line-height: 1.12;
 }
-.extra { margin-top: 20px; }
+.extra { width: 100%; margin-top: 20px; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .actions a {
   display: inline-flex;
@@ -125,6 +126,8 @@
 
 @media (max-width: 768px) {
   .hero h1 { font-size: clamp(34px, 10vw, 46px); }
+  .facts { grid-template-columns: 1fr; }
+  .facts > div:not(:last-child) { border-right: 0; border-bottom: 1px solid #e1eef5; }
 }
 
 @media (prefers-reduced-motion: reduce) {

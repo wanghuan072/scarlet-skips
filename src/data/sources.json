@@ -19,9 +19,17 @@
     "id": "steam-update-101",
     "label": "Patch Notes for Scarlet Skips 1.0.1",
     "type": "official",
-    "url": "https://steamcommunity.com/app/4513480",
-    "dateChecked": "2026-09-14",
-    "note": "Official Yerk Games hotfix announcement published September 8, 2026."
+    "url": "https://store.steampowered.com/news/app/4513480/view/675130991105280354",
+    "dateChecked": "2026-09-17",
+    "note": "Official YerkDiff Steam news post for hot-fix 1.0.1, tagged patchnotes. Posted September 8, 2026. Names FPS Limit, VSync, background set-dressing, Rocket Shoes and Extinguished Ropes."
+  },
+  {
+    "id": "steam-news-api",
+    "label": "Steam news feed for app 4513480",
+    "type": "official",
+    "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=4513480&count=20",
+    "dateChecked": "2026-09-17",
+    "note": "Official Steam news listing. On September 17, 2026 it returned a single item: Patch Notes for Scarlet Skips 1.0.1. No 1.0.2 or launch notes post was present."
   },
   {
     "id": "steam-high-score-guide",

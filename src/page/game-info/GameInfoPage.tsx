@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { PageHero } from "@/components/common/PageHero";
-import { SourcesList } from "@/components/common/SourcesList";
 import { siteConfig } from "@/config/site";
 import { game } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
@@ -104,7 +103,6 @@ export default function GameInfoPage() {
         </section>
 
       </div>
-      <SourcesList ids={game.sourceIds} />
     </main>
   );
 }

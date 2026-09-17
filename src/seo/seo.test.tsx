@@ -21,11 +21,14 @@ describe("fixed page SEO", () => {
     }
   });
 
-  it("keeps the preview non-indexable and uses the shared absolute image", () => {
+  it("indexes production pages and uses the shared absolute image", () => {
     const metadata = createMetadata({ ...pageTdk["/"], path: "/" });
-    expect((metadata.robots as { index: boolean }).index).toBe(false);
+    expect((metadata.robots as { index: boolean }).index).toBe(true);
+    expect(siteConfig.url).toBe("https://scarletskips.org");
+    expect(siteConfig.email).toBe("wyong@scarletskips.org");
     expect(metadata.alternates?.canonical).toBe(siteConfig.url + "/");
     expect(JSON.stringify(metadata.openGraph)).toContain(siteConfig.url + "/images/og-image.png");
+    expect(JSON.stringify(metadata.openGraph)).toContain(String(siteConfig.ogImageWidth));
     const search = createMetadata({ ...pageTdk["/search"], path: "/search", noIndex: true });
     expect((search.robots as { follow: boolean }).follow).toBe(false);
   });
@@ -46,6 +49,7 @@ describe("fixed page SEO", () => {
     for (const item of [...primaryNavigation, ...siteNavigation]) expect(html).toContain(`href="${item.href}"`);
     expect(siteNavigation).toHaveLength(5);
     expect(html).toContain(`Copyright © ${new Date().getUTCFullYear()}`);
+    expect(html).toContain(`mailto:${siteConfig.email}`);
     expect(html).not.toContain("nofollow");
   });
 });

@@ -10,6 +10,10 @@
   background: #fff;
 }
 
+.art[data-size="tile"] {
+  max-width: 132px;
+  margin-inline: auto;
+}
 .art[data-size="thumb"] {
   width: 48px;
   flex: 0 0 auto;

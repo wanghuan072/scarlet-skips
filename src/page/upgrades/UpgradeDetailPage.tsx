@@ -4,7 +4,6 @@ import { Icon } from "@/components/common/Icon";
 import { UpgradeArt } from "@/components/common/UpgradeArt";
 import { PageHero } from "@/components/common/PageHero";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourcesList } from "@/components/common/SourcesList";
 import { upgrades } from "@/lib/data/content";
 import {
   appearLabel,
@@ -224,7 +223,6 @@ export default function UpgradeDetailPage({ upgrade }: { upgrade: Upgrade }) {
         <Link href="/upgrades"><span>All cards</span><strong>Back to Upgrades</strong></Link>
         <Link href={`/upgrades/${next.slug}`}><span>Next</span><strong>{next.shortName} →</strong></Link>
       </nav>
-      <SourcesList ids={upgrade.sourceIds} />
     </main>
   );
 }

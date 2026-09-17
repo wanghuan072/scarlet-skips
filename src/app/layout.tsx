@@ -15,9 +15,22 @@ export const metadata: Metadata = {
   robots: { index: siteConfig.indexable, follow: true },
   applicationName: siteConfig.name,
   keywords: ["Scarlet Skips", "Scarlet Skips guide", "Scarlet Skips character", "Scarlet Skips upgrades", "Scarlet Skips builds", "Scarlet Skips ending"],
-  authors: [{ name: siteConfig.name }],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   category: "games",
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    url: siteConfig.url,
+    images: [{ url: siteConfig.ogImage, width: siteConfig.ogImageWidth, height: siteConfig.ogImageHeight }],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48 64x64", type: "image/x-icon" },
+      { url: "/icon.png", type: "image/png", sizes: "48x48" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f6fbff", colorScheme: "light" };

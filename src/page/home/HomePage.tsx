@@ -146,13 +146,15 @@ export default function HomePage() {
       <JsonLd data={videoGameSchema} />
 
       <section className={styles.hero}>
-        <div className={styles.heroPicture}><Image src="/images/official/screenshot-1.jpg" alt={heroAlt} fill priority sizes="100vw"/></div>
-        <div className={styles.heroShade} />
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>STUCK ON A RUN? START HERE.</span>
-            <h1>Scarlet Skips — Learn the jump, choose your cards, go further.</h1>
-            <p className={styles.heroTopics}>From the first rope to a Moon or score run.</p>
+            <h1>
+              <span className={styles.heroBrand}>Scarlet Skips</span>
+              <span className="sr-only"> – </span>
+              Learn the jump. Then pick a route.
+            </h1>
+            <p className={styles.heroTopics}>First rope, three cards, then Moon, score or a wild screen.</p>
             <p className={styles.heroText}>
               Need help with a landing, a three-card choice or a longer run? Start with the <Link href="/guides/beginner-guide">beginner guide</Link>, compare <Link href="/upgrades">upgrades</Link>, or choose a route that fits your goal.
             </p>
@@ -168,6 +170,26 @@ export default function HomePage() {
               <span><Icon name="check" size={16} /> Updated for v{game.currentVersion}</span>
               <span><Icon name="cards" size={16} /> {game.upgradeCardCount} cards, {game.choicesPerLevel} choices</span>
               <span><Icon name="shield" size={16} /> Player reports identified</span>
+            </div>
+          </div>
+          <div className={styles.heroStage}>
+            <Image src="/images/official/screenshot-1.jpg" alt={heroAlt} fill priority sizes="(max-width: 900px) 100vw, 50vw" />
+            <div className={styles.heroRoutes}>
+              <Link href="/builds#moon">
+                <Icon name="rocket" size={16} />
+                <span>Moon</span>
+                <strong>Fewer ropes. No fire.</strong>
+              </Link>
+              <Link href="/builds#score">
+                <Icon name="trophy" size={16} />
+                <span>Score</span>
+                <strong>Stay up, then pile on.</strong>
+              </Link>
+              <Link href="/builds#spectacle">
+                <Icon name="fire" size={16} />
+                <span>Spectacle</span>
+                <strong>Make the park loud.</strong>
+              </Link>
             </div>
           </div>
         </div>
@@ -212,9 +234,10 @@ export default function HomePage() {
               <UpgradeArt slug={upgrade.slug} title={upgrade.gameTitle ?? upgrade.name} size="tile" />
               <div>
                 <p>{index === 0 ? "More room to breathe" : index === 1 ? "More value later" : "Less rope panic"}</p>
+                <h3>{upgrade.gameTitle ?? upgrade.name}</h3>
                 <span>{starterNotes[index]}</span>
+                <strong>When should I take it? <Icon name="arrow" size={16} /></strong>
               </div>
-              <strong>When should I take it? <Icon name="arrow" size={16} /></strong>
             </Link>
           ))}
         </div>

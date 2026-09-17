@@ -4,7 +4,6 @@ import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { PageHero } from "@/components/common/PageHero";
 import { VersionBadge } from "@/components/common/Badges";
-import { SourcesList } from "@/components/common/SourcesList";
 import { siteConfig } from "@/config/site";
 import { getUpgrade } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
@@ -227,7 +226,6 @@ export default function CharacterPage() {
           </div>
         </section>
       </div>
-      <SourcesList ids={["steam-store", "official-screenshots", "cooked-character-assets", "full-gameplay-video"]} />
     </main>
   );
 }

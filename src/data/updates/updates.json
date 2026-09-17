@@ -2,22 +2,76 @@
   {
     "slug": "1-0-1",
     "version": "1.0.1",
+    "kind": "hotfix",
     "date": "September 8, 2026",
-    "updatedDate": "2026-09-16",
+    "updatedDate": "2026-09-17",
     "title": "Scarlet Skips Hotfix 1.0.1",
-    "summary": "The first hotfix added display options, filled out the park background and corrected issues affecting Rocket Shoes and extinguished ropes.",
-    "changes": [
-      "Added FPS Limit and VSync options.",
-      "Added more background set-dressing.",
-      "Fixed several bugs, specifically with Rocket Shoes and extinguished ropes not behaving correctly.",
-      "Shipped optimizations and quality-of-life improvements."
+    "summary": "Five days after launch, YerkDiff posted the only Steam news item in the app feed: a 1.0.1 hot-fix. It adds FPS Limit and VSync, fills the park background, and says Rocket Shoes and Extinguished Ropes were not behaving correctly.",
+    "officialLines": [
+      "Scarlet Skips hot-fix 1.0.1 is LIVE",
+      "Added FPS Limit & VSync options",
+      "Populated BG with more set-dressing",
+      "Fixed several bugs, specifically with Rocket Shoes & Extinguished Ropes not behaving correctly",
+      "Optimizations & QOL improvements"
     ],
-    "buildImpact": "Rocket-based and fire-rope strategies should be retested on 1.0.1. The patch confirms those systems exist, but it does not publish numeric balance values.",
-    "guideImpact": "Mechanics pages on this site are marked for version 1.0.1. Older player advice may describe pre-hotfix behavior, especially around Rocket Shoes and extinguished ropes.",
-    "sourceIds": ["steam-update-101"],
+    "changes": [
+      "Official Steam news post by YerkDiff. The ISteamNews feed for app 4513480 still lists this as the only announcement.",
+      "Added FPS Limit and VSync options. Check them in the game’s display settings if a run feels stuttery or torn.",
+      "Populated the park background with more set-dressing. This is a visual change, not a published card or score change.",
+      "Fixed several bugs. The only systems named are Rocket Shoes and Extinguished Ropes, which were “not behaving correctly.”",
+      "Shipped unnamed optimizations and quality-of-life improvements. No list of those extras was published."
+    ],
+    "buildImpact": "If your route uses Rocket Shoes, Rocket Fuel or Extinguish Jump Rope, replay the pause on 1.0.1 before trusting a pre-hotfix clip. The note confirms those systems exist and were buggy; it does not say what the old bug was, or give new numbers.",
+    "guideImpact": "This site’s card and route pages are written against 1.0.1. High-score and ending routes that lean on fuel or putting out fire should be treated as player reports until you have seen the same behaviour after the hotfix. FPS Limit and VSync do not change which card to take.",
+    "related": [
+      { "href": "/upgrades/upgrade-rocket-fuel", "label": "Rocket Fuel / Rocket Shoes", "text": "Named in the hotfix. Retest any fuel loop after 1.0.1." },
+      { "href": "/upgrades/extinguish-jump-rope", "label": "Extinguish Jump Rope", "text": "The other named bug. The undo card for a burning set." },
+      { "href": "/upgrades/ignite-jump-rope", "label": "Ignite Jump Rope", "text": "Fire is why Extinguish exists. Not named as fixed, but it is the pair." },
+      { "href": "/upgrades/super-rocket-shoes", "label": "Super Rocket Shoes", "text": "Late Rocket Shoes row. The patch does not mention Super by name." },
+      { "href": "/guides/high-score", "label": "High-score guide", "text": "Fuel and fire show up on score routes. Recheck after the hotfix." },
+      { "href": "/ending", "label": "Ending route", "text": "Moon climbs still wait on Rocket Shoes. Confirm the jump still reads." }
+    ],
+    "sourceIds": ["steam-update-101", "steam-news-api"],
     "seo": {
       "title": "Scarlet Skips Hotfix 1.0.1 — Patch Notes",
-      "description": "Read the Scarlet Skips 1.0.1 hotfix notes: FPS and VSync options, park changes, and fixes to Rocket Shoes and extinguished ropes that affect older advice."
+      "description": "Read the only official Scarlet Skips Steam news post: hotfix 1.0.1 adds FPS Limit and VSync, fills the park, and fixes Rocket Shoes and Extinguished Ropes."
+    }
+  },
+  {
+    "slug": "1-0-0",
+    "version": "1.0.0",
+    "kind": "launch",
+    "date": "September 3, 2026",
+    "updatedDate": "2026-09-17",
+    "title": "Scarlet Skips Steam Launch",
+    "summary": "Scarlet Skips shipped on Steam for Windows on September 3, 2026. Yerk Games did not post a separate launch patch-notes item. The store page is the public record of what the 1.0.0 build advertised.",
+    "officialLines": [
+      "Jump jump jump as much as you can in this silly 1-button Rogue-Like about skipping rope!",
+      "Played entirely with press, hold, and release inputs of a single button.",
+      "Level up and choose from 3 random power-ups.",
+      "10 upgrade cards; Increase your jump height, add a jump-rope, set it on FIRE?!"
+    ],
+    "changes": [
+      "Released on Steam as a Windows PC game on September 3, 2026. Developer and publisher: Yerk Games. Legal line: © 2026 YerkDiff.",
+      "US store price recorded as $4.99 with no discount in the public appdetails feed.",
+      "Store copy advertises a one-button press, hold and release control scheme.",
+      "Store copy advertises three random power-ups at level-up and ten upgrade cards, naming jump height, extra ropes and fire.",
+      "Steam lists one achievement, Off to a Great Start.",
+      "Steam currently lists Single-player, Steam Achievements, Family Sharing, Full controller support, Keyboard Only Option and Mouse Only Option. That is the live store feed, not a dated launch changelog.",
+      "No launch patch-notes post appears in the Steam news feed for app 4513480. The next official news item is hotfix 1.0.1 on September 8."
+    ],
+    "buildImpact": "Treat 1.0.0 as the shipping build players had for five days. Any Rocket Shoes or Extinguish behaviour from those first days may be the bug 1.0.1 later named. Do not mix a launch-week clip with current 1.0.1 advice.",
+    "guideImpact": "Beginner, card and route pages on this site assume the post-launch hotfix. Use this launch record to date a Steam guide, a video or a review that went up before September 8, 2026.",
+    "related": [
+      { "href": "/game-info", "label": "Game info", "text": "Store specs, price, features and the one-button control line." },
+      { "href": "/guides/beginner-guide", "label": "Beginner guide", "text": "How the one-button jump actually feels in a first run." },
+      { "href": "/upgrades", "label": "Upgrade cards", "text": "The ten advertised cards, plus extra shipping-table rows." },
+      { "href": "/guides/achievement", "label": "Off to a Great Start", "text": "The only Steam achievement listed at launch." }
+    ],
+    "sourceIds": ["steam-store", "steam-api", "steam-news-api"],
+    "seo": {
+      "title": "Scarlet Skips 1.0.0 Steam Launch — What Shipped",
+      "description": "Scarlet Skips launched on Steam on September 3, 2026. See the store listing for 1.0.0: one button, three cards, ten upgrades, and no separate launch patch notes."
     }
   }
 ]

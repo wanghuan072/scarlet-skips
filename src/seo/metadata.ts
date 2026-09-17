@@ -28,7 +28,7 @@ export function createMetadata({
       title,
       description,
       url: canonical,
-      images: [{ url: imageUrl, width: 1672, height: 941 }],
+      images: [{ url: imageUrl, width: siteConfig.ogImageWidth, height: siteConfig.ogImageHeight }],
     },
     twitter: {
       card: "summary_large_image",

@@ -57,8 +57,11 @@ const guide = z.object({
   links: z.array(link),
 });
 const update = z.object({
-  slug: id, version: nonempty, date: nonempty, updatedDate: isoDate, title: nonempty, summary: nonempty,
-  changes: z.array(nonempty), buildImpact: nonempty, guideImpact: nonempty, sourceIds, seo,
+  slug: id, version: nonempty, kind: z.enum(["hotfix", "launch"]), date: nonempty, updatedDate: isoDate,
+  title: nonempty, summary: nonempty, officialLines: z.array(nonempty).min(1),
+  changes: z.array(nonempty), buildImpact: nonempty, guideImpact: nonempty,
+  related: z.array(z.object({ href: nonempty, label: nonempty, text: nonempty })),
+  sourceIds, seo,
 });
 const mod = z.object({
   slug: id, name: nonempty, author: nonempty, kind: z.enum(["Loader", "Gameplay", "Character"]),
@@ -154,6 +157,9 @@ export function validateContent(raw: unknown, assetExists: (path: string) => boo
       for (const match of line.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) checkHref(item.slug, match[1]);
     }
   }
-  for (const item of updates) checkSources(item.slug, item.sourceIds);
+  for (const item of updates) {
+    checkSources(item.slug, item.sourceIds);
+    item.related.forEach((route) => checkHref(item.slug, route.href));
+  }
   return problems;
 }

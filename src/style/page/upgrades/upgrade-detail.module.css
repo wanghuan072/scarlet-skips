@@ -10,8 +10,9 @@
 }
 .specStrip {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
+  width: 100%;
   margin: 0;
   overflow: hidden;
   border: 1px solid #c9dfed;
@@ -19,8 +20,7 @@
   background: white;
 }
 .specStrip > div { min-width: 0; padding: 12px 14px; }
-.specStrip > div:nth-child(odd) { border-right: 1px solid #dce8ef; }
-.specStrip > div:nth-child(-n+2) { border-bottom: 1px solid #dce8ef; }
+.specStrip > div:not(:last-child) { border-right: 1px solid #dce8ef; }
 .specStrip dt {
   color: #7190a5;
   font: 800 9px var(--font-utility);
@@ -166,6 +166,9 @@
   .pageGrid { grid-template-columns: 1fr; }
   .aside { position: static; grid-template-columns: 1fr 1fr; }
   .tierGrid, .routeGrid { grid-template-columns: 1fr; }
+  .specStrip { grid-template-columns: 1fr 1fr; }
+  .specStrip > div:nth-child(even) { border-right: 0; }
+  .specStrip > div:nth-child(-n+2) { border-bottom: 1px solid #dce8ef; }
 }
 @media (max-width: 768px) {
   .pageGrid { gap: 18px; }

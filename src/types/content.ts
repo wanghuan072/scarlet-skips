@@ -175,13 +175,16 @@ export interface Guide {
 export interface UpdateEntry {
   slug: string;
   version: string;
+  kind: "hotfix" | "launch";
   date: string;
   updatedDate: string;
   title: string;
   summary: string;
+  officialLines: string[];
   changes: string[];
   buildImpact: string;
   guideImpact: string;
+  related: Array<{ href: string; label: string; text: string }>;
   sourceIds: string[];
   seo: { title: string; description: string };
 }

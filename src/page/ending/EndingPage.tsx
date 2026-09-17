@@ -5,7 +5,6 @@ import { Icon } from "@/components/common/Icon";
 import { UpgradeArt } from "@/components/common/UpgradeArt";
 import { PageHero } from "@/components/common/PageHero";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourcesList } from "@/components/common/SourcesList";
 import { getBuild, getRelatedUpgrades } from "@/lib/data/content";
 import { SpoilerPanel } from "@/page/ending/components/SpoilerPanel";
 import { JsonLd } from "@/seo/JsonLd";
@@ -73,7 +72,6 @@ export default function EndingPage() {
           <section><p className={styles.kicker}>KEEP THIS BESIDE THE GAME</p><h2>Ending checklist</h2><ul><li><Icon name="check" size={16}/>Get levels without overloading the ropes</li><li><Icon name="check" size={16}/>Keep a smaller reinforced set</li><li><Icon name="check" size={16}/>Stack height and Luck</li><li><Icon name="check" size={16}/>Add Rocket Fuel later</li><li><Icon name="x" size={16}/>Skip fire on this route</li></ul><Link href="/builds#moon">Play this in a run <Icon name="arrow" size={16}/></Link></section><section><p className={styles.kicker}>NEED A HAND?</p><nav><Link href="/builds#moon"><Icon name="route" size={18}/>Practice the ending cards</Link><Link href="/guides/tips"><Icon name="book" size={18}/>Fix a shaky run</Link><Link href="/upgrades"><Icon name="cards" size={18}/>Check an upgrade</Link></nav></section>
         </aside>
       </div>
-      <SourcesList ids={endingBuild.sourceIds} />
     </main>
   );
 }

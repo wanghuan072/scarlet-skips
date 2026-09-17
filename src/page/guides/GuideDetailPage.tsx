@@ -4,7 +4,6 @@ import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Icon } from "@/components/common/Icon";
 import { PageHero } from "@/components/common/PageHero";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourcesList } from "@/components/common/SourcesList";
 import { guides } from "@/lib/data/content";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/seo/JsonLd";
@@ -165,7 +164,8 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
     description: guide.description,
     dateModified: guide.updatedDate,
     image: guide.image,
-    author: { "@type": "Organization", name: siteConfig.name, url: `${siteConfig.url}/about` },
+    author: { "@type": "Organization", name: siteConfig.name, url: `${siteConfig.url}/about`, email: siteConfig.email },
+    publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url, email: siteConfig.email },
   };
 
   return (
@@ -263,7 +263,6 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
           </Link>
         </div>
       </section>
-      <SourcesList ids={guide.sourceIds} />
     </main>
   );
 }

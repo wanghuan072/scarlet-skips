@@ -268,6 +268,7 @@ export function RunBuilder({
                     <UpgradeArt
                       slug={upgrade.slug}
                       title={title}
+                      size="tile"
                       variant={{ bounceLevel: state.bounceLevel, rocketShoes: state.rocketShoes, fastFall: state.fastFall }}
                     />
                     <p>{offer.detail}</p>

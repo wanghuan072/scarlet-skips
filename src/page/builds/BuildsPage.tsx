@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { PageHero } from "@/components/common/PageHero";
 import { SourceBadge, VersionBadge } from "@/components/common/Badges";
-import { SourcesList } from "@/components/common/SourcesList";
 import { RouteDesk } from "@/page/builds/components/RouteDesk";
 import { builds, regularUpgrades } from "@/lib/data/content";
 import { JsonLd } from "@/seo/JsonLd";
@@ -83,7 +82,6 @@ export default function BuildsPage() {
           </p>
         </section>
       </div>
-      <SourcesList ids={builds.flatMap((build) => build.sourceIds)} title="Check the route details" />
     </main>
   );
 }
