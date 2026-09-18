@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/next-script-for-ga -- Keep the requested plain Google tag snippet without another package. */
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { AppFooter } from "@/components/layout/AppFooter";
@@ -36,5 +37,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f6fbff", colorScheme: "light" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to content</a><AppHeader version={game.currentVersion} searchIndex={getSearchIndex()}/>{children}<AppFooter/></body></html>;
+  return <html lang="en"><head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X3KCESZZJ" />
+    <script dangerouslySetInnerHTML={{ __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X3KCESZZJ');
+    ` }} />
+  </head><body><a className="skip-link" href="#main-content">Skip to content</a><AppHeader version={game.currentVersion} searchIndex={getSearchIndex()}/>{children}<AppFooter/></body></html>;
 }

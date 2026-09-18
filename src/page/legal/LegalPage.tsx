@@ -70,11 +70,11 @@ export const legalPages: Record<string, PageData> = {
     sections: [
       { heading: "What you do on this site", paragraphs: [
         "There is no account registration, public profile, comment section or score submission. The Builds simulator keeps its run and card choices in the current page's memory. Resetting or reloading the page starts a new teaching run; those choices are not submitted to this site as a personal game record.",
-        "Search terms are placed in the /search URL so the results page can show them. Like any URL you visit, that address may appear in your browser history and in hosting request records. Avoid putting private information in a search query.",
+        "Search terms are placed in the /search URL so the results page can show them. That address may appear in your browser history, hosting request records and Google Analytics page-visit data. Avoid putting private information in a search query.",
       ] },
       { heading: "Hosting and technical records", paragraphs: [
         "Delivering a website normally involves the hosting provider receiving technical request information, such as an IP address, requested URL, time and browser or device details. Such records may be used by the provider to serve the site and protect its service. We do not claim that hosting logs are absent, and we cannot describe the provider's exact retention period from this site's source code.",
-        "The current site code does not add a site-operated analytics or advertising tracker and does not create a first-party account cookie for readers. This describes the current implementation, not a promise that browsers, hosting infrastructure or linked services store nothing. Review this notice before analytics, ads or new integrations are introduced.",
+        "This site loads Google Analytics 4 through the Google tag (measurement ID G-3X3KCESZZJ) to measure visits. Google Analytics may receive page URLs, session and device information, and approximate location; it may use a first-party _ga cookie to distinguish browsers and sessions. We have not added custom events for simulator card choices or scores. This site does not create a first-party account cookie for readers.",
       ] },
       { heading: "Email and corrections", paragraphs: [
         "If you email us, your address and the contents of your message are delivered through your email provider and ours. Use email only for information you choose to share; do not send passwords, payment details or other sensitive material. A correction may be used to improve a page, but we do not publish a sender's name or private message as a testimonial without permission.",
@@ -85,7 +85,7 @@ export const legalPages: Record<string, PageData> = {
         "Links to Steam, Steam Community, YouTube, Nexus Mods and other sources lead to services with their own terms and privacy notices. Their practices are not controlled by this site. The ending page includes a YouTube video only inside a spoiler section you choose to reveal. Opening that section loads a player from youtube-nocookie.com, and the video provider may receive technical request information. The privacy-enhanced domain does not mean that no data is exchanged with YouTube.",
       ] },
       { heading: "Changes to this notice", paragraphs: [
-        "This page describes the site as reviewed on September 17, 2026. If hosting, tracking, embedded services or ways to submit information change, the notice should be updated to match the deployed site. Check this page again if those details matter to you.",
+        "This page describes the site as reviewed on September 17, 2026. If hosting, analytics settings, embedded services or ways to submit information change, this notice should be updated to match the deployed site. Check this page again if those details matter to you.",
       ] },
     ],
   },

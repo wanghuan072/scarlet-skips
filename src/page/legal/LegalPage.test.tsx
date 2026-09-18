@@ -30,5 +30,8 @@ describe("legal pages", () => {
     expect(privacy).toContain("current page&#x27;s memory");
     expect(privacy).toContain("youtube-nocookie.com");
     expect(privacy).toContain("hosting request records");
+    expect(privacy).toContain("Google Analytics 4");
+    expect(privacy).toContain("G-3X3KCESZZJ");
+    expect(privacy).not.toContain("does not add a site-operated analytics");
   });
 });
