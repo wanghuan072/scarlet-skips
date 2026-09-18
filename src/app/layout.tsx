@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/next-script-for-ga -- Keep the requested plain Google tag snippet without another package. */
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { siteConfig } from "@/config/site";
@@ -8,6 +9,9 @@ import { pageTdk } from "@/seo/tdk";
 import { game } from "@/lib/data/content";
 import { getSearchIndex } from "@/lib/data/search-index";
 import "@/style/globals.css";
+
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f6fbff", colorScheme: "light" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="en"><head>
+  return <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}><head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X3KCESZZJ" />
     <script dangerouslySetInnerHTML={{ __html: `
       window.dataLayer = window.dataLayer || [];

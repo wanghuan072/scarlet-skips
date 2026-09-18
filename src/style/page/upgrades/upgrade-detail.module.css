@@ -1,6 +1,6 @@
 .heroCard {
   display: block;
-  width: 72px;
+  width: 48px;
 }
 .category, .sectionHead > p, .quickCard > p, .asideHead > p {
   color: #196ca5;
@@ -16,10 +16,10 @@
   margin: 0;
   overflow: hidden;
   border: 1px solid #c9dfed;
-  border-radius: 14px;
+  border-radius: 8px;
   background: white;
 }
-.specStrip > div { min-width: 0; padding: 12px 14px; }
+.specStrip > div { min-width: 0; padding: 9px 11px; }
 .specStrip > div:not(:last-child) { border-right: 1px solid #dce8ef; }
 .specStrip dt {
   color: #7190a5;
@@ -32,20 +32,21 @@
 .pageGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 292px;
-  gap: 28px;
+  gap: 20px;
   align-items: start;
-  padding-top: 28px;
-  padding-bottom: 28px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-.content { display: grid; gap: 20px; }
+.content { display: grid; gap: 0; overflow: hidden; border: 1px solid #d1e1ea; border-radius: 8px; background: white; }
 .decisionPanel, .contentSection, .quickCard, .pairCard, .evidence {
   border: 1px solid #d1e1ea;
-  border-radius: 16px;
+  border-radius: 8px;
   background: white;
 }
-.decisionPanel, .contentSection { padding: 24px; }
+.decisionPanel, .contentSection { padding: 20px 24px; border: 0; border-radius: 0; }
+.decisionPanel + .contentSection, .contentSection + .decisionPanel, .contentSection + .contentSection { border-top: 1px solid #e1eef5; }
 .sectionHead h2 { margin-top: 5px; color: #163b5a; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.15; }
-.lead { margin-top: 14px; color: #3d5b71; font-size: 16px; line-height: 1.55; }
+.lead { margin-top: 10px; color: #3d5b71; font-size: 16px; line-height: 1.55; }
 .lead a {
   color: var(--color-secondary);
   font-weight: 750;
@@ -53,7 +54,7 @@
   text-underline-offset: 3px;
 }
 
-.factList { display: grid; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.factList { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
 .factList li {
   display: flex;
   align-items: flex-start;
@@ -64,7 +65,7 @@
 }
 .factList svg { flex: 0 0 auto; margin-top: 2px; color: var(--color-success); }
 
-.decisionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+.decisionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
 .decisionGrid > div { padding: 18px; border-radius: 12px; }
 .take { border: 1px solid #b9dfc8; background: #f0fbf4; }
 .skip { border: 1px solid #f0c6d1; background: #fff5f7; }
@@ -118,8 +119,8 @@
 .tierGrid p { margin: 8px 0 0; color: #486176; font-size: 13px; line-height: 1.5; }
 .routeGrid em { color: #d22e5b; font-size: 12px; font-style: normal; font-weight: 800; }
 
-.aside { position: sticky; top: 82px; display: grid; gap: 16px; }
-.quickCard { padding: 20px; }
+.aside { position: sticky; top: 82px; display: grid; gap: 12px; }
+.quickCard { padding: 16px; }
 .quickCard dl { display: grid; margin: 12px 0 0; }
 .quickCard dl > div { padding: 12px 0; border-top: 1px solid #dce8ef; }
 .quickCard dt { color: #7190a5; font: 800 9px var(--font-utility); letter-spacing: .08em; text-transform: uppercase; }
@@ -135,7 +136,7 @@
 .pairCard a:hover { background: #f2faff; }
 .pairCard a:hover strong { color: #ce285b; }
 
-.evidence { padding: 24px; margin-bottom: 22px; }
+.evidence { padding: 20px; margin-bottom: 20px; }
 .evidence ul { display: grid; gap: 10px; margin: 16px 0 0; padding: 0; list-style: none; }
 .evidence li {
   padding: 12px 14px;
@@ -146,7 +147,7 @@
   line-height: 1.5;
 }
 
-.bottomNav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 82px; }
+.bottomNav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-bottom: 48px; }
 .bottomNav a {
   display: grid;
   min-height: 65px;
@@ -172,12 +173,12 @@
 }
 @media (max-width: 768px) {
   .pageGrid { gap: 18px; }
-  .content { gap: 16px; }
+  .content { gap: 0; }
   .decisionPanel, .contentSection, .evidence { padding: 18px 15px; }
   .decisionGrid, .aside { grid-template-columns: 1fr; }
-  .specStrip { grid-template-columns: 1fr; }
-  .specStrip > div { border-right: 0; border-bottom: 1px solid #dce8ef; }
-  .specStrip > div:last-child { border-bottom: 0; }
+  .specStrip { grid-template-columns: 1fr 1fr; }
+  .specStrip > div:nth-child(odd) { border-right: 1px solid #dce8ef; }
+  .specStrip > div:nth-child(n + 3) { border-bottom: 0; }
   .bottomNav { grid-template-columns: 1fr 1fr; padding-bottom: 53px; }
   .bottomNav a:nth-child(2) { display: none; }
 }

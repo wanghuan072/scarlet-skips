@@ -2,11 +2,11 @@
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
   overflow: hidden;
-  min-height: 328px;
-  border: 1px solid #c5deee;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #f7fcff, #eef8ff 58%, #fff8f0);
-  box-shadow: var(--shadow-md);
+  min-height: 300px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
 }
 .copy {
   display: flex;
@@ -14,46 +14,47 @@
   justify-content: center;
   align-self: stretch;
   min-width: 0;
-  padding: 32px 36px 32px 40px;
+  padding: 22px 26px;
 }
-.lead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.lead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
 .eyebrow {
   color: var(--color-primary-dark);
   font: 800 11px var(--font-utility);
   letter-spacing: .14em;
 }
 .hero h1 {
-  margin-top: 8px;
+  margin-top: 5px;
   color: #123653;
-  font-size: clamp(34px, 4.2vw, 52px);
+  font-size: clamp(32px, 3.7vw, 46px);
   letter-spacing: -.04em;
   line-height: 1.06;
 }
 .keyword {
   display: block;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   color: #3a5d78;
-  font-size: clamp(15px, 1.7vw, 20px);
+  font-size: clamp(14px, 1.5vw, 18px);
   font-weight: 800;
   letter-spacing: -.03em;
   line-height: 1.15;
 }
 .copy > p {
-  margin-top: 12px;
+  margin-top: 8px;
   color: #405873;
   font-size: 16px;
   line-height: 1.55;
 }
 .facts {
   display: grid;
+  grid-template-columns: repeat(var(--fact-count), minmax(0, 1fr));
   width: 100%;
-  margin: 22px 0 0;
+  margin: 14px 0 0;
   overflow: hidden;
   border: 1px solid #d0e4f0;
-  border-radius: 14px;
+  border-radius: 8px;
   background: white;
 }
-.facts > div { min-width: 0; padding: 14px 16px; }
+.facts > div { min-width: 0; padding: 10px 12px; }
 .facts > div:not(:last-child) { border-right: 1px solid #e1eef5; }
 .facts dt {
   color: #7190a5;
@@ -62,24 +63,24 @@
   text-transform: uppercase;
 }
 .facts dd {
-  margin: 6px 0 0;
+  margin: 3px 0 0;
   color: #1a4e72;
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.1vw, 28px);
+  font-size: clamp(16px, 1.7vw, 22px);
   letter-spacing: -.03em;
   line-height: 1.12;
 }
-.extra { width: 100%; margin-top: 20px; }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.extra { width: 100%; margin-top: 13px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .actions a {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 0 16px;
+  padding: 0 14px;
   border: 1px solid #a8d4ee;
-  border-radius: 11px;
+  border-radius: 8px;
   color: #0d649e;
   font-size: 13px;
   font-weight: 850;
@@ -92,12 +93,12 @@
 .actions a[data-variant="primary"]:hover { background: #c92257; }
 .actions a[data-variant="ghost"]:hover { background: #edf8ff; }
 .actions a:focus-visible { outline: 3px solid #78c8f2; outline-offset: 3px; }
-.image { position: relative; overflow: hidden; min-height: 328px; margin: 0; }
+.image { position: relative; overflow: hidden; min-height: 300px; margin: 0; }
 .image img { object-fit: cover; }
 .image::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #f4fbff, rgba(244, 251, 255, .28) 7%, transparent 16%);
+  background: linear-gradient(90deg, #fff, rgba(255,255,255,.25) 7%, transparent 16%);
   content: "";
   pointer-events: none;
 }
@@ -117,17 +118,19 @@
 }
 
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; }
-  .copy { padding: 26px 22px 24px; }
-  .image { min-height: 252px; }
-  .image::after { display: none; }
-  .image figcaption { max-width: calc(100% - 24px); }
+  .copy { padding: 18px 20px; }
 }
 
 @media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
   .hero h1 { font-size: clamp(34px, 10vw, 46px); }
-  .facts { grid-template-columns: 1fr; }
-  .facts > div:not(:last-child) { border-right: 0; border-bottom: 1px solid #e1eef5; }
+  .image { min-height: 190px; }
+  .image::after { display: none; }
+  .image figcaption { max-width: calc(100% - 24px); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts > div { border-bottom: 1px solid #e1eef5; }
+  .facts > div:nth-child(even) { border-right: 0; }
+  .facts > div:last-child { border-bottom: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

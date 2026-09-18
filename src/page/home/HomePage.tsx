@@ -12,39 +12,39 @@ import { RichText } from "@/page/guides/RichText";
 import type { IconName } from "@/types/content";
 
 const goals: Array<{
-  icon: IconName;
   title: string;
   text: string;
   href: string;
-  tone: string;
+  image: string;
+  imageAlt: string;
 }> = [
   {
-    icon: "controller",
-    title: "I’m still learning the timing",
-    text: "Get comfortable with the first rope before the upgrades start changing everything.",
+    title: "Still learning the timing?",
+    text: "Find a repeatable beat before the cards change it.",
     href: "/guides/beginner-guide",
-    tone: "green",
+    image: "/images/official/screenshot-1.jpg",
+    imageAlt: "Scarlet jumping rope in the park",
   },
   {
-    icon: "route",
-    title: "I want the Moon as soon as we can",
-    text: "Keep the ropes readable, skip fire, and work toward Super Rocket Shoes.",
-    href: "/builds#moon",
-    tone: "blue",
+    title: "Not sure which route?",
+    text: "Compare the Moon, score and spectacle plans.",
+    href: "/builds",
+    image: "/images/official/screenshot-5.jpg",
+    imageAlt: "Scarlet airborne during a long jump",
   },
   {
-    icon: "trophy",
-    title: "I want a much bigger score",
-    text: "Turn height, Luck and Rocket Fuel into a run that barely needs to land.",
-    href: "/builds#score",
-    tone: "orange",
+    title: "Run breaks after a card?",
+    text: "Check which part of the timing changed.",
+    href: "/guides/tips",
+    image: "/images/official/screenshot-7.jpg",
+    imageAlt: "Scarlet reacting after a missed skip",
   },
   {
-    icon: "fire",
-    title: "I want the wildest screen",
-    text: "Extra ropes, fire, speed and tricks. This is the loud run, not the Moon climb.",
-    href: "/builds#spectacle",
-    tone: "pink",
+    title: "Three cards hard to choose?",
+    text: "Pick for the run you have, not a fixed list.",
+    href: "/guides/how-to-play#section-7",
+    image: "/images/official/screenshot-3.jpg",
+    imageAlt: "Three upgrade cards offered after a level-up",
   },
 ];
 
@@ -160,69 +160,40 @@ export default function HomePage() {
 
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
+          <Image className={styles.heroImage} src="/images/official/screenshot-1.jpg" alt={heroAlt} fill priority sizes="(max-width: 768px) 100vw, 1400px" />
           <div className={styles.heroCopy}>
-            <span className={styles.eyebrow}>STUCK ON A RUN? START HERE.</span>
             <h1>
               <span className={styles.heroBrand}>Scarlet Skips</span>
               <span className="sr-only"> – </span>
-              Learn the jump. Then pick a route.
+              <span className={styles.heroLine}>Learn the jump. Then pick a route.</span>
             </h1>
-            <p className={styles.heroTopics}>First rope, three cards, then Moon, score or a wild screen.</p>
             <p className={styles.heroText}>
               Need help with a landing, a three-card choice or a longer run? Start with the <Link href="/guides/beginner-guide">beginner guide</Link>, compare <Link href="/upgrades">upgrades</Link>, or choose a route that fits your goal.
             </p>
+            <nav className={styles.heroRoutes} aria-label="Choose a route">
+              <Link href="/builds#moon"><Icon name="rocket" size={15} /> Moon</Link>
+              <Link href="/builds#score"><Icon name="trophy" size={15} /> Score</Link>
+              <Link href="/builds#spectacle"><Icon name="fire" size={15} /> Spectacle</Link>
+            </nav>
             <div className={styles.heroActions}>
               <Link href="/guides/beginner-guide">
-                Help with my first run <Icon name="arrow" size={18} />
+                First run <Icon name="arrow" size={18} />
               </Link>
               <Link href="/builds#simulator">
                 <Icon name="cards" size={19} /> Play a run
-              </Link>
-            </div>
-            <div className={styles.trustRow}>
-              <span><Icon name="check" size={16} /> Updated for v{game.currentVersion}</span>
-              <span><Icon name="cards" size={16} /> {game.upgradeCardCount} cards, {game.choicesPerLevel} choices</span>
-              <span><Icon name="shield" size={16} /> Player reports identified</span>
-            </div>
-          </div>
-          <div className={styles.heroStage}>
-            <Image src="/images/official/screenshot-1.jpg" alt={heroAlt} fill priority sizes="(max-width: 900px) 100vw, 50vw" />
-            <div className={styles.heroRoutes}>
-              <Link href="/builds#moon">
-                <Icon name="rocket" size={16} />
-                <span>Moon</span>
-                <strong>Fewer ropes. No fire.</strong>
-              </Link>
-              <Link href="/builds#score">
-                <Icon name="trophy" size={16} />
-                <span>Score</span>
-                <strong>Stay up, then pile on.</strong>
-              </Link>
-              <Link href="/builds#spectacle">
-                <Icon name="fire" size={16} />
-                <span>Spectacle</span>
-                <strong>Make the park loud.</strong>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={`container ${styles.snapshot}`} aria-labelledby="snapshot-title">
-        <div className={styles.snapshotHeading}>
-          <span><Icon name="controller" size={27} /></span>
-          <div>
-            <h2 id="snapshot-title">The game in 20 seconds</h2>
-            <p>One button, three random choices, one increasingly strange run.</p>
-          </div>
-          <a href={siteConfig.steamUrl} target="_blank" rel="noopener noreferrer">Official Steam details <Icon name="arrow" size={15} /></a>
-        </div>
+      <section className={`container ${styles.snapshot}`} aria-label="Scarlet Skips at a glance">
         <div className={styles.snapshotGrid}>
-          <div><Icon name="cards" size={28} /><strong>{game.upgradeCardCount}</strong><span>Upgrade cards</span><small>{game.documentedCardCount} names in the shipping table</small></div>
-          <div><Icon name="spark" size={28} /><strong>{game.choicesPerLevel}</strong><span>Choices each level</span><small>The draw is random</small></div>
-          <div><Icon name="controller" size={28} /><strong>1</strong><span>Button to learn</span><small>Press, hold and release</small></div>
-          <div><Icon name="gauge" size={28} /><strong>v{game.currentVersion}</strong><span>Guide version</span><small>{game.versionDate}</small></div>
-          <div><Icon name="award" size={28} /><strong>{game.achievementCount}</strong><span>Steam achievement</span><small>{game.achievementName}</small></div>
+          <div><Icon name="cards" size={28} /><strong>{game.upgradeCardCount} cards</strong><small><Link href="/upgrades#card-count-title">Steam count; {game.documentedCardCount} named rows explained</Link></small></div>
+          <div><Icon name="spark" size={28} /><strong>{game.choicesPerLevel} choices</strong><small>One card at each level-up</small></div>
+          <div><Icon name="controller" size={28} /><strong>1 button</strong><small>Press, hold and release</small></div>
+          <div><Icon name="gauge" size={28} /><strong>v{game.currentVersion}</strong><small>{game.versionDate}</small></div>
+          <div><Icon name="award" size={28} /><strong>{game.achievementCount} achievement</strong><small><a href={siteConfig.steamUrl} target="_blank" rel="noopener noreferrer">{game.achievementName} on Steam</a></small></div>
         </div>
       </section>
 
@@ -230,8 +201,8 @@ export default function HomePage() {
         <SectionHeading icon="target" title="Where is your run going wrong?" description="Pick the sentence that sounds most like your last attempt." />
         <div className={styles.goalGrid}>
           {goals.map((goal) => (
-            <Link key={goal.href} href={goal.href} data-tone={goal.tone}>
-              <span><Icon name={goal.icon} size={30} /></span>
+            <Link key={goal.href} href={goal.href}>
+              <span className={styles.goalImage}><Image src={goal.image} alt={goal.imageAlt} fill sizes="(max-width: 768px) 88px, 80px" /></span>
               <div><h3>{goal.title}</h3><p>{goal.text}</p></div>
               <Icon name="arrow" size={18} />
             </Link>

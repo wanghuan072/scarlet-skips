@@ -1,9 +1,9 @@
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 28px;
+  gap: 20px;
   align-items: start;
-  padding-top: 28px;
+  padding-top: 20px;
   padding-bottom: 8px;
 }
 .byline { display:flex;flex-basis:100%;flex-wrap:wrap;gap:5px 9px;color:#48627b;font-size:13px;line-height:1.4; }
@@ -13,14 +13,14 @@
 .paper {
   overflow: hidden;
   border: 1px solid #d1e1ea;
-  border-radius: 16px;
+  border-radius: 8px;
   background: white;
 }
-.timingFrames { padding: 27px 32px 30px; border-bottom: 1px solid #d1e1ea; }
+.timingFrames { padding: 20px 24px; border-bottom: 1px solid #d1e1ea; }
 .framesLabel { color: var(--color-secondary); font: 850 10px var(--font-utility); letter-spacing: .08em; }
 .timingFrames h2 { margin-top: 4px; font-size: clamp(22px, 2.4vw, 28px); }
 .timingFrames > p:not(.framesLabel) { max-width: 75ch; margin-top: 8px; color: #435a73; font-size: 14px; line-height: 1.5; }
-.frameGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 19px; }
+.frameGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .frameGrid figure { overflow: hidden; margin: 0; border-radius: 12px; background: #f4f9fc; }
 .frameGrid figure > div { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
 .frameGrid img { object-fit: cover; }
@@ -29,7 +29,7 @@
 .frameGrid figcaption span { color: #50647a; font-size: 12px; line-height: 1.4; }
 
 .block {
-  padding: 28px 32px;
+  padding: 21px 24px;
   scroll-margin-top: 92px;
 }
 
@@ -39,7 +39,7 @@
   display: flex;
   gap: 12px;
   align-items: baseline;
-  margin-bottom: 12px;
+  margin-bottom: 9px;
 }
 
 .block header span {
@@ -57,7 +57,7 @@
   line-height: 1.2;
 }
 
-.prose { display: grid; gap: 10px; }
+.prose { display: grid; gap: 9px; }
 
 .prose p {
   color: #435a73;
@@ -108,9 +108,9 @@
 }
 
 .toc {
-  padding: 18px 18px 8px;
+  padding: 14px 16px 7px;
   border: 1px solid #d1e1ea;
-  border-radius: 16px;
+  border-radius: 8px;
   background: white;
 }
 
@@ -122,18 +122,18 @@
   text-transform: uppercase;
 }
 
-.toc ol {
+.toc ol, .mobileToc ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.toc a {
+.toc a, .mobileToc a {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr);
   gap: 8px;
   align-items: start;
-  padding: 9px 0;
+  padding: 7px 0;
   border-top: 1px solid #eaf2f7;
   color: #2f5470;
   font-size: 13px;
@@ -141,9 +141,9 @@
   line-height: 1.35;
 }
 
-.toc li:first-child a { border-top: 0; }
+.toc li:first-child a, .mobileToc li:first-child a { border-top: 0; }
 
-.toc a span {
+.toc a span, .mobileToc a span {
   color: var(--color-primary);
   font-family: var(--font-utility);
   font-size: 11px;
@@ -151,7 +151,8 @@
   letter-spacing: .04em;
 }
 
-.toc a:hover { color: var(--color-secondary); }
+.toc a:hover, .mobileToc a:hover { color: var(--color-secondary); }
+.mobileToc { display: none; }
 
 .aside figure {
   position: relative;
@@ -180,7 +181,7 @@
   line-height: 1.3;
 }
 
-.next { padding: 28px 0 72px; }
+.next { padding: 24px 0 44px; }
 
 .next > p {
   color: var(--color-primary);
@@ -209,7 +210,7 @@
   gap: 10px;
   padding: 12px 14px;
   border: 1px solid var(--color-border);
-  border-radius: 14px;
+  border-radius: 8px;
   background: white;
 }
 
@@ -217,25 +218,16 @@
 .nextLinks svg { flex: 0 0 auto; color: var(--color-secondary); }
 .nextLinks strong { font-size: 15px; line-height: 1.3; }
 
-@media (max-width: 1024px) {
-  .layout {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .aside {
-    position: static;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
-    align-items: start;
-  }
-
-  .aside figure:nth-of-type(n + 2) { display: none; }
-}
 @media (max-width: 768px) {
-  .timingFrames { padding: 22px 18px; }
+  .layout { grid-template-columns: 1fr; gap: 18px; }
+  .mobileToc { display: block; margin: 16px; padding: 7px 14px; border: 1px solid #d1e1ea; border-radius: 8px; background: #f7fbfe; }
+  .mobileToc summary { min-height: 44px; padding-top: 12px; color: #196ca5; font: 800 11px var(--font-utility); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+  .toc { display: none; }
+  .timingFrames { padding: 18px; }
   .frameGrid { grid-template-columns: 1fr; gap: 20px; }
   .frameGrid figure > div { aspect-ratio: 16 / 9; }
-  .block { padding: 22px 18px; }
-  .aside { grid-template-columns: 1fr; }
+  .block { padding: 19px 18px; }
+  .aside { position: static; grid-template-columns: 1fr; }
+  .aside figure:nth-of-type(n + 2) { display: none; }
   .nextLinks { grid-template-columns: 1fr; }
 }

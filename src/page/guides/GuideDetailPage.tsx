@@ -213,6 +213,21 @@ export default function GuideDetailPage({ guide }: { guide: Guide }) {
 
       <div className={`container ${styles.layout}`}>
         <article className={styles.paper}>
+          <details className={styles.mobileToc}>
+            <summary>On this page</summary>
+            <nav aria-label="On this page">
+              <ol>
+                {guide.sections.map((section, index) => (
+                  <li key={section.heading}>
+                    <a href={`#section-${index + 1}`}>
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      {headingFor(section.heading)}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </details>
           {guide.slug === "how-to-play" ? (
             <section className={styles.timingFrames} aria-labelledby="timing-frames-title">
               <p className={styles.framesLabel}>IN-GAME SCREENSHOTS</p>

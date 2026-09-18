@@ -59,7 +59,7 @@ export function PageHero({
         </h1>
         <p>{description}</p>
         {facts && facts.length > 0 ? (
-          <dl className={styles.facts} style={{ gridTemplateColumns: `repeat(${facts.length}, minmax(0, 1fr))` }}>
+          <dl className={styles.facts} style={{ "--fact-count": facts.length } as CSSProperties}>
             {facts.map((fact) => (
               <div key={fact.label}>
                 <dt>{fact.label}</dt>
@@ -98,7 +98,7 @@ export function PageHero({
           alt={imageAlt}
           fill
           priority
-          sizes="(max-width: 900px) 100vw, 54vw"
+          sizes="(max-width: 768px) 100vw, 50vw"
           style={imagePosition ? ({ objectPosition: imagePosition } as CSSProperties) : undefined}
         />
         <figcaption>{imageCaption}</figcaption>

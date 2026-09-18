@@ -184,25 +184,8 @@ export default function UpgradeDetailPage({ upgrade }: { upgrade: Upgrade }) {
             <p>CARD FACTS</p>
             <dl>
               <div><dt>Effect</dt><dd>{upgrade.effect}</dd></div>
-              <div><dt>Stacks</dt><dd>{stackableLabel(upgrade)}</dd></div>
-              <div><dt>Best time</dt><dd>{upgrade.bestTiming}</dd></div>
-              <div><dt>Each stack</dt><dd>{perStackLabel(upgrade)}</dd></div>
               <div><dt>Draw</dt><dd>{upgrade.offerPool === "special" ? "Not in the regular 3-card offer" : appearLabel(upgrade)}</dd></div>
             </dl>
-          </section>
-          <section className={styles.pairCard}>
-            <div className={styles.asideHead}>
-              <p>GOOD PAIRS</p>
-              <h2>Take these with it</h2>
-            </div>
-            <div>
-              {pairs.map((pair) => (
-                <Link key={pair.slug} href={pair.href}>
-                  <strong>{pair.name}</strong>
-                  <span>{pair.why}</span>
-                </Link>
-              ))}
-            </div>
           </section>
         </aside>
       </div>

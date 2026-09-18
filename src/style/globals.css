@@ -9,9 +9,9 @@
   --color-bg: #f6fbff;
   --color-surface: #ffffff;
   --color-border: #dce9f4;
-  --font-display: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
-  --font-body: "Segoe UI", Arial, sans-serif;
-  --font-utility: Consolas, "SFMono-Regular", monospace;
+  --font-display: var(--font-outfit), "Trebuchet MS", Arial, sans-serif;
+  --font-body: var(--font-jakarta), "Segoe UI", Arial, sans-serif;
+  --font-utility: var(--font-jakarta), "Segoe UI", Arial, sans-serif;
   --shadow-sm: 0 6px 18px rgba(31, 83, 124, 0.08);
   --shadow-md: 0 15px 36px rgba(31, 83, 124, 0.13);
   --radius-sm: 12px;
